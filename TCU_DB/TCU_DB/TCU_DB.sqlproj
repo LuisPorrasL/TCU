@@ -58,4 +58,14 @@
   <ItemGroup>
     <Folder Include="Properties" />
   </ItemGroup>
+  <ItemGroup>
+    <Build Include="USUARIO.sql" />
+    <Build Include="TORO.sql" />
+    <Build Include="VACA.sql" />
+    <Build Include="MODO_PRENNES.sql" />
+    <Build Include="PALPACION.sql" />
+    <Build Include="PARTO.sql" />
+    <Build Include="FECHAS_SALTOS.sql" />
+    <Build Include="FECHAS_DESTETES.sql" />
+  </ItemGroup>
 </Project>
