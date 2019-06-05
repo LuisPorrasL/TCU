@@ -46,6 +46,72 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormConfiguracion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConfiguracion.Designer.cs">
+      <DependentUpon>FormConfiguracion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDestete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDestete.Designer.cs">
+      <DependentUpon>FormDestete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormExamenAndrologico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormExamenAndrologico.Designer.cs">
+      <DependentUpon>FormExamenAndrologico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGraficos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGraficos.Designer.cs">
+      <DependentUpon>FormGraficos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPalpacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPalpacion.Designer.cs">
+      <DependentUpon>FormPalpacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormParto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormParto.Designer.cs">
+      <DependentUpon>FormParto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPrennez.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrennez.Designer.cs">
+      <DependentUpon>FormPrennez.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRegistroToros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRegistroToros.Designer.cs">
+      <DependentUpon>FormRegistroToros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRegistroVacas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRegistroVacas.Designer.cs">
+      <DependentUpon>FormRegistroVacas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormResumen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResumen.Designer.cs">
+      <DependentUpon>FormResumen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSincronizacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSincronizacion.Designer.cs">
+      <DependentUpon>FormSincronizacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="VentanaPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +120,39 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormConfiguracion.resx">
+      <DependentUpon>FormConfiguracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDestete.resx">
+      <DependentUpon>FormDestete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormExamenAndrologico.resx">
+      <DependentUpon>FormExamenAndrologico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGraficos.resx">
+      <DependentUpon>FormGraficos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPalpacion.resx">
+      <DependentUpon>FormPalpacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormParto.resx">
+      <DependentUpon>FormParto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPrennez.resx">
+      <DependentUpon>FormPrennez.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRegistroToros.resx">
+      <DependentUpon>FormRegistroToros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRegistroVacas.resx">
+      <DependentUpon>FormRegistroVacas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResumen.resx">
+      <DependentUpon>FormResumen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSincronizacion.resx">
+      <DependentUpon>FormSincronizacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VentanaPrincipal.resx">
       <DependentUpon>VentanaPrincipal.cs</DependentUpon>
     </EmbeddedResource>
