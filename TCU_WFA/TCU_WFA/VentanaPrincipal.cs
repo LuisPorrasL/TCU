@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TCU_WFA
 {
-    public partial class Form1 : Form
+    public partial class VentanaPrincipal : Form
     {
-        public Form1()
+        public VentanaPrincipal()
         {
             InitializeComponent();
         }
@@ -23,6 +23,11 @@ namespace TCU_WFA
         }
 
         private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }
