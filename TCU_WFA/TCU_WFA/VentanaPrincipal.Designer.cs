@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VentanaPrincipal));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.botonRegistroVacas = new System.Windows.Forms.Button();
             this.botonParto = new System.Windows.Forms.Button();
@@ -42,8 +43,12 @@
             this.botonResumen = new System.Windows.Forms.Button();
             this.botonGraficos = new System.Windows.Forms.Button();
             this.botonConfiguracion = new System.Windows.Forms.Button();
+            this.groupBoxNavegacionVentanaPrincipal = new System.Windows.Forms.GroupBox();
+            this.pictureBoxVentanaPrincipal = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
+            this.groupBoxNavegacionVentanaPrincipal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVentanaPrincipal)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -54,17 +59,17 @@
             this.flowLayoutPanel1.Controls.Add(this.botonPrennez);
             this.flowLayoutPanel1.Controls.Add(this.botonDestete);
             this.flowLayoutPanel1.Controls.Add(this.botonRegistroToros);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(20, 180);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(2, 19);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(764, 76);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(770, 76);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // botonRegistroVacas
             // 
-            this.botonRegistroVacas.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonRegistroVacas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonRegistroVacas.Location = new System.Drawing.Point(3, 3);
             this.botonRegistroVacas.Name = "botonRegistroVacas";
-            this.botonRegistroVacas.Size = new System.Drawing.Size(121, 70);
+            this.botonRegistroVacas.Size = new System.Drawing.Size(129, 70);
             this.botonRegistroVacas.TabIndex = 0;
             this.botonRegistroVacas.Text = "Registro vacas";
             this.botonRegistroVacas.UseVisualStyleBackColor = true;
@@ -72,8 +77,8 @@
             // 
             // botonParto
             // 
-            this.botonParto.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonParto.Location = new System.Drawing.Point(130, 3);
+            this.botonParto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonParto.Location = new System.Drawing.Point(138, 3);
             this.botonParto.Name = "botonParto";
             this.botonParto.Size = new System.Drawing.Size(121, 70);
             this.botonParto.TabIndex = 1;
@@ -83,8 +88,8 @@
             // 
             // botonPalpacion
             // 
-            this.botonPalpacion.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonPalpacion.Location = new System.Drawing.Point(257, 3);
+            this.botonPalpacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonPalpacion.Location = new System.Drawing.Point(265, 3);
             this.botonPalpacion.Name = "botonPalpacion";
             this.botonPalpacion.Size = new System.Drawing.Size(121, 70);
             this.botonPalpacion.TabIndex = 2;
@@ -94,8 +99,8 @@
             // 
             // botonPrennez
             // 
-            this.botonPrennez.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonPrennez.Location = new System.Drawing.Point(384, 3);
+            this.botonPrennez.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonPrennez.Location = new System.Drawing.Point(392, 3);
             this.botonPrennez.Name = "botonPrennez";
             this.botonPrennez.Size = new System.Drawing.Size(121, 70);
             this.botonPrennez.TabIndex = 3;
@@ -105,8 +110,8 @@
             // 
             // botonDestete
             // 
-            this.botonDestete.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonDestete.Location = new System.Drawing.Point(511, 3);
+            this.botonDestete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonDestete.Location = new System.Drawing.Point(519, 3);
             this.botonDestete.Name = "botonDestete";
             this.botonDestete.Size = new System.Drawing.Size(121, 70);
             this.botonDestete.TabIndex = 4;
@@ -116,8 +121,8 @@
             // 
             // botonRegistroToros
             // 
-            this.botonRegistroToros.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonRegistroToros.Location = new System.Drawing.Point(638, 3);
+            this.botonRegistroToros.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonRegistroToros.Location = new System.Drawing.Point(646, 3);
             this.botonRegistroToros.Name = "botonRegistroToros";
             this.botonRegistroToros.Size = new System.Drawing.Size(121, 70);
             this.botonRegistroToros.TabIndex = 5;
@@ -133,7 +138,7 @@
             this.flowLayoutPanel2.Controls.Add(this.botonResumen);
             this.flowLayoutPanel2.Controls.Add(this.botonGraficos);
             this.flowLayoutPanel2.Controls.Add(this.botonConfiguracion);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(75, 259);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(66, 101);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(644, 76);
             this.flowLayoutPanel2.TabIndex = 1;
@@ -150,7 +155,7 @@
             // 
             // botonExamenAndrologico
             // 
-            this.botonExamenAndrologico.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonExamenAndrologico.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonExamenAndrologico.Location = new System.Drawing.Point(9, 3);
             this.botonExamenAndrologico.Name = "botonExamenAndrologico";
             this.botonExamenAndrologico.Size = new System.Drawing.Size(121, 70);
@@ -161,7 +166,7 @@
             // 
             // botonSincronizacion
             // 
-            this.botonSincronizacion.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonSincronizacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonSincronizacion.Location = new System.Drawing.Point(136, 3);
             this.botonSincronizacion.Name = "botonSincronizacion";
             this.botonSincronizacion.Size = new System.Drawing.Size(121, 70);
@@ -172,7 +177,7 @@
             // 
             // botonResumen
             // 
-            this.botonResumen.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonResumen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonResumen.Location = new System.Drawing.Point(263, 3);
             this.botonResumen.Name = "botonResumen";
             this.botonResumen.Size = new System.Drawing.Size(121, 70);
@@ -183,7 +188,7 @@
             // 
             // botonGraficos
             // 
-            this.botonGraficos.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonGraficos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonGraficos.Location = new System.Drawing.Point(390, 3);
             this.botonGraficos.Name = "botonGraficos";
             this.botonGraficos.Size = new System.Drawing.Size(121, 70);
@@ -194,7 +199,7 @@
             // 
             // botonConfiguracion
             // 
-            this.botonConfiguracion.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonConfiguracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonConfiguracion.Location = new System.Drawing.Point(517, 3);
             this.botonConfiguracion.Name = "botonConfiguracion";
             this.botonConfiguracion.Size = new System.Drawing.Size(121, 70);
@@ -203,14 +208,34 @@
             this.botonConfiguracion.UseVisualStyleBackColor = true;
             this.botonConfiguracion.Click += new System.EventHandler(this.botonConfiguracion_Click);
             // 
+            // groupBoxNavegacionVentanaPrincipal
+            // 
+            this.groupBoxNavegacionVentanaPrincipal.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.groupBoxNavegacionVentanaPrincipal.Controls.Add(this.flowLayoutPanel1);
+            this.groupBoxNavegacionVentanaPrincipal.Controls.Add(this.flowLayoutPanel2);
+            this.groupBoxNavegacionVentanaPrincipal.Location = new System.Drawing.Point(12, 241);
+            this.groupBoxNavegacionVentanaPrincipal.Name = "groupBoxNavegacionVentanaPrincipal";
+            this.groupBoxNavegacionVentanaPrincipal.Size = new System.Drawing.Size(775, 197);
+            this.groupBoxNavegacionVentanaPrincipal.TabIndex = 2;
+            this.groupBoxNavegacionVentanaPrincipal.TabStop = false;
+            // 
+            // pictureBoxVentanaPrincipal
+            // 
+            this.pictureBoxVentanaPrincipal.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxVentanaPrincipal.Image")));
+            this.pictureBoxVentanaPrincipal.Location = new System.Drawing.Point(266, 12);
+            this.pictureBoxVentanaPrincipal.Name = "pictureBoxVentanaPrincipal";
+            this.pictureBoxVentanaPrincipal.Size = new System.Drawing.Size(280, 230);
+            this.pictureBoxVentanaPrincipal.TabIndex = 3;
+            this.pictureBoxVentanaPrincipal.TabStop = false;
+            // 
             // VentanaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.flowLayoutPanel2);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.pictureBoxVentanaPrincipal);
+            this.Controls.Add(this.groupBoxNavegacionVentanaPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "VentanaPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -218,6 +243,8 @@
             this.Load += new System.EventHandler(this.VentanaPrincipal_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
+            this.groupBoxNavegacionVentanaPrincipal.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVentanaPrincipal)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -238,6 +265,8 @@
         private System.Windows.Forms.Button botonResumen;
         private System.Windows.Forms.Button botonGraficos;
         private System.Windows.Forms.Button botonConfiguracion;
+        private System.Windows.Forms.GroupBox groupBoxNavegacionVentanaPrincipal;
+        private System.Windows.Forms.PictureBox pictureBoxVentanaPrincipal;
     }
 }
 
