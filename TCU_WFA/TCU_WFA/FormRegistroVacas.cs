@@ -17,9 +17,15 @@ namespace TCU_WFA
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void botonVolver_Click(object sender, EventArgs e)
         {
+            VentanaPrincipal form = (VentanaPrincipal)Tag;
+            form.Show();
+            Close();
+        }
 
+        private void FormRegistroVacas_Load(object sender, EventArgs e)
+        {
         }
     }
 }

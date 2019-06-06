@@ -39,7 +39,7 @@
             this.botonVolver.TabIndex = 0;
             this.botonVolver.Text = "Volver";
             this.botonVolver.UseVisualStyleBackColor = true;
-            this.botonVolver.Click += new System.EventHandler(this.button1_Click);
+            this.botonVolver.Click += new System.EventHandler(this.botonVolver_Click);
             // 
             // FormRegistroVacas
             // 
@@ -50,7 +50,9 @@
             this.Controls.Add(this.botonVolver);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormRegistroVacas";
-            this.Text = "FormRegistroVacas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Registro vacas";
+            this.Load += new System.EventHandler(this.FormRegistroVacas_Load);
             this.ResumeLayout(false);
 
         }

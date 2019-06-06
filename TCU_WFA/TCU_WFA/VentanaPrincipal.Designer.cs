@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VentanaPrincipal));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.botonRegistroVacas = new System.Windows.Forms.Button();
             this.botonParto = new System.Windows.Forms.Button();
@@ -43,10 +42,8 @@
             this.botonResumen = new System.Windows.Forms.Button();
             this.botonGraficos = new System.Windows.Forms.Button();
             this.botonConfiguracion = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -71,7 +68,7 @@
             this.botonRegistroVacas.TabIndex = 0;
             this.botonRegistroVacas.Text = "Registro vacas";
             this.botonRegistroVacas.UseVisualStyleBackColor = true;
-            this.botonRegistroVacas.Click += new System.EventHandler(this.button1_Click);
+            this.botonRegistroVacas.Click += new System.EventHandler(this.botonRegistroVacas_Click);
             // 
             // botonParto
             // 
@@ -82,6 +79,7 @@
             this.botonParto.TabIndex = 1;
             this.botonParto.Text = "Parto";
             this.botonParto.UseVisualStyleBackColor = true;
+            this.botonParto.Click += new System.EventHandler(this.botonParto_Click);
             // 
             // botonPalpacion
             // 
@@ -92,6 +90,7 @@
             this.botonPalpacion.TabIndex = 2;
             this.botonPalpacion.Text = "Palpación";
             this.botonPalpacion.UseVisualStyleBackColor = true;
+            this.botonPalpacion.Click += new System.EventHandler(this.botonPalpacion_Click);
             // 
             // botonPrennez
             // 
@@ -102,6 +101,7 @@
             this.botonPrennez.TabIndex = 3;
             this.botonPrennez.Text = "Preñez";
             this.botonPrennez.UseVisualStyleBackColor = true;
+            this.botonPrennez.Click += new System.EventHandler(this.botonPrennez_Click);
             // 
             // botonDestete
             // 
@@ -112,6 +112,7 @@
             this.botonDestete.TabIndex = 4;
             this.botonDestete.Text = "Destete";
             this.botonDestete.UseVisualStyleBackColor = true;
+            this.botonDestete.Click += new System.EventHandler(this.botonDestete_Click);
             // 
             // botonRegistroToros
             // 
@@ -122,7 +123,7 @@
             this.botonRegistroToros.TabIndex = 5;
             this.botonRegistroToros.Text = "Registro toros";
             this.botonRegistroToros.UseVisualStyleBackColor = true;
-            this.botonRegistroToros.Click += new System.EventHandler(this.button6_Click);
+            this.botonRegistroToros.Click += new System.EventHandler(this.botonRegistroToros_Click);
             // 
             // flowLayoutPanel2
             // 
@@ -156,6 +157,7 @@
             this.botonExamenAndrologico.TabIndex = 1;
             this.botonExamenAndrologico.Text = "Examen andrológico";
             this.botonExamenAndrologico.UseVisualStyleBackColor = true;
+            this.botonExamenAndrologico.Click += new System.EventHandler(this.botonExamenAndrologico_Click);
             // 
             // botonSincronizacion
             // 
@@ -166,6 +168,7 @@
             this.botonSincronizacion.TabIndex = 2;
             this.botonSincronizacion.Text = "Sincronización";
             this.botonSincronizacion.UseVisualStyleBackColor = true;
+            this.botonSincronizacion.Click += new System.EventHandler(this.botonSincronizacion_Click);
             // 
             // botonResumen
             // 
@@ -176,6 +179,7 @@
             this.botonResumen.TabIndex = 3;
             this.botonResumen.Text = "Resumen";
             this.botonResumen.UseVisualStyleBackColor = true;
+            this.botonResumen.Click += new System.EventHandler(this.botonResumen_Click);
             // 
             // botonGraficos
             // 
@@ -186,6 +190,7 @@
             this.botonGraficos.TabIndex = 4;
             this.botonGraficos.Text = "Graficos";
             this.botonGraficos.UseVisualStyleBackColor = true;
+            this.botonGraficos.Click += new System.EventHandler(this.botonGraficos_Click);
             // 
             // botonConfiguracion
             // 
@@ -196,15 +201,7 @@
             this.botonConfiguracion.TabIndex = 5;
             this.botonConfiguracion.Text = "Configuración";
             this.botonConfiguracion.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(338, 30);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(162, 115);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.botonConfiguracion.Click += new System.EventHandler(this.botonConfiguracion_Click);
             // 
             // VentanaPrincipal
             // 
@@ -212,16 +209,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.flowLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "VentanaPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "C.G.I.Z.S";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.VentanaPrincipal_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -242,7 +238,6 @@
         private System.Windows.Forms.Button botonResumen;
         private System.Windows.Forms.Button botonGraficos;
         private System.Windows.Forms.Button botonConfiguracion;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
