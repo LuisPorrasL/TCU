@@ -26,6 +26,8 @@ namespace TCU_WFA
 
         private void FormRegistroVacas_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'tCU_DBDataSet.VACA' table. You can move, or remove it, as needed.
+            this.vACATableAdapter.Fill(this.tCU_DBDataSet.VACA);
         }
     }
 }

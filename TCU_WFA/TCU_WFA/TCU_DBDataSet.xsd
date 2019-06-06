@@ -495,7 +495,7 @@ SELECT PK_NUMERO_TRAZABLE, RAZA, CARACTERISTICAS, NOMBRE, FK_ID_MODO_PRENNES, FE
   <xs:element name="TCU_DBDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="TCU_DBDataSet" msprop:Generator_UserDSName="TCU_DBDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="FECHAS_DESTETES" msprop:Generator_TableClassName="FECHAS_DESTETESDataTable" msprop:Generator_TableVarName="tableFECHAS_DESTETES" msprop:Generator_RowChangedName="FECHAS_DESTETESRowChanged" msprop:Generator_TablePropName="FECHAS_DESTETES" msprop:Generator_RowDeletingName="FECHAS_DESTETESRowDeleting" msprop:Generator_RowChangingName="FECHAS_DESTETESRowChanging" msprop:Generator_RowEvHandlerName="FECHAS_DESTETESRowChangeEventHandler" msprop:Generator_RowDeletedName="FECHAS_DESTETESRowDeleted" msprop:Generator_RowClassName="FECHAS_DESTETESRow" msprop:Generator_UserTableName="FECHAS_DESTETES" msprop:Generator_RowEvArgName="FECHAS_DESTETESRowChangeEvent">
+        <xs:element name="FECHAS_DESTETES" msprop:Generator_TableClassName="FECHAS_DESTETESDataTable" msprop:Generator_TableVarName="tableFECHAS_DESTETES" msprop:Generator_TablePropName="FECHAS_DESTETES" msprop:Generator_RowDeletingName="FECHAS_DESTETESRowDeleting" msprop:Generator_RowChangingName="FECHAS_DESTETESRowChanging" msprop:Generator_RowEvHandlerName="FECHAS_DESTETESRowChangeEventHandler" msprop:Generator_RowDeletedName="FECHAS_DESTETESRowDeleted" msprop:Generator_UserTableName="FECHAS_DESTETES" msprop:Generator_RowChangedName="FECHAS_DESTETESRowChanged" msprop:Generator_RowEvArgName="FECHAS_DESTETESRowChangeEvent" msprop:Generator_RowClassName="FECHAS_DESTETESRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="PK_FK_NUMERO_TRAZABLE_VACA" msprop:Generator_ColumnVarNameInTable="columnPK_FK_NUMERO_TRAZABLE_VACA" msprop:Generator_ColumnPropNameInRow="PK_FK_NUMERO_TRAZABLE_VACA" msprop:Generator_ColumnPropNameInTable="PK_FK_NUMERO_TRAZABLE_VACAColumn" msprop:Generator_UserColumnName="PK_FK_NUMERO_TRAZABLE_VACA" type="xs:int" />
@@ -503,7 +503,7 @@ SELECT PK_NUMERO_TRAZABLE, RAZA, CARACTERISTICAS, NOMBRE, FK_ID_MODO_PRENNES, FE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="FECHAS_SALTOS" msprop:Generator_TableClassName="FECHAS_SALTOSDataTable" msprop:Generator_TableVarName="tableFECHAS_SALTOS" msprop:Generator_RowChangedName="FECHAS_SALTOSRowChanged" msprop:Generator_TablePropName="FECHAS_SALTOS" msprop:Generator_RowDeletingName="FECHAS_SALTOSRowDeleting" msprop:Generator_RowChangingName="FECHAS_SALTOSRowChanging" msprop:Generator_RowEvHandlerName="FECHAS_SALTOSRowChangeEventHandler" msprop:Generator_RowDeletedName="FECHAS_SALTOSRowDeleted" msprop:Generator_RowClassName="FECHAS_SALTOSRow" msprop:Generator_UserTableName="FECHAS_SALTOS" msprop:Generator_RowEvArgName="FECHAS_SALTOSRowChangeEvent">
+        <xs:element name="FECHAS_SALTOS" msprop:Generator_TableClassName="FECHAS_SALTOSDataTable" msprop:Generator_TableVarName="tableFECHAS_SALTOS" msprop:Generator_TablePropName="FECHAS_SALTOS" msprop:Generator_RowDeletingName="FECHAS_SALTOSRowDeleting" msprop:Generator_RowChangingName="FECHAS_SALTOSRowChanging" msprop:Generator_RowEvHandlerName="FECHAS_SALTOSRowChangeEventHandler" msprop:Generator_RowDeletedName="FECHAS_SALTOSRowDeleted" msprop:Generator_UserTableName="FECHAS_SALTOS" msprop:Generator_RowChangedName="FECHAS_SALTOSRowChanged" msprop:Generator_RowEvArgName="FECHAS_SALTOSRowChangeEvent" msprop:Generator_RowClassName="FECHAS_SALTOSRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="PK_FK_NUMERO_TRAZABLE_VACA" msprop:Generator_ColumnVarNameInTable="columnPK_FK_NUMERO_TRAZABLE_VACA" msprop:Generator_ColumnPropNameInRow="PK_FK_NUMERO_TRAZABLE_VACA" msprop:Generator_ColumnPropNameInTable="PK_FK_NUMERO_TRAZABLE_VACAColumn" msprop:Generator_UserColumnName="PK_FK_NUMERO_TRAZABLE_VACA" type="xs:int" />
@@ -511,11 +511,11 @@ SELECT PK_NUMERO_TRAZABLE, RAZA, CARACTERISTICAS, NOMBRE, FK_ID_MODO_PRENNES, FE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="MODO_PRENNES" msprop:Generator_TableClassName="MODO_PRENNESDataTable" msprop:Generator_TableVarName="tableMODO_PRENNES" msprop:Generator_RowChangedName="MODO_PRENNESRowChanged" msprop:Generator_TablePropName="MODO_PRENNES" msprop:Generator_RowDeletingName="MODO_PRENNESRowDeleting" msprop:Generator_RowChangingName="MODO_PRENNESRowChanging" msprop:Generator_RowEvHandlerName="MODO_PRENNESRowChangeEventHandler" msprop:Generator_RowDeletedName="MODO_PRENNESRowDeleted" msprop:Generator_RowClassName="MODO_PRENNESRow" msprop:Generator_UserTableName="MODO_PRENNES" msprop:Generator_RowEvArgName="MODO_PRENNESRowChangeEvent">
+        <xs:element name="MODO_PRENNES" msprop:Generator_TableClassName="MODO_PRENNESDataTable" msprop:Generator_TableVarName="tableMODO_PRENNES" msprop:Generator_TablePropName="MODO_PRENNES" msprop:Generator_RowDeletingName="MODO_PRENNESRowDeleting" msprop:Generator_RowChangingName="MODO_PRENNESRowChanging" msprop:Generator_RowEvHandlerName="MODO_PRENNESRowChangeEventHandler" msprop:Generator_RowDeletedName="MODO_PRENNESRowDeleted" msprop:Generator_UserTableName="MODO_PRENNES" msprop:Generator_RowChangedName="MODO_PRENNESRowChanged" msprop:Generator_RowEvArgName="MODO_PRENNESRowChangeEvent" msprop:Generator_RowClassName="MODO_PRENNESRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="PK_ID_MODO_PRENNES" msprop:Generator_ColumnVarNameInTable="columnPK_ID_MODO_PRENNES" msprop:Generator_ColumnPropNameInRow="PK_ID_MODO_PRENNES" msprop:Generator_ColumnPropNameInTable="PK_ID_MODO_PRENNESColumn" msprop:Generator_UserColumnName="PK_ID_MODO_PRENNES" type="xs:int" />
-              <xs:element name="MODO_PRENNES" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="MODO_PRENNES" msprop:Generator_ColumnVarNameInTable="columnMODO_PRENNES" msprop:Generator_ColumnPropNameInTable="MODO_PRENNESColumn" msprop:Generator_UserColumnName="MODO_PRENNES">
+              <xs:element name="MODO_PRENNES" msprop:Generator_ColumnVarNameInTable="columnMODO_PRENNES" msprop:Generator_ColumnPropNameInRow="MODO_PRENNES" msprop:Generator_ColumnPropNameInTable="MODO_PRENNESColumn" msprop:Generator_UserColumnName="MODO_PRENNES">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -525,38 +525,38 @@ SELECT PK_NUMERO_TRAZABLE, RAZA, CARACTERISTICAS, NOMBRE, FK_ID_MODO_PRENNES, FE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="PALPACION" msprop:Generator_TableClassName="PALPACIONDataTable" msprop:Generator_TableVarName="tablePALPACION" msprop:Generator_RowChangedName="PALPACIONRowChanged" msprop:Generator_TablePropName="PALPACION" msprop:Generator_RowDeletingName="PALPACIONRowDeleting" msprop:Generator_RowChangingName="PALPACIONRowChanging" msprop:Generator_RowEvHandlerName="PALPACIONRowChangeEventHandler" msprop:Generator_RowDeletedName="PALPACIONRowDeleted" msprop:Generator_RowClassName="PALPACIONRow" msprop:Generator_UserTableName="PALPACION" msprop:Generator_RowEvArgName="PALPACIONRowChangeEvent">
+        <xs:element name="PALPACION" msprop:Generator_TableClassName="PALPACIONDataTable" msprop:Generator_TableVarName="tablePALPACION" msprop:Generator_TablePropName="PALPACION" msprop:Generator_RowDeletingName="PALPACIONRowDeleting" msprop:Generator_RowChangingName="PALPACIONRowChanging" msprop:Generator_RowEvHandlerName="PALPACIONRowChangeEventHandler" msprop:Generator_RowDeletedName="PALPACIONRowDeleted" msprop:Generator_UserTableName="PALPACION" msprop:Generator_RowChangedName="PALPACIONRowChanged" msprop:Generator_RowEvArgName="PALPACIONRowChangeEvent" msprop:Generator_RowClassName="PALPACIONRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="PK_FK_NUMERO_TRAZABLE_VACA" msprop:Generator_ColumnVarNameInTable="columnPK_FK_NUMERO_TRAZABLE_VACA" msprop:Generator_ColumnPropNameInRow="PK_FK_NUMERO_TRAZABLE_VACA" msprop:Generator_ColumnPropNameInTable="PK_FK_NUMERO_TRAZABLE_VACAColumn" msprop:Generator_UserColumnName="PK_FK_NUMERO_TRAZABLE_VACA" type="xs:int" />
               <xs:element name="PK_FECHA" msprop:Generator_ColumnVarNameInTable="columnPK_FECHA" msprop:Generator_ColumnPropNameInRow="PK_FECHA" msprop:Generator_ColumnPropNameInTable="PK_FECHAColumn" msprop:Generator_UserColumnName="PK_FECHA" type="xs:dateTime" />
-              <xs:element name="CONDICION_CORPORAL" msprop:nullValue="0" msprop:Generator_ColumnPropNameInRow="CONDICION_CORPORAL" msprop:Generator_ColumnVarNameInTable="columnCONDICION_CORPORAL" msprop:Generator_ColumnPropNameInTable="CONDICION_CORPORALColumn" msprop:Generator_UserColumnName="CONDICION_CORPORAL" type="xs:decimal" />
-              <xs:element name="RESULTADO" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="RESULTADO" msprop:Generator_ColumnVarNameInTable="columnRESULTADO" msprop:Generator_ColumnPropNameInTable="RESULTADOColumn" msprop:Generator_UserColumnName="RESULTADO">
+              <xs:element name="CONDICION_CORPORAL" msprop:Generator_ColumnVarNameInTable="columnCONDICION_CORPORAL" msprop:Generator_ColumnPropNameInRow="CONDICION_CORPORAL" msprop:Generator_ColumnPropNameInTable="CONDICION_CORPORALColumn" msprop:Generator_UserColumnName="CONDICION_CORPORAL" type="xs:decimal" />
+              <xs:element name="RESULTADO" msprop:Generator_ColumnVarNameInTable="columnRESULTADO" msprop:Generator_ColumnPropNameInRow="RESULTADO" msprop:Generator_ColumnPropNameInTable="RESULTADOColumn" msprop:Generator_UserColumnName="RESULTADO">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="30" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CONFIRMACION" msprop:nullValue="0" msprop:Generator_ColumnPropNameInRow="CONFIRMACION" msprop:Generator_ColumnVarNameInTable="columnCONFIRMACION" msprop:Generator_ColumnPropNameInTable="CONFIRMACIONColumn" msprop:Generator_UserColumnName="CONFIRMACION" type="xs:boolean" />
+              <xs:element name="CONFIRMACION" msprop:Generator_ColumnVarNameInTable="columnCONFIRMACION" msprop:Generator_ColumnPropNameInRow="CONFIRMACION" msprop:Generator_ColumnPropNameInTable="CONFIRMACIONColumn" msprop:Generator_UserColumnName="CONFIRMACION" type="xs:boolean" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="PARTO" msprop:Generator_TableClassName="PARTODataTable" msprop:Generator_TableVarName="tablePARTO" msprop:Generator_RowChangedName="PARTORowChanged" msprop:Generator_TablePropName="PARTO" msprop:Generator_RowDeletingName="PARTORowDeleting" msprop:Generator_RowChangingName="PARTORowChanging" msprop:Generator_RowEvHandlerName="PARTORowChangeEventHandler" msprop:Generator_RowDeletedName="PARTORowDeleted" msprop:Generator_RowClassName="PARTORow" msprop:Generator_UserTableName="PARTO" msprop:Generator_RowEvArgName="PARTORowChangeEvent">
+        <xs:element name="PARTO" msprop:Generator_TableClassName="PARTODataTable" msprop:Generator_TableVarName="tablePARTO" msprop:Generator_TablePropName="PARTO" msprop:Generator_RowDeletingName="PARTORowDeleting" msprop:Generator_RowChangingName="PARTORowChanging" msprop:Generator_RowEvHandlerName="PARTORowChangeEventHandler" msprop:Generator_RowDeletedName="PARTORowDeleted" msprop:Generator_UserTableName="PARTO" msprop:Generator_RowChangedName="PARTORowChanged" msprop:Generator_RowEvArgName="PARTORowChangeEvent" msprop:Generator_RowClassName="PARTORow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="PK_FK_NUMERO_TRAZABLE_VACA" msprop:Generator_ColumnVarNameInTable="columnPK_FK_NUMERO_TRAZABLE_VACA" msprop:Generator_ColumnPropNameInRow="PK_FK_NUMERO_TRAZABLE_VACA" msprop:Generator_ColumnPropNameInTable="PK_FK_NUMERO_TRAZABLE_VACAColumn" msprop:Generator_UserColumnName="PK_FK_NUMERO_TRAZABLE_VACA" type="xs:int" />
               <xs:element name="PK_FK_NUMERO_TRAZABLE_TORO" msprop:Generator_ColumnVarNameInTable="columnPK_FK_NUMERO_TRAZABLE_TORO" msprop:Generator_ColumnPropNameInRow="PK_FK_NUMERO_TRAZABLE_TORO" msprop:Generator_ColumnPropNameInTable="PK_FK_NUMERO_TRAZABLE_TOROColumn" msprop:Generator_UserColumnName="PK_FK_NUMERO_TRAZABLE_TORO" type="xs:int" />
               <xs:element name="PK_FECHA" msprop:Generator_ColumnVarNameInTable="columnPK_FECHA" msprop:Generator_ColumnPropNameInRow="PK_FECHA" msprop:Generator_ColumnPropNameInTable="PK_FECHAColumn" msprop:Generator_UserColumnName="PK_FECHA" type="xs:dateTime" />
-              <xs:element name="MUERTE_PREMATURA" msprop:nullValue="0" msprop:Generator_ColumnPropNameInRow="MUERTE_PREMATURA" msprop:Generator_ColumnVarNameInTable="columnMUERTE_PREMATURA" msprop:Generator_ColumnPropNameInTable="MUERTE_PREMATURAColumn" msprop:Generator_UserColumnName="MUERTE_PREMATURA" type="xs:boolean" />
-              <xs:element name="SEXO" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SEXO" msprop:Generator_ColumnVarNameInTable="columnSEXO" msprop:Generator_ColumnPropNameInTable="SEXOColumn" msprop:Generator_UserColumnName="SEXO">
+              <xs:element name="MUERTE_PREMATURA" msprop:Generator_ColumnVarNameInTable="columnMUERTE_PREMATURA" msprop:Generator_ColumnPropNameInRow="MUERTE_PREMATURA" msprop:Generator_ColumnPropNameInTable="MUERTE_PREMATURAColumn" msprop:Generator_UserColumnName="MUERTE_PREMATURA" type="xs:boolean" />
+              <xs:element name="SEXO" msprop:Generator_ColumnVarNameInTable="columnSEXO" msprop:Generator_ColumnPropNameInRow="SEXO" msprop:Generator_ColumnPropNameInTable="SEXOColumn" msprop:Generator_UserColumnName="SEXO">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="1" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CAUSA_ABORTO" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="CAUSA_ABORTO" msprop:Generator_ColumnVarNameInTable="columnCAUSA_ABORTO" msprop:Generator_ColumnPropNameInTable="CAUSA_ABORTOColumn" msprop:Generator_UserColumnName="CAUSA_ABORTO" minOccurs="0">
+              <xs:element name="CAUSA_ABORTO" msprop:Generator_ColumnVarNameInTable="columnCAUSA_ABORTO" msprop:Generator_ColumnPropNameInRow="CAUSA_ABORTO" msprop:Generator_ColumnPropNameInTable="CAUSA_ABORTOColumn" msprop:Generator_UserColumnName="CAUSA_ABORTO" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
@@ -566,25 +566,25 @@ SELECT PK_NUMERO_TRAZABLE, RAZA, CARACTERISTICAS, NOMBRE, FK_ID_MODO_PRENNES, FE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TORO" msprop:Generator_TableClassName="TORODataTable" msprop:Generator_TableVarName="tableTORO" msprop:Generator_RowChangedName="TORORowChanged" msprop:Generator_TablePropName="TORO" msprop:Generator_RowDeletingName="TORORowDeleting" msprop:Generator_RowChangingName="TORORowChanging" msprop:Generator_RowEvHandlerName="TORORowChangeEventHandler" msprop:Generator_RowDeletedName="TORORowDeleted" msprop:Generator_RowClassName="TORORow" msprop:Generator_UserTableName="TORO" msprop:Generator_RowEvArgName="TORORowChangeEvent">
+        <xs:element name="TORO" msprop:Generator_TableClassName="TORODataTable" msprop:Generator_TableVarName="tableTORO" msprop:Generator_TablePropName="TORO" msprop:Generator_RowDeletingName="TORORowDeleting" msprop:Generator_RowChangingName="TORORowChanging" msprop:Generator_RowEvHandlerName="TORORowChangeEventHandler" msprop:Generator_RowDeletedName="TORORowDeleted" msprop:Generator_UserTableName="TORO" msprop:Generator_RowChangedName="TORORowChanged" msprop:Generator_RowEvArgName="TORORowChangeEvent" msprop:Generator_RowClassName="TORORow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="PK_NUMERO_TRAZABLE" msprop:Generator_ColumnVarNameInTable="columnPK_NUMERO_TRAZABLE" msprop:Generator_ColumnPropNameInRow="PK_NUMERO_TRAZABLE" msprop:Generator_ColumnPropNameInTable="PK_NUMERO_TRAZABLEColumn" msprop:Generator_UserColumnName="PK_NUMERO_TRAZABLE" type="xs:int" />
-              <xs:element name="RAZA" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="RAZA" msprop:Generator_ColumnVarNameInTable="columnRAZA" msprop:Generator_ColumnPropNameInTable="RAZAColumn" msprop:Generator_UserColumnName="RAZA">
+              <xs:element name="RAZA" msprop:Generator_ColumnVarNameInTable="columnRAZA" msprop:Generator_ColumnPropNameInRow="RAZA" msprop:Generator_ColumnPropNameInTable="RAZAColumn" msprop:Generator_UserColumnName="RAZA">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="30" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CARACTERISTICAS" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="CARACTERISTICAS" msprop:Generator_ColumnVarNameInTable="columnCARACTERISTICAS" msprop:Generator_ColumnPropNameInTable="CARACTERISTICASColumn" msprop:Generator_UserColumnName="CARACTERISTICAS">
+              <xs:element name="CARACTERISTICAS" msprop:Generator_ColumnVarNameInTable="columnCARACTERISTICAS" msprop:Generator_ColumnPropNameInRow="CARACTERISTICAS" msprop:Generator_ColumnPropNameInTable="CARACTERISTICASColumn" msprop:Generator_UserColumnName="CARACTERISTICAS">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="NOMBRE" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="NOMBRE" msprop:Generator_ColumnVarNameInTable="columnNOMBRE" msprop:Generator_ColumnPropNameInTable="NOMBREColumn" msprop:Generator_UserColumnName="NOMBRE" minOccurs="0">
+              <xs:element name="NOMBRE" msprop:Generator_ColumnVarNameInTable="columnNOMBRE" msprop:Generator_ColumnPropNameInRow="NOMBRE" msprop:Generator_ColumnPropNameInTable="NOMBREColumn" msprop:Generator_UserColumnName="NOMBRE" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
@@ -594,7 +594,7 @@ SELECT PK_NUMERO_TRAZABLE, RAZA, CARACTERISTICAS, NOMBRE, FK_ID_MODO_PRENNES, FE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="USUARIO" msprop:Generator_TableClassName="USUARIODataTable" msprop:Generator_TableVarName="tableUSUARIO" msprop:Generator_RowChangedName="USUARIORowChanged" msprop:Generator_TablePropName="USUARIO" msprop:Generator_RowDeletingName="USUARIORowDeleting" msprop:Generator_RowChangingName="USUARIORowChanging" msprop:Generator_RowEvHandlerName="USUARIORowChangeEventHandler" msprop:Generator_RowDeletedName="USUARIORowDeleted" msprop:Generator_RowClassName="USUARIORow" msprop:Generator_UserTableName="USUARIO" msprop:Generator_RowEvArgName="USUARIORowChangeEvent">
+        <xs:element name="USUARIO" msprop:Generator_TableClassName="USUARIODataTable" msprop:Generator_TableVarName="tableUSUARIO" msprop:Generator_TablePropName="USUARIO" msprop:Generator_RowDeletingName="USUARIORowDeleting" msprop:Generator_RowChangingName="USUARIORowChanging" msprop:Generator_RowEvHandlerName="USUARIORowChangeEventHandler" msprop:Generator_RowDeletedName="USUARIORowDeleted" msprop:Generator_UserTableName="USUARIO" msprop:Generator_RowChangedName="USUARIORowChanged" msprop:Generator_RowEvArgName="USUARIORowChangeEvent" msprop:Generator_RowClassName="USUARIORow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="PK_PROPIETARIO" msprop:Generator_ColumnVarNameInTable="columnPK_PROPIETARIO" msprop:Generator_ColumnPropNameInRow="PK_PROPIETARIO" msprop:Generator_ColumnPropNameInTable="PK_PROPIETARIOColumn" msprop:Generator_UserColumnName="PK_PROPIETARIO">
@@ -604,42 +604,42 @@ SELECT PK_NUMERO_TRAZABLE, RAZA, CARACTERISTICAS, NOMBRE, FK_ID_MODO_PRENNES, FE
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="COORDENADAS" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="COORDENADAS" msprop:Generator_ColumnVarNameInTable="columnCOORDENADAS" msprop:Generator_ColumnPropNameInTable="COORDENADASColumn" msprop:Generator_UserColumnName="COORDENADAS" minOccurs="0">
+              <xs:element name="COORDENADAS" msprop:Generator_ColumnVarNameInTable="columnCOORDENADAS" msprop:Generator_ColumnPropNameInRow="COORDENADAS" msprop:Generator_ColumnPropNameInTable="COORDENADASColumn" msprop:Generator_UserColumnName="COORDENADAS" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CONTACTO" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="CONTACTO" msprop:Generator_ColumnVarNameInTable="columnCONTACTO" msprop:Generator_ColumnPropNameInTable="CONTACTOColumn" msprop:Generator_UserColumnName="CONTACTO">
+              <xs:element name="CONTACTO" msprop:Generator_ColumnVarNameInTable="columnCONTACTO" msprop:Generator_ColumnPropNameInRow="CONTACTO" msprop:Generator_ColumnPropNameInTable="CONTACTOColumn" msprop:Generator_UserColumnName="CONTACTO">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ACTIVIDADES" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="ACTIVIDADES" msprop:Generator_ColumnVarNameInTable="columnACTIVIDADES" msprop:Generator_ColumnPropNameInTable="ACTIVIDADESColumn" msprop:Generator_UserColumnName="ACTIVIDADES">
+              <xs:element name="ACTIVIDADES" msprop:Generator_ColumnVarNameInTable="columnACTIVIDADES" msprop:Generator_ColumnPropNameInRow="ACTIVIDADES" msprop:Generator_ColumnPropNameInTable="ACTIVIDADESColumn" msprop:Generator_UserColumnName="ACTIVIDADES">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PERIODO_DESTETE" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="PERIODO_DESTETE" msprop:Generator_ColumnVarNameInTable="columnPERIODO_DESTETE" msprop:Generator_ColumnPropNameInTable="PERIODO_DESTETEColumn" msprop:Generator_UserColumnName="PERIODO_DESTETE">
+              <xs:element name="PERIODO_DESTETE" msprop:Generator_ColumnVarNameInTable="columnPERIODO_DESTETE" msprop:Generator_ColumnPropNameInRow="PERIODO_DESTETE" msprop:Generator_ColumnPropNameInTable="PERIODO_DESTETEColumn" msprop:Generator_UserColumnName="PERIODO_DESTETE">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DIRECCION" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="DIRECCION" msprop:Generator_ColumnVarNameInTable="columnDIRECCION" msprop:Generator_ColumnPropNameInTable="DIRECCIONColumn" msprop:Generator_UserColumnName="DIRECCION">
+              <xs:element name="DIRECCION" msprop:Generator_ColumnVarNameInTable="columnDIRECCION" msprop:Generator_ColumnPropNameInRow="DIRECCION" msprop:Generator_ColumnPropNameInTable="DIRECCIONColumn" msprop:Generator_UserColumnName="DIRECCION">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="NOMBRE_FINCA" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="NOMBRE_FINCA" msprop:Generator_ColumnVarNameInTable="columnNOMBRE_FINCA" msprop:Generator_ColumnPropNameInTable="NOMBRE_FINCAColumn" msprop:Generator_UserColumnName="NOMBRE_FINCA">
+              <xs:element name="NOMBRE_FINCA" msprop:Generator_ColumnVarNameInTable="columnNOMBRE_FINCA" msprop:Generator_ColumnPropNameInRow="NOMBRE_FINCA" msprop:Generator_ColumnPropNameInTable="NOMBRE_FINCAColumn" msprop:Generator_UserColumnName="NOMBRE_FINCA">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -649,35 +649,35 @@ SELECT PK_NUMERO_TRAZABLE, RAZA, CARACTERISTICAS, NOMBRE, FK_ID_MODO_PRENNES, FE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="VACA" msprop:Generator_TableClassName="VACADataTable" msprop:Generator_TableVarName="tableVACA" msprop:Generator_RowChangedName="VACARowChanged" msprop:Generator_TablePropName="VACA" msprop:Generator_RowDeletingName="VACARowDeleting" msprop:Generator_RowChangingName="VACARowChanging" msprop:Generator_RowEvHandlerName="VACARowChangeEventHandler" msprop:Generator_RowDeletedName="VACARowDeleted" msprop:Generator_RowClassName="VACARow" msprop:Generator_UserTableName="VACA" msprop:Generator_RowEvArgName="VACARowChangeEvent">
+        <xs:element name="VACA" msprop:Generator_TableClassName="VACADataTable" msprop:Generator_TableVarName="tableVACA" msprop:Generator_TablePropName="VACA" msprop:Generator_RowDeletingName="VACARowDeleting" msprop:Generator_RowChangingName="VACARowChanging" msprop:Generator_RowEvHandlerName="VACARowChangeEventHandler" msprop:Generator_RowDeletedName="VACARowDeleted" msprop:Generator_UserTableName="VACA" msprop:Generator_RowChangedName="VACARowChanged" msprop:Generator_RowEvArgName="VACARowChangeEvent" msprop:Generator_RowClassName="VACARow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="PK_NUMERO_TRAZABLE" msprop:Generator_ColumnVarNameInTable="columnPK_NUMERO_TRAZABLE" msprop:Generator_ColumnPropNameInRow="PK_NUMERO_TRAZABLE" msprop:Generator_ColumnPropNameInTable="PK_NUMERO_TRAZABLEColumn" msprop:Generator_UserColumnName="PK_NUMERO_TRAZABLE" type="xs:int" />
-              <xs:element name="RAZA" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="RAZA" msprop:Generator_ColumnVarNameInTable="columnRAZA" msprop:Generator_ColumnPropNameInTable="RAZAColumn" msprop:Generator_UserColumnName="RAZA">
+              <xs:element name="RAZA" msprop:Generator_ColumnVarNameInTable="columnRAZA" msprop:Generator_ColumnPropNameInRow="RAZA" msprop:Generator_ColumnPropNameInTable="RAZAColumn" msprop:Generator_UserColumnName="RAZA">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="30" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CARACTERISTICAS" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="CARACTERISTICAS" msprop:Generator_ColumnVarNameInTable="columnCARACTERISTICAS" msprop:Generator_ColumnPropNameInTable="CARACTERISTICASColumn" msprop:Generator_UserColumnName="CARACTERISTICAS">
+              <xs:element name="CARACTERISTICAS" msprop:Generator_ColumnVarNameInTable="columnCARACTERISTICAS" msprop:Generator_ColumnPropNameInRow="CARACTERISTICAS" msprop:Generator_ColumnPropNameInTable="CARACTERISTICASColumn" msprop:Generator_UserColumnName="CARACTERISTICAS">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="NOMBRE" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="NOMBRE" msprop:Generator_ColumnVarNameInTable="columnNOMBRE" msprop:Generator_ColumnPropNameInTable="NOMBREColumn" msprop:Generator_UserColumnName="NOMBRE" minOccurs="0">
+              <xs:element name="NOMBRE" msprop:Generator_ColumnVarNameInTable="columnNOMBRE" msprop:Generator_ColumnPropNameInRow="NOMBRE" msprop:Generator_ColumnPropNameInTable="NOMBREColumn" msprop:Generator_UserColumnName="NOMBRE" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="FK_ID_MODO_PRENNES" msprop:nullValue="0" msprop:Generator_ColumnPropNameInRow="FK_ID_MODO_PRENNES" msprop:Generator_ColumnVarNameInTable="columnFK_ID_MODO_PRENNES" msprop:Generator_ColumnPropNameInTable="FK_ID_MODO_PRENNESColumn" msprop:Generator_UserColumnName="FK_ID_MODO_PRENNES" type="xs:int" />
-              <xs:element name="FECHA_NACIMIENTO" msprop:nullValue="0" msprop:Generator_ColumnPropNameInRow="FECHA_NACIMIENTO" msprop:Generator_ColumnVarNameInTable="columnFECHA_NACIMIENTO" msprop:Generator_ColumnPropNameInTable="FECHA_NACIMIENTOColumn" msprop:Generator_UserColumnName="FECHA_NACIMIENTO" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="FK_NUMERO_TRAZABLE_VACA" msprop:nullValue="0" msprop:Generator_ColumnPropNameInRow="FK_NUMERO_TRAZABLE_VACA" msprop:Generator_ColumnVarNameInTable="columnFK_NUMERO_TRAZABLE_VACA" msprop:Generator_ColumnPropNameInTable="FK_NUMERO_TRAZABLE_VACAColumn" msprop:Generator_UserColumnName="FK_NUMERO_TRAZABLE_VACA" type="xs:int" />
-              <xs:element name="FK_NUMERO_TRAZABLE_TORO" msprop:nullValue="0" msprop:Generator_ColumnPropNameInRow="FK_NUMERO_TRAZABLE_TORO" msprop:Generator_ColumnVarNameInTable="columnFK_NUMERO_TRAZABLE_TORO" msprop:Generator_ColumnPropNameInTable="FK_NUMERO_TRAZABLE_TOROColumn" msprop:Generator_UserColumnName="FK_NUMERO_TRAZABLE_TORO" type="xs:int" />
+              <xs:element name="FK_ID_MODO_PRENNES" msprop:Generator_ColumnVarNameInTable="columnFK_ID_MODO_PRENNES" msprop:Generator_ColumnPropNameInRow="FK_ID_MODO_PRENNES" msprop:Generator_ColumnPropNameInTable="FK_ID_MODO_PRENNESColumn" msprop:Generator_UserColumnName="FK_ID_MODO_PRENNES" type="xs:int" />
+              <xs:element name="FECHA_NACIMIENTO" msprop:Generator_ColumnVarNameInTable="columnFECHA_NACIMIENTO" msprop:Generator_ColumnPropNameInRow="FECHA_NACIMIENTO" msprop:Generator_ColumnPropNameInTable="FECHA_NACIMIENTOColumn" msprop:Generator_UserColumnName="FECHA_NACIMIENTO" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="FK_NUMERO_TRAZABLE_VACA" msprop:Generator_ColumnVarNameInTable="columnFK_NUMERO_TRAZABLE_VACA" msprop:Generator_ColumnPropNameInRow="FK_NUMERO_TRAZABLE_VACA" msprop:Generator_ColumnPropNameInTable="FK_NUMERO_TRAZABLE_VACAColumn" msprop:Generator_UserColumnName="FK_NUMERO_TRAZABLE_VACA" type="xs:int" />
+              <xs:element name="FK_NUMERO_TRAZABLE_TORO" msprop:Generator_ColumnVarNameInTable="columnFK_NUMERO_TRAZABLE_TORO" msprop:Generator_ColumnPropNameInRow="FK_NUMERO_TRAZABLE_TORO" msprop:Generator_ColumnPropNameInTable="FK_NUMERO_TRAZABLE_TOROColumn" msprop:Generator_UserColumnName="FK_NUMERO_TRAZABLE_TORO" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -723,14 +723,14 @@ SELECT PK_NUMERO_TRAZABLE, RAZA, CARACTERISTICAS, NOMBRE, FK_ID_MODO_PRENNES, FE
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="CK_PK_FK_NUMERO_TRAZABLE_VACA_FECHAS_DESTETES" msdata:parent="VACA" msdata:child="FECHAS_DESTETES" msdata:parentkey="PK_NUMERO_TRAZABLE" msdata:childkey="PK_FK_NUMERO_TRAZABLE_VACA" msprop:Generator_UserChildTable="FECHAS_DESTETES" msprop:Generator_ChildPropName="GetFECHAS_DESTETESRows" msprop:Generator_UserRelationName="CK_PK_FK_NUMERO_TRAZABLE_VACA_FECHAS_DESTETES" msprop:Generator_ParentPropName="VACARow" msprop:Generator_RelationVarName="relationCK_PK_FK_NUMERO_TRAZABLE_VACA_FECHAS_DESTETES" msprop:Generator_UserParentTable="VACA" />
-      <msdata:Relationship name="CK_PK_FK_NUMERO_TRAZABLE_VACA_FECHAS_SALTOS" msdata:parent="VACA" msdata:child="FECHAS_SALTOS" msdata:parentkey="PK_NUMERO_TRAZABLE" msdata:childkey="PK_FK_NUMERO_TRAZABLE_VACA" msprop:Generator_UserChildTable="FECHAS_SALTOS" msprop:Generator_ChildPropName="GetFECHAS_SALTOSRows" msprop:Generator_UserRelationName="CK_PK_FK_NUMERO_TRAZABLE_VACA_FECHAS_SALTOS" msprop:Generator_ParentPropName="VACARow" msprop:Generator_RelationVarName="relationCK_PK_FK_NUMERO_TRAZABLE_VACA_FECHAS_SALTOS" msprop:Generator_UserParentTable="VACA" />
-      <msdata:Relationship name="CK_PK_FK_NUMERO_TRAZABLE_VACA_PALPACION" msdata:parent="VACA" msdata:child="PALPACION" msdata:parentkey="PK_NUMERO_TRAZABLE" msdata:childkey="PK_FK_NUMERO_TRAZABLE_VACA" msprop:Generator_UserChildTable="PALPACION" msprop:Generator_ChildPropName="GetPALPACIONRows" msprop:Generator_UserRelationName="CK_PK_FK_NUMERO_TRAZABLE_VACA_PALPACION" msprop:Generator_ParentPropName="VACARow" msprop:Generator_RelationVarName="relationCK_PK_FK_NUMERO_TRAZABLE_VACA_PALPACION" msprop:Generator_UserParentTable="VACA" />
-      <msdata:Relationship name="CK_PK_FK_NUMERO_TRAZABLE_TORO_PARTO" msdata:parent="TORO" msdata:child="PARTO" msdata:parentkey="PK_NUMERO_TRAZABLE" msdata:childkey="PK_FK_NUMERO_TRAZABLE_TORO" msprop:Generator_UserChildTable="PARTO" msprop:Generator_ChildPropName="GetPARTORows" msprop:Generator_UserRelationName="CK_PK_FK_NUMERO_TRAZABLE_TORO_PARTO" msprop:Generator_ParentPropName="TORORow" msprop:Generator_RelationVarName="relationCK_PK_FK_NUMERO_TRAZABLE_TORO_PARTO" msprop:Generator_UserParentTable="TORO" />
-      <msdata:Relationship name="CK_PK_FK_NUMERO_TRAZABLE_VACA_PARTO" msdata:parent="VACA" msdata:child="PARTO" msdata:parentkey="PK_NUMERO_TRAZABLE" msdata:childkey="PK_FK_NUMERO_TRAZABLE_VACA" msprop:Generator_UserChildTable="PARTO" msprop:Generator_ChildPropName="GetPARTORows" msprop:Generator_UserRelationName="CK_PK_FK_NUMERO_TRAZABLE_VACA_PARTO" msprop:Generator_ParentPropName="VACARow" msprop:Generator_RelationVarName="relationCK_PK_FK_NUMERO_TRAZABLE_VACA_PARTO" msprop:Generator_UserParentTable="VACA" />
-      <msdata:Relationship name="CK_FK_ID_MODO_PRENNES" msdata:parent="MODO_PRENNES" msdata:child="VACA" msdata:parentkey="PK_ID_MODO_PRENNES" msdata:childkey="FK_ID_MODO_PRENNES" msprop:Generator_UserChildTable="VACA" msprop:Generator_ChildPropName="GetVACARows" msprop:Generator_UserRelationName="CK_FK_ID_MODO_PRENNES" msprop:Generator_RelationVarName="relationCK_FK_ID_MODO_PRENNES" msprop:Generator_UserParentTable="MODO_PRENNES" msprop:Generator_ParentPropName="MODO_PRENNESRow" />
-      <msdata:Relationship name="CK_FK_NUMERO_TRAZABLE_TORO" msdata:parent="TORO" msdata:child="VACA" msdata:parentkey="PK_NUMERO_TRAZABLE" msdata:childkey="FK_NUMERO_TRAZABLE_TORO" msprop:Generator_UserChildTable="VACA" msprop:Generator_ChildPropName="GetVACARows" msprop:Generator_UserRelationName="CK_FK_NUMERO_TRAZABLE_TORO" msprop:Generator_RelationVarName="relationCK_FK_NUMERO_TRAZABLE_TORO" msprop:Generator_UserParentTable="TORO" msprop:Generator_ParentPropName="TORORow" />
-      <msdata:Relationship name="CK_FK_NUMERO_TRAZABLE_VACA" msdata:parent="VACA" msdata:child="VACA" msdata:parentkey="PK_NUMERO_TRAZABLE" msdata:childkey="FK_NUMERO_TRAZABLE_VACA" msprop:Generator_UserChildTable="VACA" msprop:Generator_ChildPropName="GetVACARows" msprop:Generator_UserRelationName="CK_FK_NUMERO_TRAZABLE_VACA" msprop:Generator_ParentPropName="VACARowParent" msprop:Generator_RelationVarName="relationCK_FK_NUMERO_TRAZABLE_VACA" msprop:Generator_UserParentTable="VACA" />
+      <msdata:Relationship name="CK_PK_FK_NUMERO_TRAZABLE_VACA_FECHAS_DESTETES" msdata:parent="VACA" msdata:child="FECHAS_DESTETES" msdata:parentkey="PK_NUMERO_TRAZABLE" msdata:childkey="PK_FK_NUMERO_TRAZABLE_VACA" msprop:Generator_UserChildTable="FECHAS_DESTETES" msprop:Generator_ChildPropName="GetFECHAS_DESTETESRows" msprop:Generator_UserRelationName="CK_PK_FK_NUMERO_TRAZABLE_VACA_FECHAS_DESTETES" msprop:Generator_RelationVarName="relationCK_PK_FK_NUMERO_TRAZABLE_VACA_FECHAS_DESTETES" msprop:Generator_UserParentTable="VACA" msprop:Generator_ParentPropName="VACARow" />
+      <msdata:Relationship name="CK_PK_FK_NUMERO_TRAZABLE_VACA_FECHAS_SALTOS" msdata:parent="VACA" msdata:child="FECHAS_SALTOS" msdata:parentkey="PK_NUMERO_TRAZABLE" msdata:childkey="PK_FK_NUMERO_TRAZABLE_VACA" msprop:Generator_UserChildTable="FECHAS_SALTOS" msprop:Generator_ChildPropName="GetFECHAS_SALTOSRows" msprop:Generator_UserRelationName="CK_PK_FK_NUMERO_TRAZABLE_VACA_FECHAS_SALTOS" msprop:Generator_RelationVarName="relationCK_PK_FK_NUMERO_TRAZABLE_VACA_FECHAS_SALTOS" msprop:Generator_UserParentTable="VACA" msprop:Generator_ParentPropName="VACARow" />
+      <msdata:Relationship name="CK_PK_FK_NUMERO_TRAZABLE_VACA_PALPACION" msdata:parent="VACA" msdata:child="PALPACION" msdata:parentkey="PK_NUMERO_TRAZABLE" msdata:childkey="PK_FK_NUMERO_TRAZABLE_VACA" msprop:Generator_UserChildTable="PALPACION" msprop:Generator_ChildPropName="GetPALPACIONRows" msprop:Generator_UserRelationName="CK_PK_FK_NUMERO_TRAZABLE_VACA_PALPACION" msprop:Generator_RelationVarName="relationCK_PK_FK_NUMERO_TRAZABLE_VACA_PALPACION" msprop:Generator_UserParentTable="VACA" msprop:Generator_ParentPropName="VACARow" />
+      <msdata:Relationship name="CK_PK_FK_NUMERO_TRAZABLE_TORO_PARTO" msdata:parent="TORO" msdata:child="PARTO" msdata:parentkey="PK_NUMERO_TRAZABLE" msdata:childkey="PK_FK_NUMERO_TRAZABLE_TORO" msprop:Generator_UserChildTable="PARTO" msprop:Generator_ChildPropName="GetPARTORows" msprop:Generator_UserRelationName="CK_PK_FK_NUMERO_TRAZABLE_TORO_PARTO" msprop:Generator_RelationVarName="relationCK_PK_FK_NUMERO_TRAZABLE_TORO_PARTO" msprop:Generator_UserParentTable="TORO" msprop:Generator_ParentPropName="TORORow" />
+      <msdata:Relationship name="CK_PK_FK_NUMERO_TRAZABLE_VACA_PARTO" msdata:parent="VACA" msdata:child="PARTO" msdata:parentkey="PK_NUMERO_TRAZABLE" msdata:childkey="PK_FK_NUMERO_TRAZABLE_VACA" msprop:Generator_UserChildTable="PARTO" msprop:Generator_ChildPropName="GetPARTORows" msprop:Generator_UserRelationName="CK_PK_FK_NUMERO_TRAZABLE_VACA_PARTO" msprop:Generator_RelationVarName="relationCK_PK_FK_NUMERO_TRAZABLE_VACA_PARTO" msprop:Generator_UserParentTable="VACA" msprop:Generator_ParentPropName="VACARow" />
+      <msdata:Relationship name="CK_FK_ID_MODO_PRENNES" msdata:parent="MODO_PRENNES" msdata:child="VACA" msdata:parentkey="PK_ID_MODO_PRENNES" msdata:childkey="FK_ID_MODO_PRENNES" msprop:Generator_UserChildTable="VACA" msprop:Generator_ChildPropName="GetVACARows" msprop:Generator_UserRelationName="CK_FK_ID_MODO_PRENNES" msprop:Generator_ParentPropName="MODO_PRENNESRow" msprop:Generator_RelationVarName="relationCK_FK_ID_MODO_PRENNES" msprop:Generator_UserParentTable="MODO_PRENNES" />
+      <msdata:Relationship name="CK_FK_NUMERO_TRAZABLE_TORO" msdata:parent="TORO" msdata:child="VACA" msdata:parentkey="PK_NUMERO_TRAZABLE" msdata:childkey="FK_NUMERO_TRAZABLE_TORO" msprop:Generator_UserChildTable="VACA" msprop:Generator_ChildPropName="GetVACARows" msprop:Generator_UserRelationName="CK_FK_NUMERO_TRAZABLE_TORO" msprop:Generator_ParentPropName="TORORow" msprop:Generator_RelationVarName="relationCK_FK_NUMERO_TRAZABLE_TORO" msprop:Generator_UserParentTable="TORO" />
+      <msdata:Relationship name="CK_FK_NUMERO_TRAZABLE_VACA" msdata:parent="VACA" msdata:child="VACA" msdata:parentkey="PK_NUMERO_TRAZABLE" msdata:childkey="FK_NUMERO_TRAZABLE_VACA" msprop:Generator_UserChildTable="VACA" msprop:Generator_ChildPropName="GetVACARows" msprop:Generator_UserRelationName="CK_FK_NUMERO_TRAZABLE_VACA" msprop:Generator_RelationVarName="relationCK_FK_NUMERO_TRAZABLE_VACA" msprop:Generator_UserParentTable="VACA" msprop:Generator_ParentPropName="VACARowParent" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
