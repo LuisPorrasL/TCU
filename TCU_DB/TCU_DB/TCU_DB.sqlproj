@@ -67,5 +67,6 @@
     <Build Include="PARTO.sql" />
     <Build Include="FECHAS_SALTOS.sql" />
     <Build Include="FECHAS_DESTETES.sql" />
+    <Build Include="EXAMEN_ANTROPOLOGICO.sql" />
   </ItemGroup>
 </Project>
