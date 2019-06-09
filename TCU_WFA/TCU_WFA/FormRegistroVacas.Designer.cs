@@ -32,12 +32,8 @@
             this.botonVolver = new System.Windows.Forms.Button();
             this.botonAgregarVaca = new System.Windows.Forms.Button();
             this.botonBuscarVaca = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tCU_DBDataSet = new TCU_WFA.TCU_DBDataSet();
-            this.tCUDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.vACABindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.vACATableAdapter = new TCU_WFA.TCU_DBDataSetTableAdapters.VACATableAdapter();
+            this.textBoxBuscarVaca = new System.Windows.Forms.TextBox();
+            this.dataGridViewVacas = new System.Windows.Forms.DataGridView();
             this.pKNUMEROTRAZABLEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rAZADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cARACTERISTICASDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,13 +42,17 @@
             this.fECHANACIMIENTODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fKNUMEROTRAZABLEVACADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fKNUMEROTRAZABLETORODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vACABindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tCUDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tCU_DBDataSet = new TCU_WFA.TCU_DBDataSet();
+            this.vACATableAdapter = new TCU_WFA.TCU_DBDataSetTableAdapters.VACATableAdapter();
             this.botonEditar = new System.Windows.Forms.Button();
             this.botonEliminar = new System.Windows.Forms.Button();
             this.botonDetalles = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tCU_DBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tCUDBDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVacas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vACABindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tCUDBDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tCU_DBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // botonVolver
@@ -83,18 +83,18 @@
             this.botonBuscarVaca.Text = "Buscar vaca";
             this.botonBuscarVaca.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // textBoxBuscarVaca
             // 
-            this.textBox1.Location = new System.Drawing.Point(541, 16);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(158, 20);
-            this.textBox1.TabIndex = 3;
+            this.textBoxBuscarVaca.Location = new System.Drawing.Point(541, 16);
+            this.textBoxBuscarVaca.Name = "textBoxBuscarVaca";
+            this.textBoxBuscarVaca.Size = new System.Drawing.Size(158, 20);
+            this.textBoxBuscarVaca.TabIndex = 3;
             // 
-            // dataGridView1
+            // dataGridViewVacas
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewVacas.AutoGenerateColumns = false;
+            this.dataGridViewVacas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewVacas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.pKNUMEROTRAZABLEDataGridViewTextBoxColumn,
             this.rAZADataGridViewTextBoxColumn,
             this.cARACTERISTICASDataGridViewTextBoxColumn,
@@ -103,30 +103,11 @@
             this.fECHANACIMIENTODataGridViewTextBoxColumn,
             this.fKNUMEROTRAZABLEVACADataGridViewTextBoxColumn,
             this.fKNUMEROTRAZABLETORODataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.vACABindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 107);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(776, 302);
-            this.dataGridView1.TabIndex = 4;
-            // 
-            // tCU_DBDataSet
-            // 
-            this.tCU_DBDataSet.DataSetName = "TCU_DBDataSet";
-            this.tCU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tCUDBDataSetBindingSource
-            // 
-            this.tCUDBDataSetBindingSource.DataSource = this.tCU_DBDataSet;
-            this.tCUDBDataSetBindingSource.Position = 0;
-            // 
-            // vACABindingSource
-            // 
-            this.vACABindingSource.DataMember = "VACA";
-            this.vACABindingSource.DataSource = this.tCUDBDataSetBindingSource;
-            // 
-            // vACATableAdapter
-            // 
-            this.vACATableAdapter.ClearBeforeFill = true;
+            this.dataGridViewVacas.DataSource = this.vACABindingSource;
+            this.dataGridViewVacas.Location = new System.Drawing.Point(12, 107);
+            this.dataGridViewVacas.Name = "dataGridViewVacas";
+            this.dataGridViewVacas.Size = new System.Drawing.Size(776, 302);
+            this.dataGridViewVacas.TabIndex = 4;
             // 
             // pKNUMEROTRAZABLEDataGridViewTextBoxColumn
             // 
@@ -176,6 +157,25 @@
             this.fKNUMEROTRAZABLETORODataGridViewTextBoxColumn.HeaderText = "FK_NUMERO_TRAZABLE_TORO";
             this.fKNUMEROTRAZABLETORODataGridViewTextBoxColumn.Name = "fKNUMEROTRAZABLETORODataGridViewTextBoxColumn";
             // 
+            // vACABindingSource
+            // 
+            this.vACABindingSource.DataMember = "VACA";
+            this.vACABindingSource.DataSource = this.tCUDBDataSetBindingSource;
+            // 
+            // tCUDBDataSetBindingSource
+            // 
+            this.tCUDBDataSetBindingSource.DataSource = this.tCU_DBDataSet;
+            this.tCUDBDataSetBindingSource.Position = 0;
+            // 
+            // tCU_DBDataSet
+            // 
+            this.tCU_DBDataSet.DataSetName = "TCU_DBDataSet";
+            this.tCU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // vACATableAdapter
+            // 
+            this.vACATableAdapter.ClearBeforeFill = true;
+            // 
             // botonEditar
             // 
             this.botonEditar.Location = new System.Drawing.Point(713, 78);
@@ -212,8 +212,8 @@
             this.Controls.Add(this.botonDetalles);
             this.Controls.Add(this.botonEliminar);
             this.Controls.Add(this.botonEditar);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.dataGridViewVacas);
+            this.Controls.Add(this.textBoxBuscarVaca);
             this.Controls.Add(this.botonBuscarVaca);
             this.Controls.Add(this.botonAgregarVaca);
             this.Controls.Add(this.botonVolver);
@@ -222,10 +222,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro vacas";
             this.Load += new System.EventHandler(this.FormRegistroVacas_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tCU_DBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tCUDBDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVacas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vACABindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tCUDBDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tCU_DBDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,8 +236,8 @@
         private System.Windows.Forms.Button botonVolver;
         private System.Windows.Forms.Button botonAgregarVaca;
         private System.Windows.Forms.Button botonBuscarVaca;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox textBoxBuscarVaca;
+        private System.Windows.Forms.DataGridView dataGridViewVacas;
         private System.Windows.Forms.BindingSource tCUDBDataSetBindingSource;
         private TCU_DBDataSet tCU_DBDataSet;
         private System.Windows.Forms.BindingSource vACABindingSource;

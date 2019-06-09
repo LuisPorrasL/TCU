@@ -112,6 +112,9 @@
     <Compile Include="FormSincronizacion.Designer.cs">
       <DependentUpon>FormSincronizacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="TCU_DBDataSet.cs">
+      <DependentUpon>TCU_DBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="TCU_DBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -184,8 +187,8 @@
     </None>
     <None Include="TCU_DBDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>TCU_DBDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>TCU_DBDataSet.Designer.cs</LastGenOutput>
     </None>
     <None Include="TCU_DBDataSet.xss">
       <DependentUpon>TCU_DBDataSet.xsd</DependentUpon>

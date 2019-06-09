@@ -40,6 +40,8 @@ namespace TCU_WFA {
         
         private VACADataTable tableVACA;
         
+        private EXAMEN_ANTROPOLOGICODataTable tableEXAMEN_ANTROPOLOGICO;
+        
         private global::System.Data.DataRelation relationCK_PK_FK_NUMERO_TRAZABLE_VACA_FECHAS_DESTETES;
         
         private global::System.Data.DataRelation relationCK_PK_FK_NUMERO_TRAZABLE_VACA_FECHAS_SALTOS;
@@ -55,6 +57,8 @@ namespace TCU_WFA {
         private global::System.Data.DataRelation relationCK_FK_NUMERO_TRAZABLE_TORO;
         
         private global::System.Data.DataRelation relationCK_FK_NUMERO_TRAZABLE_VACA;
+        
+        private global::System.Data.DataRelation relationCK_FK_NUMERO_TRAZABLE_TORO_EXAMEN;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -107,6 +111,9 @@ namespace TCU_WFA {
                 }
                 if ((ds.Tables["VACA"] != null)) {
                     base.Tables.Add(new VACADataTable(ds.Tables["VACA"]));
+                }
+                if ((ds.Tables["EXAMEN_ANTROPOLOGICO"] != null)) {
+                    base.Tables.Add(new EXAMEN_ANTROPOLOGICODataTable(ds.Tables["EXAMEN_ANTROPOLOGICO"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -208,6 +215,16 @@ namespace TCU_WFA {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public EXAMEN_ANTROPOLOGICODataTable EXAMEN_ANTROPOLOGICO {
+            get {
+                return this.tableEXAMEN_ANTROPOLOGICO;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -297,6 +314,9 @@ namespace TCU_WFA {
                 if ((ds.Tables["VACA"] != null)) {
                     base.Tables.Add(new VACADataTable(ds.Tables["VACA"]));
                 }
+                if ((ds.Tables["EXAMEN_ANTROPOLOGICO"] != null)) {
+                    base.Tables.Add(new EXAMEN_ANTROPOLOGICODataTable(ds.Tables["EXAMEN_ANTROPOLOGICO"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -378,6 +398,12 @@ namespace TCU_WFA {
                     this.tableVACA.InitVars();
                 }
             }
+            this.tableEXAMEN_ANTROPOLOGICO = ((EXAMEN_ANTROPOLOGICODataTable)(base.Tables["EXAMEN_ANTROPOLOGICO"]));
+            if ((initTable == true)) {
+                if ((this.tableEXAMEN_ANTROPOLOGICO != null)) {
+                    this.tableEXAMEN_ANTROPOLOGICO.InitVars();
+                }
+            }
             this.relationCK_PK_FK_NUMERO_TRAZABLE_VACA_FECHAS_DESTETES = this.Relations["CK_PK_FK_NUMERO_TRAZABLE_VACA_FECHAS_DESTETES"];
             this.relationCK_PK_FK_NUMERO_TRAZABLE_VACA_FECHAS_SALTOS = this.Relations["CK_PK_FK_NUMERO_TRAZABLE_VACA_FECHAS_SALTOS"];
             this.relationCK_PK_FK_NUMERO_TRAZABLE_VACA_PALPACION = this.Relations["CK_PK_FK_NUMERO_TRAZABLE_VACA_PALPACION"];
@@ -386,6 +412,7 @@ namespace TCU_WFA {
             this.relationCK_FK_ID_MODO_PRENNES = this.Relations["CK_FK_ID_MODO_PRENNES"];
             this.relationCK_FK_NUMERO_TRAZABLE_TORO = this.Relations["CK_FK_NUMERO_TRAZABLE_TORO"];
             this.relationCK_FK_NUMERO_TRAZABLE_VACA = this.Relations["CK_FK_NUMERO_TRAZABLE_VACA"];
+            this.relationCK_FK_NUMERO_TRAZABLE_TORO_EXAMEN = this.Relations["CK_FK_NUMERO_TRAZABLE_TORO_EXAMEN"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -412,6 +439,8 @@ namespace TCU_WFA {
             base.Tables.Add(this.tableUSUARIO);
             this.tableVACA = new VACADataTable();
             base.Tables.Add(this.tableVACA);
+            this.tableEXAMEN_ANTROPOLOGICO = new EXAMEN_ANTROPOLOGICODataTable();
+            base.Tables.Add(this.tableEXAMEN_ANTROPOLOGICO);
             this.relationCK_PK_FK_NUMERO_TRAZABLE_VACA_FECHAS_DESTETES = new global::System.Data.DataRelation("CK_PK_FK_NUMERO_TRAZABLE_VACA_FECHAS_DESTETES", new global::System.Data.DataColumn[] {
                         this.tableVACA.PK_NUMERO_TRAZABLEColumn}, new global::System.Data.DataColumn[] {
                         this.tableFECHAS_DESTETES.PK_FK_NUMERO_TRAZABLE_VACAColumn}, false);
@@ -444,6 +473,10 @@ namespace TCU_WFA {
                         this.tableVACA.PK_NUMERO_TRAZABLEColumn}, new global::System.Data.DataColumn[] {
                         this.tableVACA.FK_NUMERO_TRAZABLE_VACAColumn}, false);
             this.Relations.Add(this.relationCK_FK_NUMERO_TRAZABLE_VACA);
+            this.relationCK_FK_NUMERO_TRAZABLE_TORO_EXAMEN = new global::System.Data.DataRelation("CK_FK_NUMERO_TRAZABLE_TORO_EXAMEN", new global::System.Data.DataColumn[] {
+                        this.tableTORO.PK_NUMERO_TRAZABLEColumn}, new global::System.Data.DataColumn[] {
+                        this.tableEXAMEN_ANTROPOLOGICO.FK_NUMERO_TRAZABLE_TOROColumn}, false);
+            this.Relations.Add(this.relationCK_FK_NUMERO_TRAZABLE_TORO_EXAMEN);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -491,6 +524,12 @@ namespace TCU_WFA {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private bool ShouldSerializeVACA() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private bool ShouldSerializeEXAMEN_ANTROPOLOGICO() {
             return false;
         }
         
@@ -572,6 +611,9 @@ namespace TCU_WFA {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public delegate void VACARowChangeEventHandler(object sender, VACARowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public delegate void EXAMEN_ANTROPOLOGICORowChangeEventHandler(object sender, EXAMEN_ANTROPOLOGICORowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -3100,6 +3142,724 @@ namespace TCU_WFA {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class EXAMEN_ANTROPOLOGICODataTable : global::System.Data.TypedTableBase<EXAMEN_ANTROPOLOGICORow> {
+            
+            private global::System.Data.DataColumn columnFK_NUMERO_TRAZABLE_TORO;
+            
+            private global::System.Data.DataColumn columnPK_FECHA;
+            
+            private global::System.Data.DataColumn columnCONDICION_CORPORAL;
+            
+            private global::System.Data.DataColumn columnLIBIDO;
+            
+            private global::System.Data.DataColumn columnCAPACIDAD_DE_MONTA;
+            
+            private global::System.Data.DataColumn columnDESCANSO_SEXUAL;
+            
+            private global::System.Data.DataColumn columnPREPICIO;
+            
+            private global::System.Data.DataColumn columnPENE;
+            
+            private global::System.Data.DataColumn columnTESTICULOS;
+            
+            private global::System.Data.DataColumn columnEPIDIDIMOS;
+            
+            private global::System.Data.DataColumn columnGLANDULAS_BULBOURETRALES;
+            
+            private global::System.Data.DataColumn columnPROSTATA;
+            
+            private global::System.Data.DataColumn columnVESICULAS_SEMINALES;
+            
+            private global::System.Data.DataColumn columnAMPULAS;
+            
+            private global::System.Data.DataColumn columnCIRCUNFERENCIA_ESCROTAL;
+            
+            private global::System.Data.DataColumn columnVOLUMEN_EYACULADO;
+            
+            private global::System.Data.DataColumn columnCONCENTRACION;
+            
+            private global::System.Data.DataColumn columnMOTILIDAD_MASAL;
+            
+            private global::System.Data.DataColumn columnMOTILIDAD_PROGRESIVA_RAPIDA;
+            
+            private global::System.Data.DataColumn columnMORFOLOGIA_NORMAL;
+            
+            private global::System.Data.DataColumn columnANORMALIDADES_PRIMARIAS;
+            
+            private global::System.Data.DataColumn columnDANNOS_ACROSOMALES;
+            
+            private global::System.Data.DataColumn columnANORMALIDADES_SECUNDARIAS;
+            
+            private global::System.Data.DataColumn columnTOTAL_ANORMALIDADES;
+            
+            private global::System.Data.DataColumn columnANOMALIA_MAS_FRECUENTE;
+            
+            private global::System.Data.DataColumn columnLEUCOCITOS;
+            
+            private global::System.Data.DataColumn columnCEDULAS_EPITELEALES;
+            
+            private global::System.Data.DataColumn columnOBSERVACIONES;
+            
+            private global::System.Data.DataColumn columnSATISFACTORIO;
+            
+            private global::System.Data.DataColumn columnVETERINARIO;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public EXAMEN_ANTROPOLOGICODataTable() {
+                this.TableName = "EXAMEN_ANTROPOLOGICO";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal EXAMEN_ANTROPOLOGICODataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected EXAMEN_ANTROPOLOGICODataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn FK_NUMERO_TRAZABLE_TOROColumn {
+                get {
+                    return this.columnFK_NUMERO_TRAZABLE_TORO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn PK_FECHAColumn {
+                get {
+                    return this.columnPK_FECHA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn CONDICION_CORPORALColumn {
+                get {
+                    return this.columnCONDICION_CORPORAL;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn LIBIDOColumn {
+                get {
+                    return this.columnLIBIDO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn CAPACIDAD_DE_MONTAColumn {
+                get {
+                    return this.columnCAPACIDAD_DE_MONTA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn DESCANSO_SEXUALColumn {
+                get {
+                    return this.columnDESCANSO_SEXUAL;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn PREPICIOColumn {
+                get {
+                    return this.columnPREPICIO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn PENEColumn {
+                get {
+                    return this.columnPENE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn TESTICULOSColumn {
+                get {
+                    return this.columnTESTICULOS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn EPIDIDIMOSColumn {
+                get {
+                    return this.columnEPIDIDIMOS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn GLANDULAS_BULBOURETRALESColumn {
+                get {
+                    return this.columnGLANDULAS_BULBOURETRALES;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn PROSTATAColumn {
+                get {
+                    return this.columnPROSTATA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn VESICULAS_SEMINALESColumn {
+                get {
+                    return this.columnVESICULAS_SEMINALES;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn AMPULASColumn {
+                get {
+                    return this.columnAMPULAS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn CIRCUNFERENCIA_ESCROTALColumn {
+                get {
+                    return this.columnCIRCUNFERENCIA_ESCROTAL;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn VOLUMEN_EYACULADOColumn {
+                get {
+                    return this.columnVOLUMEN_EYACULADO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn CONCENTRACIONColumn {
+                get {
+                    return this.columnCONCENTRACION;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn MOTILIDAD_MASALColumn {
+                get {
+                    return this.columnMOTILIDAD_MASAL;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn MOTILIDAD_PROGRESIVA_RAPIDAColumn {
+                get {
+                    return this.columnMOTILIDAD_PROGRESIVA_RAPIDA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn MORFOLOGIA_NORMALColumn {
+                get {
+                    return this.columnMORFOLOGIA_NORMAL;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ANORMALIDADES_PRIMARIASColumn {
+                get {
+                    return this.columnANORMALIDADES_PRIMARIAS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn DANNOS_ACROSOMALESColumn {
+                get {
+                    return this.columnDANNOS_ACROSOMALES;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ANORMALIDADES_SECUNDARIASColumn {
+                get {
+                    return this.columnANORMALIDADES_SECUNDARIAS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn TOTAL_ANORMALIDADESColumn {
+                get {
+                    return this.columnTOTAL_ANORMALIDADES;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ANOMALIA_MAS_FRECUENTEColumn {
+                get {
+                    return this.columnANOMALIA_MAS_FRECUENTE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn LEUCOCITOSColumn {
+                get {
+                    return this.columnLEUCOCITOS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn CEDULAS_EPITELEALESColumn {
+                get {
+                    return this.columnCEDULAS_EPITELEALES;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn OBSERVACIONESColumn {
+                get {
+                    return this.columnOBSERVACIONES;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn SATISFACTORIOColumn {
+                get {
+                    return this.columnSATISFACTORIO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn VETERINARIOColumn {
+                get {
+                    return this.columnVETERINARIO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public EXAMEN_ANTROPOLOGICORow this[int index] {
+                get {
+                    return ((EXAMEN_ANTROPOLOGICORow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event EXAMEN_ANTROPOLOGICORowChangeEventHandler EXAMEN_ANTROPOLOGICORowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event EXAMEN_ANTROPOLOGICORowChangeEventHandler EXAMEN_ANTROPOLOGICORowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event EXAMEN_ANTROPOLOGICORowChangeEventHandler EXAMEN_ANTROPOLOGICORowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event EXAMEN_ANTROPOLOGICORowChangeEventHandler EXAMEN_ANTROPOLOGICORowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void AddEXAMEN_ANTROPOLOGICORow(EXAMEN_ANTROPOLOGICORow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public EXAMEN_ANTROPOLOGICORow AddEXAMEN_ANTROPOLOGICORow(
+                        TORORow parentTORORowByCK_FK_NUMERO_TRAZABLE_TORO_EXAMEN, 
+                        System.DateTime PK_FECHA, 
+                        string CONDICION_CORPORAL, 
+                        bool LIBIDO, 
+                        bool CAPACIDAD_DE_MONTA, 
+                        bool DESCANSO_SEXUAL, 
+                        bool PREPICIO, 
+                        bool PENE, 
+                        bool TESTICULOS, 
+                        bool EPIDIDIMOS, 
+                        bool GLANDULAS_BULBOURETRALES, 
+                        bool PROSTATA, 
+                        bool VESICULAS_SEMINALES, 
+                        bool AMPULAS, 
+                        decimal CIRCUNFERENCIA_ESCROTAL, 
+                        decimal VOLUMEN_EYACULADO, 
+                        decimal CONCENTRACION, 
+                        int MOTILIDAD_MASAL, 
+                        int MOTILIDAD_PROGRESIVA_RAPIDA, 
+                        int MORFOLOGIA_NORMAL, 
+                        int ANORMALIDADES_PRIMARIAS, 
+                        int DANNOS_ACROSOMALES, 
+                        int ANORMALIDADES_SECUNDARIAS, 
+                        int TOTAL_ANORMALIDADES, 
+                        string ANOMALIA_MAS_FRECUENTE, 
+                        int LEUCOCITOS, 
+                        int CEDULAS_EPITELEALES, 
+                        string OBSERVACIONES, 
+                        bool SATISFACTORIO, 
+                        string VETERINARIO) {
+                EXAMEN_ANTROPOLOGICORow rowEXAMEN_ANTROPOLOGICORow = ((EXAMEN_ANTROPOLOGICORow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        PK_FECHA,
+                        CONDICION_CORPORAL,
+                        LIBIDO,
+                        CAPACIDAD_DE_MONTA,
+                        DESCANSO_SEXUAL,
+                        PREPICIO,
+                        PENE,
+                        TESTICULOS,
+                        EPIDIDIMOS,
+                        GLANDULAS_BULBOURETRALES,
+                        PROSTATA,
+                        VESICULAS_SEMINALES,
+                        AMPULAS,
+                        CIRCUNFERENCIA_ESCROTAL,
+                        VOLUMEN_EYACULADO,
+                        CONCENTRACION,
+                        MOTILIDAD_MASAL,
+                        MOTILIDAD_PROGRESIVA_RAPIDA,
+                        MORFOLOGIA_NORMAL,
+                        ANORMALIDADES_PRIMARIAS,
+                        DANNOS_ACROSOMALES,
+                        ANORMALIDADES_SECUNDARIAS,
+                        TOTAL_ANORMALIDADES,
+                        ANOMALIA_MAS_FRECUENTE,
+                        LEUCOCITOS,
+                        CEDULAS_EPITELEALES,
+                        OBSERVACIONES,
+                        SATISFACTORIO,
+                        VETERINARIO};
+                if ((parentTORORowByCK_FK_NUMERO_TRAZABLE_TORO_EXAMEN != null)) {
+                    columnValuesArray[0] = parentTORORowByCK_FK_NUMERO_TRAZABLE_TORO_EXAMEN[0];
+                }
+                rowEXAMEN_ANTROPOLOGICORow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowEXAMEN_ANTROPOLOGICORow);
+                return rowEXAMEN_ANTROPOLOGICORow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public EXAMEN_ANTROPOLOGICORow FindByFK_NUMERO_TRAZABLE_TOROPK_FECHA(int FK_NUMERO_TRAZABLE_TORO, System.DateTime PK_FECHA) {
+                return ((EXAMEN_ANTROPOLOGICORow)(this.Rows.Find(new object[] {
+                            FK_NUMERO_TRAZABLE_TORO,
+                            PK_FECHA})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                EXAMEN_ANTROPOLOGICODataTable cln = ((EXAMEN_ANTROPOLOGICODataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new EXAMEN_ANTROPOLOGICODataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal void InitVars() {
+                this.columnFK_NUMERO_TRAZABLE_TORO = base.Columns["FK_NUMERO_TRAZABLE_TORO"];
+                this.columnPK_FECHA = base.Columns["PK_FECHA"];
+                this.columnCONDICION_CORPORAL = base.Columns["CONDICION_CORPORAL"];
+                this.columnLIBIDO = base.Columns["LIBIDO"];
+                this.columnCAPACIDAD_DE_MONTA = base.Columns["CAPACIDAD_DE_MONTA"];
+                this.columnDESCANSO_SEXUAL = base.Columns["DESCANSO_SEXUAL"];
+                this.columnPREPICIO = base.Columns["PREPICIO"];
+                this.columnPENE = base.Columns["PENE"];
+                this.columnTESTICULOS = base.Columns["TESTICULOS"];
+                this.columnEPIDIDIMOS = base.Columns["EPIDIDIMOS"];
+                this.columnGLANDULAS_BULBOURETRALES = base.Columns["GLANDULAS_BULBOURETRALES"];
+                this.columnPROSTATA = base.Columns["PROSTATA"];
+                this.columnVESICULAS_SEMINALES = base.Columns["VESICULAS_SEMINALES"];
+                this.columnAMPULAS = base.Columns["AMPULAS"];
+                this.columnCIRCUNFERENCIA_ESCROTAL = base.Columns["CIRCUNFERENCIA_ESCROTAL"];
+                this.columnVOLUMEN_EYACULADO = base.Columns["VOLUMEN_EYACULADO"];
+                this.columnCONCENTRACION = base.Columns["CONCENTRACION"];
+                this.columnMOTILIDAD_MASAL = base.Columns["MOTILIDAD_MASAL"];
+                this.columnMOTILIDAD_PROGRESIVA_RAPIDA = base.Columns["MOTILIDAD_PROGRESIVA_RAPIDA"];
+                this.columnMORFOLOGIA_NORMAL = base.Columns["MORFOLOGIA_NORMAL"];
+                this.columnANORMALIDADES_PRIMARIAS = base.Columns["ANORMALIDADES_PRIMARIAS"];
+                this.columnDANNOS_ACROSOMALES = base.Columns["DANNOS_ACROSOMALES"];
+                this.columnANORMALIDADES_SECUNDARIAS = base.Columns["ANORMALIDADES_SECUNDARIAS"];
+                this.columnTOTAL_ANORMALIDADES = base.Columns["TOTAL_ANORMALIDADES"];
+                this.columnANOMALIA_MAS_FRECUENTE = base.Columns["ANOMALIA_MAS_FRECUENTE"];
+                this.columnLEUCOCITOS = base.Columns["LEUCOCITOS"];
+                this.columnCEDULAS_EPITELEALES = base.Columns["CEDULAS_EPITELEALES"];
+                this.columnOBSERVACIONES = base.Columns["OBSERVACIONES"];
+                this.columnSATISFACTORIO = base.Columns["SATISFACTORIO"];
+                this.columnVETERINARIO = base.Columns["VETERINARIO"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            private void InitClass() {
+                this.columnFK_NUMERO_TRAZABLE_TORO = new global::System.Data.DataColumn("FK_NUMERO_TRAZABLE_TORO", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFK_NUMERO_TRAZABLE_TORO);
+                this.columnPK_FECHA = new global::System.Data.DataColumn("PK_FECHA", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPK_FECHA);
+                this.columnCONDICION_CORPORAL = new global::System.Data.DataColumn("CONDICION_CORPORAL", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCONDICION_CORPORAL);
+                this.columnLIBIDO = new global::System.Data.DataColumn("LIBIDO", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLIBIDO);
+                this.columnCAPACIDAD_DE_MONTA = new global::System.Data.DataColumn("CAPACIDAD_DE_MONTA", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCAPACIDAD_DE_MONTA);
+                this.columnDESCANSO_SEXUAL = new global::System.Data.DataColumn("DESCANSO_SEXUAL", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDESCANSO_SEXUAL);
+                this.columnPREPICIO = new global::System.Data.DataColumn("PREPICIO", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPREPICIO);
+                this.columnPENE = new global::System.Data.DataColumn("PENE", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPENE);
+                this.columnTESTICULOS = new global::System.Data.DataColumn("TESTICULOS", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTESTICULOS);
+                this.columnEPIDIDIMOS = new global::System.Data.DataColumn("EPIDIDIMOS", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEPIDIDIMOS);
+                this.columnGLANDULAS_BULBOURETRALES = new global::System.Data.DataColumn("GLANDULAS_BULBOURETRALES", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGLANDULAS_BULBOURETRALES);
+                this.columnPROSTATA = new global::System.Data.DataColumn("PROSTATA", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPROSTATA);
+                this.columnVESICULAS_SEMINALES = new global::System.Data.DataColumn("VESICULAS_SEMINALES", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVESICULAS_SEMINALES);
+                this.columnAMPULAS = new global::System.Data.DataColumn("AMPULAS", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAMPULAS);
+                this.columnCIRCUNFERENCIA_ESCROTAL = new global::System.Data.DataColumn("CIRCUNFERENCIA_ESCROTAL", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCIRCUNFERENCIA_ESCROTAL);
+                this.columnVOLUMEN_EYACULADO = new global::System.Data.DataColumn("VOLUMEN_EYACULADO", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVOLUMEN_EYACULADO);
+                this.columnCONCENTRACION = new global::System.Data.DataColumn("CONCENTRACION", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCONCENTRACION);
+                this.columnMOTILIDAD_MASAL = new global::System.Data.DataColumn("MOTILIDAD_MASAL", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMOTILIDAD_MASAL);
+                this.columnMOTILIDAD_PROGRESIVA_RAPIDA = new global::System.Data.DataColumn("MOTILIDAD_PROGRESIVA_RAPIDA", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMOTILIDAD_PROGRESIVA_RAPIDA);
+                this.columnMORFOLOGIA_NORMAL = new global::System.Data.DataColumn("MORFOLOGIA_NORMAL", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMORFOLOGIA_NORMAL);
+                this.columnANORMALIDADES_PRIMARIAS = new global::System.Data.DataColumn("ANORMALIDADES_PRIMARIAS", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnANORMALIDADES_PRIMARIAS);
+                this.columnDANNOS_ACROSOMALES = new global::System.Data.DataColumn("DANNOS_ACROSOMALES", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDANNOS_ACROSOMALES);
+                this.columnANORMALIDADES_SECUNDARIAS = new global::System.Data.DataColumn("ANORMALIDADES_SECUNDARIAS", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnANORMALIDADES_SECUNDARIAS);
+                this.columnTOTAL_ANORMALIDADES = new global::System.Data.DataColumn("TOTAL_ANORMALIDADES", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTOTAL_ANORMALIDADES);
+                this.columnANOMALIA_MAS_FRECUENTE = new global::System.Data.DataColumn("ANOMALIA_MAS_FRECUENTE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnANOMALIA_MAS_FRECUENTE);
+                this.columnLEUCOCITOS = new global::System.Data.DataColumn("LEUCOCITOS", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLEUCOCITOS);
+                this.columnCEDULAS_EPITELEALES = new global::System.Data.DataColumn("CEDULAS_EPITELEALES", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCEDULAS_EPITELEALES);
+                this.columnOBSERVACIONES = new global::System.Data.DataColumn("OBSERVACIONES", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOBSERVACIONES);
+                this.columnSATISFACTORIO = new global::System.Data.DataColumn("SATISFACTORIO", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSATISFACTORIO);
+                this.columnVETERINARIO = new global::System.Data.DataColumn("VETERINARIO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVETERINARIO);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnFK_NUMERO_TRAZABLE_TORO,
+                                this.columnPK_FECHA}, true));
+                this.columnFK_NUMERO_TRAZABLE_TORO.AllowDBNull = false;
+                this.columnPK_FECHA.AllowDBNull = false;
+                this.columnCONDICION_CORPORAL.AllowDBNull = false;
+                this.columnCONDICION_CORPORAL.MaxLength = 30;
+                this.columnLIBIDO.AllowDBNull = false;
+                this.columnCAPACIDAD_DE_MONTA.AllowDBNull = false;
+                this.columnDESCANSO_SEXUAL.AllowDBNull = false;
+                this.columnPREPICIO.AllowDBNull = false;
+                this.columnPENE.AllowDBNull = false;
+                this.columnTESTICULOS.AllowDBNull = false;
+                this.columnEPIDIDIMOS.AllowDBNull = false;
+                this.columnGLANDULAS_BULBOURETRALES.AllowDBNull = false;
+                this.columnPROSTATA.AllowDBNull = false;
+                this.columnVESICULAS_SEMINALES.AllowDBNull = false;
+                this.columnAMPULAS.AllowDBNull = false;
+                this.columnCIRCUNFERENCIA_ESCROTAL.AllowDBNull = false;
+                this.columnANOMALIA_MAS_FRECUENTE.MaxLength = 2147483647;
+                this.columnOBSERVACIONES.MaxLength = 2147483647;
+                this.columnSATISFACTORIO.AllowDBNull = false;
+                this.columnVETERINARIO.AllowDBNull = false;
+                this.columnVETERINARIO.MaxLength = 60;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public EXAMEN_ANTROPOLOGICORow NewEXAMEN_ANTROPOLOGICORow() {
+                return ((EXAMEN_ANTROPOLOGICORow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new EXAMEN_ANTROPOLOGICORow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(EXAMEN_ANTROPOLOGICORow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.EXAMEN_ANTROPOLOGICORowChanged != null)) {
+                    this.EXAMEN_ANTROPOLOGICORowChanged(this, new EXAMEN_ANTROPOLOGICORowChangeEvent(((EXAMEN_ANTROPOLOGICORow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.EXAMEN_ANTROPOLOGICORowChanging != null)) {
+                    this.EXAMEN_ANTROPOLOGICORowChanging(this, new EXAMEN_ANTROPOLOGICORowChangeEvent(((EXAMEN_ANTROPOLOGICORow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.EXAMEN_ANTROPOLOGICORowDeleted != null)) {
+                    this.EXAMEN_ANTROPOLOGICORowDeleted(this, new EXAMEN_ANTROPOLOGICORowChangeEvent(((EXAMEN_ANTROPOLOGICORow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.EXAMEN_ANTROPOLOGICORowDeleting != null)) {
+                    this.EXAMEN_ANTROPOLOGICORowDeleting(this, new EXAMEN_ANTROPOLOGICORowChangeEvent(((EXAMEN_ANTROPOLOGICORow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void RemoveEXAMEN_ANTROPOLOGICORow(EXAMEN_ANTROPOLOGICORow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                TCU_DBDataSet ds = new TCU_DBDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "EXAMEN_ANTROPOLOGICODataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class FECHAS_DESTETESRow : global::System.Data.DataRow {
@@ -3397,11 +4157,11 @@ namespace TCU_WFA {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string CAUSA_ABORTO {
                 get {
-                    try {
-                        return ((string)(this[this.tablePARTO.CAUSA_ABORTOColumn]));
+                    if (this.IsCAUSA_ABORTONull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CAUSA_ABORTO\' in table \'PARTO\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tablePARTO.CAUSA_ABORTOColumn]));
                     }
                 }
                 set {
@@ -3495,11 +4255,11 @@ namespace TCU_WFA {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string NOMBRE {
                 get {
-                    try {
-                        return ((string)(this[this.tableTORO.NOMBREColumn]));
+                    if (this.IsNOMBRENull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'NOMBRE\' in table \'TORO\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableTORO.NOMBREColumn]));
                     }
                 }
                 set {
@@ -3540,6 +4300,17 @@ namespace TCU_WFA {
                     return ((VACARow[])(base.GetChildRows(this.Table.ChildRelations["CK_FK_NUMERO_TRAZABLE_TORO"])));
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public EXAMEN_ANTROPOLOGICORow[] GetEXAMEN_ANTROPOLOGICORows() {
+                if ((this.Table.ChildRelations["CK_FK_NUMERO_TRAZABLE_TORO_EXAMEN"] == null)) {
+                    return new EXAMEN_ANTROPOLOGICORow[0];
+                }
+                else {
+                    return ((EXAMEN_ANTROPOLOGICORow[])(base.GetChildRows(this.Table.ChildRelations["CK_FK_NUMERO_TRAZABLE_TORO_EXAMEN"])));
+                }
+            }
         }
         
         /// <summary>
@@ -3571,11 +4342,11 @@ namespace TCU_WFA {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string COORDENADAS {
                 get {
-                    try {
-                        return ((string)(this[this.tableUSUARIO.COORDENADASColumn]));
+                    if (this.IsCOORDENADASNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'COORDENADAS\' in table \'USUARIO\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableUSUARIO.COORDENADASColumn]));
                     }
                 }
                 set {
@@ -3702,11 +4473,11 @@ namespace TCU_WFA {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string NOMBRE {
                 get {
-                    try {
-                        return ((string)(this[this.tableVACA.NOMBREColumn]));
+                    if (this.IsNOMBRENull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'NOMBRE\' in table \'VACA\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableVACA.NOMBREColumn]));
                     }
                 }
                 set {
@@ -3873,6 +4644,583 @@ namespace TCU_WFA {
                 else {
                     return ((VACARow[])(base.GetChildRows(this.Table.ChildRelations["CK_FK_NUMERO_TRAZABLE_VACA"])));
                 }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class EXAMEN_ANTROPOLOGICORow : global::System.Data.DataRow {
+            
+            private EXAMEN_ANTROPOLOGICODataTable tableEXAMEN_ANTROPOLOGICO;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal EXAMEN_ANTROPOLOGICORow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableEXAMEN_ANTROPOLOGICO = ((EXAMEN_ANTROPOLOGICODataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int FK_NUMERO_TRAZABLE_TORO {
+                get {
+                    return ((int)(this[this.tableEXAMEN_ANTROPOLOGICO.FK_NUMERO_TRAZABLE_TOROColumn]));
+                }
+                set {
+                    this[this.tableEXAMEN_ANTROPOLOGICO.FK_NUMERO_TRAZABLE_TOROColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public System.DateTime PK_FECHA {
+                get {
+                    return ((global::System.DateTime)(this[this.tableEXAMEN_ANTROPOLOGICO.PK_FECHAColumn]));
+                }
+                set {
+                    this[this.tableEXAMEN_ANTROPOLOGICO.PK_FECHAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string CONDICION_CORPORAL {
+                get {
+                    return ((string)(this[this.tableEXAMEN_ANTROPOLOGICO.CONDICION_CORPORALColumn]));
+                }
+                set {
+                    this[this.tableEXAMEN_ANTROPOLOGICO.CONDICION_CORPORALColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool LIBIDO {
+                get {
+                    return ((bool)(this[this.tableEXAMEN_ANTROPOLOGICO.LIBIDOColumn]));
+                }
+                set {
+                    this[this.tableEXAMEN_ANTROPOLOGICO.LIBIDOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool CAPACIDAD_DE_MONTA {
+                get {
+                    return ((bool)(this[this.tableEXAMEN_ANTROPOLOGICO.CAPACIDAD_DE_MONTAColumn]));
+                }
+                set {
+                    this[this.tableEXAMEN_ANTROPOLOGICO.CAPACIDAD_DE_MONTAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool DESCANSO_SEXUAL {
+                get {
+                    return ((bool)(this[this.tableEXAMEN_ANTROPOLOGICO.DESCANSO_SEXUALColumn]));
+                }
+                set {
+                    this[this.tableEXAMEN_ANTROPOLOGICO.DESCANSO_SEXUALColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool PREPICIO {
+                get {
+                    return ((bool)(this[this.tableEXAMEN_ANTROPOLOGICO.PREPICIOColumn]));
+                }
+                set {
+                    this[this.tableEXAMEN_ANTROPOLOGICO.PREPICIOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool PENE {
+                get {
+                    return ((bool)(this[this.tableEXAMEN_ANTROPOLOGICO.PENEColumn]));
+                }
+                set {
+                    this[this.tableEXAMEN_ANTROPOLOGICO.PENEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool TESTICULOS {
+                get {
+                    return ((bool)(this[this.tableEXAMEN_ANTROPOLOGICO.TESTICULOSColumn]));
+                }
+                set {
+                    this[this.tableEXAMEN_ANTROPOLOGICO.TESTICULOSColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool EPIDIDIMOS {
+                get {
+                    return ((bool)(this[this.tableEXAMEN_ANTROPOLOGICO.EPIDIDIMOSColumn]));
+                }
+                set {
+                    this[this.tableEXAMEN_ANTROPOLOGICO.EPIDIDIMOSColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool GLANDULAS_BULBOURETRALES {
+                get {
+                    return ((bool)(this[this.tableEXAMEN_ANTROPOLOGICO.GLANDULAS_BULBOURETRALESColumn]));
+                }
+                set {
+                    this[this.tableEXAMEN_ANTROPOLOGICO.GLANDULAS_BULBOURETRALESColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool PROSTATA {
+                get {
+                    return ((bool)(this[this.tableEXAMEN_ANTROPOLOGICO.PROSTATAColumn]));
+                }
+                set {
+                    this[this.tableEXAMEN_ANTROPOLOGICO.PROSTATAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool VESICULAS_SEMINALES {
+                get {
+                    return ((bool)(this[this.tableEXAMEN_ANTROPOLOGICO.VESICULAS_SEMINALESColumn]));
+                }
+                set {
+                    this[this.tableEXAMEN_ANTROPOLOGICO.VESICULAS_SEMINALESColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool AMPULAS {
+                get {
+                    return ((bool)(this[this.tableEXAMEN_ANTROPOLOGICO.AMPULASColumn]));
+                }
+                set {
+                    this[this.tableEXAMEN_ANTROPOLOGICO.AMPULASColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal CIRCUNFERENCIA_ESCROTAL {
+                get {
+                    return ((decimal)(this[this.tableEXAMEN_ANTROPOLOGICO.CIRCUNFERENCIA_ESCROTALColumn]));
+                }
+                set {
+                    this[this.tableEXAMEN_ANTROPOLOGICO.CIRCUNFERENCIA_ESCROTALColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal VOLUMEN_EYACULADO {
+                get {
+                    if (this.IsVOLUMEN_EYACULADONull()) {
+                        return 0m;
+                    }
+                    else {
+                        return ((decimal)(this[this.tableEXAMEN_ANTROPOLOGICO.VOLUMEN_EYACULADOColumn]));
+                    }
+                }
+                set {
+                    this[this.tableEXAMEN_ANTROPOLOGICO.VOLUMEN_EYACULADOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal CONCENTRACION {
+                get {
+                    if (this.IsCONCENTRACIONNull()) {
+                        return 0m;
+                    }
+                    else {
+                        return ((decimal)(this[this.tableEXAMEN_ANTROPOLOGICO.CONCENTRACIONColumn]));
+                    }
+                }
+                set {
+                    this[this.tableEXAMEN_ANTROPOLOGICO.CONCENTRACIONColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int MOTILIDAD_MASAL {
+                get {
+                    if (this.IsMOTILIDAD_MASALNull()) {
+                        return 0;
+                    }
+                    else {
+                        return ((int)(this[this.tableEXAMEN_ANTROPOLOGICO.MOTILIDAD_MASALColumn]));
+                    }
+                }
+                set {
+                    this[this.tableEXAMEN_ANTROPOLOGICO.MOTILIDAD_MASALColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int MOTILIDAD_PROGRESIVA_RAPIDA {
+                get {
+                    if (this.IsMOTILIDAD_PROGRESIVA_RAPIDANull()) {
+                        return 0;
+                    }
+                    else {
+                        return ((int)(this[this.tableEXAMEN_ANTROPOLOGICO.MOTILIDAD_PROGRESIVA_RAPIDAColumn]));
+                    }
+                }
+                set {
+                    this[this.tableEXAMEN_ANTROPOLOGICO.MOTILIDAD_PROGRESIVA_RAPIDAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int MORFOLOGIA_NORMAL {
+                get {
+                    if (this.IsMORFOLOGIA_NORMALNull()) {
+                        return 0;
+                    }
+                    else {
+                        return ((int)(this[this.tableEXAMEN_ANTROPOLOGICO.MORFOLOGIA_NORMALColumn]));
+                    }
+                }
+                set {
+                    this[this.tableEXAMEN_ANTROPOLOGICO.MORFOLOGIA_NORMALColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int ANORMALIDADES_PRIMARIAS {
+                get {
+                    if (this.IsANORMALIDADES_PRIMARIASNull()) {
+                        return 0;
+                    }
+                    else {
+                        return ((int)(this[this.tableEXAMEN_ANTROPOLOGICO.ANORMALIDADES_PRIMARIASColumn]));
+                    }
+                }
+                set {
+                    this[this.tableEXAMEN_ANTROPOLOGICO.ANORMALIDADES_PRIMARIASColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int DANNOS_ACROSOMALES {
+                get {
+                    if (this.IsDANNOS_ACROSOMALESNull()) {
+                        return 0;
+                    }
+                    else {
+                        return ((int)(this[this.tableEXAMEN_ANTROPOLOGICO.DANNOS_ACROSOMALESColumn]));
+                    }
+                }
+                set {
+                    this[this.tableEXAMEN_ANTROPOLOGICO.DANNOS_ACROSOMALESColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int ANORMALIDADES_SECUNDARIAS {
+                get {
+                    if (this.IsANORMALIDADES_SECUNDARIASNull()) {
+                        return 0;
+                    }
+                    else {
+                        return ((int)(this[this.tableEXAMEN_ANTROPOLOGICO.ANORMALIDADES_SECUNDARIASColumn]));
+                    }
+                }
+                set {
+                    this[this.tableEXAMEN_ANTROPOLOGICO.ANORMALIDADES_SECUNDARIASColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int TOTAL_ANORMALIDADES {
+                get {
+                    if (this.IsTOTAL_ANORMALIDADESNull()) {
+                        return 0;
+                    }
+                    else {
+                        return ((int)(this[this.tableEXAMEN_ANTROPOLOGICO.TOTAL_ANORMALIDADESColumn]));
+                    }
+                }
+                set {
+                    this[this.tableEXAMEN_ANTROPOLOGICO.TOTAL_ANORMALIDADESColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string ANOMALIA_MAS_FRECUENTE {
+                get {
+                    if (this.IsANOMALIA_MAS_FRECUENTENull()) {
+                        return string.Empty;
+                    }
+                    else {
+                        return ((string)(this[this.tableEXAMEN_ANTROPOLOGICO.ANOMALIA_MAS_FRECUENTEColumn]));
+                    }
+                }
+                set {
+                    this[this.tableEXAMEN_ANTROPOLOGICO.ANOMALIA_MAS_FRECUENTEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int LEUCOCITOS {
+                get {
+                    if (this.IsLEUCOCITOSNull()) {
+                        return 0;
+                    }
+                    else {
+                        return ((int)(this[this.tableEXAMEN_ANTROPOLOGICO.LEUCOCITOSColumn]));
+                    }
+                }
+                set {
+                    this[this.tableEXAMEN_ANTROPOLOGICO.LEUCOCITOSColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int CEDULAS_EPITELEALES {
+                get {
+                    if (this.IsCEDULAS_EPITELEALESNull()) {
+                        return 0;
+                    }
+                    else {
+                        return ((int)(this[this.tableEXAMEN_ANTROPOLOGICO.CEDULAS_EPITELEALESColumn]));
+                    }
+                }
+                set {
+                    this[this.tableEXAMEN_ANTROPOLOGICO.CEDULAS_EPITELEALESColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string OBSERVACIONES {
+                get {
+                    if (this.IsOBSERVACIONESNull()) {
+                        return string.Empty;
+                    }
+                    else {
+                        return ((string)(this[this.tableEXAMEN_ANTROPOLOGICO.OBSERVACIONESColumn]));
+                    }
+                }
+                set {
+                    this[this.tableEXAMEN_ANTROPOLOGICO.OBSERVACIONESColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool SATISFACTORIO {
+                get {
+                    return ((bool)(this[this.tableEXAMEN_ANTROPOLOGICO.SATISFACTORIOColumn]));
+                }
+                set {
+                    this[this.tableEXAMEN_ANTROPOLOGICO.SATISFACTORIOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string VETERINARIO {
+                get {
+                    return ((string)(this[this.tableEXAMEN_ANTROPOLOGICO.VETERINARIOColumn]));
+                }
+                set {
+                    this[this.tableEXAMEN_ANTROPOLOGICO.VETERINARIOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public TORORow TORORow {
+                get {
+                    return ((TORORow)(this.GetParentRow(this.Table.ParentRelations["CK_FK_NUMERO_TRAZABLE_TORO_EXAMEN"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["CK_FK_NUMERO_TRAZABLE_TORO_EXAMEN"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsVOLUMEN_EYACULADONull() {
+                return this.IsNull(this.tableEXAMEN_ANTROPOLOGICO.VOLUMEN_EYACULADOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetVOLUMEN_EYACULADONull() {
+                this[this.tableEXAMEN_ANTROPOLOGICO.VOLUMEN_EYACULADOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsCONCENTRACIONNull() {
+                return this.IsNull(this.tableEXAMEN_ANTROPOLOGICO.CONCENTRACIONColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetCONCENTRACIONNull() {
+                this[this.tableEXAMEN_ANTROPOLOGICO.CONCENTRACIONColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsMOTILIDAD_MASALNull() {
+                return this.IsNull(this.tableEXAMEN_ANTROPOLOGICO.MOTILIDAD_MASALColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetMOTILIDAD_MASALNull() {
+                this[this.tableEXAMEN_ANTROPOLOGICO.MOTILIDAD_MASALColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsMOTILIDAD_PROGRESIVA_RAPIDANull() {
+                return this.IsNull(this.tableEXAMEN_ANTROPOLOGICO.MOTILIDAD_PROGRESIVA_RAPIDAColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetMOTILIDAD_PROGRESIVA_RAPIDANull() {
+                this[this.tableEXAMEN_ANTROPOLOGICO.MOTILIDAD_PROGRESIVA_RAPIDAColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsMORFOLOGIA_NORMALNull() {
+                return this.IsNull(this.tableEXAMEN_ANTROPOLOGICO.MORFOLOGIA_NORMALColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetMORFOLOGIA_NORMALNull() {
+                this[this.tableEXAMEN_ANTROPOLOGICO.MORFOLOGIA_NORMALColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsANORMALIDADES_PRIMARIASNull() {
+                return this.IsNull(this.tableEXAMEN_ANTROPOLOGICO.ANORMALIDADES_PRIMARIASColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetANORMALIDADES_PRIMARIASNull() {
+                this[this.tableEXAMEN_ANTROPOLOGICO.ANORMALIDADES_PRIMARIASColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsDANNOS_ACROSOMALESNull() {
+                return this.IsNull(this.tableEXAMEN_ANTROPOLOGICO.DANNOS_ACROSOMALESColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetDANNOS_ACROSOMALESNull() {
+                this[this.tableEXAMEN_ANTROPOLOGICO.DANNOS_ACROSOMALESColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsANORMALIDADES_SECUNDARIASNull() {
+                return this.IsNull(this.tableEXAMEN_ANTROPOLOGICO.ANORMALIDADES_SECUNDARIASColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetANORMALIDADES_SECUNDARIASNull() {
+                this[this.tableEXAMEN_ANTROPOLOGICO.ANORMALIDADES_SECUNDARIASColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsTOTAL_ANORMALIDADESNull() {
+                return this.IsNull(this.tableEXAMEN_ANTROPOLOGICO.TOTAL_ANORMALIDADESColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetTOTAL_ANORMALIDADESNull() {
+                this[this.tableEXAMEN_ANTROPOLOGICO.TOTAL_ANORMALIDADESColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsANOMALIA_MAS_FRECUENTENull() {
+                return this.IsNull(this.tableEXAMEN_ANTROPOLOGICO.ANOMALIA_MAS_FRECUENTEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetANOMALIA_MAS_FRECUENTENull() {
+                this[this.tableEXAMEN_ANTROPOLOGICO.ANOMALIA_MAS_FRECUENTEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsLEUCOCITOSNull() {
+                return this.IsNull(this.tableEXAMEN_ANTROPOLOGICO.LEUCOCITOSColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetLEUCOCITOSNull() {
+                this[this.tableEXAMEN_ANTROPOLOGICO.LEUCOCITOSColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsCEDULAS_EPITELEALESNull() {
+                return this.IsNull(this.tableEXAMEN_ANTROPOLOGICO.CEDULAS_EPITELEALESColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetCEDULAS_EPITELEALESNull() {
+                this[this.tableEXAMEN_ANTROPOLOGICO.CEDULAS_EPITELEALESColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsOBSERVACIONESNull() {
+                return this.IsNull(this.tableEXAMEN_ANTROPOLOGICO.OBSERVACIONESColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetOBSERVACIONESNull() {
+                this[this.tableEXAMEN_ANTROPOLOGICO.OBSERVACIONESColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4134,6 +5482,40 @@ namespace TCU_WFA {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public VACARow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public class EXAMEN_ANTROPOLOGICORowChangeEvent : global::System.EventArgs {
+            
+            private EXAMEN_ANTROPOLOGICORow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public EXAMEN_ANTROPOLOGICORowChangeEvent(EXAMEN_ANTROPOLOGICORow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public EXAMEN_ANTROPOLOGICORow Row {
                 get {
                     return this.eventRow;
                 }
@@ -7027,6 +8409,1165 @@ SELECT PK_NUMERO_TRAZABLE, RAZA, CARACTERISTICAS, NOMBRE, FK_ID_MODO_PRENNES, FE
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class EXAMEN_ANTROPOLOGICOTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public EXAMEN_ANTROPOLOGICOTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "EXAMEN_ANTROPOLOGICO";
+            tableMapping.ColumnMappings.Add("FK_NUMERO_TRAZABLE_TORO", "FK_NUMERO_TRAZABLE_TORO");
+            tableMapping.ColumnMappings.Add("PK_FECHA", "PK_FECHA");
+            tableMapping.ColumnMappings.Add("CONDICION_CORPORAL", "CONDICION_CORPORAL");
+            tableMapping.ColumnMappings.Add("LIBIDO", "LIBIDO");
+            tableMapping.ColumnMappings.Add("CAPACIDAD_DE_MONTA", "CAPACIDAD_DE_MONTA");
+            tableMapping.ColumnMappings.Add("DESCANSO_SEXUAL", "DESCANSO_SEXUAL");
+            tableMapping.ColumnMappings.Add("PREPICIO", "PREPICIO");
+            tableMapping.ColumnMappings.Add("PENE", "PENE");
+            tableMapping.ColumnMappings.Add("TESTICULOS", "TESTICULOS");
+            tableMapping.ColumnMappings.Add("EPIDIDIMOS", "EPIDIDIMOS");
+            tableMapping.ColumnMappings.Add("GLANDULAS_BULBOURETRALES", "GLANDULAS_BULBOURETRALES");
+            tableMapping.ColumnMappings.Add("PROSTATA", "PROSTATA");
+            tableMapping.ColumnMappings.Add("VESICULAS_SEMINALES", "VESICULAS_SEMINALES");
+            tableMapping.ColumnMappings.Add("AMPULAS", "AMPULAS");
+            tableMapping.ColumnMappings.Add("CIRCUNFERENCIA_ESCROTAL", "CIRCUNFERENCIA_ESCROTAL");
+            tableMapping.ColumnMappings.Add("VOLUMEN_EYACULADO", "VOLUMEN_EYACULADO");
+            tableMapping.ColumnMappings.Add("CONCENTRACION", "CONCENTRACION");
+            tableMapping.ColumnMappings.Add("MOTILIDAD_MASAL", "MOTILIDAD_MASAL");
+            tableMapping.ColumnMappings.Add("MOTILIDAD_PROGRESIVA_RAPIDA", "MOTILIDAD_PROGRESIVA_RAPIDA");
+            tableMapping.ColumnMappings.Add("MORFOLOGIA_NORMAL", "MORFOLOGIA_NORMAL");
+            tableMapping.ColumnMappings.Add("ANORMALIDADES_PRIMARIAS", "ANORMALIDADES_PRIMARIAS");
+            tableMapping.ColumnMappings.Add("DANNOS_ACROSOMALES", "DANNOS_ACROSOMALES");
+            tableMapping.ColumnMappings.Add("ANORMALIDADES_SECUNDARIAS", "ANORMALIDADES_SECUNDARIAS");
+            tableMapping.ColumnMappings.Add("TOTAL_ANORMALIDADES", "TOTAL_ANORMALIDADES");
+            tableMapping.ColumnMappings.Add("ANOMALIA_MAS_FRECUENTE", "ANOMALIA_MAS_FRECUENTE");
+            tableMapping.ColumnMappings.Add("LEUCOCITOS", "LEUCOCITOS");
+            tableMapping.ColumnMappings.Add("CEDULAS_EPITELEALES", "CEDULAS_EPITELEALES");
+            tableMapping.ColumnMappings.Add("OBSERVACIONES", "OBSERVACIONES");
+            tableMapping.ColumnMappings.Add("SATISFACTORIO", "SATISFACTORIO");
+            tableMapping.ColumnMappings.Add("VETERINARIO", "VETERINARIO");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[EXAMEN_ANTROPOLOGICO] WHERE (([FK_NUMERO_TRAZABLE_TORO] = @Ori" +
+                "ginal_FK_NUMERO_TRAZABLE_TORO) AND ([PK_FECHA] = @Original_PK_FECHA) AND ([CONDI" +
+                "CION_CORPORAL] = @Original_CONDICION_CORPORAL) AND ([LIBIDO] = @Original_LIBIDO)" +
+                " AND ([CAPACIDAD_DE_MONTA] = @Original_CAPACIDAD_DE_MONTA) AND ([DESCANSO_SEXUAL" +
+                "] = @Original_DESCANSO_SEXUAL) AND ([PREPICIO] = @Original_PREPICIO) AND ([PENE]" +
+                " = @Original_PENE) AND ([TESTICULOS] = @Original_TESTICULOS) AND ([EPIDIDIMOS] =" +
+                " @Original_EPIDIDIMOS) AND ([GLANDULAS_BULBOURETRALES] = @Original_GLANDULAS_BUL" +
+                "BOURETRALES) AND ([PROSTATA] = @Original_PROSTATA) AND ([VESICULAS_SEMINALES] = " +
+                "@Original_VESICULAS_SEMINALES) AND ([AMPULAS] = @Original_AMPULAS) AND ([CIRCUNF" +
+                "ERENCIA_ESCROTAL] = @Original_CIRCUNFERENCIA_ESCROTAL) AND ((@IsNull_VOLUMEN_EYA" +
+                "CULADO = 1 AND [VOLUMEN_EYACULADO] IS NULL) OR ([VOLUMEN_EYACULADO] = @Original_" +
+                "VOLUMEN_EYACULADO)) AND ((@IsNull_CONCENTRACION = 1 AND [CONCENTRACION] IS NULL)" +
+                " OR ([CONCENTRACION] = @Original_CONCENTRACION)) AND ((@IsNull_MOTILIDAD_MASAL =" +
+                " 1 AND [MOTILIDAD_MASAL] IS NULL) OR ([MOTILIDAD_MASAL] = @Original_MOTILIDAD_MA" +
+                "SAL)) AND ((@IsNull_MOTILIDAD_PROGRESIVA_RAPIDA = 1 AND [MOTILIDAD_PROGRESIVA_RA" +
+                "PIDA] IS NULL) OR ([MOTILIDAD_PROGRESIVA_RAPIDA] = @Original_MOTILIDAD_PROGRESIV" +
+                "A_RAPIDA)) AND ((@IsNull_MORFOLOGIA_NORMAL = 1 AND [MORFOLOGIA_NORMAL] IS NULL) " +
+                "OR ([MORFOLOGIA_NORMAL] = @Original_MORFOLOGIA_NORMAL)) AND ((@IsNull_ANORMALIDA" +
+                "DES_PRIMARIAS = 1 AND [ANORMALIDADES_PRIMARIAS] IS NULL) OR ([ANORMALIDADES_PRIM" +
+                "ARIAS] = @Original_ANORMALIDADES_PRIMARIAS)) AND ((@IsNull_DANNOS_ACROSOMALES = " +
+                "1 AND [DANNOS_ACROSOMALES] IS NULL) OR ([DANNOS_ACROSOMALES] = @Original_DANNOS_" +
+                "ACROSOMALES)) AND ((@IsNull_ANORMALIDADES_SECUNDARIAS = 1 AND [ANORMALIDADES_SEC" +
+                "UNDARIAS] IS NULL) OR ([ANORMALIDADES_SECUNDARIAS] = @Original_ANORMALIDADES_SEC" +
+                "UNDARIAS)) AND ((@IsNull_TOTAL_ANORMALIDADES = 1 AND [TOTAL_ANORMALIDADES] IS NU" +
+                "LL) OR ([TOTAL_ANORMALIDADES] = @Original_TOTAL_ANORMALIDADES)) AND ((@IsNull_LE" +
+                "UCOCITOS = 1 AND [LEUCOCITOS] IS NULL) OR ([LEUCOCITOS] = @Original_LEUCOCITOS))" +
+                " AND ((@IsNull_CEDULAS_EPITELEALES = 1 AND [CEDULAS_EPITELEALES] IS NULL) OR ([C" +
+                "EDULAS_EPITELEALES] = @Original_CEDULAS_EPITELEALES)) AND ([SATISFACTORIO] = @Or" +
+                "iginal_SATISFACTORIO) AND ([VETERINARIO] = @Original_VETERINARIO))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FK_NUMERO_TRAZABLE_TORO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FK_NUMERO_TRAZABLE_TORO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PK_FECHA", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PK_FECHA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CONDICION_CORPORAL", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CONDICION_CORPORAL", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LIBIDO", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LIBIDO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CAPACIDAD_DE_MONTA", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CAPACIDAD_DE_MONTA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DESCANSO_SEXUAL", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DESCANSO_SEXUAL", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PREPICIO", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PREPICIO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PENE", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PENE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TESTICULOS", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TESTICULOS", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EPIDIDIMOS", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EPIDIDIMOS", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GLANDULAS_BULBOURETRALES", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GLANDULAS_BULBOURETRALES", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PROSTATA", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PROSTATA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_VESICULAS_SEMINALES", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VESICULAS_SEMINALES", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AMPULAS", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AMPULAS", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CIRCUNFERENCIA_ESCROTAL", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 6, 3, "CIRCUNFERENCIA_ESCROTAL", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_VOLUMEN_EYACULADO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VOLUMEN_EYACULADO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_VOLUMEN_EYACULADO", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 6, 3, "VOLUMEN_EYACULADO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CONCENTRACION", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CONCENTRACION", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CONCENTRACION", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 6, 3, "CONCENTRACION", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MOTILIDAD_MASAL", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MOTILIDAD_MASAL", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MOTILIDAD_MASAL", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MOTILIDAD_MASAL", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MOTILIDAD_PROGRESIVA_RAPIDA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MOTILIDAD_PROGRESIVA_RAPIDA", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MOTILIDAD_PROGRESIVA_RAPIDA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MOTILIDAD_PROGRESIVA_RAPIDA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MORFOLOGIA_NORMAL", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MORFOLOGIA_NORMAL", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MORFOLOGIA_NORMAL", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MORFOLOGIA_NORMAL", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ANORMALIDADES_PRIMARIAS", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ANORMALIDADES_PRIMARIAS", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ANORMALIDADES_PRIMARIAS", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ANORMALIDADES_PRIMARIAS", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DANNOS_ACROSOMALES", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DANNOS_ACROSOMALES", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DANNOS_ACROSOMALES", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DANNOS_ACROSOMALES", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ANORMALIDADES_SECUNDARIAS", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ANORMALIDADES_SECUNDARIAS", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ANORMALIDADES_SECUNDARIAS", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ANORMALIDADES_SECUNDARIAS", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TOTAL_ANORMALIDADES", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TOTAL_ANORMALIDADES", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TOTAL_ANORMALIDADES", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TOTAL_ANORMALIDADES", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LEUCOCITOS", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LEUCOCITOS", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LEUCOCITOS", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LEUCOCITOS", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CEDULAS_EPITELEALES", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CEDULAS_EPITELEALES", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CEDULAS_EPITELEALES", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CEDULAS_EPITELEALES", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SATISFACTORIO", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SATISFACTORIO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_VETERINARIO", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VETERINARIO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[EXAMEN_ANTROPOLOGICO] ([FK_NUMERO_TRAZABLE_TORO], [PK_FECHA], " +
+                "[CONDICION_CORPORAL], [LIBIDO], [CAPACIDAD_DE_MONTA], [DESCANSO_SEXUAL], [PREPIC" +
+                "IO], [PENE], [TESTICULOS], [EPIDIDIMOS], [GLANDULAS_BULBOURETRALES], [PROSTATA]," +
+                " [VESICULAS_SEMINALES], [AMPULAS], [CIRCUNFERENCIA_ESCROTAL], [VOLUMEN_EYACULADO" +
+                "], [CONCENTRACION], [MOTILIDAD_MASAL], [MOTILIDAD_PROGRESIVA_RAPIDA], [MORFOLOGI" +
+                "A_NORMAL], [ANORMALIDADES_PRIMARIAS], [DANNOS_ACROSOMALES], [ANORMALIDADES_SECUN" +
+                "DARIAS], [TOTAL_ANORMALIDADES], [ANOMALIA_MAS_FRECUENTE], [LEUCOCITOS], [CEDULAS" +
+                "_EPITELEALES], [OBSERVACIONES], [SATISFACTORIO], [VETERINARIO]) VALUES (@FK_NUME" +
+                "RO_TRAZABLE_TORO, @PK_FECHA, @CONDICION_CORPORAL, @LIBIDO, @CAPACIDAD_DE_MONTA, " +
+                "@DESCANSO_SEXUAL, @PREPICIO, @PENE, @TESTICULOS, @EPIDIDIMOS, @GLANDULAS_BULBOUR" +
+                "ETRALES, @PROSTATA, @VESICULAS_SEMINALES, @AMPULAS, @CIRCUNFERENCIA_ESCROTAL, @V" +
+                "OLUMEN_EYACULADO, @CONCENTRACION, @MOTILIDAD_MASAL, @MOTILIDAD_PROGRESIVA_RAPIDA" +
+                ", @MORFOLOGIA_NORMAL, @ANORMALIDADES_PRIMARIAS, @DANNOS_ACROSOMALES, @ANORMALIDA" +
+                "DES_SECUNDARIAS, @TOTAL_ANORMALIDADES, @ANOMALIA_MAS_FRECUENTE, @LEUCOCITOS, @CE" +
+                "DULAS_EPITELEALES, @OBSERVACIONES, @SATISFACTORIO, @VETERINARIO);\r\nSELECT FK_NUM" +
+                "ERO_TRAZABLE_TORO, PK_FECHA, CONDICION_CORPORAL, LIBIDO, CAPACIDAD_DE_MONTA, DES" +
+                "CANSO_SEXUAL, PREPICIO, PENE, TESTICULOS, EPIDIDIMOS, GLANDULAS_BULBOURETRALES, " +
+                "PROSTATA, VESICULAS_SEMINALES, AMPULAS, CIRCUNFERENCIA_ESCROTAL, VOLUMEN_EYACULA" +
+                "DO, CONCENTRACION, MOTILIDAD_MASAL, MOTILIDAD_PROGRESIVA_RAPIDA, MORFOLOGIA_NORM" +
+                "AL, ANORMALIDADES_PRIMARIAS, DANNOS_ACROSOMALES, ANORMALIDADES_SECUNDARIAS, TOTA" +
+                "L_ANORMALIDADES, ANOMALIA_MAS_FRECUENTE, LEUCOCITOS, CEDULAS_EPITELEALES, OBSERV" +
+                "ACIONES, SATISFACTORIO, VETERINARIO FROM EXAMEN_ANTROPOLOGICO WHERE (FK_NUMERO_T" +
+                "RAZABLE_TORO = @FK_NUMERO_TRAZABLE_TORO) AND (PK_FECHA = @PK_FECHA)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FK_NUMERO_TRAZABLE_TORO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FK_NUMERO_TRAZABLE_TORO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PK_FECHA", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PK_FECHA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CONDICION_CORPORAL", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CONDICION_CORPORAL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LIBIDO", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LIBIDO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CAPACIDAD_DE_MONTA", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CAPACIDAD_DE_MONTA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DESCANSO_SEXUAL", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DESCANSO_SEXUAL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PREPICIO", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PREPICIO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PENE", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PENE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TESTICULOS", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TESTICULOS", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EPIDIDIMOS", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EPIDIDIMOS", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GLANDULAS_BULBOURETRALES", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GLANDULAS_BULBOURETRALES", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PROSTATA", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PROSTATA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VESICULAS_SEMINALES", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VESICULAS_SEMINALES", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AMPULAS", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AMPULAS", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CIRCUNFERENCIA_ESCROTAL", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 6, 3, "CIRCUNFERENCIA_ESCROTAL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VOLUMEN_EYACULADO", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 6, 3, "VOLUMEN_EYACULADO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CONCENTRACION", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 6, 3, "CONCENTRACION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MOTILIDAD_MASAL", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MOTILIDAD_MASAL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MOTILIDAD_PROGRESIVA_RAPIDA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MOTILIDAD_PROGRESIVA_RAPIDA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MORFOLOGIA_NORMAL", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MORFOLOGIA_NORMAL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ANORMALIDADES_PRIMARIAS", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ANORMALIDADES_PRIMARIAS", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DANNOS_ACROSOMALES", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DANNOS_ACROSOMALES", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ANORMALIDADES_SECUNDARIAS", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ANORMALIDADES_SECUNDARIAS", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TOTAL_ANORMALIDADES", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TOTAL_ANORMALIDADES", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ANOMALIA_MAS_FRECUENTE", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ANOMALIA_MAS_FRECUENTE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LEUCOCITOS", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LEUCOCITOS", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CEDULAS_EPITELEALES", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CEDULAS_EPITELEALES", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OBSERVACIONES", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OBSERVACIONES", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SATISFACTORIO", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SATISFACTORIO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VETERINARIO", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VETERINARIO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[EXAMEN_ANTROPOLOGICO] SET [FK_NUMERO_TRAZABLE_TORO] = @FK_NUMERO_TR" +
+                "AZABLE_TORO, [PK_FECHA] = @PK_FECHA, [CONDICION_CORPORAL] = @CONDICION_CORPORAL," +
+                " [LIBIDO] = @LIBIDO, [CAPACIDAD_DE_MONTA] = @CAPACIDAD_DE_MONTA, [DESCANSO_SEXUA" +
+                "L] = @DESCANSO_SEXUAL, [PREPICIO] = @PREPICIO, [PENE] = @PENE, [TESTICULOS] = @T" +
+                "ESTICULOS, [EPIDIDIMOS] = @EPIDIDIMOS, [GLANDULAS_BULBOURETRALES] = @GLANDULAS_B" +
+                "ULBOURETRALES, [PROSTATA] = @PROSTATA, [VESICULAS_SEMINALES] = @VESICULAS_SEMINA" +
+                "LES, [AMPULAS] = @AMPULAS, [CIRCUNFERENCIA_ESCROTAL] = @CIRCUNFERENCIA_ESCROTAL," +
+                " [VOLUMEN_EYACULADO] = @VOLUMEN_EYACULADO, [CONCENTRACION] = @CONCENTRACION, [MO" +
+                "TILIDAD_MASAL] = @MOTILIDAD_MASAL, [MOTILIDAD_PROGRESIVA_RAPIDA] = @MOTILIDAD_PR" +
+                "OGRESIVA_RAPIDA, [MORFOLOGIA_NORMAL] = @MORFOLOGIA_NORMAL, [ANORMALIDADES_PRIMAR" +
+                "IAS] = @ANORMALIDADES_PRIMARIAS, [DANNOS_ACROSOMALES] = @DANNOS_ACROSOMALES, [AN" +
+                "ORMALIDADES_SECUNDARIAS] = @ANORMALIDADES_SECUNDARIAS, [TOTAL_ANORMALIDADES] = @" +
+                "TOTAL_ANORMALIDADES, [ANOMALIA_MAS_FRECUENTE] = @ANOMALIA_MAS_FRECUENTE, [LEUCOC" +
+                "ITOS] = @LEUCOCITOS, [CEDULAS_EPITELEALES] = @CEDULAS_EPITELEALES, [OBSERVACIONE" +
+                "S] = @OBSERVACIONES, [SATISFACTORIO] = @SATISFACTORIO, [VETERINARIO] = @VETERINA" +
+                "RIO WHERE (([FK_NUMERO_TRAZABLE_TORO] = @Original_FK_NUMERO_TRAZABLE_TORO) AND (" +
+                "[PK_FECHA] = @Original_PK_FECHA) AND ([CONDICION_CORPORAL] = @Original_CONDICION" +
+                "_CORPORAL) AND ([LIBIDO] = @Original_LIBIDO) AND ([CAPACIDAD_DE_MONTA] = @Origin" +
+                "al_CAPACIDAD_DE_MONTA) AND ([DESCANSO_SEXUAL] = @Original_DESCANSO_SEXUAL) AND (" +
+                "[PREPICIO] = @Original_PREPICIO) AND ([PENE] = @Original_PENE) AND ([TESTICULOS]" +
+                " = @Original_TESTICULOS) AND ([EPIDIDIMOS] = @Original_EPIDIDIMOS) AND ([GLANDUL" +
+                "AS_BULBOURETRALES] = @Original_GLANDULAS_BULBOURETRALES) AND ([PROSTATA] = @Orig" +
+                "inal_PROSTATA) AND ([VESICULAS_SEMINALES] = @Original_VESICULAS_SEMINALES) AND (" +
+                "[AMPULAS] = @Original_AMPULAS) AND ([CIRCUNFERENCIA_ESCROTAL] = @Original_CIRCUN" +
+                "FERENCIA_ESCROTAL) AND ((@IsNull_VOLUMEN_EYACULADO = 1 AND [VOLUMEN_EYACULADO] I" +
+                "S NULL) OR ([VOLUMEN_EYACULADO] = @Original_VOLUMEN_EYACULADO)) AND ((@IsNull_CO" +
+                "NCENTRACION = 1 AND [CONCENTRACION] IS NULL) OR ([CONCENTRACION] = @Original_CON" +
+                "CENTRACION)) AND ((@IsNull_MOTILIDAD_MASAL = 1 AND [MOTILIDAD_MASAL] IS NULL) OR" +
+                " ([MOTILIDAD_MASAL] = @Original_MOTILIDAD_MASAL)) AND ((@IsNull_MOTILIDAD_PROGRE" +
+                "SIVA_RAPIDA = 1 AND [MOTILIDAD_PROGRESIVA_RAPIDA] IS NULL) OR ([MOTILIDAD_PROGRE" +
+                "SIVA_RAPIDA] = @Original_MOTILIDAD_PROGRESIVA_RAPIDA)) AND ((@IsNull_MORFOLOGIA_" +
+                "NORMAL = 1 AND [MORFOLOGIA_NORMAL] IS NULL) OR ([MORFOLOGIA_NORMAL] = @Original_" +
+                "MORFOLOGIA_NORMAL)) AND ((@IsNull_ANORMALIDADES_PRIMARIAS = 1 AND [ANORMALIDADES" +
+                "_PRIMARIAS] IS NULL) OR ([ANORMALIDADES_PRIMARIAS] = @Original_ANORMALIDADES_PRI" +
+                "MARIAS)) AND ((@IsNull_DANNOS_ACROSOMALES = 1 AND [DANNOS_ACROSOMALES] IS NULL) " +
+                "OR ([DANNOS_ACROSOMALES] = @Original_DANNOS_ACROSOMALES)) AND ((@IsNull_ANORMALI" +
+                "DADES_SECUNDARIAS = 1 AND [ANORMALIDADES_SECUNDARIAS] IS NULL) OR ([ANORMALIDADE" +
+                "S_SECUNDARIAS] = @Original_ANORMALIDADES_SECUNDARIAS)) AND ((@IsNull_TOTAL_ANORM" +
+                "ALIDADES = 1 AND [TOTAL_ANORMALIDADES] IS NULL) OR ([TOTAL_ANORMALIDADES] = @Ori" +
+                "ginal_TOTAL_ANORMALIDADES)) AND ((@IsNull_LEUCOCITOS = 1 AND [LEUCOCITOS] IS NUL" +
+                "L) OR ([LEUCOCITOS] = @Original_LEUCOCITOS)) AND ((@IsNull_CEDULAS_EPITELEALES =" +
+                " 1 AND [CEDULAS_EPITELEALES] IS NULL) OR ([CEDULAS_EPITELEALES] = @Original_CEDU" +
+                "LAS_EPITELEALES)) AND ([SATISFACTORIO] = @Original_SATISFACTORIO) AND ([VETERINA" +
+                "RIO] = @Original_VETERINARIO));\r\nSELECT FK_NUMERO_TRAZABLE_TORO, PK_FECHA, CONDI" +
+                "CION_CORPORAL, LIBIDO, CAPACIDAD_DE_MONTA, DESCANSO_SEXUAL, PREPICIO, PENE, TEST" +
+                "ICULOS, EPIDIDIMOS, GLANDULAS_BULBOURETRALES, PROSTATA, VESICULAS_SEMINALES, AMP" +
+                "ULAS, CIRCUNFERENCIA_ESCROTAL, VOLUMEN_EYACULADO, CONCENTRACION, MOTILIDAD_MASAL" +
+                ", MOTILIDAD_PROGRESIVA_RAPIDA, MORFOLOGIA_NORMAL, ANORMALIDADES_PRIMARIAS, DANNO" +
+                "S_ACROSOMALES, ANORMALIDADES_SECUNDARIAS, TOTAL_ANORMALIDADES, ANOMALIA_MAS_FREC" +
+                "UENTE, LEUCOCITOS, CEDULAS_EPITELEALES, OBSERVACIONES, SATISFACTORIO, VETERINARI" +
+                "O FROM EXAMEN_ANTROPOLOGICO WHERE (FK_NUMERO_TRAZABLE_TORO = @FK_NUMERO_TRAZABLE" +
+                "_TORO) AND (PK_FECHA = @PK_FECHA)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FK_NUMERO_TRAZABLE_TORO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FK_NUMERO_TRAZABLE_TORO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PK_FECHA", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PK_FECHA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CONDICION_CORPORAL", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CONDICION_CORPORAL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LIBIDO", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LIBIDO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CAPACIDAD_DE_MONTA", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CAPACIDAD_DE_MONTA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DESCANSO_SEXUAL", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DESCANSO_SEXUAL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PREPICIO", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PREPICIO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PENE", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PENE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TESTICULOS", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TESTICULOS", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EPIDIDIMOS", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EPIDIDIMOS", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GLANDULAS_BULBOURETRALES", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GLANDULAS_BULBOURETRALES", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PROSTATA", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PROSTATA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VESICULAS_SEMINALES", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VESICULAS_SEMINALES", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AMPULAS", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AMPULAS", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CIRCUNFERENCIA_ESCROTAL", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 6, 3, "CIRCUNFERENCIA_ESCROTAL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VOLUMEN_EYACULADO", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 6, 3, "VOLUMEN_EYACULADO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CONCENTRACION", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 6, 3, "CONCENTRACION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MOTILIDAD_MASAL", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MOTILIDAD_MASAL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MOTILIDAD_PROGRESIVA_RAPIDA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MOTILIDAD_PROGRESIVA_RAPIDA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MORFOLOGIA_NORMAL", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MORFOLOGIA_NORMAL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ANORMALIDADES_PRIMARIAS", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ANORMALIDADES_PRIMARIAS", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DANNOS_ACROSOMALES", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DANNOS_ACROSOMALES", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ANORMALIDADES_SECUNDARIAS", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ANORMALIDADES_SECUNDARIAS", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TOTAL_ANORMALIDADES", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TOTAL_ANORMALIDADES", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ANOMALIA_MAS_FRECUENTE", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ANOMALIA_MAS_FRECUENTE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LEUCOCITOS", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LEUCOCITOS", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CEDULAS_EPITELEALES", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CEDULAS_EPITELEALES", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OBSERVACIONES", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OBSERVACIONES", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SATISFACTORIO", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SATISFACTORIO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VETERINARIO", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VETERINARIO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FK_NUMERO_TRAZABLE_TORO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FK_NUMERO_TRAZABLE_TORO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PK_FECHA", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PK_FECHA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CONDICION_CORPORAL", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CONDICION_CORPORAL", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LIBIDO", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LIBIDO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CAPACIDAD_DE_MONTA", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CAPACIDAD_DE_MONTA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DESCANSO_SEXUAL", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DESCANSO_SEXUAL", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PREPICIO", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PREPICIO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PENE", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PENE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TESTICULOS", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TESTICULOS", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EPIDIDIMOS", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EPIDIDIMOS", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GLANDULAS_BULBOURETRALES", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GLANDULAS_BULBOURETRALES", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PROSTATA", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PROSTATA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_VESICULAS_SEMINALES", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VESICULAS_SEMINALES", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AMPULAS", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AMPULAS", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CIRCUNFERENCIA_ESCROTAL", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 6, 3, "CIRCUNFERENCIA_ESCROTAL", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_VOLUMEN_EYACULADO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VOLUMEN_EYACULADO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_VOLUMEN_EYACULADO", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 6, 3, "VOLUMEN_EYACULADO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CONCENTRACION", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CONCENTRACION", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CONCENTRACION", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 6, 3, "CONCENTRACION", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MOTILIDAD_MASAL", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MOTILIDAD_MASAL", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MOTILIDAD_MASAL", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MOTILIDAD_MASAL", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MOTILIDAD_PROGRESIVA_RAPIDA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MOTILIDAD_PROGRESIVA_RAPIDA", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MOTILIDAD_PROGRESIVA_RAPIDA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MOTILIDAD_PROGRESIVA_RAPIDA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MORFOLOGIA_NORMAL", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MORFOLOGIA_NORMAL", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MORFOLOGIA_NORMAL", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MORFOLOGIA_NORMAL", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ANORMALIDADES_PRIMARIAS", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ANORMALIDADES_PRIMARIAS", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ANORMALIDADES_PRIMARIAS", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ANORMALIDADES_PRIMARIAS", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DANNOS_ACROSOMALES", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DANNOS_ACROSOMALES", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DANNOS_ACROSOMALES", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DANNOS_ACROSOMALES", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ANORMALIDADES_SECUNDARIAS", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ANORMALIDADES_SECUNDARIAS", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ANORMALIDADES_SECUNDARIAS", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ANORMALIDADES_SECUNDARIAS", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TOTAL_ANORMALIDADES", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TOTAL_ANORMALIDADES", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TOTAL_ANORMALIDADES", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TOTAL_ANORMALIDADES", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LEUCOCITOS", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LEUCOCITOS", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LEUCOCITOS", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LEUCOCITOS", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CEDULAS_EPITELEALES", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CEDULAS_EPITELEALES", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CEDULAS_EPITELEALES", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CEDULAS_EPITELEALES", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SATISFACTORIO", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SATISFACTORIO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_VETERINARIO", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VETERINARIO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::TCU_WFA.Properties.Settings.Default.TCU_DBConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = @"SELECT FK_NUMERO_TRAZABLE_TORO, PK_FECHA, CONDICION_CORPORAL, LIBIDO, CAPACIDAD_DE_MONTA, DESCANSO_SEXUAL, PREPICIO, PENE, TESTICULOS, EPIDIDIMOS, GLANDULAS_BULBOURETRALES, PROSTATA, VESICULAS_SEMINALES, AMPULAS, CIRCUNFERENCIA_ESCROTAL, VOLUMEN_EYACULADO, CONCENTRACION, MOTILIDAD_MASAL, MOTILIDAD_PROGRESIVA_RAPIDA, MORFOLOGIA_NORMAL, ANORMALIDADES_PRIMARIAS, DANNOS_ACROSOMALES, ANORMALIDADES_SECUNDARIAS, TOTAL_ANORMALIDADES, ANOMALIA_MAS_FRECUENTE, LEUCOCITOS, CEDULAS_EPITELEALES, OBSERVACIONES, SATISFACTORIO, VETERINARIO FROM dbo.EXAMEN_ANTROPOLOGICO";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(TCU_DBDataSet.EXAMEN_ANTROPOLOGICODataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual TCU_DBDataSet.EXAMEN_ANTROPOLOGICODataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            TCU_DBDataSet.EXAMEN_ANTROPOLOGICODataTable dataTable = new TCU_DBDataSet.EXAMEN_ANTROPOLOGICODataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(TCU_DBDataSet.EXAMEN_ANTROPOLOGICODataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(TCU_DBDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "EXAMEN_ANTROPOLOGICO");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(
+                    int Original_FK_NUMERO_TRAZABLE_TORO, 
+                    System.DateTime Original_PK_FECHA, 
+                    string Original_CONDICION_CORPORAL, 
+                    bool Original_LIBIDO, 
+                    bool Original_CAPACIDAD_DE_MONTA, 
+                    bool Original_DESCANSO_SEXUAL, 
+                    bool Original_PREPICIO, 
+                    bool Original_PENE, 
+                    bool Original_TESTICULOS, 
+                    bool Original_EPIDIDIMOS, 
+                    bool Original_GLANDULAS_BULBOURETRALES, 
+                    bool Original_PROSTATA, 
+                    bool Original_VESICULAS_SEMINALES, 
+                    bool Original_AMPULAS, 
+                    decimal Original_CIRCUNFERENCIA_ESCROTAL, 
+                    global::System.Nullable<decimal> Original_VOLUMEN_EYACULADO, 
+                    global::System.Nullable<decimal> Original_CONCENTRACION, 
+                    global::System.Nullable<int> Original_MOTILIDAD_MASAL, 
+                    global::System.Nullable<int> Original_MOTILIDAD_PROGRESIVA_RAPIDA, 
+                    global::System.Nullable<int> Original_MORFOLOGIA_NORMAL, 
+                    global::System.Nullable<int> Original_ANORMALIDADES_PRIMARIAS, 
+                    global::System.Nullable<int> Original_DANNOS_ACROSOMALES, 
+                    global::System.Nullable<int> Original_ANORMALIDADES_SECUNDARIAS, 
+                    global::System.Nullable<int> Original_TOTAL_ANORMALIDADES, 
+                    global::System.Nullable<int> Original_LEUCOCITOS, 
+                    global::System.Nullable<int> Original_CEDULAS_EPITELEALES, 
+                    bool Original_SATISFACTORIO, 
+                    string Original_VETERINARIO) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_FK_NUMERO_TRAZABLE_TORO));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((System.DateTime)(Original_PK_FECHA));
+            if ((Original_CONDICION_CORPORAL == null)) {
+                throw new global::System.ArgumentNullException("Original_CONDICION_CORPORAL");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_CONDICION_CORPORAL));
+            }
+            this.Adapter.DeleteCommand.Parameters[3].Value = ((bool)(Original_LIBIDO));
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((bool)(Original_CAPACIDAD_DE_MONTA));
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((bool)(Original_DESCANSO_SEXUAL));
+            this.Adapter.DeleteCommand.Parameters[6].Value = ((bool)(Original_PREPICIO));
+            this.Adapter.DeleteCommand.Parameters[7].Value = ((bool)(Original_PENE));
+            this.Adapter.DeleteCommand.Parameters[8].Value = ((bool)(Original_TESTICULOS));
+            this.Adapter.DeleteCommand.Parameters[9].Value = ((bool)(Original_EPIDIDIMOS));
+            this.Adapter.DeleteCommand.Parameters[10].Value = ((bool)(Original_GLANDULAS_BULBOURETRALES));
+            this.Adapter.DeleteCommand.Parameters[11].Value = ((bool)(Original_PROSTATA));
+            this.Adapter.DeleteCommand.Parameters[12].Value = ((bool)(Original_VESICULAS_SEMINALES));
+            this.Adapter.DeleteCommand.Parameters[13].Value = ((bool)(Original_AMPULAS));
+            this.Adapter.DeleteCommand.Parameters[14].Value = ((decimal)(Original_CIRCUNFERENCIA_ESCROTAL));
+            if ((Original_VOLUMEN_EYACULADO.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((decimal)(Original_VOLUMEN_EYACULADO.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            if ((Original_CONCENTRACION.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((decimal)(Original_CONCENTRACION.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            if ((Original_MOTILIDAD_MASAL.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((int)(Original_MOTILIDAD_MASAL.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            if ((Original_MOTILIDAD_PROGRESIVA_RAPIDA.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((int)(Original_MOTILIDAD_PROGRESIVA_RAPIDA.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            if ((Original_MORFOLOGIA_NORMAL.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((int)(Original_MORFOLOGIA_NORMAL.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ANORMALIDADES_PRIMARIAS.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((int)(Original_ANORMALIDADES_PRIMARIAS.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            if ((Original_DANNOS_ACROSOMALES.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[28].Value = ((int)(Original_DANNOS_ACROSOMALES.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[28].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ANORMALIDADES_SECUNDARIAS.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[30].Value = ((int)(Original_ANORMALIDADES_SECUNDARIAS.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[30].Value = global::System.DBNull.Value;
+            }
+            if ((Original_TOTAL_ANORMALIDADES.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[31].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[32].Value = ((int)(Original_TOTAL_ANORMALIDADES.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[31].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[32].Value = global::System.DBNull.Value;
+            }
+            if ((Original_LEUCOCITOS.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[33].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[34].Value = ((int)(Original_LEUCOCITOS.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[33].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[34].Value = global::System.DBNull.Value;
+            }
+            if ((Original_CEDULAS_EPITELEALES.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[35].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[36].Value = ((int)(Original_CEDULAS_EPITELEALES.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[35].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[36].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.DeleteCommand.Parameters[37].Value = ((bool)(Original_SATISFACTORIO));
+            if ((Original_VETERINARIO == null)) {
+                throw new global::System.ArgumentNullException("Original_VETERINARIO");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[38].Value = ((string)(Original_VETERINARIO));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(
+                    int FK_NUMERO_TRAZABLE_TORO, 
+                    System.DateTime PK_FECHA, 
+                    string CONDICION_CORPORAL, 
+                    bool LIBIDO, 
+                    bool CAPACIDAD_DE_MONTA, 
+                    bool DESCANSO_SEXUAL, 
+                    bool PREPICIO, 
+                    bool PENE, 
+                    bool TESTICULOS, 
+                    bool EPIDIDIMOS, 
+                    bool GLANDULAS_BULBOURETRALES, 
+                    bool PROSTATA, 
+                    bool VESICULAS_SEMINALES, 
+                    bool AMPULAS, 
+                    decimal CIRCUNFERENCIA_ESCROTAL, 
+                    global::System.Nullable<decimal> VOLUMEN_EYACULADO, 
+                    global::System.Nullable<decimal> CONCENTRACION, 
+                    global::System.Nullable<int> MOTILIDAD_MASAL, 
+                    global::System.Nullable<int> MOTILIDAD_PROGRESIVA_RAPIDA, 
+                    global::System.Nullable<int> MORFOLOGIA_NORMAL, 
+                    global::System.Nullable<int> ANORMALIDADES_PRIMARIAS, 
+                    global::System.Nullable<int> DANNOS_ACROSOMALES, 
+                    global::System.Nullable<int> ANORMALIDADES_SECUNDARIAS, 
+                    global::System.Nullable<int> TOTAL_ANORMALIDADES, 
+                    string ANOMALIA_MAS_FRECUENTE, 
+                    global::System.Nullable<int> LEUCOCITOS, 
+                    global::System.Nullable<int> CEDULAS_EPITELEALES, 
+                    string OBSERVACIONES, 
+                    bool SATISFACTORIO, 
+                    string VETERINARIO) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(FK_NUMERO_TRAZABLE_TORO));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(PK_FECHA));
+            if ((CONDICION_CORPORAL == null)) {
+                throw new global::System.ArgumentNullException("CONDICION_CORPORAL");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(CONDICION_CORPORAL));
+            }
+            this.Adapter.InsertCommand.Parameters[3].Value = ((bool)(LIBIDO));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((bool)(CAPACIDAD_DE_MONTA));
+            this.Adapter.InsertCommand.Parameters[5].Value = ((bool)(DESCANSO_SEXUAL));
+            this.Adapter.InsertCommand.Parameters[6].Value = ((bool)(PREPICIO));
+            this.Adapter.InsertCommand.Parameters[7].Value = ((bool)(PENE));
+            this.Adapter.InsertCommand.Parameters[8].Value = ((bool)(TESTICULOS));
+            this.Adapter.InsertCommand.Parameters[9].Value = ((bool)(EPIDIDIMOS));
+            this.Adapter.InsertCommand.Parameters[10].Value = ((bool)(GLANDULAS_BULBOURETRALES));
+            this.Adapter.InsertCommand.Parameters[11].Value = ((bool)(PROSTATA));
+            this.Adapter.InsertCommand.Parameters[12].Value = ((bool)(VESICULAS_SEMINALES));
+            this.Adapter.InsertCommand.Parameters[13].Value = ((bool)(AMPULAS));
+            this.Adapter.InsertCommand.Parameters[14].Value = ((decimal)(CIRCUNFERENCIA_ESCROTAL));
+            if ((VOLUMEN_EYACULADO.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[15].Value = ((decimal)(VOLUMEN_EYACULADO.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            if ((CONCENTRACION.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[16].Value = ((decimal)(CONCENTRACION.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            if ((MOTILIDAD_MASAL.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[17].Value = ((int)(MOTILIDAD_MASAL.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            if ((MOTILIDAD_PROGRESIVA_RAPIDA.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[18].Value = ((int)(MOTILIDAD_PROGRESIVA_RAPIDA.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            if ((MORFOLOGIA_NORMAL.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[19].Value = ((int)(MORFOLOGIA_NORMAL.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            if ((ANORMALIDADES_PRIMARIAS.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[20].Value = ((int)(ANORMALIDADES_PRIMARIAS.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            if ((DANNOS_ACROSOMALES.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[21].Value = ((int)(DANNOS_ACROSOMALES.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            if ((ANORMALIDADES_SECUNDARIAS.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[22].Value = ((int)(ANORMALIDADES_SECUNDARIAS.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            if ((TOTAL_ANORMALIDADES.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[23].Value = ((int)(TOTAL_ANORMALIDADES.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            if ((ANOMALIA_MAS_FRECUENTE == null)) {
+                this.Adapter.InsertCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[24].Value = ((string)(ANOMALIA_MAS_FRECUENTE));
+            }
+            if ((LEUCOCITOS.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[25].Value = ((int)(LEUCOCITOS.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[25].Value = global::System.DBNull.Value;
+            }
+            if ((CEDULAS_EPITELEALES.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[26].Value = ((int)(CEDULAS_EPITELEALES.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            if ((OBSERVACIONES == null)) {
+                this.Adapter.InsertCommand.Parameters[27].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[27].Value = ((string)(OBSERVACIONES));
+            }
+            this.Adapter.InsertCommand.Parameters[28].Value = ((bool)(SATISFACTORIO));
+            if ((VETERINARIO == null)) {
+                throw new global::System.ArgumentNullException("VETERINARIO");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[29].Value = ((string)(VETERINARIO));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    int FK_NUMERO_TRAZABLE_TORO, 
+                    System.DateTime PK_FECHA, 
+                    string CONDICION_CORPORAL, 
+                    bool LIBIDO, 
+                    bool CAPACIDAD_DE_MONTA, 
+                    bool DESCANSO_SEXUAL, 
+                    bool PREPICIO, 
+                    bool PENE, 
+                    bool TESTICULOS, 
+                    bool EPIDIDIMOS, 
+                    bool GLANDULAS_BULBOURETRALES, 
+                    bool PROSTATA, 
+                    bool VESICULAS_SEMINALES, 
+                    bool AMPULAS, 
+                    decimal CIRCUNFERENCIA_ESCROTAL, 
+                    global::System.Nullable<decimal> VOLUMEN_EYACULADO, 
+                    global::System.Nullable<decimal> CONCENTRACION, 
+                    global::System.Nullable<int> MOTILIDAD_MASAL, 
+                    global::System.Nullable<int> MOTILIDAD_PROGRESIVA_RAPIDA, 
+                    global::System.Nullable<int> MORFOLOGIA_NORMAL, 
+                    global::System.Nullable<int> ANORMALIDADES_PRIMARIAS, 
+                    global::System.Nullable<int> DANNOS_ACROSOMALES, 
+                    global::System.Nullable<int> ANORMALIDADES_SECUNDARIAS, 
+                    global::System.Nullable<int> TOTAL_ANORMALIDADES, 
+                    string ANOMALIA_MAS_FRECUENTE, 
+                    global::System.Nullable<int> LEUCOCITOS, 
+                    global::System.Nullable<int> CEDULAS_EPITELEALES, 
+                    string OBSERVACIONES, 
+                    bool SATISFACTORIO, 
+                    string VETERINARIO, 
+                    int Original_FK_NUMERO_TRAZABLE_TORO, 
+                    System.DateTime Original_PK_FECHA, 
+                    string Original_CONDICION_CORPORAL, 
+                    bool Original_LIBIDO, 
+                    bool Original_CAPACIDAD_DE_MONTA, 
+                    bool Original_DESCANSO_SEXUAL, 
+                    bool Original_PREPICIO, 
+                    bool Original_PENE, 
+                    bool Original_TESTICULOS, 
+                    bool Original_EPIDIDIMOS, 
+                    bool Original_GLANDULAS_BULBOURETRALES, 
+                    bool Original_PROSTATA, 
+                    bool Original_VESICULAS_SEMINALES, 
+                    bool Original_AMPULAS, 
+                    decimal Original_CIRCUNFERENCIA_ESCROTAL, 
+                    global::System.Nullable<decimal> Original_VOLUMEN_EYACULADO, 
+                    global::System.Nullable<decimal> Original_CONCENTRACION, 
+                    global::System.Nullable<int> Original_MOTILIDAD_MASAL, 
+                    global::System.Nullable<int> Original_MOTILIDAD_PROGRESIVA_RAPIDA, 
+                    global::System.Nullable<int> Original_MORFOLOGIA_NORMAL, 
+                    global::System.Nullable<int> Original_ANORMALIDADES_PRIMARIAS, 
+                    global::System.Nullable<int> Original_DANNOS_ACROSOMALES, 
+                    global::System.Nullable<int> Original_ANORMALIDADES_SECUNDARIAS, 
+                    global::System.Nullable<int> Original_TOTAL_ANORMALIDADES, 
+                    global::System.Nullable<int> Original_LEUCOCITOS, 
+                    global::System.Nullable<int> Original_CEDULAS_EPITELEALES, 
+                    bool Original_SATISFACTORIO, 
+                    string Original_VETERINARIO) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(FK_NUMERO_TRAZABLE_TORO));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((System.DateTime)(PK_FECHA));
+            if ((CONDICION_CORPORAL == null)) {
+                throw new global::System.ArgumentNullException("CONDICION_CORPORAL");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(CONDICION_CORPORAL));
+            }
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((bool)(LIBIDO));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((bool)(CAPACIDAD_DE_MONTA));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((bool)(DESCANSO_SEXUAL));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((bool)(PREPICIO));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((bool)(PENE));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((bool)(TESTICULOS));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((bool)(EPIDIDIMOS));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((bool)(GLANDULAS_BULBOURETRALES));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((bool)(PROSTATA));
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((bool)(VESICULAS_SEMINALES));
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((bool)(AMPULAS));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((decimal)(CIRCUNFERENCIA_ESCROTAL));
+            if ((VOLUMEN_EYACULADO.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((decimal)(VOLUMEN_EYACULADO.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            if ((CONCENTRACION.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((decimal)(CONCENTRACION.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            if ((MOTILIDAD_MASAL.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(MOTILIDAD_MASAL.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            if ((MOTILIDAD_PROGRESIVA_RAPIDA.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(MOTILIDAD_PROGRESIVA_RAPIDA.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            if ((MORFOLOGIA_NORMAL.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(MORFOLOGIA_NORMAL.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            if ((ANORMALIDADES_PRIMARIAS.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(ANORMALIDADES_PRIMARIAS.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            if ((DANNOS_ACROSOMALES.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(DANNOS_ACROSOMALES.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            if ((ANORMALIDADES_SECUNDARIAS.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(ANORMALIDADES_SECUNDARIAS.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            if ((TOTAL_ANORMALIDADES.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((int)(TOTAL_ANORMALIDADES.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            if ((ANOMALIA_MAS_FRECUENTE == null)) {
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(ANOMALIA_MAS_FRECUENTE));
+            }
+            if ((LEUCOCITOS.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(LEUCOCITOS.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+            }
+            if ((CEDULAS_EPITELEALES.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((int)(CEDULAS_EPITELEALES.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            if ((OBSERVACIONES == null)) {
+                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(OBSERVACIONES));
+            }
+            this.Adapter.UpdateCommand.Parameters[28].Value = ((bool)(SATISFACTORIO));
+            if ((VETERINARIO == null)) {
+                throw new global::System.ArgumentNullException("VETERINARIO");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(VETERINARIO));
+            }
+            this.Adapter.UpdateCommand.Parameters[30].Value = ((int)(Original_FK_NUMERO_TRAZABLE_TORO));
+            this.Adapter.UpdateCommand.Parameters[31].Value = ((System.DateTime)(Original_PK_FECHA));
+            if ((Original_CONDICION_CORPORAL == null)) {
+                throw new global::System.ArgumentNullException("Original_CONDICION_CORPORAL");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_CONDICION_CORPORAL));
+            }
+            this.Adapter.UpdateCommand.Parameters[33].Value = ((bool)(Original_LIBIDO));
+            this.Adapter.UpdateCommand.Parameters[34].Value = ((bool)(Original_CAPACIDAD_DE_MONTA));
+            this.Adapter.UpdateCommand.Parameters[35].Value = ((bool)(Original_DESCANSO_SEXUAL));
+            this.Adapter.UpdateCommand.Parameters[36].Value = ((bool)(Original_PREPICIO));
+            this.Adapter.UpdateCommand.Parameters[37].Value = ((bool)(Original_PENE));
+            this.Adapter.UpdateCommand.Parameters[38].Value = ((bool)(Original_TESTICULOS));
+            this.Adapter.UpdateCommand.Parameters[39].Value = ((bool)(Original_EPIDIDIMOS));
+            this.Adapter.UpdateCommand.Parameters[40].Value = ((bool)(Original_GLANDULAS_BULBOURETRALES));
+            this.Adapter.UpdateCommand.Parameters[41].Value = ((bool)(Original_PROSTATA));
+            this.Adapter.UpdateCommand.Parameters[42].Value = ((bool)(Original_VESICULAS_SEMINALES));
+            this.Adapter.UpdateCommand.Parameters[43].Value = ((bool)(Original_AMPULAS));
+            this.Adapter.UpdateCommand.Parameters[44].Value = ((decimal)(Original_CIRCUNFERENCIA_ESCROTAL));
+            if ((Original_VOLUMEN_EYACULADO.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((decimal)(Original_VOLUMEN_EYACULADO.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[46].Value = global::System.DBNull.Value;
+            }
+            if ((Original_CONCENTRACION.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((decimal)(Original_CONCENTRACION.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[48].Value = global::System.DBNull.Value;
+            }
+            if ((Original_MOTILIDAD_MASAL.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((int)(Original_MOTILIDAD_MASAL.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[50].Value = global::System.DBNull.Value;
+            }
+            if ((Original_MOTILIDAD_PROGRESIVA_RAPIDA.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[51].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[52].Value = ((int)(Original_MOTILIDAD_PROGRESIVA_RAPIDA.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[51].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[52].Value = global::System.DBNull.Value;
+            }
+            if ((Original_MORFOLOGIA_NORMAL.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[54].Value = ((int)(Original_MORFOLOGIA_NORMAL.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[54].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ANORMALIDADES_PRIMARIAS.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[55].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[56].Value = ((int)(Original_ANORMALIDADES_PRIMARIAS.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[55].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[56].Value = global::System.DBNull.Value;
+            }
+            if ((Original_DANNOS_ACROSOMALES.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[57].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[58].Value = ((int)(Original_DANNOS_ACROSOMALES.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[57].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[58].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ANORMALIDADES_SECUNDARIAS.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[59].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[60].Value = ((int)(Original_ANORMALIDADES_SECUNDARIAS.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[59].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[60].Value = global::System.DBNull.Value;
+            }
+            if ((Original_TOTAL_ANORMALIDADES.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[61].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[62].Value = ((int)(Original_TOTAL_ANORMALIDADES.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[61].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[62].Value = global::System.DBNull.Value;
+            }
+            if ((Original_LEUCOCITOS.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[63].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[64].Value = ((int)(Original_LEUCOCITOS.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[63].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[64].Value = global::System.DBNull.Value;
+            }
+            if ((Original_CEDULAS_EPITELEALES.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[65].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[66].Value = ((int)(Original_CEDULAS_EPITELEALES.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[65].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[66].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[67].Value = ((bool)(Original_SATISFACTORIO));
+            if ((Original_VETERINARIO == null)) {
+                throw new global::System.ArgumentNullException("Original_VETERINARIO");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[68].Value = ((string)(Original_VETERINARIO));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    string CONDICION_CORPORAL, 
+                    bool LIBIDO, 
+                    bool CAPACIDAD_DE_MONTA, 
+                    bool DESCANSO_SEXUAL, 
+                    bool PREPICIO, 
+                    bool PENE, 
+                    bool TESTICULOS, 
+                    bool EPIDIDIMOS, 
+                    bool GLANDULAS_BULBOURETRALES, 
+                    bool PROSTATA, 
+                    bool VESICULAS_SEMINALES, 
+                    bool AMPULAS, 
+                    decimal CIRCUNFERENCIA_ESCROTAL, 
+                    global::System.Nullable<decimal> VOLUMEN_EYACULADO, 
+                    global::System.Nullable<decimal> CONCENTRACION, 
+                    global::System.Nullable<int> MOTILIDAD_MASAL, 
+                    global::System.Nullable<int> MOTILIDAD_PROGRESIVA_RAPIDA, 
+                    global::System.Nullable<int> MORFOLOGIA_NORMAL, 
+                    global::System.Nullable<int> ANORMALIDADES_PRIMARIAS, 
+                    global::System.Nullable<int> DANNOS_ACROSOMALES, 
+                    global::System.Nullable<int> ANORMALIDADES_SECUNDARIAS, 
+                    global::System.Nullable<int> TOTAL_ANORMALIDADES, 
+                    string ANOMALIA_MAS_FRECUENTE, 
+                    global::System.Nullable<int> LEUCOCITOS, 
+                    global::System.Nullable<int> CEDULAS_EPITELEALES, 
+                    string OBSERVACIONES, 
+                    bool SATISFACTORIO, 
+                    string VETERINARIO, 
+                    int Original_FK_NUMERO_TRAZABLE_TORO, 
+                    System.DateTime Original_PK_FECHA, 
+                    string Original_CONDICION_CORPORAL, 
+                    bool Original_LIBIDO, 
+                    bool Original_CAPACIDAD_DE_MONTA, 
+                    bool Original_DESCANSO_SEXUAL, 
+                    bool Original_PREPICIO, 
+                    bool Original_PENE, 
+                    bool Original_TESTICULOS, 
+                    bool Original_EPIDIDIMOS, 
+                    bool Original_GLANDULAS_BULBOURETRALES, 
+                    bool Original_PROSTATA, 
+                    bool Original_VESICULAS_SEMINALES, 
+                    bool Original_AMPULAS, 
+                    decimal Original_CIRCUNFERENCIA_ESCROTAL, 
+                    global::System.Nullable<decimal> Original_VOLUMEN_EYACULADO, 
+                    global::System.Nullable<decimal> Original_CONCENTRACION, 
+                    global::System.Nullable<int> Original_MOTILIDAD_MASAL, 
+                    global::System.Nullable<int> Original_MOTILIDAD_PROGRESIVA_RAPIDA, 
+                    global::System.Nullable<int> Original_MORFOLOGIA_NORMAL, 
+                    global::System.Nullable<int> Original_ANORMALIDADES_PRIMARIAS, 
+                    global::System.Nullable<int> Original_DANNOS_ACROSOMALES, 
+                    global::System.Nullable<int> Original_ANORMALIDADES_SECUNDARIAS, 
+                    global::System.Nullable<int> Original_TOTAL_ANORMALIDADES, 
+                    global::System.Nullable<int> Original_LEUCOCITOS, 
+                    global::System.Nullable<int> Original_CEDULAS_EPITELEALES, 
+                    bool Original_SATISFACTORIO, 
+                    string Original_VETERINARIO) {
+            return this.Update(Original_FK_NUMERO_TRAZABLE_TORO, Original_PK_FECHA, CONDICION_CORPORAL, LIBIDO, CAPACIDAD_DE_MONTA, DESCANSO_SEXUAL, PREPICIO, PENE, TESTICULOS, EPIDIDIMOS, GLANDULAS_BULBOURETRALES, PROSTATA, VESICULAS_SEMINALES, AMPULAS, CIRCUNFERENCIA_ESCROTAL, VOLUMEN_EYACULADO, CONCENTRACION, MOTILIDAD_MASAL, MOTILIDAD_PROGRESIVA_RAPIDA, MORFOLOGIA_NORMAL, ANORMALIDADES_PRIMARIAS, DANNOS_ACROSOMALES, ANORMALIDADES_SECUNDARIAS, TOTAL_ANORMALIDADES, ANOMALIA_MAS_FRECUENTE, LEUCOCITOS, CEDULAS_EPITELEALES, OBSERVACIONES, SATISFACTORIO, VETERINARIO, Original_FK_NUMERO_TRAZABLE_TORO, Original_PK_FECHA, Original_CONDICION_CORPORAL, Original_LIBIDO, Original_CAPACIDAD_DE_MONTA, Original_DESCANSO_SEXUAL, Original_PREPICIO, Original_PENE, Original_TESTICULOS, Original_EPIDIDIMOS, Original_GLANDULAS_BULBOURETRALES, Original_PROSTATA, Original_VESICULAS_SEMINALES, Original_AMPULAS, Original_CIRCUNFERENCIA_ESCROTAL, Original_VOLUMEN_EYACULADO, Original_CONCENTRACION, Original_MOTILIDAD_MASAL, Original_MOTILIDAD_PROGRESIVA_RAPIDA, Original_MORFOLOGIA_NORMAL, Original_ANORMALIDADES_PRIMARIAS, Original_DANNOS_ACROSOMALES, Original_ANORMALIDADES_SECUNDARIAS, Original_TOTAL_ANORMALIDADES, Original_LEUCOCITOS, Original_CEDULAS_EPITELEALES, Original_SATISFACTORIO, Original_VETERINARIO);
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -7053,6 +9594,8 @@ SELECT PK_NUMERO_TRAZABLE, RAZA, CARACTERISTICAS, NOMBRE, FK_ID_MODO_PRENNES, FE
         private USUARIOTableAdapter _uSUARIOTableAdapter;
         
         private VACATableAdapter _vACATableAdapter;
+        
+        private EXAMEN_ANTROPOLOGICOTableAdapter _eXAMEN_ANTROPOLOGICOTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -7183,6 +9726,20 @@ SELECT PK_NUMERO_TRAZABLE, RAZA, CARACTERISTICAS, NOMBRE, FK_ID_MODO_PRENNES, FE
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public EXAMEN_ANTROPOLOGICOTableAdapter EXAMEN_ANTROPOLOGICOTableAdapter {
+            get {
+                return this._eXAMEN_ANTROPOLOGICOTableAdapter;
+            }
+            set {
+                this._eXAMEN_ANTROPOLOGICOTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -7232,6 +9789,10 @@ SELECT PK_NUMERO_TRAZABLE, RAZA, CARACTERISTICAS, NOMBRE, FK_ID_MODO_PRENNES, FE
                             && (this._vACATableAdapter.Connection != null))) {
                     return this._vACATableAdapter.Connection;
                 }
+                if (((this._eXAMEN_ANTROPOLOGICOTableAdapter != null) 
+                            && (this._eXAMEN_ANTROPOLOGICOTableAdapter.Connection != null))) {
+                    return this._eXAMEN_ANTROPOLOGICOTableAdapter.Connection;
+                }
                 return null;
             }
             set {
@@ -7267,6 +9828,9 @@ SELECT PK_NUMERO_TRAZABLE, RAZA, CARACTERISTICAS, NOMBRE, FK_ID_MODO_PRENNES, FE
                     count = (count + 1);
                 }
                 if ((this._vACATableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._eXAMEN_ANTROPOLOGICOTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -7353,6 +9917,15 @@ SELECT PK_NUMERO_TRAZABLE, RAZA, CARACTERISTICAS, NOMBRE, FK_ID_MODO_PRENNES, FE
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._eXAMEN_ANTROPOLOGICOTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.EXAMEN_ANTROPOLOGICO.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._eXAMEN_ANTROPOLOGICOTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             return result;
         }
         
@@ -7428,6 +10001,14 @@ SELECT PK_NUMERO_TRAZABLE, RAZA, CARACTERISTICAS, NOMBRE, FK_ID_MODO_PRENNES, FE
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._eXAMEN_ANTROPOLOGICOTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.EXAMEN_ANTROPOLOGICO.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._eXAMEN_ANTROPOLOGICOTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             return result;
         }
         
@@ -7438,6 +10019,14 @@ SELECT PK_NUMERO_TRAZABLE, RAZA, CARACTERISTICAS, NOMBRE, FK_ID_MODO_PRENNES, FE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private int UpdateDeletedRows(TCU_DBDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
+            if ((this._eXAMEN_ANTROPOLOGICOTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.EXAMEN_ANTROPOLOGICO.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._eXAMEN_ANTROPOLOGICOTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._uSUARIOTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.USUARIO.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -7582,6 +10171,11 @@ SELECT PK_NUMERO_TRAZABLE, RAZA, CARACTERISTICAS, NOMBRE, FK_ID_MODO_PRENNES, FE
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
+            if (((this._eXAMEN_ANTROPOLOGICOTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._eXAMEN_ANTROPOLOGICOTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager contains no connection information. Set each TableAdapterMana" +
@@ -7686,6 +10280,15 @@ SELECT PK_NUMERO_TRAZABLE, RAZA, CARACTERISTICAS, NOMBRE, FK_ID_MODO_PRENNES, FE
                         adaptersWithAcceptChangesDuringUpdate.Add(this._vACATableAdapter.Adapter);
                     }
                 }
+                if ((this._eXAMEN_ANTROPOLOGICOTableAdapter != null)) {
+                    revertConnections.Add(this._eXAMEN_ANTROPOLOGICOTableAdapter, this._eXAMEN_ANTROPOLOGICOTableAdapter.Connection);
+                    this._eXAMEN_ANTROPOLOGICOTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._eXAMEN_ANTROPOLOGICOTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._eXAMEN_ANTROPOLOGICOTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._eXAMEN_ANTROPOLOGICOTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._eXAMEN_ANTROPOLOGICOTableAdapter.Adapter);
+                    }
+                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -7775,6 +10378,10 @@ SELECT PK_NUMERO_TRAZABLE, RAZA, CARACTERISTICAS, NOMBRE, FK_ID_MODO_PRENNES, FE
                 if ((this._vACATableAdapter != null)) {
                     this._vACATableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._vACATableAdapter]));
                     this._vACATableAdapter.Transaction = null;
+                }
+                if ((this._eXAMEN_ANTROPOLOGICOTableAdapter != null)) {
+                    this._eXAMEN_ANTROPOLOGICOTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._eXAMEN_ANTROPOLOGICOTableAdapter]));
+                    this._eXAMEN_ANTROPOLOGICOTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
