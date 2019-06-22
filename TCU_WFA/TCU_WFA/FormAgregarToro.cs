@@ -18,13 +18,6 @@ namespace TCU_WFA
             InitializeComponent();
         }
 
-        private void botonVolver_Click(object sender, EventArgs e)
-        {
-            FormRegistroToros form = (FormRegistroToros)Tag;
-            form.Show();
-            Close();
-        }
-
         private void FormAgregarToro_Load(object sender, EventArgs e)
         {
 

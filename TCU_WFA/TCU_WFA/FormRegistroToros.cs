@@ -18,13 +18,6 @@ namespace TCU_WFA
             InitializeComponent();
         }
 
-        private void botonVolver_Click(object sender, EventArgs e)
-        {
-            VentanaPrincipal form = (VentanaPrincipal)Tag;
-            form.Show();
-            Close();
-        }
-
         private void FormRegistroToros_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'tCU_DBDataSet.TORO' table. You can move, or remove it, as needed.

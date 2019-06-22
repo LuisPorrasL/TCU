@@ -29,6 +29,13 @@ namespace TCU_WFA
             InitializeComponent();
         }
 
+        protected void botonVolver_Click(object sender, EventArgs e)
+        {
+            Form form = (Form)Tag;
+            form.Show();
+            Close();
+        }
+
         private void DefaultForm_Load(object sender, EventArgs e)
         {
 

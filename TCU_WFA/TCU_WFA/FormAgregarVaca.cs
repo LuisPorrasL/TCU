@@ -18,13 +18,6 @@ namespace TCU_WFA
             InitializeComponent();
         }
 
-        private void botonVolver_Click(object sender, EventArgs e)
-        {
-            FormRegistroVacas form = (FormRegistroVacas)Tag;
-            form.Show();
-            Close();
-        }
-
         private void FormAgregarVaca_Load(object sender, EventArgs e)
         {
 

@@ -17,13 +17,6 @@ namespace TCU_WFA
             InitializeComponent();
         }
 
-        private void botonVolver_Click(object sender, EventArgs e)
-        {
-            VentanaPrincipal form = (VentanaPrincipal)Tag;
-            form.Show();
-            Close();
-        }
-
         private void FormRegistroVacas_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'tCU_DBDataSet.VACA' table. You can move, or remove it, as needed.
