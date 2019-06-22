@@ -52,6 +52,7 @@
             this.Name = "FormPalpacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Palpación";
+            this.Load += new System.EventHandler(this.FormPalpacion_Load);
             this.ResumeLayout(false);
 
         }

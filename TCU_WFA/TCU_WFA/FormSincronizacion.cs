@@ -10,8 +10,9 @@ using System.Windows.Forms;
 
 namespace TCU_WFA
 {
-    public partial class FormSincronizacion : Form
+    public partial class FormSincronizacion : DefaultForm
     {
+
         public FormSincronizacion()
         {
             InitializeComponent();
@@ -22,6 +23,11 @@ namespace TCU_WFA
             VentanaPrincipal form = (VentanaPrincipal)Tag;
             form.Show();
             Close();
+        }
+
+        private void FormSincronizacion_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

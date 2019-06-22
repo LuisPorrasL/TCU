@@ -52,6 +52,7 @@
             this.Name = "FormSincronizacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sincronizacion";
+            this.Load += new System.EventHandler(this.FormSincronizacion_Load);
             this.ResumeLayout(false);
 
         }

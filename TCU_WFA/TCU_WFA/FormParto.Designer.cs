@@ -52,6 +52,7 @@
             this.Name = "FormParto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Parto";
+            this.Load += new System.EventHandler(this.FormParto_Load);
             this.ResumeLayout(false);
 
         }

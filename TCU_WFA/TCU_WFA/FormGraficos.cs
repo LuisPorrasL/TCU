@@ -10,8 +10,9 @@ using System.Windows.Forms;
 
 namespace TCU_WFA
 {
-    public partial class FormGraficos : Form
+    public partial class FormGraficos : DefaultForm
     {
+
         public FormGraficos()
         {
             InitializeComponent();
@@ -22,6 +23,11 @@ namespace TCU_WFA
             VentanaPrincipal form = (VentanaPrincipal)Tag;
             form.Show();
             Close();
+        }
+
+        private void FormGraficos_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

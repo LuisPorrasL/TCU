@@ -10,8 +10,9 @@ using System.Windows.Forms;
 
 namespace TCU_WFA
 {
-    public partial class FormDestete : Form
+    public partial class FormDestete : DefaultForm
     {
+
         public FormDestete()
         {
             InitializeComponent();
@@ -22,6 +23,11 @@ namespace TCU_WFA
             VentanaPrincipal form = (VentanaPrincipal)Tag;
             form.Show();
             Close();
+        }
+
+        private void FormDestete_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

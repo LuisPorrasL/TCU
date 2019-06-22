@@ -10,8 +10,9 @@ using System.Windows.Forms;
 
 namespace TCU_WFA
 {
-    public partial class FormPrennez : Form
+    public partial class FormPrennez : DefaultForm
     {
+
         public FormPrennez()
         {
             InitializeComponent();
@@ -22,6 +23,11 @@ namespace TCU_WFA
             VentanaPrincipal form = (VentanaPrincipal)Tag;
             form.Show();
             Close();
+        }
+
+        private void FormPrennez_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

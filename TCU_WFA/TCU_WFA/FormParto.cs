@@ -10,8 +10,9 @@ using System.Windows.Forms;
 
 namespace TCU_WFA
 {
-    public partial class FormParto : Form
+    public partial class FormParto : DefaultForm
     {
+
         public FormParto()
         {
             InitializeComponent();
@@ -22,6 +23,11 @@ namespace TCU_WFA
             VentanaPrincipal form = (VentanaPrincipal)Tag;
             form.Show();
             Close();
+        }
+
+        private void FormParto_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

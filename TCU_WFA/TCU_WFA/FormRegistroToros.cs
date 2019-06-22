@@ -10,8 +10,9 @@ using System.Windows.Forms;
 
 namespace TCU_WFA
 {
-    public partial class FormRegistroToros : Form
+    public partial class FormRegistroToros : DefaultForm
     {
+
         public FormRegistroToros()
         {
             InitializeComponent();
@@ -29,6 +30,14 @@ namespace TCU_WFA
             // TODO: This line of code loads data into the 'tCU_DBDataSet.TORO' table. You can move, or remove it, as needed.
             this.tOROTableAdapter.Fill(this.tCU_DBDataSet.TORO);
 
+        }
+
+        private void botonAgregarToro_Click(object sender, EventArgs e)
+        {
+            FormAgregarToro form = new FormAgregarToro();
+            form.Tag = this;
+            form.Show(this);
+            Hide();
         }
     }
 }

@@ -10,8 +10,9 @@ using System.Windows.Forms;
 
 namespace TCU_WFA
 {
-    public partial class FormResumen : Form
+    public partial class FormResumen : DefaultForm
     {
+
         public FormResumen()
         {
             InitializeComponent();
@@ -22,6 +23,11 @@ namespace TCU_WFA
             VentanaPrincipal form = (VentanaPrincipal)Tag;
             form.Show();
             Close();
+        }
+
+        private void FormResumen_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

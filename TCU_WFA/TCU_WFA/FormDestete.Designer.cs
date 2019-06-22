@@ -52,6 +52,7 @@
             this.Name = "FormDestete";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Destete";
+            this.Load += new System.EventHandler(this.FormDestete_Load);
             this.ResumeLayout(false);
 
         }

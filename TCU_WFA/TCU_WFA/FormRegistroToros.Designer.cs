@@ -34,19 +34,19 @@
             this.botonBuscarToro = new System.Windows.Forms.Button();
             this.textBoxBuscarToro = new System.Windows.Forms.TextBox();
             this.dataGridViewToros = new System.Windows.Forms.DataGridView();
-            this.tCU_DBDataSet = new TCU_WFA.TCU_DBDataSet();
-            this.tOROBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tOROTableAdapter = new TCU_WFA.TCU_DBDataSetTableAdapters.TOROTableAdapter();
             this.pKNUMEROTRAZABLEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rAZADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cARACTERISTICASDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nOMBREDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tOROBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tCU_DBDataSet = new TCU_WFA.TCU_DBDataSet();
+            this.tOROTableAdapter = new TCU_WFA.TCU_DBDataSetTableAdapters.TOROTableAdapter();
             this.botonEditar = new System.Windows.Forms.Button();
             this.botonEliminar = new System.Windows.Forms.Button();
             this.botonDetalles = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewToros)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tCU_DBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tOROBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tCU_DBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // botonVolver
@@ -67,6 +67,7 @@
             this.botonAgregarToro.TabIndex = 2;
             this.botonAgregarToro.Text = "Agregar toro";
             this.botonAgregarToro.UseVisualStyleBackColor = true;
+            this.botonAgregarToro.Click += new System.EventHandler(this.botonAgregarToro_Click);
             // 
             // botonBuscarToro
             // 
@@ -100,20 +101,6 @@
             this.dataGridViewToros.Size = new System.Drawing.Size(776, 302);
             this.dataGridViewToros.TabIndex = 5;
             // 
-            // tCU_DBDataSet
-            // 
-            this.tCU_DBDataSet.DataSetName = "TCU_DBDataSet";
-            this.tCU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tOROBindingSource
-            // 
-            this.tOROBindingSource.DataMember = "TORO";
-            this.tOROBindingSource.DataSource = this.tCU_DBDataSet;
-            // 
-            // tOROTableAdapter
-            // 
-            this.tOROTableAdapter.ClearBeforeFill = true;
-            // 
             // pKNUMEROTRAZABLEDataGridViewTextBoxColumn
             // 
             this.pKNUMEROTRAZABLEDataGridViewTextBoxColumn.DataPropertyName = "PK_NUMERO_TRAZABLE";
@@ -137,6 +124,20 @@
             this.nOMBREDataGridViewTextBoxColumn.DataPropertyName = "NOMBRE";
             this.nOMBREDataGridViewTextBoxColumn.HeaderText = "NOMBRE";
             this.nOMBREDataGridViewTextBoxColumn.Name = "nOMBREDataGridViewTextBoxColumn";
+            // 
+            // tOROBindingSource
+            // 
+            this.tOROBindingSource.DataMember = "TORO";
+            this.tOROBindingSource.DataSource = this.tCU_DBDataSet;
+            // 
+            // tCU_DBDataSet
+            // 
+            this.tCU_DBDataSet.DataSetName = "TCU_DBDataSet";
+            this.tCU_DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tOROTableAdapter
+            // 
+            this.tOROTableAdapter.ClearBeforeFill = true;
             // 
             // botonEditar
             // 
@@ -185,8 +186,8 @@
             this.Text = "Registro toros";
             this.Load += new System.EventHandler(this.FormRegistroToros_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewToros)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tCU_DBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tOROBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tCU_DBDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

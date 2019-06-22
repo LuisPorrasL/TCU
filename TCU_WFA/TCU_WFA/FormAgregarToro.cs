@@ -10,22 +10,22 @@ using System.Windows.Forms;
 
 namespace TCU_WFA
 {
-    public partial class FormExamenAndrologico : DefaultForm
+    public partial class FormAgregarToro : DefaultForm
     {
 
-        public FormExamenAndrologico()
+        public FormAgregarToro()
         {
             InitializeComponent();
         }
 
         private void botonVolver_Click(object sender, EventArgs e)
         {
-            VentanaPrincipal form = (VentanaPrincipal)Tag;
+            FormRegistroToros form = (FormRegistroToros)Tag;
             form.Show();
             Close();
         }
 
-        private void FormExamenAndrologico_Load(object sender, EventArgs e)
+        private void FormAgregarToro_Load(object sender, EventArgs e)
         {
 
         }

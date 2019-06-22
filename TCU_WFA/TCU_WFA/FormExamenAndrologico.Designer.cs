@@ -52,6 +52,7 @@
             this.Name = "FormExamenAndrologico";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Examen andrológico";
+            this.Load += new System.EventHandler(this.FormExamenAndrologico_Load);
             this.ResumeLayout(false);
 
         }

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace TCU_WFA
 {
-    public partial class FormRegistroVacas : Form
+    public partial class FormRegistroVacas : DefaultForm
     {
         public FormRegistroVacas()
         {
@@ -28,6 +28,14 @@ namespace TCU_WFA
         {
             // TODO: This line of code loads data into the 'tCU_DBDataSet.VACA' table. You can move, or remove it, as needed.
             this.vACATableAdapter.Fill(this.tCU_DBDataSet.VACA);
+        }
+
+        private void botonAgregarVaca_Click(object sender, EventArgs e)
+        {
+            FormAgregarVaca form = new FormAgregarVaca();
+            form.Tag = this;
+            form.Show(this);
+            Hide();
         }
     }
 }

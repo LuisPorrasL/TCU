@@ -46,6 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DefaultForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DefaultForm.Designer.cs">
+      <DependentUpon>DefaultForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAgregarToro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAgregarToro.Designer.cs">
+      <DependentUpon>FormAgregarToro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAgregarVaca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAgregarVaca.Designer.cs">
+      <DependentUpon>FormAgregarVaca.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormConfiguracion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +146,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DefaultForm.resx">
+      <DependentUpon>DefaultForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAgregarToro.resx">
+      <DependentUpon>FormAgregarToro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAgregarVaca.resx">
+      <DependentUpon>FormAgregarVaca.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormConfiguracion.resx">
       <DependentUpon>FormConfiguracion.cs</DependentUpon>
     </EmbeddedResource>

@@ -52,6 +52,7 @@
             this.Name = "FormConfiguracion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Configuracion";
+            this.Load += new System.EventHandler(this.FormConfiguracion_Load);
             this.ResumeLayout(false);
 
         }

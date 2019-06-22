@@ -10,8 +10,9 @@ using System.Windows.Forms;
 
 namespace TCU_WFA
 {
-    public partial class FormPalpacion : Form
+    public partial class FormPalpacion : DefaultForm
     {
+
         public FormPalpacion()
         {
             InitializeComponent();
@@ -22,6 +23,11 @@ namespace TCU_WFA
             VentanaPrincipal form = (VentanaPrincipal)Tag;
             form.Show();
             Close();
+        }
+
+        private void FormPalpacion_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

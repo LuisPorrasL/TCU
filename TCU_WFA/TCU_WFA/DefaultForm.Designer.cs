@@ -1,6 +1,6 @@
 ﻿namespace TCU_WFA
 {
-    partial class FormGraficos
+    partial class DefaultForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,37 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.botonVolver = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // botonVolver
-            // 
-            this.botonVolver.Location = new System.Drawing.Point(713, 415);
-            this.botonVolver.Name = "botonVolver";
-            this.botonVolver.Size = new System.Drawing.Size(75, 23);
-            this.botonVolver.TabIndex = 0;
-            this.botonVolver.Text = "Volver";
-            this.botonVolver.UseVisualStyleBackColor = true;
-            this.botonVolver.Click += new System.EventHandler(this.botonVolver_Click);
-            // 
-            // FormGraficos
+            // DefaultForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.botonVolver);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "FormGraficos";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Gráficos";
-            this.Load += new System.EventHandler(this.FormGraficos_Load);
+            this.Name = "DefaultForm";
+            this.Text = "DefaultForm";
+            this.Load += new System.EventHandler(this.DefaultForm_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button botonVolver;
     }
 }

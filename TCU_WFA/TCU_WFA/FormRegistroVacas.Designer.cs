@@ -73,6 +73,7 @@
             this.botonAgregarVaca.TabIndex = 1;
             this.botonAgregarVaca.Text = "Agregar vaca";
             this.botonAgregarVaca.UseVisualStyleBackColor = true;
+            this.botonAgregarVaca.Click += new System.EventHandler(this.botonAgregarVaca_Click);
             // 
             // botonBuscarVaca
             // 

@@ -52,6 +52,7 @@
             this.Name = "FormPrennez";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Preñez";
+            this.Load += new System.EventHandler(this.FormPrennez_Load);
             this.ResumeLayout(false);
 
         }
