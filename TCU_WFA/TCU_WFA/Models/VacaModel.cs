@@ -2,7 +2,7 @@
 
 namespace TCU_WFA.Models
 {
-    class VacaModel
+    public class VacaModel
     {
         public int pkNumeroTrazable { get; set; }
         public string nombre { get; set; }

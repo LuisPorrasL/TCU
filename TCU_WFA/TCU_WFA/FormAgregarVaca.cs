@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using TCU_WFA.Models;
+using TCU_WFA.Repository;
 
 namespace TCU_WFA
 {
@@ -20,6 +21,11 @@ namespace TCU_WFA
 
         private void FormAgregarVaca_Load(object sender, EventArgs e)
         {
+            LlenarComboBoxListAgregarVaca();
+        }
+
+        private void LlenarComboBoxListAgregarVaca()
+        {
             Utilities.LlenarComboBoxList(QUERY_LLENAR_COMBO_BOX_MODO_PRENNES, comboBoxModoPrennes);
             Utilities.LlenarComboBoxList(QUERY_LLENAR_COMBO_BOX_ID_MADRE, comboBoxIdMadre);
             Utilities.LlenarComboBoxList(QUERY_LLENAR_COMBO_BOX_ID_PADRE, comboBoxIdPadre);
@@ -32,7 +38,13 @@ namespace TCU_WFA
             {
                 VacaModel datosNuevaVaca = ObtenerDatosEntradaUsuario();
                 bool resultado = AgregarNuevaVaca(datosNuevaVaca);
-                if (resultado) Utilities.MostrarMessageBox(Utilities.MENSAJE_EXITO, Utilities.TITULO_EXITO, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (resultado)
+                {
+                    Utilities.MostrarMessageBox(Utilities.MENSAJE_EXITO, Utilities.TITULO_EXITO, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LimpiarEntradaUsuario();
+                    FormRegistroVacas formRegistroVacas = (FormRegistroVacas)Tag;
+                    formRegistroVacas.LlenarDataGridViewVacas();
+                }
                 else Utilities.MostrarMessageBox(Utilities.MENSAJE_ERROR, Utilities.TITULO_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
@@ -43,9 +55,10 @@ namespace TCU_WFA
 
         private bool AgregarNuevaVaca(VacaModel datosNuevaVaca)
         {
-            TCU_DBDataSetTableAdapters.VACATableAdapter vacaTableAdapter = new TCU_DBDataSetTableAdapters.VACATableAdapter();
             try
             {
+                int resultado = ProcedimientosAlmacenados.ProcInsertarVaca(datosNuevaVaca);
+                if(resultado == Utilities.RESULTADO_ERROR) return false;
                 return true;
             }
             catch
@@ -90,5 +103,16 @@ namespace TCU_WFA
             resultado.fecha = dateTimePickerFechaNacimiento.Value;
             return resultado;
         }
+
+        private void LimpiarEntradaUsuario()
+        {
+            textBoxNumeroTrazableVaca.Clear();
+            textBoxNombre.Clear();
+            textBoxRaza.Clear();
+            textBoxCaracteristicas.Clear();
+            dateTimePickerFechaNacimiento.Value = DateTime.Now;
+            LlenarComboBoxListAgregarVaca();
+        }
+
     }
 }

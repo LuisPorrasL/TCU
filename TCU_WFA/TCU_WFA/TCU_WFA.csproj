@@ -131,6 +131,7 @@
       <DependentUpon>FormSincronizacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\VacaModel.cs" />
+    <Compile Include="Repository\ProcedimientosAlmacenados.cs" />
     <Compile Include="TCU_DBDataSet.cs">
       <DependentUpon>TCU_DBDataSet.xsd</DependentUpon>
     </Compile>

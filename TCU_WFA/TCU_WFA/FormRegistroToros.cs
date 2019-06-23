@@ -20,9 +20,6 @@ namespace TCU_WFA
 
         private void FormRegistroToros_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'tCU_DBDataSet.TORO' table. You can move, or remove it, as needed.
-            this.tOROTableAdapter.Fill(this.tCU_DBDataSet.TORO);
-
         }
 
         private void botonAgregarToro_Click(object sender, EventArgs e)

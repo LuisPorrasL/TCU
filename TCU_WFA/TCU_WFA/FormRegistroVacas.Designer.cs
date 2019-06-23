@@ -1,6 +1,6 @@
 ﻿namespace TCU_WFA
 {
-    partial class FormRegistroVacas
+    partial class FormRegistroVacas : DefaultForm
     {
         /// <summary>
         /// Required designer variable.
@@ -34,14 +34,6 @@
             this.botonBuscarVaca = new System.Windows.Forms.Button();
             this.textBoxBuscarVaca = new System.Windows.Forms.TextBox();
             this.dataGridViewVacas = new System.Windows.Forms.DataGridView();
-            this.pKNUMEROTRAZABLEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rAZADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cARACTERISTICASDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nOMBREDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fKIDMODOPRENNESDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fECHANACIMIENTODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fKNUMEROTRAZABLEVACADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fKNUMEROTRAZABLETORODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vACABindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tCUDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tCU_DBDataSet = new TCU_WFA.TCU_DBDataSet();
@@ -49,10 +41,14 @@
             this.botonEditar = new System.Windows.Forms.Button();
             this.botonEliminar = new System.Windows.Forms.Button();
             this.botonDetalles = new System.Windows.Forms.Button();
+            this.vACABindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.cKFKNUMEROTRAZABLEVACABindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVacas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vACABindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tCUDBDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tCU_DBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vACABindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cKFKNUMEROTRAZABLEVACABindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // botonVolver
@@ -93,70 +89,11 @@
             // 
             // dataGridViewVacas
             // 
-            this.dataGridViewVacas.AutoGenerateColumns = false;
             this.dataGridViewVacas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewVacas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.pKNUMEROTRAZABLEDataGridViewTextBoxColumn,
-            this.rAZADataGridViewTextBoxColumn,
-            this.cARACTERISTICASDataGridViewTextBoxColumn,
-            this.nOMBREDataGridViewTextBoxColumn,
-            this.fKIDMODOPRENNESDataGridViewTextBoxColumn,
-            this.fECHANACIMIENTODataGridViewTextBoxColumn,
-            this.fKNUMEROTRAZABLEVACADataGridViewTextBoxColumn,
-            this.fKNUMEROTRAZABLETORODataGridViewTextBoxColumn});
-            this.dataGridViewVacas.DataSource = this.vACABindingSource;
             this.dataGridViewVacas.Location = new System.Drawing.Point(12, 107);
             this.dataGridViewVacas.Name = "dataGridViewVacas";
             this.dataGridViewVacas.Size = new System.Drawing.Size(776, 302);
             this.dataGridViewVacas.TabIndex = 4;
-            // 
-            // pKNUMEROTRAZABLEDataGridViewTextBoxColumn
-            // 
-            this.pKNUMEROTRAZABLEDataGridViewTextBoxColumn.DataPropertyName = "PK_NUMERO_TRAZABLE";
-            this.pKNUMEROTRAZABLEDataGridViewTextBoxColumn.HeaderText = "PK_NUMERO_TRAZABLE";
-            this.pKNUMEROTRAZABLEDataGridViewTextBoxColumn.Name = "pKNUMEROTRAZABLEDataGridViewTextBoxColumn";
-            // 
-            // rAZADataGridViewTextBoxColumn
-            // 
-            this.rAZADataGridViewTextBoxColumn.DataPropertyName = "RAZA";
-            this.rAZADataGridViewTextBoxColumn.HeaderText = "RAZA";
-            this.rAZADataGridViewTextBoxColumn.Name = "rAZADataGridViewTextBoxColumn";
-            // 
-            // cARACTERISTICASDataGridViewTextBoxColumn
-            // 
-            this.cARACTERISTICASDataGridViewTextBoxColumn.DataPropertyName = "CARACTERISTICAS";
-            this.cARACTERISTICASDataGridViewTextBoxColumn.HeaderText = "CARACTERISTICAS";
-            this.cARACTERISTICASDataGridViewTextBoxColumn.Name = "cARACTERISTICASDataGridViewTextBoxColumn";
-            // 
-            // nOMBREDataGridViewTextBoxColumn
-            // 
-            this.nOMBREDataGridViewTextBoxColumn.DataPropertyName = "NOMBRE";
-            this.nOMBREDataGridViewTextBoxColumn.HeaderText = "NOMBRE";
-            this.nOMBREDataGridViewTextBoxColumn.Name = "nOMBREDataGridViewTextBoxColumn";
-            // 
-            // fKIDMODOPRENNESDataGridViewTextBoxColumn
-            // 
-            this.fKIDMODOPRENNESDataGridViewTextBoxColumn.DataPropertyName = "FK_ID_MODO_PRENNES";
-            this.fKIDMODOPRENNESDataGridViewTextBoxColumn.HeaderText = "FK_ID_MODO_PRENNES";
-            this.fKIDMODOPRENNESDataGridViewTextBoxColumn.Name = "fKIDMODOPRENNESDataGridViewTextBoxColumn";
-            // 
-            // fECHANACIMIENTODataGridViewTextBoxColumn
-            // 
-            this.fECHANACIMIENTODataGridViewTextBoxColumn.DataPropertyName = "FECHA_NACIMIENTO";
-            this.fECHANACIMIENTODataGridViewTextBoxColumn.HeaderText = "FECHA_NACIMIENTO";
-            this.fECHANACIMIENTODataGridViewTextBoxColumn.Name = "fECHANACIMIENTODataGridViewTextBoxColumn";
-            // 
-            // fKNUMEROTRAZABLEVACADataGridViewTextBoxColumn
-            // 
-            this.fKNUMEROTRAZABLEVACADataGridViewTextBoxColumn.DataPropertyName = "FK_NUMERO_TRAZABLE_VACA";
-            this.fKNUMEROTRAZABLEVACADataGridViewTextBoxColumn.HeaderText = "FK_NUMERO_TRAZABLE_VACA";
-            this.fKNUMEROTRAZABLEVACADataGridViewTextBoxColumn.Name = "fKNUMEROTRAZABLEVACADataGridViewTextBoxColumn";
-            // 
-            // fKNUMEROTRAZABLETORODataGridViewTextBoxColumn
-            // 
-            this.fKNUMEROTRAZABLETORODataGridViewTextBoxColumn.DataPropertyName = "FK_NUMERO_TRAZABLE_TORO";
-            this.fKNUMEROTRAZABLETORODataGridViewTextBoxColumn.HeaderText = "FK_NUMERO_TRAZABLE_TORO";
-            this.fKNUMEROTRAZABLETORODataGridViewTextBoxColumn.Name = "fKNUMEROTRAZABLETORODataGridViewTextBoxColumn";
             // 
             // vACABindingSource
             // 
@@ -204,6 +141,16 @@
             this.botonDetalles.Text = "Detalles";
             this.botonDetalles.UseVisualStyleBackColor = true;
             // 
+            // vACABindingSource1
+            // 
+            this.vACABindingSource1.DataMember = "VACA";
+            this.vACABindingSource1.DataSource = this.tCUDBDataSetBindingSource;
+            // 
+            // cKFKNUMEROTRAZABLEVACABindingSource
+            // 
+            this.cKFKNUMEROTRAZABLEVACABindingSource.DataMember = "CK_FK_NUMERO_TRAZABLE_VACA";
+            this.cKFKNUMEROTRAZABLEVACABindingSource.DataSource = this.vACABindingSource1;
+            // 
             // FormRegistroVacas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -227,6 +174,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.vACABindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tCUDBDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tCU_DBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vACABindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cKFKNUMEROTRAZABLEVACABindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,16 +192,10 @@
         private TCU_DBDataSet tCU_DBDataSet;
         private System.Windows.Forms.BindingSource vACABindingSource;
         private TCU_DBDataSetTableAdapters.VACATableAdapter vACATableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pKNUMEROTRAZABLEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rAZADataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cARACTERISTICASDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nOMBREDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fKIDMODOPRENNESDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fECHANACIMIENTODataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fKNUMEROTRAZABLEVACADataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fKNUMEROTRAZABLETORODataGridViewTextBoxColumn;
         private System.Windows.Forms.Button botonEditar;
         private System.Windows.Forms.Button botonEliminar;
         private System.Windows.Forms.Button botonDetalles;
+        private System.Windows.Forms.BindingSource vACABindingSource1;
+        private System.Windows.Forms.BindingSource cKFKNUMEROTRAZABLEVACABindingSource;
     }
 }

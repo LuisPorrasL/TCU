@@ -1,6 +1,6 @@
 ﻿namespace TCU_WFA
 {
-    partial class FormAgregarToro
+    partial class FormAgregarToro : DefaultForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,6 +30,7 @@
         {
             this.botonVolver = new System.Windows.Forms.Button();
             this.groupBoxAgregarVaca = new System.Windows.Forms.GroupBox();
+            this.textBoxRaza = new System.Windows.Forms.TextBox();
             this.textBoxCaracteristicas = new System.Windows.Forms.TextBox();
             this.labelCaracteristicas = new System.Windows.Forms.Label();
             this.labelRaza = new System.Windows.Forms.Label();
@@ -37,7 +38,6 @@
             this.labelNombre = new System.Windows.Forms.Label();
             this.textBoxNumeroTrazableToro = new System.Windows.Forms.TextBox();
             this.labelNumeroTrazableToro = new System.Windows.Forms.Label();
-            this.textBoxRaza = new System.Windows.Forms.TextBox();
             this.groupBoxAgregarVaca.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +49,7 @@
             this.botonVolver.TabIndex = 2;
             this.botonVolver.Text = "Volver";
             this.botonVolver.UseVisualStyleBackColor = true;
+            this.botonVolver.Click += new System.EventHandler(this.botonVolver_Click);
             // 
             // groupBoxAgregarVaca
             // 
@@ -65,6 +66,13 @@
             this.groupBoxAgregarVaca.Size = new System.Drawing.Size(345, 205);
             this.groupBoxAgregarVaca.TabIndex = 3;
             this.groupBoxAgregarVaca.TabStop = false;
+            // 
+            // textBoxRaza
+            // 
+            this.textBoxRaza.Location = new System.Drawing.Point(136, 101);
+            this.textBoxRaza.Name = "textBoxRaza";
+            this.textBoxRaza.Size = new System.Drawing.Size(200, 20);
+            this.textBoxRaza.TabIndex = 16;
             // 
             // textBoxCaracteristicas
             // 
@@ -124,13 +132,6 @@
             this.labelNumeroTrazableToro.Size = new System.Drawing.Size(88, 13);
             this.labelNumeroTrazableToro.TabIndex = 0;
             this.labelNumeroTrazableToro.Text = "Número trazable*";
-            // 
-            // textBoxRaza
-            // 
-            this.textBoxRaza.Location = new System.Drawing.Point(136, 101);
-            this.textBoxRaza.Name = "textBoxRaza";
-            this.textBoxRaza.Size = new System.Drawing.Size(200, 20);
-            this.textBoxRaza.TabIndex = 16;
             // 
             // FormAgregarToro
             // 

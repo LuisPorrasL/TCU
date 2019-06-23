@@ -1,6 +1,6 @@
 ﻿namespace TCU_WFA
 {
-    partial class FormRegistroToros
+    partial class FormRegistroToros : DefaultForm
     {
         /// <summary>
         /// Required designer variable.
@@ -34,10 +34,6 @@
             this.botonBuscarToro = new System.Windows.Forms.Button();
             this.textBoxBuscarToro = new System.Windows.Forms.TextBox();
             this.dataGridViewToros = new System.Windows.Forms.DataGridView();
-            this.pKNUMEROTRAZABLEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rAZADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cARACTERISTICASDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nOMBREDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tOROBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tCU_DBDataSet = new TCU_WFA.TCU_DBDataSet();
             this.tOROTableAdapter = new TCU_WFA.TCU_DBDataSetTableAdapters.TOROTableAdapter();
@@ -87,43 +83,12 @@
             // 
             // dataGridViewToros
             // 
-            this.dataGridViewToros.AutoGenerateColumns = false;
             this.dataGridViewToros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewToros.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.pKNUMEROTRAZABLEDataGridViewTextBoxColumn,
-            this.rAZADataGridViewTextBoxColumn,
-            this.cARACTERISTICASDataGridViewTextBoxColumn,
-            this.nOMBREDataGridViewTextBoxColumn});
-            this.dataGridViewToros.DataSource = this.tOROBindingSource;
             this.dataGridViewToros.Location = new System.Drawing.Point(12, 107);
             this.dataGridViewToros.Name = "dataGridViewToros";
             this.dataGridViewToros.RowHeadersWidth = 21;
             this.dataGridViewToros.Size = new System.Drawing.Size(776, 302);
             this.dataGridViewToros.TabIndex = 5;
-            // 
-            // pKNUMEROTRAZABLEDataGridViewTextBoxColumn
-            // 
-            this.pKNUMEROTRAZABLEDataGridViewTextBoxColumn.DataPropertyName = "PK_NUMERO_TRAZABLE";
-            this.pKNUMEROTRAZABLEDataGridViewTextBoxColumn.HeaderText = "PK_NUMERO_TRAZABLE";
-            this.pKNUMEROTRAZABLEDataGridViewTextBoxColumn.Name = "pKNUMEROTRAZABLEDataGridViewTextBoxColumn";
-            // 
-            // rAZADataGridViewTextBoxColumn
-            // 
-            this.rAZADataGridViewTextBoxColumn.DataPropertyName = "RAZA";
-            this.rAZADataGridViewTextBoxColumn.HeaderText = "RAZA";
-            this.rAZADataGridViewTextBoxColumn.Name = "rAZADataGridViewTextBoxColumn";
-            // 
-            // cARACTERISTICASDataGridViewTextBoxColumn
-            // 
-            this.cARACTERISTICASDataGridViewTextBoxColumn.DataPropertyName = "CARACTERISTICAS";
-            this.cARACTERISTICASDataGridViewTextBoxColumn.HeaderText = "CARACTERISTICAS";
-            this.cARACTERISTICASDataGridViewTextBoxColumn.Name = "cARACTERISTICASDataGridViewTextBoxColumn";
-            // 
-            // nOMBREDataGridViewTextBoxColumn
-            // 
-            this.nOMBREDataGridViewTextBoxColumn.DataPropertyName = "NOMBRE";
-            this.nOMBREDataGridViewTextBoxColumn.HeaderText = "NOMBRE";
-            this.nOMBREDataGridViewTextBoxColumn.Name = "nOMBREDataGridViewTextBoxColumn";
             // 
             // tOROBindingSource
             // 
@@ -203,10 +168,6 @@
         private TCU_DBDataSet tCU_DBDataSet;
         private System.Windows.Forms.BindingSource tOROBindingSource;
         private TCU_DBDataSetTableAdapters.TOROTableAdapter tOROTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pKNUMEROTRAZABLEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rAZADataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cARACTERISTICASDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nOMBREDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button botonEditar;
         private System.Windows.Forms.Button botonEliminar;
         private System.Windows.Forms.Button botonDetalles;
