@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TCU_WFA.Models;
 
@@ -53,8 +46,6 @@ namespace TCU_WFA
             TCU_DBDataSetTableAdapters.VACATableAdapter vacaTableAdapter = new TCU_DBDataSetTableAdapters.VACATableAdapter();
             try
             {
-                vacaTableAdapter.Insert(datosNuevaVaca.pkNumeroTrazable, datosNuevaVaca.raza, datosNuevaVaca.caracteriscas, datosNuevaVaca.nombre,
-                    datosNuevaVaca.fkModoPrennes, datosNuevaVaca.fecha, datosNuevaVaca.fkNumeroTrazableMadre, datosNuevaVaca.fkNumeroTrazablePadre);
                 return true;
             }
             catch
@@ -99,6 +90,5 @@ namespace TCU_WFA
             resultado.fecha = dateTimePickerFechaNacimiento.Value;
             return resultado;
         }
-
     }
 }

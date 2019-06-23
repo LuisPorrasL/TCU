@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TCU_WFA
@@ -12,7 +8,8 @@ namespace TCU_WFA
     public class Utilities
     {
         //Constantes
-        private const string QUERY_OBTENER_ID_MODO_PRENNES = "WHERE MODO_PRENNES = ";
+        private const string QUERY_OBTENER_ID_MODO_PRENNES = "SELECT mp.PK_ID_MODO_PRENNES FROM [dbo].[MODO_PRENNES] mP WHERE mP.MODO_PRENNES = @ModoPrennes";
+        public const int RESULTADO_ERROR = -1;
         //Connection string 
         public const string CONNECTION_STRING = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog = TCU_DB; Integrated Security = True; Connect Timeout = 60; Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         //Mensajes
@@ -49,7 +46,6 @@ namespace TCU_WFA
                     }
                 }
             }
-
             comboBoxName.DataSource = dt;
             comboBoxName.ValueMember = dt.Columns[0].ColumnName;
             comboBoxName.DisplayMember = dt.Columns[1].ColumnName;
@@ -57,7 +53,24 @@ namespace TCU_WFA
 
         public static int ObtenerIdModoPrennes(string nombreModoPrennes)
         {
-            return 1;
+            int resultado;
+            using (SqlConnection conn = new SqlConnection(CONNECTION_STRING))
+            {
+                SqlCommand cmd = new SqlCommand(QUERY_OBTENER_ID_MODO_PRENNES, conn);
+                cmd.Parameters.Add("@ModoPrennes", SqlDbType.VarChar);
+                cmd.Parameters["@ModoPrennes"].Value = nombreModoPrennes;
+                try
+                {
+                    conn.Open();
+                    resultado = (Int32)cmd.ExecuteScalar();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    resultado = RESULTADO_ERROR;
+                }
+            }
+            return resultado;
         }
     }
 }
