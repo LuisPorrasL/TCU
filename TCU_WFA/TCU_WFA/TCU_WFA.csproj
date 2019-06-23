@@ -130,6 +130,7 @@
     <Compile Include="FormSincronizacion.Designer.cs">
       <DependentUpon>FormSincronizacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\VacaModel.cs" />
     <Compile Include="TCU_DBDataSet.cs">
       <DependentUpon>TCU_DBDataSet.xsd</DependentUpon>
     </Compile>
@@ -138,6 +139,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TCU_DBDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Utilities.cs" />
     <Compile Include="VentanaPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -32,12 +32,12 @@
             this.groupBoxAgregarVaca = new System.Windows.Forms.GroupBox();
             this.textBoxCaracteristicas = new System.Windows.Forms.TextBox();
             this.labelCaracteristicas = new System.Windows.Forms.Label();
-            this.comboBoxRaza = new System.Windows.Forms.ComboBox();
             this.labelRaza = new System.Windows.Forms.Label();
             this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.labelNombre = new System.Windows.Forms.Label();
             this.textBoxNumeroTrazableToro = new System.Windows.Forms.TextBox();
             this.labelNumeroTrazableToro = new System.Windows.Forms.Label();
+            this.textBoxRaza = new System.Windows.Forms.TextBox();
             this.groupBoxAgregarVaca.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,13 +49,12 @@
             this.botonVolver.TabIndex = 2;
             this.botonVolver.Text = "Volver";
             this.botonVolver.UseVisualStyleBackColor = true;
-            this.botonVolver.Click += new System.EventHandler(this.botonVolver_Click);
             // 
             // groupBoxAgregarVaca
             // 
+            this.groupBoxAgregarVaca.Controls.Add(this.textBoxRaza);
             this.groupBoxAgregarVaca.Controls.Add(this.textBoxCaracteristicas);
             this.groupBoxAgregarVaca.Controls.Add(this.labelCaracteristicas);
-            this.groupBoxAgregarVaca.Controls.Add(this.comboBoxRaza);
             this.groupBoxAgregarVaca.Controls.Add(this.labelRaza);
             this.groupBoxAgregarVaca.Controls.Add(this.textBoxNombre);
             this.groupBoxAgregarVaca.Controls.Add(this.labelNombre);
@@ -81,17 +80,9 @@
             this.labelCaracteristicas.AutoSize = true;
             this.labelCaracteristicas.Location = new System.Drawing.Point(6, 148);
             this.labelCaracteristicas.Name = "labelCaracteristicas";
-            this.labelCaracteristicas.Size = new System.Drawing.Size(78, 13);
+            this.labelCaracteristicas.Size = new System.Drawing.Size(82, 13);
             this.labelCaracteristicas.TabIndex = 14;
-            this.labelCaracteristicas.Text = "Características";
-            // 
-            // comboBoxRaza
-            // 
-            this.comboBoxRaza.FormattingEnabled = true;
-            this.comboBoxRaza.Location = new System.Drawing.Point(136, 101);
-            this.comboBoxRaza.Name = "comboBoxRaza";
-            this.comboBoxRaza.Size = new System.Drawing.Size(200, 21);
-            this.comboBoxRaza.TabIndex = 5;
+            this.labelCaracteristicas.Text = "Características*";
             // 
             // labelRaza
             // 
@@ -130,9 +121,16 @@
             this.labelNumeroTrazableToro.AutoSize = true;
             this.labelNumeroTrazableToro.Location = new System.Drawing.Point(6, 16);
             this.labelNumeroTrazableToro.Name = "labelNumeroTrazableToro";
-            this.labelNumeroTrazableToro.Size = new System.Drawing.Size(84, 13);
+            this.labelNumeroTrazableToro.Size = new System.Drawing.Size(88, 13);
             this.labelNumeroTrazableToro.TabIndex = 0;
-            this.labelNumeroTrazableToro.Text = "Número trazable";
+            this.labelNumeroTrazableToro.Text = "Número trazable*";
+            // 
+            // textBoxRaza
+            // 
+            this.textBoxRaza.Location = new System.Drawing.Point(136, 101);
+            this.textBoxRaza.Name = "textBoxRaza";
+            this.textBoxRaza.Size = new System.Drawing.Size(200, 20);
+            this.textBoxRaza.TabIndex = 16;
             // 
             // FormAgregarToro
             // 
@@ -145,7 +143,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormAgregarToro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormAgregarToro";
+            this.Text = "Agregar toro";
             this.Load += new System.EventHandler(this.FormAgregarToro_Load);
             this.groupBoxAgregarVaca.ResumeLayout(false);
             this.groupBoxAgregarVaca.PerformLayout();
@@ -159,11 +157,11 @@
         private System.Windows.Forms.GroupBox groupBoxAgregarVaca;
         private System.Windows.Forms.TextBox textBoxCaracteristicas;
         private System.Windows.Forms.Label labelCaracteristicas;
-        private System.Windows.Forms.ComboBox comboBoxRaza;
         private System.Windows.Forms.Label labelRaza;
         private System.Windows.Forms.TextBox textBoxNombre;
         private System.Windows.Forms.Label labelNombre;
         private System.Windows.Forms.TextBox textBoxNumeroTrazableToro;
         private System.Windows.Forms.Label labelNumeroTrazableToro;
+        private System.Windows.Forms.TextBox textBoxRaza;
     }
 }

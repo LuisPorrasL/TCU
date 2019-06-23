@@ -1,6 +1,6 @@
 ﻿namespace TCU_WFA
 {
-    partial class FormAgregarVaca
+    partial class FormAgregarVaca: DefaultForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,6 +30,7 @@
         {
             this.botonVolver = new System.Windows.Forms.Button();
             this.groupBoxAgregarVaca = new System.Windows.Forms.GroupBox();
+            this.textBoxRaza = new System.Windows.Forms.TextBox();
             this.textBoxCaracteristicas = new System.Windows.Forms.TextBox();
             this.labelCaracteristicas = new System.Windows.Forms.Label();
             this.comboBoxModoPrennes = new System.Windows.Forms.ComboBox();
@@ -40,12 +41,12 @@
             this.labelIdMadre = new System.Windows.Forms.Label();
             this.dateTimePickerFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.labelFechaNacimiento = new System.Windows.Forms.Label();
-            this.comboBoxRaza = new System.Windows.Forms.ComboBox();
             this.labelRaza = new System.Windows.Forms.Label();
             this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.labelNombre = new System.Windows.Forms.Label();
             this.textBoxNumeroTrazableVaca = new System.Windows.Forms.TextBox();
             this.labelNumeroTrazableVaca = new System.Windows.Forms.Label();
+            this.botonAgregar = new System.Windows.Forms.Button();
             this.groupBoxAgregarVaca.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +62,7 @@
             // 
             // groupBoxAgregarVaca
             // 
+            this.groupBoxAgregarVaca.Controls.Add(this.textBoxRaza);
             this.groupBoxAgregarVaca.Controls.Add(this.textBoxCaracteristicas);
             this.groupBoxAgregarVaca.Controls.Add(this.labelCaracteristicas);
             this.groupBoxAgregarVaca.Controls.Add(this.comboBoxModoPrennes);
@@ -71,7 +73,6 @@
             this.groupBoxAgregarVaca.Controls.Add(this.labelIdMadre);
             this.groupBoxAgregarVaca.Controls.Add(this.dateTimePickerFechaNacimiento);
             this.groupBoxAgregarVaca.Controls.Add(this.labelFechaNacimiento);
-            this.groupBoxAgregarVaca.Controls.Add(this.comboBoxRaza);
             this.groupBoxAgregarVaca.Controls.Add(this.labelRaza);
             this.groupBoxAgregarVaca.Controls.Add(this.textBoxNombre);
             this.groupBoxAgregarVaca.Controls.Add(this.labelNombre);
@@ -82,6 +83,13 @@
             this.groupBoxAgregarVaca.Size = new System.Drawing.Size(345, 426);
             this.groupBoxAgregarVaca.TabIndex = 2;
             this.groupBoxAgregarVaca.TabStop = false;
+            // 
+            // textBoxRaza
+            // 
+            this.textBoxRaza.Location = new System.Drawing.Point(136, 155);
+            this.textBoxRaza.Name = "textBoxRaza";
+            this.textBoxRaza.Size = new System.Drawing.Size(200, 20);
+            this.textBoxRaza.TabIndex = 16;
             // 
             // textBoxCaracteristicas
             // 
@@ -97,12 +105,13 @@
             this.labelCaracteristicas.AutoSize = true;
             this.labelCaracteristicas.Location = new System.Drawing.Point(6, 354);
             this.labelCaracteristicas.Name = "labelCaracteristicas";
-            this.labelCaracteristicas.Size = new System.Drawing.Size(78, 13);
+            this.labelCaracteristicas.Size = new System.Drawing.Size(82, 13);
             this.labelCaracteristicas.TabIndex = 14;
-            this.labelCaracteristicas.Text = "Características";
+            this.labelCaracteristicas.Text = "Características*";
             // 
             // comboBoxModoPrennes
             // 
+            this.comboBoxModoPrennes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxModoPrennes.FormattingEnabled = true;
             this.comboBoxModoPrennes.Location = new System.Drawing.Point(136, 197);
             this.comboBoxModoPrennes.Name = "comboBoxModoPrennes";
@@ -114,12 +123,13 @@
             this.labelModoPrennes.AutoSize = true;
             this.labelModoPrennes.Location = new System.Drawing.Point(6, 200);
             this.labelModoPrennes.Name = "labelModoPrennes";
-            this.labelModoPrennes.Size = new System.Drawing.Size(69, 13);
+            this.labelModoPrennes.Size = new System.Drawing.Size(73, 13);
             this.labelModoPrennes.TabIndex = 12;
-            this.labelModoPrennes.Text = "Modo preñes";
+            this.labelModoPrennes.Text = "Modo preñes*";
             // 
             // comboBoxIdPadre
             // 
+            this.comboBoxIdPadre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxIdPadre.FormattingEnabled = true;
             this.comboBoxIdPadre.Location = new System.Drawing.Point(136, 284);
             this.comboBoxIdPadre.Name = "comboBoxIdPadre";
@@ -137,6 +147,7 @@
             // 
             // comboBoxIdMadre
             // 
+            this.comboBoxIdMadre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxIdMadre.FormattingEnabled = true;
             this.comboBoxIdMadre.Location = new System.Drawing.Point(136, 241);
             this.comboBoxIdMadre.Name = "comboBoxIdMadre";
@@ -167,14 +178,6 @@
             this.labelFechaNacimiento.Size = new System.Drawing.Size(106, 13);
             this.labelFechaNacimiento.TabIndex = 6;
             this.labelFechaNacimiento.Text = "Fecha de nacimiento";
-            // 
-            // comboBoxRaza
-            // 
-            this.comboBoxRaza.FormattingEnabled = true;
-            this.comboBoxRaza.Location = new System.Drawing.Point(136, 155);
-            this.comboBoxRaza.Name = "comboBoxRaza";
-            this.comboBoxRaza.Size = new System.Drawing.Size(200, 21);
-            this.comboBoxRaza.TabIndex = 5;
             // 
             // labelRaza
             // 
@@ -213,9 +216,19 @@
             this.labelNumeroTrazableVaca.AutoSize = true;
             this.labelNumeroTrazableVaca.Location = new System.Drawing.Point(6, 16);
             this.labelNumeroTrazableVaca.Name = "labelNumeroTrazableVaca";
-            this.labelNumeroTrazableVaca.Size = new System.Drawing.Size(84, 13);
+            this.labelNumeroTrazableVaca.Size = new System.Drawing.Size(88, 13);
             this.labelNumeroTrazableVaca.TabIndex = 0;
-            this.labelNumeroTrazableVaca.Text = "Número trazable";
+            this.labelNumeroTrazableVaca.Text = "Número trazable*";
+            // 
+            // botonAgregar
+            // 
+            this.botonAgregar.Location = new System.Drawing.Point(632, 415);
+            this.botonAgregar.Name = "botonAgregar";
+            this.botonAgregar.Size = new System.Drawing.Size(75, 23);
+            this.botonAgregar.TabIndex = 3;
+            this.botonAgregar.Text = "Agregar";
+            this.botonAgregar.UseVisualStyleBackColor = true;
+            this.botonAgregar.Click += new System.EventHandler(this.botonAgregar_Click);
             // 
             // FormAgregarVaca
             // 
@@ -223,6 +236,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.botonAgregar);
             this.Controls.Add(this.groupBoxAgregarVaca);
             this.Controls.Add(this.botonVolver);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -245,16 +259,17 @@
         private System.Windows.Forms.Label labelRaza;
         private System.Windows.Forms.TextBox textBoxNombre;
         private System.Windows.Forms.Label labelNombre;
-        private System.Windows.Forms.ComboBox comboBoxRaza;
         private System.Windows.Forms.DateTimePicker dateTimePickerFechaNacimiento;
         private System.Windows.Forms.Label labelFechaNacimiento;
         private System.Windows.Forms.ComboBox comboBoxIdMadre;
         private System.Windows.Forms.Label labelIdMadre;
         private System.Windows.Forms.ComboBox comboBoxIdPadre;
         private System.Windows.Forms.Label labelIdPadre;
-        private System.Windows.Forms.ComboBox comboBoxModoPrennes;
         private System.Windows.Forms.Label labelModoPrennes;
         private System.Windows.Forms.TextBox textBoxCaracteristicas;
         private System.Windows.Forms.Label labelCaracteristicas;
+        private System.Windows.Forms.Button botonAgregar;
+        private System.Windows.Forms.TextBox textBoxRaza;
+        protected internal System.Windows.Forms.ComboBox comboBoxModoPrennes;
     }
 }
