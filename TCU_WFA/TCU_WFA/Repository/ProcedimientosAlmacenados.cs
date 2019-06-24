@@ -27,9 +27,9 @@ namespace TCU_WFA.Repository
                 cmd.Parameters.Add("@fkModoPrennes", SqlDbType.Int);
                 cmd.Parameters["@fkModoPrennes"].Value = vaca.fkModoPrennes;
                 cmd.Parameters.Add("@fkNumeroTrazableMadre", SqlDbType.Int);
-                cmd.Parameters["@fkNumeroTrazableMadre"].Value = vaca.fkNumeroTrazableMadre;
+                cmd.Parameters["@fkNumeroTrazableMadre"].Value = (object)vaca.fkNumeroTrazableMadre ?? DBNull.Value;
                 cmd.Parameters.Add("@fkNumeroTrazablePadre", SqlDbType.Int);
-                cmd.Parameters["@fkNumeroTrazablePadre"].Value = vaca.fkNumeroTrazablePadre;
+                cmd.Parameters["@fkNumeroTrazablePadre"].Value = (object)vaca.fkNumeroTrazablePadre ?? DBNull.Value;
                 try
                 {
                     conn.Open();

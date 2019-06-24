@@ -97,8 +97,10 @@ namespace TCU_WFA
             resultado.nombre = textBoxNombre.Text;
             resultado.caracteriscas = textBoxCaracteristicas.Text;
             resultado.raza = textBoxRaza.Text;
-            resultado.fkNumeroTrazableMadre = (comboBoxIdMadre.Text != "") ? Int32.Parse(comboBoxIdMadre.Text) : NO_MADRE_PADRE_ID;
-            resultado.fkNumeroTrazablePadre = (comboBoxIdPadre.Text != "") ? Int32.Parse(comboBoxIdPadre.Text): NO_MADRE_PADRE_ID;
+            if (comboBoxIdMadre.Text != "") resultado.fkNumeroTrazableMadre = Int32.Parse(comboBoxIdMadre.Text);
+            else resultado.fkNumeroTrazableMadre = null;
+            if (comboBoxIdPadre.Text != "") resultado.fkNumeroTrazablePadre = Int32.Parse(comboBoxIdPadre.Text);
+            else resultado.fkNumeroTrazablePadre = null;
             resultado.fkModoPrennes = Utilities.ObtenerIdModoPrennes(comboBoxModoPrennes.Text);
             resultado.fecha = dateTimePickerFechaNacimiento.Value;
             return resultado;

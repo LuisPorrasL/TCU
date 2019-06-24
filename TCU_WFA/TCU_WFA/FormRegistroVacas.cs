@@ -15,7 +15,7 @@ namespace TCU_WFA
     {
 
         //Constantes
-        private const string QUERY_SELECT_VACAS_DATA_GRID_VIEW = "SELECT v.FK_NUMERO_TRAZABLE_VACA as 'Id', v.NOMBRE AS 'Nombre', v.FECHA_NACIMIENTO AS 'Fecha nacimiento', v.RAZA AS 'Raza', v.CARACTERISTICAS AS 'Caracteristicas', mP.MODO_PRENNES AS 'Modo preñes', v.FK_NUMERO_TRAZABLE_VACA AS 'Id madre', v.FK_NUMERO_TRAZABLE_TORO AS 'Id padre'  FROM [dbo].[VACA] v, [dbo].MODO_PRENNES mP WHERE v.FK_ID_MODO_PRENNES = mP.PK_ID_MODO_PRENNES";
+        private const string QUERY_SELECT_VACAS_DATA_GRID_VIEW = "SELECT v.PK_NUMERO_TRAZABLE as 'Id', v.NOMBRE AS 'Nombre', v.FECHA_NACIMIENTO AS 'Fecha nacimiento', v.RAZA AS 'Raza', v.CARACTERISTICAS AS 'Caracteristicas', mP.MODO_PRENNES AS 'Modo preñes', v.FK_NUMERO_TRAZABLE_VACA AS 'Id madre', v.FK_NUMERO_TRAZABLE_TORO AS 'Id padre'  FROM [dbo].[VACA] v, [dbo].MODO_PRENNES mP WHERE v.FK_ID_MODO_PRENNES = mP.PK_ID_MODO_PRENNES";
 
         public FormRegistroVacas()
         {
