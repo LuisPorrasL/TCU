@@ -1,6 +1,6 @@
 ﻿namespace TCU_WFA
 {
-    partial class FormAgregarVaca: DefaultForm
+    partial class FormAgregarVaca : DefaultForm
     {
         /// <summary>
         /// Required designer variable.
@@ -129,7 +129,6 @@
             // 
             // comboBoxIdPadre
             // 
-            this.comboBoxIdPadre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxIdPadre.FormattingEnabled = true;
             this.comboBoxIdPadre.Location = new System.Drawing.Point(136, 284);
             this.comboBoxIdPadre.Name = "comboBoxIdPadre";
@@ -147,7 +146,6 @@
             // 
             // comboBoxIdMadre
             // 
-            this.comboBoxIdMadre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxIdMadre.FormattingEnabled = true;
             this.comboBoxIdMadre.Location = new System.Drawing.Point(136, 241);
             this.comboBoxIdMadre.Name = "comboBoxIdMadre";

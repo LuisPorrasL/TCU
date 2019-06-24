@@ -115,6 +115,5 @@ namespace TCU_WFA
             dateTimePickerFechaNacimiento.Value = DateTime.Now;
             LlenarComboBoxListAgregarVaca();
         }
-
     }
 }
