@@ -59,7 +59,6 @@
             this.botonVolver.TabIndex = 0;
             this.botonVolver.Text = "Volver";
             this.botonVolver.UseVisualStyleBackColor = true;
-            this.botonVolver.Click += new System.EventHandler(this.botonVolver_Click);
             // 
             // botonAgregarVaca
             // 
@@ -79,6 +78,7 @@
             this.botonBuscarVaca.TabIndex = 2;
             this.botonBuscarVaca.Text = "Buscar vaca";
             this.botonBuscarVaca.UseVisualStyleBackColor = true;
+            this.botonBuscarVaca.Click += new System.EventHandler(this.botonBuscarVaca_Click);
             // 
             // textBoxBuscarVaca
             // 

@@ -39,5 +39,10 @@ namespace TCU_WFA
             form.Show(this);
             Hide();
         }
+
+        private void botonBuscarVaca_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

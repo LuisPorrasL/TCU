@@ -10,7 +10,6 @@ namespace TCU_WFA
         //Constantes
         private const string QUERY_OBTENER_ID_MODO_PRENNES = "SELECT mp.PK_ID_MODO_PRENNES FROM [dbo].[MODO_PRENNES] mP WHERE mP.MODO_PRENNES = @ModoPrennes";
         public const int RESULTADO_ERROR = -1;
-        public const int COMBO_BOX_NO_SELECCIONADO = -1;
         //Connection string 
         public const string CONNECTION_STRING = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog = TCU_DB; Integrated Security = True; Connect Timeout = 60; Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         //Mensajes
@@ -76,7 +75,7 @@ namespace TCU_WFA
 
         public static void LlenarDataGridView(string query, DataGridView dataGridView)
         {
-            var conn = new SqlConnection(Utilities.CONNECTION_STRING);
+            var conn = new SqlConnection(CONNECTION_STRING);
             var dataAdapter = new SqlDataAdapter(query, conn);
 
             var commandBuilder = new SqlCommandBuilder(dataAdapter);
@@ -85,6 +84,5 @@ namespace TCU_WFA
             dataGridView.ReadOnly = true;
             dataGridView.DataSource = ds.Tables[0];
         }
-
     }
 }
