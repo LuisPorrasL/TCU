@@ -14,13 +14,10 @@ namespace TCU_WFA
     public partial class FormDetallesVaca : DefaultForm
     {
         private VacaModel informacionVacaSelecionada;
-        public FormDetallesVaca(DataGridViewRow informacionVacaSeleccionada = null)
+        public FormDetallesVaca(VacaModel informacionVacaSeleccionada = null)
         {
             InitializeComponent();
-            if (informacionVacaSeleccionada != null)
-            {
-                //TODO: inicializar los campos correspondientes de la clase
-            }
+            this.informacionVacaSelecionada = informacionVacaSeleccionada;
         }
     }
 }

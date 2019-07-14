@@ -68,6 +68,7 @@
             this.botonEditar.TabIndex = 4;
             this.botonEditar.Text = "Editar";
             this.botonEditar.UseVisualStyleBackColor = true;
+            this.botonEditar.Click += new System.EventHandler(this.botonEditar_Click);
             // 
             // groupBoxAgregarVaca
             // 
@@ -240,6 +241,7 @@
             this.Name = "FormEditarVaca";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editar vaca";
+            this.Load += new System.EventHandler(this.FormEditarVaca_Load);
             this.groupBoxAgregarVaca.ResumeLayout(false);
             this.groupBoxAgregarVaca.PerformLayout();
             this.ResumeLayout(false);

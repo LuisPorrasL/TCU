@@ -28,6 +28,8 @@ namespace TCU_WFA
             Utilities.LlenarComboBoxList(QUERY_LLENAR_COMBO_BOX_MODO_PRENNES, comboBoxModoPrennes);
             Utilities.LlenarComboBoxList(QUERY_LLENAR_COMBO_BOX_ID_MADRE, comboBoxIdMadre);
             Utilities.LlenarComboBoxList(QUERY_LLENAR_COMBO_BOX_ID_PADRE, comboBoxIdPadre);
+            comboBoxIdMadre.Text = "";
+            comboBoxIdPadre.Text = "";
         }
 
         private void botonAgregar_Click(object sender, EventArgs e)

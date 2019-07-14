@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TCU_WFA.Models;
 
 namespace TCU_WFA
 {
@@ -58,7 +59,8 @@ namespace TCU_WFA
             if (dataGridViewVacas.SelectedRows.Count != 0)
             {
                 DataGridViewRow filaSelecionada = dataGridViewVacas.SelectedRows[0];
-                FormEditarVaca form = new FormEditarVaca(filaSelecionada);
+                VacaModel informacionVacaSeleccionada = obtenerInformacionVacaSelecionada(filaSelecionada);
+                FormEditarVaca form = new FormEditarVaca(informacionVacaSeleccionada);
                 form.Tag = this;
                 form.Show(this);
                 Hide();
@@ -67,6 +69,35 @@ namespace TCU_WFA
             {
                 Utilities.MostrarMessageBox(MENSAJE_ERROR_SELECCION_EDITAR_VACA, TITULO_AVISO_EDITAR_VACA, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private VacaModel obtenerInformacionVacaSelecionada(DataGridViewRow filaSelecionada)
+        {
+            VacaModel informacionVacaSeleccionada = new VacaModel();
+            informacionVacaSeleccionada.pkNumeroTrazable = (int)filaSelecionada.Cells[0].Value;
+            informacionVacaSeleccionada.nombre = (string)filaSelecionada.Cells[1].Value;
+            informacionVacaSeleccionada.fecha = (DateTime)filaSelecionada.Cells[2].Value;
+            informacionVacaSeleccionada.raza = (string)filaSelecionada.Cells[3].Value;
+            informacionVacaSeleccionada.caracteriscas = (string)filaSelecionada.Cells[4].Value;
+            informacionVacaSeleccionada.modoPrennes = (string)filaSelecionada.Cells[5].Value;
+            try
+            {
+                informacionVacaSeleccionada.fkNumeroTrazableMadre = (int)filaSelecionada.Cells[6].Value;
+            }
+            catch
+            {
+                informacionVacaSeleccionada.fkNumeroTrazableMadre = null;
+            }
+            try
+            {
+                informacionVacaSeleccionada.fkNumeroTrazablePadre = (int)filaSelecionada.Cells[7].Value;
+            }
+            catch
+            {
+                informacionVacaSeleccionada.fkNumeroTrazablePadre = null;
+            }
+
+            return informacionVacaSeleccionada;
         }
 
         private void botonEliminar_Click(object sender, EventArgs e)
@@ -93,7 +124,8 @@ namespace TCU_WFA
             if (dataGridViewVacas.SelectedRows.Count != 0)
             {
                 DataGridViewRow filaSelecionada = dataGridViewVacas.SelectedRows[0];
-                FormDetallesVaca form = new FormDetallesVaca(filaSelecionada);
+                VacaModel informacionVacaSeleccionada = obtenerInformacionVacaSelecionada(filaSelecionada);
+                FormDetallesVaca form = new FormDetallesVaca(informacionVacaSeleccionada);
                 form.Tag = this;
                 form.Show(this);
                 Hide();
