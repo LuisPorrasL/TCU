@@ -59,6 +59,7 @@
             this.botonVolver.TabIndex = 0;
             this.botonVolver.Text = "Volver";
             this.botonVolver.UseVisualStyleBackColor = true;
+            this.botonVolver.Click += new System.EventHandler(this.botonVolver_Click);
             // 
             // botonAgregarVaca
             // 
@@ -91,7 +92,9 @@
             // 
             this.dataGridViewVacas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewVacas.Location = new System.Drawing.Point(12, 107);
+            this.dataGridViewVacas.MultiSelect = false;
             this.dataGridViewVacas.Name = "dataGridViewVacas";
+            this.dataGridViewVacas.ReadOnly = true;
             this.dataGridViewVacas.Size = new System.Drawing.Size(776, 302);
             this.dataGridViewVacas.TabIndex = 4;
             // 
@@ -122,6 +125,7 @@
             this.botonEditar.TabIndex = 5;
             this.botonEditar.Text = "Editar";
             this.botonEditar.UseVisualStyleBackColor = true;
+            this.botonEditar.Click += new System.EventHandler(this.botonEditar_Click);
             // 
             // botonEliminar
             // 
@@ -131,6 +135,7 @@
             this.botonEliminar.TabIndex = 6;
             this.botonEliminar.Text = "Eliminar";
             this.botonEliminar.UseVisualStyleBackColor = true;
+            this.botonEliminar.Click += new System.EventHandler(this.botonEliminar_Click);
             // 
             // botonDetalles
             // 
@@ -140,6 +145,7 @@
             this.botonDetalles.TabIndex = 7;
             this.botonDetalles.Text = "Detalles";
             this.botonDetalles.UseVisualStyleBackColor = true;
+            this.botonDetalles.Click += new System.EventHandler(this.botonDetalles_Click);
             // 
             // vACABindingSource1
             // 

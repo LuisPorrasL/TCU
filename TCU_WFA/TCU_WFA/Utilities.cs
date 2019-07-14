@@ -10,6 +10,7 @@ namespace TCU_WFA
         //Constantes
         private const string QUERY_OBTENER_ID_MODO_PRENNES = "SELECT mp.PK_ID_MODO_PRENNES FROM [dbo].[MODO_PRENNES] mP WHERE mP.MODO_PRENNES = @ModoPrennes";
         public const int RESULTADO_ERROR = -1;
+        public const string MODO_PRENNES_PARAM = "@ModoPrennes";
         //Connection string 
         public const string CONNECTION_STRING = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog = TCU_DB; Integrated Security = True; Connect Timeout = 60; Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         //Mensajes
@@ -20,9 +21,9 @@ namespace TCU_WFA
         public const string TITULO_ERROR = "Error";
         public const string TITULO_EXITO = "Exito";
 
-        public static void MostrarMessageBox(string mensaje, string titulo, MessageBoxButtons botones, MessageBoxIcon icono)
+        public static DialogResult MostrarMessageBox(string mensaje, string titulo, MessageBoxButtons botones, MessageBoxIcon icono)
         {
-            MessageBox.Show(mensaje, titulo, botones, icono);
+            return MessageBox.Show(mensaje, titulo, botones, icono);
         }
 
         public static void LlenarComboBoxList(string query, ComboBox comboBoxName)
@@ -57,8 +58,8 @@ namespace TCU_WFA
             using (SqlConnection conn = new SqlConnection(CONNECTION_STRING))
             {
                 SqlCommand cmd = new SqlCommand(QUERY_OBTENER_ID_MODO_PRENNES, conn);
-                cmd.Parameters.Add("@ModoPrennes", SqlDbType.VarChar);
-                cmd.Parameters["@ModoPrennes"].Value = nombreModoPrennes;
+                cmd.Parameters.Add(MODO_PRENNES_PARAM, SqlDbType.VarChar);
+                cmd.Parameters[MODO_PRENNES_PARAM].Value = nombreModoPrennes;
                 try
                 {
                     conn.Open();
