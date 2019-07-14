@@ -20,10 +20,10 @@ namespace TCU_WFA
 
         private void FormAgregarVaca_Load(object sender, EventArgs e)
         {
-            LlenarComboBoxListAgregarVaca();
+            LlenarComboBoxList();
         }
 
-        private void LlenarComboBoxListAgregarVaca()
+        private void LlenarComboBoxList()
         {
             Utilities.LlenarComboBoxList(QUERY_LLENAR_COMBO_BOX_MODO_PRENNES, comboBoxModoPrennes);
             Utilities.LlenarComboBoxList(QUERY_LLENAR_COMBO_BOX_ID_MADRE, comboBoxIdMadre);
@@ -114,7 +114,7 @@ namespace TCU_WFA
             textBoxRaza.Clear();
             textBoxCaracteristicas.Clear();
             dateTimePickerFechaNacimiento.Value = DateTime.Now;
-            LlenarComboBoxListAgregarVaca();
+            LlenarComboBoxList();
         }
     }
 }

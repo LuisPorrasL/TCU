@@ -58,7 +58,7 @@
             this.tabPagePalpacion = new System.Windows.Forms.TabPage();
             this.dataGridViewPalpacionesVaca = new System.Windows.Forms.DataGridView();
             this.tabPagePartos = new System.Windows.Forms.TabPage();
-            this.dataGridViewPartos = new System.Windows.Forms.DataGridView();
+            this.dataGridViewPartosVacas = new System.Windows.Forms.DataGridView();
             this.exameN_ANTROPOLOGICOTableAdapter1 = new TCU_WFA.TCU_DBDataSetTableAdapters.EXAMEN_ANTROPOLOGICOTableAdapter();
             this.tabControl.SuspendLayout();
             this.tabPageInformacionGeneral.SuspendLayout();
@@ -67,7 +67,7 @@
             this.tabPagePalpacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPalpacionesVaca)).BeginInit();
             this.tabPagePartos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPartos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPartosVacas)).BeginInit();
             this.SuspendLayout();
             // 
             // botonVolver
@@ -353,7 +353,7 @@
             // 
             // tabPagePartos
             // 
-            this.tabPagePartos.Controls.Add(this.dataGridViewPartos);
+            this.tabPagePartos.Controls.Add(this.dataGridViewPartosVacas);
             this.tabPagePartos.Location = new System.Drawing.Point(4, 22);
             this.tabPagePartos.Name = "tabPagePartos";
             this.tabPagePartos.Padding = new System.Windows.Forms.Padding(3);
@@ -362,13 +362,13 @@
             this.tabPagePartos.Text = "Partos";
             this.tabPagePartos.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewPartos
+            // dataGridViewPartosVacas
             // 
-            this.dataGridViewPartos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewPartos.Location = new System.Drawing.Point(9, 6);
-            this.dataGridViewPartos.Name = "dataGridViewPartos";
-            this.dataGridViewPartos.Size = new System.Drawing.Size(776, 371);
-            this.dataGridViewPartos.TabIndex = 1;
+            this.dataGridViewPartosVacas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPartosVacas.Location = new System.Drawing.Point(9, 6);
+            this.dataGridViewPartosVacas.Name = "dataGridViewPartosVacas";
+            this.dataGridViewPartosVacas.Size = new System.Drawing.Size(776, 371);
+            this.dataGridViewPartosVacas.TabIndex = 1;
             // 
             // exameN_ANTROPOLOGICOTableAdapter1
             // 
@@ -386,6 +386,7 @@
             this.Name = "FormDetallesVaca";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Detalles vaca";
+            this.Load += new System.EventHandler(this.FormDetallesVaca_Load);
             this.tabControl.ResumeLayout(false);
             this.tabPageInformacionGeneral.ResumeLayout(false);
             this.groupBoxDetallesVacaEspecifico.ResumeLayout(false);
@@ -395,7 +396,7 @@
             this.tabPagePalpacion.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPalpacionesVaca)).EndInit();
             this.tabPagePartos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPartos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPartosVacas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -433,6 +434,6 @@
         private System.Windows.Forms.TextBox textBoxFechaNacimiento;
         private System.Windows.Forms.TabPage tabPagePartos;
         private System.Windows.Forms.DataGridView dataGridViewPalpacionesVaca;
-        private System.Windows.Forms.DataGridView dataGridViewPartos;
+        private System.Windows.Forms.DataGridView dataGridViewPartosVacas;
     }
 }

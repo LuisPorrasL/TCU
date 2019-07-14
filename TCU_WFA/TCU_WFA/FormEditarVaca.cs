@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TCU_WFA.Models;
+using TCU_WFA.Repository;
 
 namespace TCU_WFA
 {
@@ -28,11 +22,11 @@ namespace TCU_WFA
 
         private void FormEditarVaca_Load(object sender, EventArgs e)
         {
-            LlenarComboBoxListEditarVaca();
-            LlenarTextBoxEditarVaca();
+            LlenarComboBoxList();
+            LlenarInformcionVaca();
         }
 
-        private void LlenarTextBoxEditarVaca()
+        private void LlenarInformcionVaca()
         {
             textBoxNumeroTrazableVaca.Text = this.informacionVacaSeleccionada.pkNumeroTrazable.ToString();
             textBoxNombre.Text = this.informacionVacaSeleccionada.nombre;
@@ -55,7 +49,7 @@ namespace TCU_WFA
             else comboBoxIdPadre.Text = "";
         }
 
-        private void LlenarComboBoxListEditarVaca()
+        private void LlenarComboBoxList()
         {
             Utilities.LlenarComboBoxList(QUERY_LLENAR_COMBO_BOX_MODO_PRENNES, comboBoxModoPrennes);
             Utilities.LlenarComboBoxList(QUERY_LLENAR_COMBO_BOX_ID_MADRE, comboBoxIdMadre);
@@ -68,10 +62,33 @@ namespace TCU_WFA
             if (entradaUsuarioCorrecta)
             {
                 VacaModel datosNuevaVaca = ObtenerDatosEntradaUsuario();
+                bool resultado = EditarVaca(datosNuevaVaca);
+                if (resultado)
+                {
+                    Utilities.MostrarMessageBox(Utilities.MENSAJE_EXITO, Utilities.TITULO_EXITO, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    FormRegistroVacas formRegistroVacas = (FormRegistroVacas)Tag;
+                    formRegistroVacas.LlenarDataGridViewVacas();
+                }
+                else Utilities.MostrarMessageBox(Utilities.MENSAJE_ERROR, Utilities.TITULO_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 Utilities.MostrarMessageBox(Utilities.MENSAJE_ERROR_ENTRADA_USUARIO, Utilities.TITULO_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private bool EditarVaca(VacaModel datosNuevaVaca)
+        {
+            try
+            {
+                //TODO: implementar proc almacenado para editar vaca
+                /*int resultado = ProcedimientosAlmacenados.ProcEditarVaca(datosNuevaVaca);
+                if (resultado == Utilities.RESULTADO_ERROR) return false;*/
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
 

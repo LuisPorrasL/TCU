@@ -135,5 +135,6 @@ namespace TCU_WFA
                 Utilities.MostrarMessageBox(MENSAJE_ERROR_SELECCION_DETALLES_VACA, TITULO_AVISO_DETALLES_VACA, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
     }
 }
