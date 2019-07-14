@@ -17,6 +17,7 @@ namespace TCU_WFA
 
         //Constantes
         private const string QUERY_SELECT_VACAS_DATA_GRID_VIEW = "SELECT v.PK_NUMERO_TRAZABLE as 'Id', v.NOMBRE AS 'Nombre', v.FECHA_NACIMIENTO AS 'Fecha nacimiento', v.RAZA AS 'Raza', v.CARACTERISTICAS AS 'Caracteristicas', mP.MODO_PRENNES AS 'Modo preñes', v.FK_NUMERO_TRAZABLE_VACA AS 'Id madre', v.FK_NUMERO_TRAZABLE_TORO AS 'Id padre'  FROM [dbo].[VACA] v, [dbo].MODO_PRENNES mP WHERE v.FK_ID_MODO_PRENNES = mP.PK_ID_MODO_PRENNES";
+        private const string QUERY_BUSCAR_VACA_DATA_GRID_VIEW = "SELECT v.PK_NUMERO_TRAZABLE as 'Id', v.NOMBRE AS 'Nombre', v.FECHA_NACIMIENTO AS 'Fecha nacimiento', v.RAZA AS 'Raza', v.CARACTERISTICAS AS 'Caracteristicas', mP.MODO_PRENNES AS 'Modo preñes', v.FK_NUMERO_TRAZABLE_VACA AS 'Id madre', v.FK_NUMERO_TRAZABLE_TORO AS 'Id padre'  FROM [dbo].[VACA] v, [dbo].MODO_PRENNES mP WHERE v.FK_ID_MODO_PRENNES = mP.PK_ID_MODO_PRENNES AND v.PK_NUMERO_TRAZABLE = ";
         //Mensajes
         public const string MENSAJE_ERROR_SELECCION_ELIMINAR_VACA = "Por favor seleccionar primero la vaca que se desea eliminar.";
         public const string MENSAJE_ERROR_SELECCION_EDITAR_VACA = "Por favor seleccionar primero la vaca que se desea editar.";
@@ -51,7 +52,23 @@ namespace TCU_WFA
 
         private void botonBuscarVaca_Click(object sender, EventArgs e)
         {
-
+            string textoBuscar = textBoxBuscarVaca.Text;
+            if(textoBuscar != "")
+            {
+                try
+                {
+                    int idVacaABuscar = Int32.Parse(textoBuscar);
+                    Utilities.LlenarDataGridView(QUERY_BUSCAR_VACA_DATA_GRID_VIEW + idVacaABuscar + ";", dataGridViewVacas);
+                }
+                catch
+                {
+                    Utilities.MostrarMessageBox(Utilities.MENSAJE_ERROR, Utilities.TITULO_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                LlenarDataGridViewVacas();
+            }
         }
 
         private void botonEditar_Click(object sender, EventArgs e)
