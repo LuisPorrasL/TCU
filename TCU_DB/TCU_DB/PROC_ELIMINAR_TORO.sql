@@ -1,0 +1,6 @@
+﻿CREATE PROCEDURE [dbo].[PROC_ELIMINAR_TORO]
+	@numeroTrazable INT
+AS
+	BEGIN
+		DELETE FROM [dbo].[TORO] WHERE [PK_NUMERO_TRAZABLE] = @numeroTrazable
+	END

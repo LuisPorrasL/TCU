@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TCU_WFA.Models;
 
@@ -125,14 +117,33 @@ namespace TCU_WFA
                 DialogResult resultado = Utilities.MostrarMessageBox("¿Seguro que desea eliminar la vaca " + filaSelecionada.Cells["Id"].Value + "?. Esta operación no se puede revertir.", TITULO_AVISO_ELIMINAR_VACA, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if(resultado == DialogResult.Yes)
                 {
-                    //TODO: llamar al proc almacenado para eliminar la vaca seleccionada
-                    //TODO: dar retroalimentación al usuario sobre el resultado del proc almacenado
-                    //TODO: en caso de exito refrescar dataGridViewVacas
+                    bool resultadoProc = EliminarVaca((int)filaSelecionada.Cells["Id"].Value);
+                    if (resultadoProc)
+                    {
+                        Utilities.MostrarMessageBox(Utilities.MENSAJE_EXITO, Utilities.TITULO_EXITO, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LlenarDataGridViewVacas();
+                    }
+                    else Utilities.MostrarMessageBox(Utilities.MENSAJE_ERROR, Utilities.TITULO_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
                 Utilities.MostrarMessageBox(MENSAJE_ERROR_SELECCION_ELIMINAR_VACA, TITULO_AVISO_ELIMINAR_VACA, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private bool EliminarVaca(int vacaId)
+        {
+            try
+            {
+                //TODO: implementar proc almacenado para editar vaca
+                /*int resultado = ProcedimientosAlmacenados.ProcEliminarVaca(vacaId);
+                if (resultado == Utilities.RESULTADO_ERROR) return false;*/
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
 

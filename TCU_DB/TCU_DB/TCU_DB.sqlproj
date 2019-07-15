@@ -69,5 +69,15 @@
     <Build Include="FECHAS_DESTETES.sql" />
     <Build Include="EXAMEN_ANTROPOLOGICO.sql" />
     <Build Include="PROC_INSERTAR_VACA.sql" />
+    <Build Include="PROC_EDITAR_VACA.sql" />
+    <Build Include="PROC_ELIMINAR_VACA.sql" />
+    <Build Include="PROC_INSERTAR_TORO.sql" />
+    <Build Include="PROC_EDITAR_TORO.sql" />
+    <Build Include="PROC_ELIMINAR_TORO.sql" />
+    <Build Include="PROC_INSERTAR_DESTETE.sql" />
+    <Build Include="PROC_INSERTAR_SALTO.sql" />
+    <Build Include="PROC_ACTUALIZAR_MODO_PRENNES_VACA.sql" />
+    <Build Include="PROC_REGISTRAR_PALPACION.sql" />
+    <Build Include="PROC_REGISTRAR_PARTO.sql" />
   </ItemGroup>
 </Project>

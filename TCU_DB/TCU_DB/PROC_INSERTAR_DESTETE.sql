@@ -1,0 +1,8 @@
+﻿CREATE PROCEDURE [dbo].[PROC_INSERTAR_DESTETE]
+	@numeroTrazable INT,
+	@fecha DATETIME
+AS
+	BEGIN
+		INSERT INTO [dbo].[FECHAS_DESTETES] ([PK_FK_NUMERO_TRAZABLE_VACA], [PK_FECHA])
+		VALUES (@numeroTrazable, @fecha)
+	END
