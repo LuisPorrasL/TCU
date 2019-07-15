@@ -69,11 +69,18 @@ namespace TCU_WFA
             if (dataGridViewVacas.SelectedRows.Count != 0)
             {
                 DataGridViewRow filaSelecionada = dataGridViewVacas.SelectedRows[0];
-                VacaModel informacionVacaSeleccionada = obtenerInformacionVacaSelecionada(filaSelecionada);
-                FormEditarVaca form = new FormEditarVaca(informacionVacaSeleccionada);
-                form.Tag = this;
-                form.Show(this);
-                Hide();
+                if (filaSelecionada.Cells[0].Value != null)
+                {
+                    VacaModel informacionVacaSeleccionada = obtenerInformacionVacaSelecionada(filaSelecionada);
+                    FormEditarVaca form = new FormEditarVaca(informacionVacaSeleccionada);
+                    form.Tag = this;
+                    form.Show(this);
+                    Hide();
+                }
+                else
+                {
+                    Utilities.MostrarMessageBox(MENSAJE_ERROR_SELECCION_EDITAR_VACA, TITULO_AVISO_EDITAR_VACA, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
@@ -115,16 +122,23 @@ namespace TCU_WFA
             if(dataGridViewVacas.SelectedRows.Count != 0)
             {
                 DataGridViewRow filaSelecionada = dataGridViewVacas.SelectedRows[0];
-                DialogResult resultado = Utilities.MostrarMessageBox("¿Seguro que desea eliminar la vaca " + filaSelecionada.Cells["Id"].Value + "?. Esta operación no se puede revertir.", TITULO_AVISO_ELIMINAR_VACA, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if(resultado == DialogResult.Yes)
+                if (filaSelecionada.Cells[0].Value != null)
                 {
-                    bool resultadoProc = EliminarVaca((int)filaSelecionada.Cells["Id"].Value);
-                    if (resultadoProc)
+                    DialogResult resultado = Utilities.MostrarMessageBox("¿Seguro que desea eliminar la vaca " + filaSelecionada.Cells["Id"].Value + "?. Esta operación no se puede revertir.", TITULO_AVISO_ELIMINAR_VACA, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (resultado == DialogResult.Yes)
                     {
-                        Utilities.MostrarMessageBox(Utilities.MENSAJE_EXITO, Utilities.TITULO_EXITO, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LlenarDataGridViewVacas();
+                        bool resultadoProc = EliminarVaca((int)filaSelecionada.Cells["Id"].Value);
+                        if (resultadoProc)
+                        {
+                            Utilities.MostrarMessageBox(Utilities.MENSAJE_EXITO, Utilities.TITULO_EXITO, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LlenarDataGridViewVacas();
+                        }
+                        else Utilities.MostrarMessageBox(Utilities.MENSAJE_ERROR, Utilities.TITULO_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    else Utilities.MostrarMessageBox(Utilities.MENSAJE_ERROR, Utilities.TITULO_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    Utilities.MostrarMessageBox(MENSAJE_ERROR_SELECCION_ELIMINAR_VACA, TITULO_AVISO_ELIMINAR_VACA, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
@@ -152,11 +166,18 @@ namespace TCU_WFA
             if (dataGridViewVacas.SelectedRows.Count != 0)
             {
                 DataGridViewRow filaSelecionada = dataGridViewVacas.SelectedRows[0];
-                VacaModel informacionVacaSeleccionada = obtenerInformacionVacaSelecionada(filaSelecionada);
-                FormDetallesVaca form = new FormDetallesVaca(informacionVacaSeleccionada);
-                form.Tag = this;
-                form.Show(this);
-                Hide();
+                if (filaSelecionada.Cells[0].Value != null)
+                {
+                    VacaModel informacionVacaSeleccionada = obtenerInformacionVacaSelecionada(filaSelecionada);
+                    FormDetallesVaca form = new FormDetallesVaca(informacionVacaSeleccionada);
+                    form.Tag = this;
+                    form.Show(this);
+                    Hide();
+                }
+                else
+                {
+                    Utilities.MostrarMessageBox(MENSAJE_ERROR_SELECCION_DETALLES_VACA, TITULO_AVISO_DETALLES_VACA, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {

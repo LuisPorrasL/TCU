@@ -58,7 +58,6 @@
             this.botonVolver.TabIndex = 2;
             this.botonVolver.Text = "Volver";
             this.botonVolver.UseVisualStyleBackColor = true;
-            this.botonVolver.Click += new System.EventHandler(this.botonVolver_Click);
             // 
             // botonEditar
             // 
@@ -216,6 +215,7 @@
             // 
             this.textBoxNumeroTrazableVaca.Location = new System.Drawing.Point(136, 13);
             this.textBoxNumeroTrazableVaca.Name = "textBoxNumeroTrazableVaca";
+            this.textBoxNumeroTrazableVaca.ReadOnly = true;
             this.textBoxNumeroTrazableVaca.Size = new System.Drawing.Size(200, 20);
             this.textBoxNumeroTrazableVaca.TabIndex = 1;
             // 
