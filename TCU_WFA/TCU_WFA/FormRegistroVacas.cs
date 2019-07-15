@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using TCU_WFA.Models;
+using TCU_WFA.Repository;
 
 namespace TCU_WFA
 {
@@ -136,9 +137,8 @@ namespace TCU_WFA
         {
             try
             {
-                //TODO: implementar proc almacenado para editar vaca
-                /*int resultado = ProcedimientosAlmacenados.ProcEliminarVaca(vacaId);
-                if (resultado == Utilities.RESULTADO_ERROR) return false;*/
+                int resultado = ProcedimientosAlmacenados.ProcEliminarVaca(vacaId);
+                if (resultado == Utilities.RESULTADO_ERROR) return false;
                 return true;
             }
             catch

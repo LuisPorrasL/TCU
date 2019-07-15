@@ -79,5 +79,7 @@
     <Build Include="PROC_ACTUALIZAR_MODO_PRENNES_VACA.sql" />
     <Build Include="PROC_REGISTRAR_PALPACION.sql" />
     <Build Include="PROC_REGISTRAR_PARTO.sql" />
+    <Build Include="TRIGGER_INSTEAD_OF_DELETE_VACA.sql" />
+    <Build Include="TRIGGER_INSTEAD_OF_DELETE_TORO.sql" />
   </ItemGroup>
 </Project>

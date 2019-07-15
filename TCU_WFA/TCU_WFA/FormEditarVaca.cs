@@ -10,8 +10,8 @@ namespace TCU_WFA
 
         // Constantes
         private const string QUERY_LLENAR_COMBO_BOX_MODO_PRENNES = "SELECT * FROM [dbo].[MODO_PRENNES];";
-        private const string QUERY_LLENAR_COMBO_BOX_ID_MADRE = "SELECT v.PK_NUMERO_TRAZABLE, v.PK_NUMERO_TRAZABLE FROM [dbo].[VACA] v;";
-        private const string QUERY_LLENAR_COMBO_BOX_ID_PADRE = "SELECT t.PK_NUMERO_TRAZABLE, t.PK_NUMERO_TRAZABLE FROM [dbo].[TORO] t;";
+        private const string QUERY_LLENAR_COMBO_BOX_ID_MADRE = "SELECT v.PK_NUMERO_TRAZABLE, v.PK_NUMERO_TRAZABLE FROM [dbo].[VACA] v WHERE v.PK_NUMERO_TRAZABLE != ";
+        private const string QUERY_LLENAR_COMBO_BOX_ID_PADRE = "SELECT t.PK_NUMERO_TRAZABLE, t.PK_NUMERO_TRAZABLE FROM [dbo].[TORO] t WHERE v.PK_NUMERO_TRAZABLE != ;";
 
         private VacaModel informacionVacaSeleccionada;
         public FormEditarVaca(VacaModel informacionVacaSeleccionada = null)
@@ -52,8 +52,8 @@ namespace TCU_WFA
         private void LlenarComboBoxList()
         {
             Utilities.LlenarComboBoxList(QUERY_LLENAR_COMBO_BOX_MODO_PRENNES, comboBoxModoPrennes);
-            Utilities.LlenarComboBoxList(QUERY_LLENAR_COMBO_BOX_ID_MADRE, comboBoxIdMadre);
-            Utilities.LlenarComboBoxList(QUERY_LLENAR_COMBO_BOX_ID_PADRE, comboBoxIdPadre);
+            Utilities.LlenarComboBoxList(QUERY_LLENAR_COMBO_BOX_ID_MADRE + this.informacionVacaSeleccionada.pkNumeroTrazable + ";", comboBoxIdMadre);
+            Utilities.LlenarComboBoxList(QUERY_LLENAR_COMBO_BOX_ID_PADRE + this.informacionVacaSeleccionada.pkNumeroTrazable + ";", comboBoxIdPadre);
         }
 
         private void botonEditar_Click(object sender, EventArgs e)
@@ -68,6 +68,7 @@ namespace TCU_WFA
                     Utilities.MostrarMessageBox(Utilities.MENSAJE_EXITO, Utilities.TITULO_EXITO, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     FormRegistroVacas formRegistroVacas = (FormRegistroVacas)Tag;
                     formRegistroVacas.LlenarDataGridViewVacas();
+                    this.informacionVacaSeleccionada = datosNuevaVaca;
                 }
                 else Utilities.MostrarMessageBox(Utilities.MENSAJE_ERROR, Utilities.TITULO_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -81,9 +82,8 @@ namespace TCU_WFA
         {
             try
             {
-                //TODO: implementar proc almacenado para editar vaca
-                /*int resultado = ProcedimientosAlmacenados.ProcEditarVaca(datosNuevaVaca);
-                if (resultado == Utilities.RESULTADO_ERROR) return false;*/
+                int resultado = ProcedimientosAlmacenados.ProcEditarVaca(datosNuevaVaca);
+                if (resultado == Utilities.RESULTADO_ERROR) return false;
                 return true;
             }
             catch
