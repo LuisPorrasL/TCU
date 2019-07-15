@@ -83,6 +83,7 @@ namespace TCU_WFA
                 {
                     if (Int32.Parse(comboBoxIdPadre.Text) <= 0) return false;
                 }
+                if (dateTimePickerFechaNacimiento.Value > DateTime.Now) return false;
                 return true;
             }
             catch

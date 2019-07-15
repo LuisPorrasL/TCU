@@ -1,6 +1,6 @@
 ﻿namespace TCU_WFA
 {
-    partial class FormEditarVaca
+    partial class FormEditarVaca : DefaultForm
     {
         /// <summary>
         /// Required designer variable.
@@ -58,6 +58,7 @@
             this.botonVolver.TabIndex = 2;
             this.botonVolver.Text = "Volver";
             this.botonVolver.UseVisualStyleBackColor = true;
+            this.botonVolver.Click += new System.EventHandler(this.botonVolver_Click);
             // 
             // botonEditar
             // 

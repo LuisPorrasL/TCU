@@ -33,7 +33,7 @@
             this.botonRegistroVacas = new System.Windows.Forms.Button();
             this.botonParto = new System.Windows.Forms.Button();
             this.botonPalpacion = new System.Windows.Forms.Button();
-            this.botonPrennez = new System.Windows.Forms.Button();
+            this.botonSalto = new System.Windows.Forms.Button();
             this.botonDestete = new System.Windows.Forms.Button();
             this.botonRegistroToros = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
@@ -56,7 +56,7 @@
             this.flowLayoutPanel1.Controls.Add(this.botonRegistroVacas);
             this.flowLayoutPanel1.Controls.Add(this.botonParto);
             this.flowLayoutPanel1.Controls.Add(this.botonPalpacion);
-            this.flowLayoutPanel1.Controls.Add(this.botonPrennez);
+            this.flowLayoutPanel1.Controls.Add(this.botonSalto);
             this.flowLayoutPanel1.Controls.Add(this.botonDestete);
             this.flowLayoutPanel1.Controls.Add(this.botonRegistroToros);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(2, 19);
@@ -97,16 +97,16 @@
             this.botonPalpacion.UseVisualStyleBackColor = true;
             this.botonPalpacion.Click += new System.EventHandler(this.botonPalpacion_Click);
             // 
-            // botonPrennez
+            // botonSalto
             // 
-            this.botonPrennez.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonPrennez.Location = new System.Drawing.Point(392, 3);
-            this.botonPrennez.Name = "botonPrennez";
-            this.botonPrennez.Size = new System.Drawing.Size(121, 70);
-            this.botonPrennez.TabIndex = 3;
-            this.botonPrennez.Text = "Preñez";
-            this.botonPrennez.UseVisualStyleBackColor = true;
-            this.botonPrennez.Click += new System.EventHandler(this.botonPrennez_Click);
+            this.botonSalto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonSalto.Location = new System.Drawing.Point(392, 3);
+            this.botonSalto.Name = "botonSalto";
+            this.botonSalto.Size = new System.Drawing.Size(121, 70);
+            this.botonSalto.TabIndex = 3;
+            this.botonSalto.Text = "Salto";
+            this.botonSalto.UseVisualStyleBackColor = true;
+            this.botonSalto.Click += new System.EventHandler(this.botonSalto_Click);
             // 
             // botonDestete
             // 
@@ -255,7 +255,7 @@
         private System.Windows.Forms.Button botonRegistroVacas;
         private System.Windows.Forms.Button botonParto;
         private System.Windows.Forms.Button botonPalpacion;
-        private System.Windows.Forms.Button botonPrennez;
+        private System.Windows.Forms.Button botonSalto;
         private System.Windows.Forms.Button botonDestete;
         private System.Windows.Forms.Button botonRegistroToros;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;

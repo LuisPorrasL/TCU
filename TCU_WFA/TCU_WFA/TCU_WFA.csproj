@@ -112,11 +112,11 @@
     <Compile Include="FormParto.Designer.cs">
       <DependentUpon>FormParto.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPrennez.cs">
+    <Compile Include="FormSaltos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPrennez.Designer.cs">
-      <DependentUpon>FormPrennez.cs</DependentUpon>
+    <Compile Include="FormSaltos.Designer.cs">
+      <DependentUpon>FormSaltos.cs</DependentUpon>
     </Compile>
     <Compile Include="FormRegistroToros.cs">
       <SubType>Form</SubType>
@@ -194,8 +194,8 @@
     <EmbeddedResource Include="FormParto.resx">
       <DependentUpon>FormParto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPrennez.resx">
-      <DependentUpon>FormPrennez.cs</DependentUpon>
+    <EmbeddedResource Include="FormSaltos.resx">
+      <DependentUpon>FormSaltos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRegistroToros.resx">
       <DependentUpon>FormRegistroToros.cs</DependentUpon>

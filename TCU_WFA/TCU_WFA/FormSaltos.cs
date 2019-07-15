@@ -4,16 +4,17 @@ using TCU_WFA.Repository;
 
 namespace TCU_WFA
 {
-    public partial class FormDestete : DefaultForm
+    public partial class FormSaltos : DefaultForm
     {
+
         // Constantes
         private const string QUERY_LLENAR_COMBO_BOX_NUMERO_TRAZABLE_VACA = "SELECT v.PK_NUMERO_TRAZABLE, v.PK_NUMERO_TRAZABLE FROM [dbo].[VACA] v;";
 
         //Campos
         private int vacaId;
-        private DateTime fechaDestete;
+        private DateTime fechaSalto;
 
-        public FormDestete()
+        public FormSaltos()
         {
             InitializeComponent();
             InicializarCampos();
@@ -22,10 +23,10 @@ namespace TCU_WFA
         private void InicializarCampos()
         {
             this.vacaId = 0;
-            this.fechaDestete = new DateTime();
+            this.fechaSalto = new DateTime();
         }
 
-        private void FormDestete_Load(object sender, EventArgs e)
+        private void FormSaltos_Load(object sender, EventArgs e)
         {
             LlenarComboBoxList();
         }
@@ -66,7 +67,7 @@ namespace TCU_WFA
         {
             try
             {
-                int resultado = ProcedimientosAlmacenados.ProcInsertarDestete(this.vacaId, this.fechaDestete);
+                int resultado = ProcedimientosAlmacenados.ProcInsertarSalto(this.vacaId, this.fechaSalto);
                 if (resultado == Utilities.RESULTADO_ERROR) return false;
                 return true;
             }
@@ -79,7 +80,7 @@ namespace TCU_WFA
         private void ObtenerDatosEntradaUsuario()
         {
             this.vacaId = Int32.Parse(comboBoxNumeroTrazableVaca.Text);
-            this.fechaDestete = dateTimePickerFechaNacimiento.Value;
+            this.fechaSalto = dateTimePickerFechaNacimiento.Value;
         }
 
         private bool RevisarEntradaUsuario()

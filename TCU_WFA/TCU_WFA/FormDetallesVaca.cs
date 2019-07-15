@@ -9,7 +9,7 @@ namespace TCU_WFA
         private const string QUERY_LLENAR_COMBO_BOX_FECHAS_SALTOS = "SELECT * FROM [dbo].[FECHAS_SALTOS] f WHERE f.PK_FK_NUMERO_TRAZABLE_VACA = ";
         private const string QUERY_LLENAR_COMBO_BOX_FECHAS_DESTETES = "SELECT * FROM [dbo].[FECHAS_DESTETES] f WHERE f.PK_FK_NUMERO_TRAZABLE_VACA = ";
         private const string QUERY_SELECT_DATA_GRID_VIEW_PALPACIONES = "SELECT p.PK_FK_NUMERO_TRAZABLE_VACA AS 'Id', p.PK_FECHA AS 'Fecha', p.CONDICION_CORPORAL AS 'Condición corporal', p.RESULTADO AS 'Resultado', p.CONFIRMACION AS 'Confirmación' FROM [dbo].[PALPACION] p WHERE p.PK_FK_NUMERO_TRAZABLE_VACA = ";
-        private const string QUERY_SELECT_DATA_GRID_VIEW_PARTOS = "SELECT p.PK_FK_NUMERO_TRAZABLE_VACA AS 'Id madre', p.PK_FK_NUMERO_TRAZABLE_TORO AS 'Id padre', p.PK_FECHA AS 'Fecha', p.SEXO AS 'Sexo cría', p.MUERTE_PREMATURA AS 'Muerte prematura', p.CAUSA_ABORTO AS 'Causa aborto' FROM [dbo].[PARTO] p WHERE p.PK_FK_NUMERO_TRAZABLE_VACA = ";
+        private const string QUERY_SELECT_DATA_GRID_VIEW_PARTOS = "SELECT p.PK_FK_NUMERO_TRAZABLE_VACA AS 'Id madre', p.FK_NUMERO_TRAZABLE_TORO AS 'Id padre', p.PK_FECHA AS 'Fecha', p.SEXO AS 'Sexo cría', p.MUERTE_PREMATURA AS 'Muerte prematura', p.CAUSA_ABORTO AS 'Causa aborto' FROM [dbo].[PARTO] p WHERE p.PK_FK_NUMERO_TRAZABLE_VACA = ";
 
         private VacaModel informacionVacaSeleccionada;
         public FormDetallesVaca(VacaModel informacionVacaSeleccionada = null)

@@ -41,9 +41,9 @@ namespace TCU_WFA
             Hide();
         }
 
-        private void botonPrennez_Click(object sender, EventArgs e)
+        private void botonSalto_Click(object sender, EventArgs e)
         {
-            FormPrennez form = new FormPrennez();
+            FormSaltos form = new FormSaltos();
             form.Tag = this;
             form.Show(this);
             Hide();

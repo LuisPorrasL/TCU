@@ -81,6 +81,56 @@ namespace TCU_WFA.Repository
             return resultado;
         }
 
+        public static int ProcInsertarDestete(int vacaId, DateTime fechaDestete)
+        {
+            int resultado = 0;
+            string sql = "PROC_INSERTAR_DESTETE @numeroTrazable, @fecha";
+            using (SqlConnection conn = new SqlConnection(Utilities.CONNECTION_STRING))
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.Add("@numeroTrazable", SqlDbType.Int);
+                cmd.Parameters["@numeroTrazable"].Value = vacaId;
+                cmd.Parameters.Add("@fecha", SqlDbType.DateTime);
+                cmd.Parameters["@fecha"].Value = fechaDestete;
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteScalar();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    resultado = Utilities.RESULTADO_ERROR;
+                }
+            }
+            return resultado;
+        }
+
+        public static int ProcInsertarSalto(int vacaId, DateTime fechaSalto)
+        {
+            int resultado = 0;
+            string sql = "PROC_INSERTAR_SALTO @numeroTrazable, @fecha";
+            using (SqlConnection conn = new SqlConnection(Utilities.CONNECTION_STRING))
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.Add("@numeroTrazable", SqlDbType.Int);
+                cmd.Parameters["@numeroTrazable"].Value = vacaId;
+                cmd.Parameters.Add("@fecha", SqlDbType.DateTime);
+                cmd.Parameters["@fecha"].Value = fechaSalto;
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteScalar();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    resultado = Utilities.RESULTADO_ERROR;
+                }
+            }
+            return resultado;
+        }
+
         public static int ProcEliminarVaca(int vacaId)
         {
             int resultado = 0;
