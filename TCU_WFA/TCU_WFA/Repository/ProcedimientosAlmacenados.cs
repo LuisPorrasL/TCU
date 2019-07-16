@@ -81,6 +81,70 @@ namespace TCU_WFA.Repository
             return resultado;
         }
 
+        public static int ProcRegistrarParto(DateTime fechaParto, char sexoCria, int idMadre, int? idPadre, bool muertePrematura, string causaAborto)
+        {
+            int resultado = 0;
+            string sql = "EXECUTE PROC_REGISTRAR_PARTO @numeroTrazableMadre, @fecha, @numeroTrazablePadre, @muertePrematura, @sexo, @causaAborto";
+            using (SqlConnection conn = new SqlConnection(Utilities.CONNECTION_STRING))
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.Add("@numeroTrazableMadre", SqlDbType.Int);
+                cmd.Parameters["@numeroTrazableMadre"].Value = idMadre;
+                cmd.Parameters.Add("@fecha", SqlDbType.DateTime);
+                cmd.Parameters["@fecha"].Value = fechaParto;
+                cmd.Parameters.Add("@numeroTrazablePadre", SqlDbType.Int);
+                cmd.Parameters["@numeroTrazablePadre"].Value = (object)idPadre ?? DBNull.Value;
+                cmd.Parameters.Add("@muertePrematura", SqlDbType.Bit);
+                cmd.Parameters["@muertePrematura"].Value = muertePrematura;
+                cmd.Parameters.Add("@sexo", SqlDbType.Char);
+                cmd.Parameters["@sexo"].Value = sexoCria;
+                cmd.Parameters.Add("@causaAborto", SqlDbType.NVarChar);
+                cmd.Parameters["@causaAborto"].Value = causaAborto;
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteScalar();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    resultado = Utilities.RESULTADO_ERROR;
+                }
+            }
+            return resultado;
+        }
+
+        public static int ProcRegistrarPalpacion(int numeroTrazable, DateTime fecha, float condicionCorporal, bool confirmacion, string resultadoPalpacion)
+        {
+            int resultado = 0;
+            string sql = "EXECUTE PROC_REGISTRAR_PALPACION @numeroTrazable, @fecha, @condicionCorporal, @confirmacion, @resultado";
+            using (SqlConnection conn = new SqlConnection(Utilities.CONNECTION_STRING))
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.Add("@numeroTrazable", SqlDbType.Int);
+                cmd.Parameters["@numeroTrazable"].Value = numeroTrazable;
+                cmd.Parameters.Add("@fecha", SqlDbType.DateTime);
+                cmd.Parameters["@fecha"].Value = fecha;
+                cmd.Parameters.Add("@condicionCorporal", SqlDbType.Decimal);
+                cmd.Parameters["@condicionCorporal"].Value = condicionCorporal;
+                cmd.Parameters.Add("@confirmacion", SqlDbType.Bit);
+                cmd.Parameters["@confirmacion"].Value = confirmacion;
+                cmd.Parameters.Add("@resultado", SqlDbType.NVarChar);
+                cmd.Parameters["@resultado"].Value = resultadoPalpacion;
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteScalar();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    resultado = Utilities.RESULTADO_ERROR;
+                }
+            }
+            return resultado;
+        }
+
         public static int ProcInsertarDestete(int vacaId, DateTime fechaDestete)
         {
             int resultado = 0;
