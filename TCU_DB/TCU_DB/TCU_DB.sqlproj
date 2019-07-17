@@ -82,4 +82,7 @@
     <Build Include="TRIGGER_INSTEAD_OF_DELETE_VACA.sql" />
     <Build Include="TRIGGER_INSTEAD_OF_DELETE_TORO.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Script.PostDeploymentTesting.sql" />
+  </ItemGroup>
 </Project>
