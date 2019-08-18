@@ -30,7 +30,6 @@ namespace TCU_WFA
         {
             textBoxNumeroTrazableVaca.Text = this.informacionVacaSeleccionada.pkNumeroTrazable.ToString();
             textBoxNombre.Text = this.informacionVacaSeleccionada.nombre;
-            textBoxRaza.Text = this.informacionVacaSeleccionada.raza;
             textBoxCaracteristicas.Text = this.informacionVacaSeleccionada.caracteriscas;
             dateTimePickerFechaNacimiento.Value = this.informacionVacaSeleccionada.fecha;
             int indiceModoPrennes = comboBoxModoPrennes.FindString(this.informacionVacaSeleccionada.modoPrennes);
@@ -98,12 +97,11 @@ namespace TCU_WFA
             resultado.pkNumeroTrazable = Int32.Parse(textBoxNumeroTrazableVaca.Text);
             resultado.nombre = textBoxNombre.Text;
             resultado.caracteriscas = textBoxCaracteristicas.Text;
-            resultado.raza = textBoxRaza.Text;
             if (comboBoxIdMadre.Text != "") resultado.fkNumeroTrazableMadre = Int32.Parse(comboBoxIdMadre.Text);
             else resultado.fkNumeroTrazableMadre = null;
             if (comboBoxIdPadre.Text != "") resultado.fkNumeroTrazablePadre = Int32.Parse(comboBoxIdPadre.Text);
             else resultado.fkNumeroTrazablePadre = null;
-            resultado.fkModoPrennes = Utilities.ObtenerIdModoPrennes(comboBoxModoPrennes.Text);
+            //resultado.fkModoPrennes = Utilities.ObtenerIdModoPrennes(comboBoxModoPrennes.Text);
             resultado.fecha = dateTimePickerFechaNacimiento.Value;
             return resultado;
         }

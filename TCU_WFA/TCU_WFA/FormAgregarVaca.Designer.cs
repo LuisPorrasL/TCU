@@ -30,7 +30,11 @@
         {
             this.botonVolver = new System.Windows.Forms.Button();
             this.groupBoxAgregarVaca = new System.Windows.Forms.GroupBox();
-            this.textBoxRaza = new System.Windows.Forms.TextBox();
+            this.textBoxPeso = new System.Windows.Forms.TextBox();
+            this.labelPeso = new System.Windows.Forms.Label();
+            this.comboBoxDesarrollo = new System.Windows.Forms.ComboBox();
+            this.labelDesarrollo = new System.Windows.Forms.Label();
+            this.comboBoxRaza = new System.Windows.Forms.ComboBox();
             this.textBoxCaracteristicas = new System.Windows.Forms.TextBox();
             this.labelCaracteristicas = new System.Windows.Forms.Label();
             this.comboBoxModoPrennes = new System.Windows.Forms.ComboBox();
@@ -58,11 +62,14 @@
             this.botonVolver.TabIndex = 1;
             this.botonVolver.Text = "Volver";
             this.botonVolver.UseVisualStyleBackColor = true;
-            this.botonVolver.Click += new System.EventHandler(this.botonVolver_Click);
             // 
             // groupBoxAgregarVaca
             // 
-            this.groupBoxAgregarVaca.Controls.Add(this.textBoxRaza);
+            this.groupBoxAgregarVaca.Controls.Add(this.textBoxPeso);
+            this.groupBoxAgregarVaca.Controls.Add(this.labelPeso);
+            this.groupBoxAgregarVaca.Controls.Add(this.comboBoxDesarrollo);
+            this.groupBoxAgregarVaca.Controls.Add(this.labelDesarrollo);
+            this.groupBoxAgregarVaca.Controls.Add(this.comboBoxRaza);
             this.groupBoxAgregarVaca.Controls.Add(this.textBoxCaracteristicas);
             this.groupBoxAgregarVaca.Controls.Add(this.labelCaracteristicas);
             this.groupBoxAgregarVaca.Controls.Add(this.comboBoxModoPrennes);
@@ -84,26 +91,62 @@
             this.groupBoxAgregarVaca.TabIndex = 2;
             this.groupBoxAgregarVaca.TabStop = false;
             // 
-            // textBoxRaza
+            // textBoxPeso
             // 
-            this.textBoxRaza.Location = new System.Drawing.Point(136, 155);
-            this.textBoxRaza.Name = "textBoxRaza";
-            this.textBoxRaza.Size = new System.Drawing.Size(200, 20);
-            this.textBoxRaza.TabIndex = 16;
+            this.textBoxPeso.Location = new System.Drawing.Point(136, 153);
+            this.textBoxPeso.Name = "textBoxPeso";
+            this.textBoxPeso.Size = new System.Drawing.Size(200, 20);
+            this.textBoxPeso.TabIndex = 20;
+            // 
+            // labelPeso
+            // 
+            this.labelPeso.AutoSize = true;
+            this.labelPeso.Location = new System.Drawing.Point(6, 156);
+            this.labelPeso.Name = "labelPeso";
+            this.labelPeso.Size = new System.Drawing.Size(31, 13);
+            this.labelPeso.TabIndex = 19;
+            this.labelPeso.Text = "Peso";
+            // 
+            // comboBoxDesarrollo
+            // 
+            this.comboBoxDesarrollo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDesarrollo.FormattingEnabled = true;
+            this.comboBoxDesarrollo.Location = new System.Drawing.Point(136, 221);
+            this.comboBoxDesarrollo.Name = "comboBoxDesarrollo";
+            this.comboBoxDesarrollo.Size = new System.Drawing.Size(200, 21);
+            this.comboBoxDesarrollo.TabIndex = 18;
+            // 
+            // labelDesarrollo
+            // 
+            this.labelDesarrollo.AutoSize = true;
+            this.labelDesarrollo.Location = new System.Drawing.Point(6, 224);
+            this.labelDesarrollo.Name = "labelDesarrollo";
+            this.labelDesarrollo.Size = new System.Drawing.Size(92, 13);
+            this.labelDesarrollo.TabIndex = 17;
+            this.labelDesarrollo.Text = "Estado desarrollo*";
+            // 
+            // comboBoxRaza
+            // 
+            this.comboBoxRaza.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxRaza.FormattingEnabled = true;
+            this.comboBoxRaza.Location = new System.Drawing.Point(136, 116);
+            this.comboBoxRaza.Name = "comboBoxRaza";
+            this.comboBoxRaza.Size = new System.Drawing.Size(200, 21);
+            this.comboBoxRaza.TabIndex = 16;
             // 
             // textBoxCaracteristicas
             // 
-            this.textBoxCaracteristicas.Location = new System.Drawing.Point(100, 351);
+            this.textBoxCaracteristicas.Location = new System.Drawing.Point(100, 329);
             this.textBoxCaracteristicas.MinimumSize = new System.Drawing.Size(236, 50);
             this.textBoxCaracteristicas.Multiline = true;
             this.textBoxCaracteristicas.Name = "textBoxCaracteristicas";
-            this.textBoxCaracteristicas.Size = new System.Drawing.Size(236, 50);
+            this.textBoxCaracteristicas.Size = new System.Drawing.Size(236, 81);
             this.textBoxCaracteristicas.TabIndex = 15;
             // 
             // labelCaracteristicas
             // 
             this.labelCaracteristicas.AutoSize = true;
-            this.labelCaracteristicas.Location = new System.Drawing.Point(6, 354);
+            this.labelCaracteristicas.Location = new System.Drawing.Point(6, 332);
             this.labelCaracteristicas.Name = "labelCaracteristicas";
             this.labelCaracteristicas.Size = new System.Drawing.Size(82, 13);
             this.labelCaracteristicas.TabIndex = 14;
@@ -113,7 +156,7 @@
             // 
             this.comboBoxModoPrennes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxModoPrennes.FormattingEnabled = true;
-            this.comboBoxModoPrennes.Location = new System.Drawing.Point(136, 197);
+            this.comboBoxModoPrennes.Location = new System.Drawing.Point(136, 188);
             this.comboBoxModoPrennes.Name = "comboBoxModoPrennes";
             this.comboBoxModoPrennes.Size = new System.Drawing.Size(200, 21);
             this.comboBoxModoPrennes.TabIndex = 13;
@@ -121,7 +164,7 @@
             // labelModoPrennes
             // 
             this.labelModoPrennes.AutoSize = true;
-            this.labelModoPrennes.Location = new System.Drawing.Point(6, 200);
+            this.labelModoPrennes.Location = new System.Drawing.Point(6, 191);
             this.labelModoPrennes.Name = "labelModoPrennes";
             this.labelModoPrennes.Size = new System.Drawing.Size(73, 13);
             this.labelModoPrennes.TabIndex = 12;
@@ -130,7 +173,7 @@
             // comboBoxIdPadre
             // 
             this.comboBoxIdPadre.FormattingEnabled = true;
-            this.comboBoxIdPadre.Location = new System.Drawing.Point(136, 284);
+            this.comboBoxIdPadre.Location = new System.Drawing.Point(136, 293);
             this.comboBoxIdPadre.Name = "comboBoxIdPadre";
             this.comboBoxIdPadre.Size = new System.Drawing.Size(200, 21);
             this.comboBoxIdPadre.TabIndex = 11;
@@ -138,7 +181,7 @@
             // labelIdPadre
             // 
             this.labelIdPadre.AutoSize = true;
-            this.labelIdPadre.Location = new System.Drawing.Point(6, 287);
+            this.labelIdPadre.Location = new System.Drawing.Point(6, 296);
             this.labelIdPadre.Name = "labelIdPadre";
             this.labelIdPadre.Size = new System.Drawing.Size(46, 13);
             this.labelIdPadre.TabIndex = 10;
@@ -147,7 +190,7 @@
             // comboBoxIdMadre
             // 
             this.comboBoxIdMadre.FormattingEnabled = true;
-            this.comboBoxIdMadre.Location = new System.Drawing.Point(136, 241);
+            this.comboBoxIdMadre.Location = new System.Drawing.Point(136, 257);
             this.comboBoxIdMadre.Name = "comboBoxIdMadre";
             this.comboBoxIdMadre.Size = new System.Drawing.Size(200, 21);
             this.comboBoxIdMadre.TabIndex = 9;
@@ -155,7 +198,7 @@
             // labelIdMadre
             // 
             this.labelIdMadre.AutoSize = true;
-            this.labelIdMadre.Location = new System.Drawing.Point(6, 244);
+            this.labelIdMadre.Location = new System.Drawing.Point(6, 260);
             this.labelIdMadre.Name = "labelIdMadre";
             this.labelIdMadre.Size = new System.Drawing.Size(48, 13);
             this.labelIdMadre.TabIndex = 8;
@@ -163,7 +206,7 @@
             // 
             // dateTimePickerFechaNacimiento
             // 
-            this.dateTimePickerFechaNacimiento.Location = new System.Drawing.Point(136, 102);
+            this.dateTimePickerFechaNacimiento.Location = new System.Drawing.Point(136, 79);
             this.dateTimePickerFechaNacimiento.Name = "dateTimePickerFechaNacimiento";
             this.dateTimePickerFechaNacimiento.Size = new System.Drawing.Size(200, 20);
             this.dateTimePickerFechaNacimiento.TabIndex = 7;
@@ -171,7 +214,7 @@
             // labelFechaNacimiento
             // 
             this.labelFechaNacimiento.AutoSize = true;
-            this.labelFechaNacimiento.Location = new System.Drawing.Point(6, 108);
+            this.labelFechaNacimiento.Location = new System.Drawing.Point(6, 85);
             this.labelFechaNacimiento.Name = "labelFechaNacimiento";
             this.labelFechaNacimiento.Size = new System.Drawing.Size(106, 13);
             this.labelFechaNacimiento.TabIndex = 6;
@@ -180,7 +223,7 @@
             // labelRaza
             // 
             this.labelRaza.AutoSize = true;
-            this.labelRaza.Location = new System.Drawing.Point(6, 158);
+            this.labelRaza.Location = new System.Drawing.Point(6, 119);
             this.labelRaza.Name = "labelRaza";
             this.labelRaza.Size = new System.Drawing.Size(32, 13);
             this.labelRaza.TabIndex = 4;
@@ -188,7 +231,7 @@
             // 
             // textBoxNombre
             // 
-            this.textBoxNombre.Location = new System.Drawing.Point(136, 58);
+            this.textBoxNombre.Location = new System.Drawing.Point(136, 46);
             this.textBoxNombre.Name = "textBoxNombre";
             this.textBoxNombre.Size = new System.Drawing.Size(200, 20);
             this.textBoxNombre.TabIndex = 3;
@@ -196,7 +239,7 @@
             // labelNombre
             // 
             this.labelNombre.AutoSize = true;
-            this.labelNombre.Location = new System.Drawing.Point(6, 61);
+            this.labelNombre.Location = new System.Drawing.Point(6, 49);
             this.labelNombre.Name = "labelNombre";
             this.labelNombre.Size = new System.Drawing.Size(44, 13);
             this.labelNombre.TabIndex = 2;
@@ -267,7 +310,11 @@
         private System.Windows.Forms.TextBox textBoxCaracteristicas;
         private System.Windows.Forms.Label labelCaracteristicas;
         private System.Windows.Forms.Button botonAgregar;
-        private System.Windows.Forms.TextBox textBoxRaza;
         protected internal System.Windows.Forms.ComboBox comboBoxModoPrennes;
+        private System.Windows.Forms.ComboBox comboBoxRaza;
+        private System.Windows.Forms.Label labelDesarrollo;
+        private System.Windows.Forms.TextBox textBoxPeso;
+        private System.Windows.Forms.Label labelPeso;
+        private System.Windows.Forms.ComboBox comboBoxDesarrollo;
     }
 }

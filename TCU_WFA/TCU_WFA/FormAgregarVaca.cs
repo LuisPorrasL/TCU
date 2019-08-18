@@ -9,9 +9,17 @@ namespace TCU_WFA
     {
 
         // Constantes
+        private const string QUERY_LLENAR_COMBO_BOX_RAZA = "SELECT * FROM [dbo].[RAZA];";
         private const string QUERY_LLENAR_COMBO_BOX_MODO_PRENNES = "SELECT * FROM [dbo].[MODO_PRENNES];";
+        private const string QUERY_LLENAR_COMBO_BOX_DESARROLLO = "SELECT * FROM [dbo].[DESARROLLO];";
         private const string QUERY_LLENAR_COMBO_BOX_ID_MADRE = "SELECT v.PK_NUMERO_TRAZABLE, v.PK_NUMERO_TRAZABLE FROM [dbo].[VACA] v;";
         private const string QUERY_LLENAR_COMBO_BOX_ID_PADRE = "SELECT t.PK_NUMERO_TRAZABLE, t.PK_NUMERO_TRAZABLE FROM [dbo].[TORO] t;";
+        private const string QUERY_OBTENER_ID_MODO_PRENNES = "SELECT mp.PK_ID_MODO_PRENNES FROM [dbo].[MODO_PRENNES] mP WHERE mP.MODO_PRENNES = @ModoPrennes";
+        private const string MODO_PRENNES_PARAM = "@ModoPrennes";
+        private const string QUERY_OBTENER_ID_RAZA = "SELECT r.PK_ID_RAZA FROM [dbo].[RAZA] r WHERE r.RAZA = @raza";
+        private const string RAZA_PARAM = "@raza";
+        private const string QUERY_OBTENER_ID_DESARROLLO = "SELECT d.PK_ID_DESARROLLO FROM [dbo].[DESARROLLO] d WHERE d.ESTADO = @estadoDesarrollo";
+        private const string DESARROLLO_PARAM = "@estadoDesarrollo";
 
         public FormAgregarVaca()
         {
@@ -25,7 +33,9 @@ namespace TCU_WFA
 
         private void LlenarComboBoxList()
         {
+            Utilities.LlenarComboBoxList(QUERY_LLENAR_COMBO_BOX_RAZA, comboBoxRaza);
             Utilities.LlenarComboBoxList(QUERY_LLENAR_COMBO_BOX_MODO_PRENNES, comboBoxModoPrennes);
+            Utilities.LlenarComboBoxList(QUERY_LLENAR_COMBO_BOX_DESARROLLO, comboBoxDesarrollo);
             Utilities.LlenarComboBoxList(QUERY_LLENAR_COMBO_BOX_ID_MADRE, comboBoxIdMadre);
             Utilities.LlenarComboBoxList(QUERY_LLENAR_COMBO_BOX_ID_PADRE, comboBoxIdPadre);
             comboBoxIdMadre.Text = "";
@@ -73,6 +83,11 @@ namespace TCU_WFA
             try
             {
                 if (textBoxNumeroTrazableVaca.Text == "" || Int32.Parse(textBoxNumeroTrazableVaca.Text) <= 0) return false;
+                if (textBoxPeso.Text != "")
+                {
+                    double peso = double.Parse(textBoxPeso.Text.Replace('.', ','));
+                    if (peso < 0 || peso > 999.99) return false;
+                }
                 if (textBoxCaracteristicas.Text == "") return false;
                 if (comboBoxModoPrennes.Text == "") return false;
                 if (comboBoxIdMadre.Text != "")
@@ -98,12 +113,15 @@ namespace TCU_WFA
             resultado.pkNumeroTrazable = Int32.Parse(textBoxNumeroTrazableVaca.Text);
             resultado.nombre = textBoxNombre.Text;
             resultado.caracteriscas = textBoxCaracteristicas.Text;
-            resultado.raza = textBoxRaza.Text;
+            if (textBoxPeso.Text != "") resultado.peso = double.Parse(textBoxPeso.Text.Replace('.', ','));
+            else resultado.peso = null;
             if (comboBoxIdMadre.Text != "") resultado.fkNumeroTrazableMadre = Int32.Parse(comboBoxIdMadre.Text);
             else resultado.fkNumeroTrazableMadre = null;
             if (comboBoxIdPadre.Text != "") resultado.fkNumeroTrazablePadre = Int32.Parse(comboBoxIdPadre.Text);
             else resultado.fkNumeroTrazablePadre = null;
-            resultado.fkModoPrennes = Utilities.ObtenerIdModoPrennes(comboBoxModoPrennes.Text);
+            resultado.raza = Utilities.ObtenerIdTabla(QUERY_LLENAR_COMBO_BOX_RAZA, RAZA_PARAM, comboBoxRaza.Text);
+            resultado.fkModoPrennes = Utilities.ObtenerIdTabla(QUERY_LLENAR_COMBO_BOX_MODO_PRENNES, MODO_PRENNES_PARAM, comboBoxModoPrennes.Text);
+            resultado.fkDesarrollo = Utilities.ObtenerIdTabla(QUERY_OBTENER_ID_DESARROLLO, DESARROLLO_PARAM, comboBoxDesarrollo.Text);
             resultado.fecha = dateTimePickerFechaNacimiento.Value;
             return resultado;
         }
@@ -112,7 +130,6 @@ namespace TCU_WFA
         {
             textBoxNumeroTrazableVaca.Clear();
             textBoxNombre.Clear();
-            textBoxRaza.Clear();
             textBoxCaracteristicas.Clear();
             dateTimePickerFechaNacimiento.Value = DateTime.Now;
             LlenarComboBoxList();

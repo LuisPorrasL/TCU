@@ -8,9 +8,7 @@ namespace TCU_WFA
     public static class Utilities
     {
         //Constantes
-        private const string QUERY_OBTENER_ID_MODO_PRENNES = "SELECT mp.PK_ID_MODO_PRENNES FROM [dbo].[MODO_PRENNES] mP WHERE mP.MODO_PRENNES = @ModoPrennes";
         public const int RESULTADO_ERROR = -1;
-        public const string MODO_PRENNES_PARAM = "@ModoPrennes";
         //Connection string 
         public const string CONNECTION_STRING = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog = TCU_DB; Integrated Security = True; Connect Timeout = 60; Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         //Mensajes
@@ -52,14 +50,14 @@ namespace TCU_WFA
             comboBoxName.DisplayMember = dt.Columns[1].ColumnName;
         }
 
-        public static int ObtenerIdModoPrennes(string nombreModoPrennes)
+        public static int ObtenerIdTabla(string queryObtenerId, string tablaParam, string valorParam)
         {
             int resultado;
             using (SqlConnection conn = new SqlConnection(CONNECTION_STRING))
             {
-                SqlCommand cmd = new SqlCommand(QUERY_OBTENER_ID_MODO_PRENNES, conn);
-                cmd.Parameters.Add(MODO_PRENNES_PARAM, SqlDbType.VarChar);
-                cmd.Parameters[MODO_PRENNES_PARAM].Value = nombreModoPrennes;
+                SqlCommand cmd = new SqlCommand(queryObtenerId, conn);
+                cmd.Parameters.Add(tablaParam, SqlDbType.VarChar);
+                cmd.Parameters[tablaParam].Value = valorParam;
                 try
                 {
                     conn.Open();

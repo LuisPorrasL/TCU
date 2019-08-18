@@ -67,7 +67,7 @@ namespace TCU_WFA
         {
             try
             {
-                int resultado = ProcedimientosAlmacenados.ProcInsertarSalto(this.vacaId, this.fechaSalto);
+                int resultado = ProcedimientosAlmacenados.ProcInsertarCelo(this.vacaId, this.fechaSalto);
                 if (resultado == Utilities.RESULTADO_ERROR) return false;
                 return true;
             }

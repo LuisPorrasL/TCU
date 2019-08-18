@@ -25,9 +25,10 @@ SET IDENTITY_INSERT dbo.[MODO_PRENNES] OFF
 
 SET IDENTITY_INSERT dbo.[RAZA] ON
 INSERT INTO dbo.[RAZA] ([PK_ID_RAZA], [RAZA])
-VALUES	(1, 'Raza 1'), 
-		(2, 'Raza 2'),
-		(3, 'Raza 3');
+VALUES	(1, 'Desconocida'),
+		(2, 'Raza 1'), 
+		(3, 'Raza 2'),
+		(4, 'Raza 3');
 SET IDENTITY_INSERT dbo.[RAZA] OFF
 
 SET IDENTITY_INSERT dbo.[DESARROLLO] ON

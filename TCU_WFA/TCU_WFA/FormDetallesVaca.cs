@@ -41,7 +41,6 @@ namespace TCU_WFA
         {
             textBoxNumeroTrazableVaca.Text = this.informacionVacaSeleccionada.pkNumeroTrazable.ToString();
             textBoxNombre.Text = this.informacionVacaSeleccionada.nombre;
-            textBoxRaza.Text = this.informacionVacaSeleccionada.raza;
             textBoxCaracteristicas.Text = this.informacionVacaSeleccionada.caracteriscas;
             textBoxFechaNacimiento.Text = this.informacionVacaSeleccionada.fecha.ToString();
             textBoxModoPrennes.Text = this.informacionVacaSeleccionada.modoPrennes;
