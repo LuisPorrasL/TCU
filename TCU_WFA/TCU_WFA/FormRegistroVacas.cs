@@ -11,6 +11,16 @@ namespace TCU_WFA
         //Constantes
         private const string QUERY_SELECT_VACAS_DATA_GRID_VIEW = "SELECT v.PK_NUMERO_TRAZABLE as 'Id', v.NOMBRE AS 'Nombre', v.FECHA_NACIMIENTO AS 'Fecha nacimiento', r.RAZA AS 'Raza', v.PESO AS 'Peso', d.ESTADO AS 'Estado desarrollo', v.CARACTERISTICAS AS 'Caracteristicas', mP.MODO_PRENNES AS 'Modo preñes', v.FK_NUMERO_TRAZABLE_VACA AS 'Id madre', v.FK_NUMERO_TRAZABLE_TORO AS 'Id padre'  FROM dbo.[VACA] v, dbo.[MODO_PRENNES] mP, dbo.[RAZA] r, dbo.DESARROLLO d WHERE v.ACTIVA = 1 AND v.FK_ID_MODO_PRENNES = mP.PK_ID_MODO_PRENNES AND v.FK_ID_RAZA = r.PK_ID_RAZA AND v.FK_ID_DESARROLLO = d.PK_ID_DESARROLLO;";
         private const string QUERY_BUSCAR_VACA_DATA_GRID_VIEW = "SELECT v.PK_NUMERO_TRAZABLE as 'Id', v.NOMBRE AS 'Nombre', v.FECHA_NACIMIENTO AS 'Fecha nacimiento', r.RAZA AS 'Raza', v.PESO AS 'Peso', d.ESTADO AS 'Estado desarrollo', v.CARACTERISTICAS AS 'Caracteristicas', mP.MODO_PRENNES AS 'Modo preñes', v.FK_NUMERO_TRAZABLE_VACA AS 'Id madre', v.FK_NUMERO_TRAZABLE_TORO AS 'Id padre'  FROM dbo.[VACA] v, dbo.[MODO_PRENNES] mP, dbo.[RAZA] r, dbo.DESARROLLO d WHERE v.ACTIVA = 1 AND v.FK_ID_MODO_PRENNES = mP.PK_ID_MODO_PRENNES AND v.FK_ID_RAZA = r.PK_ID_RAZA AND v.FK_ID_DESARROLLO = d.PK_ID_DESARROLLO AND v.PK_NUMERO_TRAZABLE = ";
+        private const int NUMERO_TRAZABLE = 0;
+        private const int NOMBRE = 1;
+        private const int FECHA = 2;
+        private const int RAZA = 3;
+        private const int PESO = 4;
+        private const int ESTADO = 5;
+        private const int CARACTERISTICAS = 6;
+        private const int MODO_PRENNES = 7;
+        private const int MADRE_ID = 8;
+        private const int PADRE_ID = 9;
         //Mensajes
         public const string MENSAJE_ERROR_SELECCION_ELIMINAR_VACA = "Por favor seleccionar primero la vaca que se desea eliminar.";
         public const string MENSAJE_ERROR_SELECCION_EDITAR_VACA = "Por favor seleccionar primero la vaca que se desea editar.";
@@ -91,15 +101,26 @@ namespace TCU_WFA
         private VacaModel obtenerInformacionVacaSelecionada(DataGridViewRow filaSelecionada)
         {
             VacaModel informacionVacaSeleccionada = new VacaModel();
-            informacionVacaSeleccionada.pkNumeroTrazable = (int)filaSelecionada.Cells[0].Value;
-            informacionVacaSeleccionada.nombre = (string)filaSelecionada.Cells[1].Value;
-            informacionVacaSeleccionada.fecha = (DateTime)filaSelecionada.Cells[2].Value;
-            informacionVacaSeleccionada.raza = (int)filaSelecionada.Cells[3].Value;
-            informacionVacaSeleccionada.caracteriscas = (string)filaSelecionada.Cells[4].Value;
-            informacionVacaSeleccionada.modoPrennes = (string)filaSelecionada.Cells[5].Value;
+            informacionVacaSeleccionada.pkNumeroTrazable = (int)filaSelecionada.Cells[NUMERO_TRAZABLE].Value;
+            informacionVacaSeleccionada.nombre = (string)filaSelecionada.Cells[NOMBRE].Value;
+            informacionVacaSeleccionada.fecha = (DateTime)filaSelecionada.Cells[FECHA].Value;
+            informacionVacaSeleccionada.desarrollo = (string)filaSelecionada.Cells[ESTADO].Value;
+            informacionVacaSeleccionada.razaStr = (string)filaSelecionada.Cells[RAZA].Value;
+            informacionVacaSeleccionada.caracteriscas = (string)filaSelecionada.Cells[CARACTERISTICAS].Value;
+            informacionVacaSeleccionada.modoPrennes = (string)filaSelecionada.Cells[MODO_PRENNES].Value;
+
             try
             {
-                informacionVacaSeleccionada.fkNumeroTrazableMadre = (int)filaSelecionada.Cells[6].Value;
+                informacionVacaSeleccionada.peso = double.Parse(filaSelecionada.Cells[PESO].Value.ToString().Replace('.', ','));
+            }
+            catch
+            {
+                informacionVacaSeleccionada.peso = null;
+            }
+
+            try
+            {
+                informacionVacaSeleccionada.fkNumeroTrazableMadre = (int)filaSelecionada.Cells[MADRE_ID].Value;
             }
             catch
             {
@@ -107,7 +128,7 @@ namespace TCU_WFA
             }
             try
             {
-                informacionVacaSeleccionada.fkNumeroTrazablePadre = (int)filaSelecionada.Cells[7].Value;
+                informacionVacaSeleccionada.fkNumeroTrazablePadre = (int)filaSelecionada.Cells[PADRE_ID].Value;
             }
             catch
             {

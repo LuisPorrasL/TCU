@@ -62,6 +62,7 @@
             this.botonVolver.TabIndex = 1;
             this.botonVolver.Text = "Volver";
             this.botonVolver.UseVisualStyleBackColor = true;
+            this.botonVolver.Click += new System.EventHandler(this.botonVolver_Click);
             // 
             // groupBoxAgregarVaca
             // 

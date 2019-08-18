@@ -8,6 +8,7 @@ namespace TCU_WFA.Models
         public string nombre { get; set; }
         public string caracteriscas { get; set; }
         public int raza { get; set; }
+        public string razaStr { get; set; }
         public int fkModoPrennes { get; set; }
         public string modoPrennes { get; set; }
         public DateTime fecha { get; set; }
