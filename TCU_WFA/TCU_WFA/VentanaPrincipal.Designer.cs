@@ -240,7 +240,6 @@
             this.Name = "VentanaPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "C.G.I.Z.S";
-            this.Load += new System.EventHandler(this.VentanaPrincipal_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.groupBoxNavegacionVentanaPrincipal.ResumeLayout(false);

@@ -2,10 +2,10 @@
 	@numeroTrazable INT,
 	@nombre NVARCHAR(20),
 	@caracteristicas NVARCHAR(MAX),
-	@raza NVARCHAR(30)
+	@raza INT
 
 AS
 	BEGIN
-		INSERT INTO [dbo].[TORO]([PK_NUMERO_TRAZABLE], [NOMBRE], [CARACTERISTICAS], [RAZA]) 
-		VALUES (@numeroTrazable, @nombre, @caracteristicas, @raza)
+		INSERT INTO [dbo].[TORO]([PK_NUMERO_TRAZABLE], [NOMBRE], [CARACTERISTICAS], [FK_ID_RAZA], [ACTIVA]) 
+		VALUES (@numeroTrazable, @nombre, @caracteristicas, @raza, 'True')
 	END

@@ -1,6 +1,9 @@
 ﻿CREATE PROCEDURE [dbo].[PROC_ELIMINAR_TORO]
-	@numeroTrazable INT
+	@numeroTrazable INT,
+	@causaDeBaja	NVARCHAR(MAX)
 AS
 	BEGIN
-		DELETE FROM [dbo].[TORO] WHERE [PK_NUMERO_TRAZABLE] = @numeroTrazable
+		UPDATE dbo.[TORO]
+		SET ACTIVA = 'False', CAUSA_DE_BAJA = @causaDeBaja
+		WHERE PK_NUMERO_TRAZABLE = @numeroTrazable;
 	END

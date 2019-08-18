@@ -104,10 +104,5 @@ namespace TCU_WFA
             form.Show(this);
             Hide();
         }
-
-        private void VentanaPrincipal_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
