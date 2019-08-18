@@ -7,5 +7,5 @@
 AS
 	BEGIN
 		INSERT INTO [dbo].[TORO]([PK_NUMERO_TRAZABLE], [NOMBRE], [CARACTERISTICAS], [FK_ID_RAZA], [ACTIVA]) 
-		VALUES (@numeroTrazable, @nombre, @caracteristicas, @raza, 'True')
+		VALUES (@numeroTrazable, @nombre, @caracteristicas, @raza, 1)
 	END

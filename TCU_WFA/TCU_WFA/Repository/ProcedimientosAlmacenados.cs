@@ -10,7 +10,7 @@ namespace TCU_WFA.Repository
         public static int ProcInsertarVaca(VacaModel vaca)
         {
             int resultado = 0;
-            string sql = "EXECUTE PROC_INSERTAR_VACA @numeroTrazable, @nombre, @caracteristicas, @raza, @fechaNacimiento, @fkModoPrennes, @fkNumeroTrazableMadre, @fkNumeroTrazablePadre";
+            string sql = "EXECUTE PROC_INSERTAR_VACA @numeroTrazable, @nombre, @caracteristicas, @raza, @fechaNacimiento, @fkModoPrennes, @fkNumeroTrazableMadre, @fkNumeroTrazablePadre, @peso, @fkDesarrollo";
             using (SqlConnection conn = new SqlConnection(Utilities.CONNECTION_STRING))
             {
                 SqlCommand cmd = new SqlCommand(sql, conn);
@@ -20,7 +20,7 @@ namespace TCU_WFA.Repository
                 cmd.Parameters["@nombre"].Value = vaca.nombre;
                 cmd.Parameters.Add("@caracteristicas", SqlDbType.NVarChar);
                 cmd.Parameters["@caracteristicas"].Value = vaca.caracteriscas;
-                cmd.Parameters.Add("@raza", SqlDbType.NVarChar);
+                cmd.Parameters.Add("@raza", SqlDbType.Int);
                 cmd.Parameters["@raza"].Value = vaca.raza;
                 cmd.Parameters.Add("@fechaNacimiento", SqlDbType.DateTime);
                 cmd.Parameters["@fechaNacimiento"].Value = vaca.fecha;
@@ -30,6 +30,10 @@ namespace TCU_WFA.Repository
                 cmd.Parameters["@fkNumeroTrazableMadre"].Value = (object)vaca.fkNumeroTrazableMadre ?? DBNull.Value;
                 cmd.Parameters.Add("@fkNumeroTrazablePadre", SqlDbType.Int);
                 cmd.Parameters["@fkNumeroTrazablePadre"].Value = (object)vaca.fkNumeroTrazablePadre ?? DBNull.Value;
+                cmd.Parameters.Add("@peso", SqlDbType.Decimal);
+                cmd.Parameters["@peso"].Value = (object)vaca.peso ?? DBNull.Value;
+                cmd.Parameters.Add("@fkDesarrollo", SqlDbType.Int);
+                cmd.Parameters["@fkDesarrollo"].Value = vaca.fkDesarrollo;
                 try
                 {
                     conn.Open();
@@ -47,7 +51,7 @@ namespace TCU_WFA.Repository
         public static int ProcEditarVaca(VacaModel vaca)
         {
             int resultado = 0;
-            string sql = "EXECUTE PROC_EDITAR_VACA @numeroTrazable, @nombre, @caracteristicas, @raza, @fechaNacimiento, @fkModoPrennes, @fkNumeroTrazableMadre, @fkNumeroTrazablePadre";
+            string sql = "EXECUTE PROC_EDITAR_VACA @numeroTrazable, @nombre, @caracteristicas, @raza, @fechaNacimiento, @fkModoPrennes, @fkNumeroTrazableMadre, @fkNumeroTrazablePadre, @peso, @fkDesarrollo";
             using (SqlConnection conn = new SqlConnection(Utilities.CONNECTION_STRING))
             {
                 SqlCommand cmd = new SqlCommand(sql, conn);
@@ -57,7 +61,7 @@ namespace TCU_WFA.Repository
                 cmd.Parameters["@nombre"].Value = vaca.nombre;
                 cmd.Parameters.Add("@caracteristicas", SqlDbType.NVarChar);
                 cmd.Parameters["@caracteristicas"].Value = vaca.caracteriscas;
-                cmd.Parameters.Add("@raza", SqlDbType.NVarChar);
+                cmd.Parameters.Add("@raza", SqlDbType.Int);
                 cmd.Parameters["@raza"].Value = vaca.raza;
                 cmd.Parameters.Add("@fechaNacimiento", SqlDbType.DateTime);
                 cmd.Parameters["@fechaNacimiento"].Value = vaca.fecha;
@@ -67,6 +71,10 @@ namespace TCU_WFA.Repository
                 cmd.Parameters["@fkNumeroTrazableMadre"].Value = (object)vaca.fkNumeroTrazableMadre ?? DBNull.Value;
                 cmd.Parameters.Add("@fkNumeroTrazablePadre", SqlDbType.Int);
                 cmd.Parameters["@fkNumeroTrazablePadre"].Value = (object)vaca.fkNumeroTrazablePadre ?? DBNull.Value;
+                cmd.Parameters.Add("@peso", SqlDbType.Decimal);
+                cmd.Parameters["@peso"].Value = (object)vaca.peso ?? DBNull.Value;
+                cmd.Parameters.Add("@fkDesarrollo", SqlDbType.Int);
+                cmd.Parameters["@fkDesarrollo"].Value = vaca.fkDesarrollo;
                 try
                 {
                     conn.Open();
@@ -170,17 +178,17 @@ namespace TCU_WFA.Repository
             return resultado;
         }
 
-        public static int ProcInsertarSalto(int vacaId, DateTime fechaSalto)
+        public static int ProcInsertarCelo(int vacaId, DateTime fechaCelo)
         {
             int resultado = 0;
-            string sql = "PROC_INSERTAR_SALTO @numeroTrazable, @fecha";
+            string sql = "PROC_INSERTAR_CELO @numeroTrazable, @fecha";
             using (SqlConnection conn = new SqlConnection(Utilities.CONNECTION_STRING))
             {
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.Add("@numeroTrazable", SqlDbType.Int);
                 cmd.Parameters["@numeroTrazable"].Value = vacaId;
                 cmd.Parameters.Add("@fecha", SqlDbType.DateTime);
-                cmd.Parameters["@fecha"].Value = fechaSalto;
+                cmd.Parameters["@fecha"].Value = fechaCelo;
                 try
                 {
                     conn.Open();
@@ -195,15 +203,17 @@ namespace TCU_WFA.Repository
             return resultado;
         }
 
-        public static int ProcEliminarVaca(int vacaId)
+        public static int ProcEliminarVaca(int vacaId, string causaDeBaja)
         {
             int resultado = 0;
-            string sql = "EXECUTE PROC_ELIMINAR_VACA @numeroTrazable";
+            string sql = "EXECUTE PROC_ELIMINAR_VACA @numeroTrazable, @causaDeBaja";
             using (SqlConnection conn = new SqlConnection(Utilities.CONNECTION_STRING))
             {
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.Add("@numeroTrazable", SqlDbType.Int);
                 cmd.Parameters["@numeroTrazable"].Value = vacaId;
+                cmd.Parameters.Add("@causaDeBaja", SqlDbType.NVarChar);
+                cmd.Parameters["@causaDeBaja"].Value = causaDeBaja;
                 try
                 {
                     conn.Open();

@@ -3,11 +3,11 @@
 	@nombre NVARCHAR(20),
 	@caracteristicas NVARCHAR(MAX),
 	@raza INT,
-	@peso DECIMAL(5,2),
 	@fechaNacimiento DATETIME,
 	@fkModoPrennes INT,
 	@fkNumeroTrazableMadre INT,
 	@fkNumeroTrazablePadre INT,
+	@peso DECIMAL(5,2),
 	@fkDesarrollo INT
 AS
 	BEGIN

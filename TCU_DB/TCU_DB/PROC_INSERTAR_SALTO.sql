@@ -1,8 +1,0 @@
-﻿CREATE PROCEDURE [dbo].[PROC_INSERTAR_SALTO]
-	@numeroTrazable INT,
-	@fecha DATETIME
-AS
-	BEGIN
-		INSERT INTO [dbo].[FECHAS_SALTOS] ([PK_FK_NUMERO_TRAZABLE_VACA], [PK_FECHA])
-		VALUES (@numeroTrazable, @fecha)
-	END

@@ -4,6 +4,6 @@
 AS
 	BEGIN
 		UPDATE dbo.[VACA]
-		SET ACTIVA = 'False', CAUSA_DE_BAJA = @causaDeBaja
+		SET ACTIVA = 0, CAUSA_DE_BAJA = @causaDeBaja
 		WHERE PK_NUMERO_TRAZABLE = @numeroTrazable;
 	END
