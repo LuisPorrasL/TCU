@@ -9,8 +9,10 @@ namespace TCU_WFA
     {
 
         //Constantes
-        private const string QUERY_SELECT_VACAS_DATA_GRID_VIEW = "SELECT v.PK_NUMERO_TRAZABLE as 'Id', v.NOMBRE AS 'Nombre', v.FECHA_NACIMIENTO AS 'Fecha nacimiento', r.RAZA AS 'Raza', v.PESO AS 'Peso', d.ESTADO AS 'Estado desarrollo', v.CARACTERISTICAS AS 'Caracteristicas', mP.MODO_PRENNES AS 'Modo preñes', v.FK_NUMERO_TRAZABLE_VACA AS 'Id madre', v.FK_NUMERO_TRAZABLE_TORO AS 'Id padre'  FROM dbo.[VACA] v, dbo.[MODO_PRENNES] mP, dbo.[RAZA] r, dbo.DESARROLLO d WHERE v.ACTIVA = 1 AND v.FK_ID_MODO_PRENNES = mP.PK_ID_MODO_PRENNES AND v.FK_ID_RAZA = r.PK_ID_RAZA AND v.FK_ID_DESARROLLO = d.PK_ID_DESARROLLO;";
-        private const string QUERY_BUSCAR_VACA_DATA_GRID_VIEW = "SELECT v.PK_NUMERO_TRAZABLE as 'Id', v.NOMBRE AS 'Nombre', v.FECHA_NACIMIENTO AS 'Fecha nacimiento', r.RAZA AS 'Raza', v.PESO AS 'Peso', d.ESTADO AS 'Estado desarrollo', v.CARACTERISTICAS AS 'Caracteristicas', mP.MODO_PRENNES AS 'Modo preñes', v.FK_NUMERO_TRAZABLE_VACA AS 'Id madre', v.FK_NUMERO_TRAZABLE_TORO AS 'Id padre'  FROM dbo.[VACA] v, dbo.[MODO_PRENNES] mP, dbo.[RAZA] r, dbo.DESARROLLO d WHERE v.ACTIVA = 1 AND v.FK_ID_MODO_PRENNES = mP.PK_ID_MODO_PRENNES AND v.FK_ID_RAZA = r.PK_ID_RAZA AND v.FK_ID_DESARROLLO = d.PK_ID_DESARROLLO AND v.PK_NUMERO_TRAZABLE = ";
+        private const string QUERY_SELECT_VACAS_DATA_GRID_VIEW = "SELECT v.PK_NUMERO_TRAZABLE as 'Id', v.NOMBRE AS 'Nombre', v.FECHA_NACIMIENTO AS 'Fecha nacimiento', r.RAZA AS 'Raza', v.PESO AS 'Peso', d.ESTADO AS 'Estado desarrollo', v.CARACTERISTICAS AS 'Caracteristicas', mP.MODO_PRENNES AS 'Modo preñes', v.FK_NUMERO_TRAZABLE_VACA AS 'Id madre', v.FK_NUMERO_TRAZABLE_TORO AS 'Id padre', v.ACTIVA AS '¿Activa?' FROM dbo.[VACA] v, dbo.[MODO_PRENNES] mP, dbo.[RAZA] r, dbo.DESARROLLO d WHERE v.ACTIVA = 1 AND v.FK_ID_MODO_PRENNES = mP.PK_ID_MODO_PRENNES AND v.FK_ID_RAZA = r.PK_ID_RAZA AND v.FK_ID_DESARROLLO = d.PK_ID_DESARROLLO;";
+        private const string QUERY_SELECT_BAJAS_VACAS_DATA_GRID_VIEW = "SELECT v.PK_NUMERO_TRAZABLE as 'Id', v.NOMBRE AS 'Nombre', v.FECHA_NACIMIENTO AS 'Fecha nacimiento', r.RAZA AS 'Raza', v.PESO AS 'Peso', d.ESTADO AS 'Estado desarrollo', v.CARACTERISTICAS AS 'Caracteristicas', mP.MODO_PRENNES AS 'Modo preñes', v.FK_NUMERO_TRAZABLE_VACA AS 'Id madre', v.FK_NUMERO_TRAZABLE_TORO AS 'Id padre', v.ACTIVA AS '¿Activa?', v.CAUSA_DE_BAJA AS 'Causa de baja' FROM dbo.[VACA] v, dbo.[MODO_PRENNES] mP, dbo.[RAZA] r, dbo.DESARROLLO d WHERE v.ACTIVA = 0 AND v.FK_ID_MODO_PRENNES = mP.PK_ID_MODO_PRENNES AND v.FK_ID_RAZA = r.PK_ID_RAZA AND v.FK_ID_DESARROLLO = d.PK_ID_DESARROLLO;";
+        private const string QUERY_BUSCAR_VACA_DATA_GRID_VIEW = "SELECT v.PK_NUMERO_TRAZABLE as 'Id', v.NOMBRE AS 'Nombre', v.FECHA_NACIMIENTO AS 'Fecha nacimiento', r.RAZA AS 'Raza', v.PESO AS 'Peso', d.ESTADO AS 'Estado desarrollo', v.CARACTERISTICAS AS 'Caracteristicas', mP.MODO_PRENNES AS 'Modo preñes', v.FK_NUMERO_TRAZABLE_VACA AS 'Id madre', v.FK_NUMERO_TRAZABLE_TORO AS 'Id padre', v.ACTIVA AS '¿Activa?' FROM dbo.[VACA] v, dbo.[MODO_PRENNES] mP, dbo.[RAZA] r, dbo.DESARROLLO d WHERE v.ACTIVA = 1 AND v.FK_ID_MODO_PRENNES = mP.PK_ID_MODO_PRENNES AND v.FK_ID_RAZA = r.PK_ID_RAZA AND v.FK_ID_DESARROLLO = d.PK_ID_DESARROLLO AND v.PK_NUMERO_TRAZABLE = ";
+        private const string QUERY_BUSCAR_BAJAS_VACA_DATA_GRID_VIEW = "SELECT v.PK_NUMERO_TRAZABLE as 'Id', v.NOMBRE AS 'Nombre', v.FECHA_NACIMIENTO AS 'Fecha nacimiento', r.RAZA AS 'Raza', v.PESO AS 'Peso', d.ESTADO AS 'Estado desarrollo', v.CARACTERISTICAS AS 'Caracteristicas', mP.MODO_PRENNES AS 'Modo preñes', v.FK_NUMERO_TRAZABLE_VACA AS 'Id madre', v.FK_NUMERO_TRAZABLE_TORO AS 'Id padre', v.ACTIVA AS '¿Activa?', v.CAUSA_DE_BAJA AS 'Causa de baja' FROM dbo.[VACA] v, dbo.[MODO_PRENNES] mP, dbo.[RAZA] r, dbo.DESARROLLO d WHERE v.ACTIVA = 0 AND v.FK_ID_MODO_PRENNES = mP.PK_ID_MODO_PRENNES AND v.FK_ID_RAZA = r.PK_ID_RAZA AND v.FK_ID_DESARROLLO = d.PK_ID_DESARROLLO AND v.PK_NUMERO_TRAZABLE = ";
         private const int NUMERO_TRAZABLE = 0;
         private const int NOMBRE = 1;
         private const int FECHA = 2;
@@ -21,6 +23,8 @@ namespace TCU_WFA
         private const int MODO_PRENNES = 7;
         private const int MADRE_ID = 8;
         private const int PADRE_ID = 9;
+        private const int ACTIVA = 10;
+        private const int CAUSA_DE_BAJA = 11;
         //Mensajes
         public const string MENSAJE_ERROR_SELECCION_ELIMINAR_VACA = "Por favor seleccionar primero la vaca que se desea eliminar.";
         public const string MENSAJE_ERROR_SELECCION_EDITAR_VACA = "Por favor seleccionar primero la vaca que se desea editar.";
@@ -42,7 +46,9 @@ namespace TCU_WFA
 
         public void LlenarDataGridViewVacas()
         {
-            Utilities.LlenarDataGridView(QUERY_SELECT_VACAS_DATA_GRID_VIEW, dataGridViewVacas);
+            string query = QUERY_SELECT_VACAS_DATA_GRID_VIEW;
+            if (checkBoxVerBajas.Checked) query = QUERY_SELECT_BAJAS_VACAS_DATA_GRID_VIEW;
+            Utilities.LlenarDataGridView(query, dataGridViewVacas);
         }
 
         private void botonAgregarVaca_Click(object sender, EventArgs e)
@@ -61,7 +67,9 @@ namespace TCU_WFA
                 try
                 {
                     int idVacaABuscar = Int32.Parse(textoBuscar);
-                    Utilities.LlenarDataGridView(QUERY_BUSCAR_VACA_DATA_GRID_VIEW + idVacaABuscar + ";", dataGridViewVacas);
+                    string query = QUERY_BUSCAR_VACA_DATA_GRID_VIEW;
+                    if (checkBoxVerBajas.Checked) query = QUERY_BUSCAR_BAJAS_VACA_DATA_GRID_VIEW;
+                    Utilities.LlenarDataGridView(query + idVacaABuscar + ";", dataGridViewVacas);
                 }
                 catch
                 {
@@ -102,12 +110,28 @@ namespace TCU_WFA
         {
             VacaModel informacionVacaSeleccionada = new VacaModel();
             informacionVacaSeleccionada.pkNumeroTrazable = (int)filaSelecionada.Cells[NUMERO_TRAZABLE].Value;
-            informacionVacaSeleccionada.nombre = (string)filaSelecionada.Cells[NOMBRE].Value;
-            informacionVacaSeleccionada.fecha = (DateTime)filaSelecionada.Cells[FECHA].Value;
+            try
+            {
+                informacionVacaSeleccionada.nombre = (string)filaSelecionada.Cells[NOMBRE].Value;
+            }
+            catch
+            {
+                informacionVacaSeleccionada.nombre = null;
+            }
+            try
+            {
+                informacionVacaSeleccionada.fecha = (DateTime)filaSelecionada.Cells[FECHA].Value;
+            }
+            catch
+            {
+                informacionVacaSeleccionada.fecha = null;
+            }
             informacionVacaSeleccionada.desarrollo = (string)filaSelecionada.Cells[ESTADO].Value;
             informacionVacaSeleccionada.razaStr = (string)filaSelecionada.Cells[RAZA].Value;
             informacionVacaSeleccionada.caracteriscas = (string)filaSelecionada.Cells[CARACTERISTICAS].Value;
             informacionVacaSeleccionada.modoPrennes = (string)filaSelecionada.Cells[MODO_PRENNES].Value;
+            informacionVacaSeleccionada.activa = (bool)filaSelecionada.Cells[ACTIVA].Value;
+            if (checkBoxVerBajas.Checked) informacionVacaSeleccionada.causaDeBaja = (string)filaSelecionada.Cells[CAUSA_DE_BAJA].Value;
 
             try
             {
@@ -117,7 +141,6 @@ namespace TCU_WFA
             {
                 informacionVacaSeleccionada.peso = null;
             }
-
             try
             {
                 informacionVacaSeleccionada.fkNumeroTrazableMadre = (int)filaSelecionada.Cells[MADRE_ID].Value;
@@ -183,6 +206,11 @@ namespace TCU_WFA
             {
                 Utilities.MostrarMessageBox(MENSAJE_ERROR_SELECCION_DETALLES_VACA, TITULO_AVISO_DETALLES_VACA, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void checkBoxVerBajas_CheckedChanged(object sender, EventArgs e)
+        {
+            LlenarDataGridViewVacas();
         }
     }
 }

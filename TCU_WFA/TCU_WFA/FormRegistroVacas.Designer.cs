@@ -43,6 +43,7 @@
             this.botonDetalles = new System.Windows.Forms.Button();
             this.vACABindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.cKFKNUMEROTRAZABLEVACABindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.checkBoxVerBajas = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVacas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vACABindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tCUDBDataSetBindingSource)).BeginInit();
@@ -157,12 +158,24 @@
             this.cKFKNUMEROTRAZABLEVACABindingSource.DataMember = "CK_FK_NUMERO_TRAZABLE_VACA";
             this.cKFKNUMEROTRAZABLEVACABindingSource.DataSource = this.vACABindingSource1;
             // 
+            // checkBoxVerBajas
+            // 
+            this.checkBoxVerBajas.AutoSize = true;
+            this.checkBoxVerBajas.Location = new System.Drawing.Point(455, 18);
+            this.checkBoxVerBajas.Name = "checkBoxVerBajas";
+            this.checkBoxVerBajas.Size = new System.Drawing.Size(70, 17);
+            this.checkBoxVerBajas.TabIndex = 8;
+            this.checkBoxVerBajas.Text = "Ver bajas";
+            this.checkBoxVerBajas.UseVisualStyleBackColor = true;
+            this.checkBoxVerBajas.CheckedChanged += new System.EventHandler(this.checkBoxVerBajas_CheckedChanged);
+            // 
             // FormRegistroVacas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.checkBoxVerBajas);
             this.Controls.Add(this.botonDetalles);
             this.Controls.Add(this.botonEliminar);
             this.Controls.Add(this.botonEditar);
@@ -203,5 +216,6 @@
         private System.Windows.Forms.Button botonDetalles;
         private System.Windows.Forms.BindingSource vACABindingSource1;
         private System.Windows.Forms.BindingSource cKFKNUMEROTRAZABLEVACABindingSource;
+        private System.Windows.Forms.CheckBox checkBoxVerBajas;
     }
 }

@@ -10,9 +10,17 @@ Post-Deployment Script Template
 --------------------------------------------------------------------------------------
 */
 
+DELETE FROM [dbo].[USUARIO]
+DELETE FROM [dbo].[VACA]
+DELETE FROM [dbo].[TORO]
 DELETE FROM [dbo].[MODO_PRENNES]
 DELETE FROM [dbo].[RAZA]
 DELETE FROM [dbo].[DESARROLLO]
+DELETE FROM [dbo].[FECHAS_CELOS]
+DELETE FROM [dbo].[FECHAS_DESTETES]
+DELETE FROM [dbo].[PALPACION]
+DELETE FROM [dbo].[PARTO]
+DELETE FROM [dbo].[EXAMEN_ANTROPOLOGICO]
 
 SET IDENTITY_INSERT dbo.[MODO_PRENNES] ON
 INSERT INTO [dbo].[MODO_PRENNES] ([PK_ID_MODO_PRENNES], [MODO_PRENNES]) 
@@ -36,4 +44,11 @@ INSERT INTO dbo.[DESARROLLO] ([PK_ID_DESARROLLO], [ESTADO])
 VALUES	(1, 'Ternera'),
 		(2, 'Novilla'),
 		(3, 'Vaca');
-SET IDENTITY_INSERT dbo.[DESARROLLO] OFF 
+SET IDENTITY_INSERT dbo.[DESARROLLO] OFF
+
+INSERT INTO [dbo].[VACA]([PK_NUMERO_TRAZABLE], [NOMBRE], [CARACTERISTICAS], [FK_ID_RAZA], [FECHA_NACIMIENTO], [FK_ID_MODO_PRENNES], [FK_NUMERO_TRAZABLE_VACA], [FK_NUMERO_TRAZABLE_TORO], [PESO], [FK_ID_DESARROLLO], [ACTIVA], [CAUSA_DE_BAJA])
+VALUES	(1, 'Lola', 'Inútil', 2, '2018-1-1', 1, NULL, NULL, 100.2, 3, 1, NULL),
+		(2, NULL, 'Útil', 3, '2019-2-1', 2, NULL, NULL, 100.3, 2, 1, NULL),
+		(3, 'Lula', 'Medio útil', 2, '2019-1-1', 1, 1, NULL, 99.3, 3, 1, NULL),
+		(4, NULL, 'Muerta #1', 3, '2018-1-1', 1, NULL, NULL, NULL, 3, 0, 'Venta'),
+		(5, NULL, 'Muerta #2', 3, '2018-5-5', 1, NULL, NULL, NULL, 1, 0, 'Muerte prematura');

@@ -46,8 +46,12 @@ namespace TCU_WFA
             textBoxModoPrennes.Text = this.informacionVacaSeleccionada.modoPrennes;
             textBoxIdMadre.Text = this.informacionVacaSeleccionada.fkNumeroTrazableMadre.ToString();
             textBoxIdPadre.Text = this.informacionVacaSeleccionada.fkNumeroTrazablePadre.ToString();
-            int edad = DateTime.Today.Year - this.informacionVacaSeleccionada.fecha.Year;
-            if (this.informacionVacaSeleccionada.fecha.Date > DateTime.Today.AddYears(-edad)) edad--;
+            int edad = -1;
+            if (this.informacionVacaSeleccionada.fecha != null)
+            {
+                edad = DateTime.Today.Year - ((DateTime)this.informacionVacaSeleccionada.fecha).Year;
+                if (((DateTime)this.informacionVacaSeleccionada.fecha).Date > DateTime.Today.AddYears(-edad)) edad--;
+            }
             textBoxEdad.Text = edad.ToString();
         }
     }

@@ -11,11 +11,13 @@ namespace TCU_WFA.Models
         public string razaStr { get; set; }
         public int fkModoPrennes { get; set; }
         public string modoPrennes { get; set; }
-        public DateTime fecha { get; set; }
+        public DateTime? fecha { get; set; }
         public int? fkNumeroTrazableMadre { get; set; }
         public int? fkNumeroTrazablePadre { get; set; }
         public double? peso { get; set; }
         public int fkDesarrollo { get; set; }
         public string desarrollo { get; set; }
+        public bool activa { get; set; }
+        public string causaDeBaja { get; set; }
     }
 }

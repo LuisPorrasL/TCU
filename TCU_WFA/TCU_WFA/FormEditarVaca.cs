@@ -31,7 +31,7 @@ namespace TCU_WFA
             textBoxNumeroTrazableVaca.Text = this.informacionVacaSeleccionada.pkNumeroTrazable.ToString();
             textBoxNombre.Text = this.informacionVacaSeleccionada.nombre;
             textBoxCaracteristicas.Text = this.informacionVacaSeleccionada.caracteriscas;
-            dateTimePickerFechaNacimiento.Value = this.informacionVacaSeleccionada.fecha;
+            dateTimePickerFechaNacimiento.Value = (DateTime)this.informacionVacaSeleccionada.fecha;
             int indiceModoPrennes = comboBoxModoPrennes.FindString(this.informacionVacaSeleccionada.modoPrennes);
             comboBoxModoPrennes.SelectedIndex = indiceModoPrennes;
             if (this.informacionVacaSeleccionada.fkNumeroTrazableMadre != null)
