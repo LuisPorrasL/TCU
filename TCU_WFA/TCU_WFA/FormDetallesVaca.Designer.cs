@@ -148,6 +148,7 @@
             // checkBoxActiva
             // 
             this.checkBoxActiva.AutoSize = true;
+            this.checkBoxActiva.Enabled = false;
             this.checkBoxActiva.Location = new System.Drawing.Point(9, 19);
             this.checkBoxActiva.Name = "checkBoxActiva";
             this.checkBoxActiva.Size = new System.Drawing.Size(56, 17);
