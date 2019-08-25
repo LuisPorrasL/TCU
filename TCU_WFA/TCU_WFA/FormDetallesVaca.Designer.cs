@@ -31,7 +31,13 @@
             this.botonVolver = new System.Windows.Forms.Button();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPageInformacionGeneral = new System.Windows.Forms.TabPage();
+            this.groupBoxActiva = new System.Windows.Forms.GroupBox();
+            this.textBoxCausaDeBaja = new System.Windows.Forms.TextBox();
+            this.labelCausaDeBaja = new System.Windows.Forms.Label();
+            this.checkBoxActiva = new System.Windows.Forms.CheckBox();
             this.groupBoxDetallesVacaEspecifico = new System.Windows.Forms.GroupBox();
+            this.textBoxEdad = new System.Windows.Forms.TextBox();
+            this.labelEdad = new System.Windows.Forms.Label();
             this.textBoxCaracteristicas = new System.Windows.Forms.TextBox();
             this.labelCaracteristicas = new System.Windows.Forms.Label();
             this.comboBoxFechasDestetes = new System.Windows.Forms.ComboBox();
@@ -39,16 +45,18 @@
             this.comboBoxFechasSaltos = new System.Windows.Forms.ComboBox();
             this.labelFechasSaltos = new System.Windows.Forms.Label();
             this.groupBoxDetallesVacaGeneral = new System.Windows.Forms.GroupBox();
-            this.textBoxFechaNacimiento = new System.Windows.Forms.TextBox();
-            this.textBoxEdad = new System.Windows.Forms.TextBox();
-            this.labelEdad = new System.Windows.Forms.Label();
+            this.textBoxDesarrollo = new System.Windows.Forms.TextBox();
+            this.labelEstadoDesarrollo = new System.Windows.Forms.Label();
             this.textBoxIdPadre = new System.Windows.Forms.TextBox();
+            this.labelIdMadre = new System.Windows.Forms.Label();
+            this.textBoxFechaNacimiento = new System.Windows.Forms.TextBox();
+            this.labelIdPadre = new System.Windows.Forms.Label();
+            this.textBoxPeso = new System.Windows.Forms.TextBox();
             this.textBoxIdMadre = new System.Windows.Forms.TextBox();
+            this.labelPeso = new System.Windows.Forms.Label();
             this.textBoxModoPrennes = new System.Windows.Forms.TextBox();
             this.textBoxRaza = new System.Windows.Forms.TextBox();
             this.labelModoPrennes = new System.Windows.Forms.Label();
-            this.labelIdPadre = new System.Windows.Forms.Label();
-            this.labelIdMadre = new System.Windows.Forms.Label();
             this.labelFechaNacimiento = new System.Windows.Forms.Label();
             this.labelRaza = new System.Windows.Forms.Label();
             this.textBoxNombre = new System.Windows.Forms.TextBox();
@@ -59,9 +67,11 @@
             this.dataGridViewPalpacionesVaca = new System.Windows.Forms.DataGridView();
             this.tabPagePartos = new System.Windows.Forms.TabPage();
             this.dataGridViewPartosVacas = new System.Windows.Forms.DataGridView();
+            this.tabPageParametrosReproductivos = new System.Windows.Forms.TabPage();
             this.exameN_ANTROPOLOGICOTableAdapter1 = new TCU_WFA.TCU_DBDataSetTableAdapters.EXAMEN_ANTROPOLOGICOTableAdapter();
             this.tabControl.SuspendLayout();
             this.tabPageInformacionGeneral.SuspendLayout();
+            this.groupBoxActiva.SuspendLayout();
             this.groupBoxDetallesVacaEspecifico.SuspendLayout();
             this.groupBoxDetallesVacaGeneral.SuspendLayout();
             this.tabPagePalpacion.SuspendLayout();
@@ -85,6 +95,7 @@
             this.tabControl.Controls.Add(this.tabPageInformacionGeneral);
             this.tabControl.Controls.Add(this.tabPagePalpacion);
             this.tabControl.Controls.Add(this.tabPagePartos);
+            this.tabControl.Controls.Add(this.tabPageParametrosReproductivos);
             this.tabControl.Location = new System.Drawing.Point(-1, 0);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -93,6 +104,7 @@
             // 
             // tabPageInformacionGeneral
             // 
+            this.tabPageInformacionGeneral.Controls.Add(this.groupBoxActiva);
             this.tabPageInformacionGeneral.Controls.Add(this.groupBoxDetallesVacaEspecifico);
             this.tabPageInformacionGeneral.Controls.Add(this.groupBoxDetallesVacaGeneral);
             this.tabPageInformacionGeneral.Location = new System.Drawing.Point(4, 22);
@@ -103,8 +115,50 @@
             this.tabPageInformacionGeneral.Text = "Información general";
             this.tabPageInformacionGeneral.UseVisualStyleBackColor = true;
             // 
+            // groupBoxActiva
+            // 
+            this.groupBoxActiva.Controls.Add(this.textBoxCausaDeBaja);
+            this.groupBoxActiva.Controls.Add(this.labelCausaDeBaja);
+            this.groupBoxActiva.Controls.Add(this.checkBoxActiva);
+            this.groupBoxActiva.Location = new System.Drawing.Point(360, 230);
+            this.groupBoxActiva.Name = "groupBoxActiva";
+            this.groupBoxActiva.Size = new System.Drawing.Size(345, 147);
+            this.groupBoxActiva.TabIndex = 21;
+            this.groupBoxActiva.TabStop = false;
+            // 
+            // textBoxCausaDeBaja
+            // 
+            this.textBoxCausaDeBaja.Location = new System.Drawing.Point(103, 48);
+            this.textBoxCausaDeBaja.MinimumSize = new System.Drawing.Size(236, 50);
+            this.textBoxCausaDeBaja.Multiline = true;
+            this.textBoxCausaDeBaja.Name = "textBoxCausaDeBaja";
+            this.textBoxCausaDeBaja.ReadOnly = true;
+            this.textBoxCausaDeBaja.Size = new System.Drawing.Size(236, 79);
+            this.textBoxCausaDeBaja.TabIndex = 22;
+            // 
+            // labelCausaDeBaja
+            // 
+            this.labelCausaDeBaja.AutoSize = true;
+            this.labelCausaDeBaja.Location = new System.Drawing.Point(6, 54);
+            this.labelCausaDeBaja.Name = "labelCausaDeBaja";
+            this.labelCausaDeBaja.Size = new System.Drawing.Size(75, 13);
+            this.labelCausaDeBaja.TabIndex = 21;
+            this.labelCausaDeBaja.Text = "Causa de baja";
+            // 
+            // checkBoxActiva
+            // 
+            this.checkBoxActiva.AutoSize = true;
+            this.checkBoxActiva.Location = new System.Drawing.Point(9, 19);
+            this.checkBoxActiva.Name = "checkBoxActiva";
+            this.checkBoxActiva.Size = new System.Drawing.Size(56, 17);
+            this.checkBoxActiva.TabIndex = 0;
+            this.checkBoxActiva.Text = "Activa";
+            this.checkBoxActiva.UseVisualStyleBackColor = true;
+            // 
             // groupBoxDetallesVacaEspecifico
             // 
+            this.groupBoxDetallesVacaEspecifico.Controls.Add(this.textBoxEdad);
+            this.groupBoxDetallesVacaEspecifico.Controls.Add(this.labelEdad);
             this.groupBoxDetallesVacaEspecifico.Controls.Add(this.textBoxCaracteristicas);
             this.groupBoxDetallesVacaEspecifico.Controls.Add(this.labelCaracteristicas);
             this.groupBoxDetallesVacaEspecifico.Controls.Add(this.comboBoxFechasDestetes);
@@ -113,13 +167,30 @@
             this.groupBoxDetallesVacaEspecifico.Controls.Add(this.labelFechasSaltos);
             this.groupBoxDetallesVacaEspecifico.Location = new System.Drawing.Point(360, 6);
             this.groupBoxDetallesVacaEspecifico.Name = "groupBoxDetallesVacaEspecifico";
-            this.groupBoxDetallesVacaEspecifico.Size = new System.Drawing.Size(345, 181);
+            this.groupBoxDetallesVacaEspecifico.Size = new System.Drawing.Size(345, 218);
             this.groupBoxDetallesVacaEspecifico.TabIndex = 5;
             this.groupBoxDetallesVacaEspecifico.TabStop = false;
             // 
+            // textBoxEdad
+            // 
+            this.textBoxEdad.Location = new System.Drawing.Point(139, 13);
+            this.textBoxEdad.Name = "textBoxEdad";
+            this.textBoxEdad.ReadOnly = true;
+            this.textBoxEdad.Size = new System.Drawing.Size(200, 20);
+            this.textBoxEdad.TabIndex = 20;
+            // 
+            // labelEdad
+            // 
+            this.labelEdad.AutoSize = true;
+            this.labelEdad.Location = new System.Drawing.Point(6, 16);
+            this.labelEdad.Name = "labelEdad";
+            this.labelEdad.Size = new System.Drawing.Size(32, 13);
+            this.labelEdad.TabIndex = 18;
+            this.labelEdad.Text = "Edad";
+            // 
             // textBoxCaracteristicas
             // 
-            this.textBoxCaracteristicas.Location = new System.Drawing.Point(103, 88);
+            this.textBoxCaracteristicas.Location = new System.Drawing.Point(103, 131);
             this.textBoxCaracteristicas.MinimumSize = new System.Drawing.Size(236, 50);
             this.textBoxCaracteristicas.Multiline = true;
             this.textBoxCaracteristicas.Name = "textBoxCaracteristicas";
@@ -130,7 +201,7 @@
             // labelCaracteristicas
             // 
             this.labelCaracteristicas.AutoSize = true;
-            this.labelCaracteristicas.Location = new System.Drawing.Point(6, 94);
+            this.labelCaracteristicas.Location = new System.Drawing.Point(6, 137);
             this.labelCaracteristicas.Name = "labelCaracteristicas";
             this.labelCaracteristicas.Size = new System.Drawing.Size(78, 13);
             this.labelCaracteristicas.TabIndex = 16;
@@ -140,7 +211,7 @@
             // 
             this.comboBoxFechasDestetes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxFechasDestetes.FormattingEnabled = true;
-            this.comboBoxFechasDestetes.Location = new System.Drawing.Point(139, 51);
+            this.comboBoxFechasDestetes.Location = new System.Drawing.Point(139, 88);
             this.comboBoxFechasDestetes.Name = "comboBoxFechasDestetes";
             this.comboBoxFechasDestetes.Size = new System.Drawing.Size(200, 21);
             this.comboBoxFechasDestetes.TabIndex = 3;
@@ -148,7 +219,7 @@
             // labelFechasDestetes
             // 
             this.labelFechasDestetes.AutoSize = true;
-            this.labelFechasDestetes.Location = new System.Drawing.Point(6, 54);
+            this.labelFechasDestetes.Location = new System.Drawing.Point(6, 91);
             this.labelFechasDestetes.Name = "labelFechasDestetes";
             this.labelFechasDestetes.Size = new System.Drawing.Size(85, 13);
             this.labelFechasDestetes.TabIndex = 2;
@@ -158,7 +229,7 @@
             // 
             this.comboBoxFechasSaltos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxFechasSaltos.FormattingEnabled = true;
-            this.comboBoxFechasSaltos.Location = new System.Drawing.Point(139, 13);
+            this.comboBoxFechasSaltos.Location = new System.Drawing.Point(139, 51);
             this.comboBoxFechasSaltos.Name = "comboBoxFechasSaltos";
             this.comboBoxFechasSaltos.Size = new System.Drawing.Size(200, 21);
             this.comboBoxFechasSaltos.TabIndex = 1;
@@ -166,7 +237,7 @@
             // labelFechasSaltos
             // 
             this.labelFechasSaltos.AutoSize = true;
-            this.labelFechasSaltos.Location = new System.Drawing.Point(6, 16);
+            this.labelFechasSaltos.Location = new System.Drawing.Point(6, 54);
             this.labelFechasSaltos.Name = "labelFechasSaltos";
             this.labelFechasSaltos.Size = new System.Drawing.Size(72, 13);
             this.labelFechasSaltos.TabIndex = 0;
@@ -174,16 +245,18 @@
             // 
             // groupBoxDetallesVacaGeneral
             // 
-            this.groupBoxDetallesVacaGeneral.Controls.Add(this.textBoxFechaNacimiento);
-            this.groupBoxDetallesVacaGeneral.Controls.Add(this.textBoxEdad);
-            this.groupBoxDetallesVacaGeneral.Controls.Add(this.labelEdad);
+            this.groupBoxDetallesVacaGeneral.Controls.Add(this.textBoxDesarrollo);
+            this.groupBoxDetallesVacaGeneral.Controls.Add(this.labelEstadoDesarrollo);
             this.groupBoxDetallesVacaGeneral.Controls.Add(this.textBoxIdPadre);
+            this.groupBoxDetallesVacaGeneral.Controls.Add(this.labelIdMadre);
+            this.groupBoxDetallesVacaGeneral.Controls.Add(this.textBoxFechaNacimiento);
+            this.groupBoxDetallesVacaGeneral.Controls.Add(this.labelIdPadre);
+            this.groupBoxDetallesVacaGeneral.Controls.Add(this.textBoxPeso);
             this.groupBoxDetallesVacaGeneral.Controls.Add(this.textBoxIdMadre);
+            this.groupBoxDetallesVacaGeneral.Controls.Add(this.labelPeso);
             this.groupBoxDetallesVacaGeneral.Controls.Add(this.textBoxModoPrennes);
             this.groupBoxDetallesVacaGeneral.Controls.Add(this.textBoxRaza);
             this.groupBoxDetallesVacaGeneral.Controls.Add(this.labelModoPrennes);
-            this.groupBoxDetallesVacaGeneral.Controls.Add(this.labelIdPadre);
-            this.groupBoxDetallesVacaGeneral.Controls.Add(this.labelIdMadre);
             this.groupBoxDetallesVacaGeneral.Controls.Add(this.labelFechaNacimiento);
             this.groupBoxDetallesVacaGeneral.Controls.Add(this.labelRaza);
             this.groupBoxDetallesVacaGeneral.Controls.Add(this.textBoxNombre);
@@ -192,9 +265,43 @@
             this.groupBoxDetallesVacaGeneral.Controls.Add(this.labelNumeroTrazableVaca);
             this.groupBoxDetallesVacaGeneral.Location = new System.Drawing.Point(9, 6);
             this.groupBoxDetallesVacaGeneral.Name = "groupBoxDetallesVacaGeneral";
-            this.groupBoxDetallesVacaGeneral.Size = new System.Drawing.Size(345, 337);
+            this.groupBoxDetallesVacaGeneral.Size = new System.Drawing.Size(345, 371);
             this.groupBoxDetallesVacaGeneral.TabIndex = 4;
             this.groupBoxDetallesVacaGeneral.TabStop = false;
+            // 
+            // textBoxDesarrollo
+            // 
+            this.textBoxDesarrollo.Location = new System.Drawing.Point(136, 254);
+            this.textBoxDesarrollo.Name = "textBoxDesarrollo";
+            this.textBoxDesarrollo.ReadOnly = true;
+            this.textBoxDesarrollo.Size = new System.Drawing.Size(200, 20);
+            this.textBoxDesarrollo.TabIndex = 24;
+            // 
+            // labelEstadoDesarrollo
+            // 
+            this.labelEstadoDesarrollo.AutoSize = true;
+            this.labelEstadoDesarrollo.Location = new System.Drawing.Point(6, 257);
+            this.labelEstadoDesarrollo.Name = "labelEstadoDesarrollo";
+            this.labelEstadoDesarrollo.Size = new System.Drawing.Size(88, 13);
+            this.labelEstadoDesarrollo.TabIndex = 23;
+            this.labelEstadoDesarrollo.Text = "Estado desarrollo";
+            // 
+            // textBoxIdPadre
+            // 
+            this.textBoxIdPadre.Location = new System.Drawing.Point(136, 335);
+            this.textBoxIdPadre.Name = "textBoxIdPadre";
+            this.textBoxIdPadre.ReadOnly = true;
+            this.textBoxIdPadre.Size = new System.Drawing.Size(200, 20);
+            this.textBoxIdPadre.TabIndex = 19;
+            // 
+            // labelIdMadre
+            // 
+            this.labelIdMadre.AutoSize = true;
+            this.labelIdMadre.Location = new System.Drawing.Point(6, 295);
+            this.labelIdMadre.Name = "labelIdMadre";
+            this.labelIdMadre.Size = new System.Drawing.Size(48, 13);
+            this.labelIdMadre.TabIndex = 8;
+            this.labelIdMadre.Text = "Id madre";
             // 
             // textBoxFechaNacimiento
             // 
@@ -204,38 +311,39 @@
             this.textBoxFechaNacimiento.Size = new System.Drawing.Size(200, 20);
             this.textBoxFechaNacimiento.TabIndex = 22;
             // 
-            // textBoxEdad
+            // labelIdPadre
             // 
-            this.textBoxEdad.Location = new System.Drawing.Point(136, 297);
-            this.textBoxEdad.Name = "textBoxEdad";
-            this.textBoxEdad.ReadOnly = true;
-            this.textBoxEdad.Size = new System.Drawing.Size(200, 20);
-            this.textBoxEdad.TabIndex = 21;
+            this.labelIdPadre.AutoSize = true;
+            this.labelIdPadre.Location = new System.Drawing.Point(6, 338);
+            this.labelIdPadre.Name = "labelIdPadre";
+            this.labelIdPadre.Size = new System.Drawing.Size(46, 13);
+            this.labelIdPadre.TabIndex = 10;
+            this.labelIdPadre.Text = "Id padre";
             // 
-            // labelEdad
+            // textBoxPeso
             // 
-            this.labelEdad.AutoSize = true;
-            this.labelEdad.Location = new System.Drawing.Point(6, 300);
-            this.labelEdad.Name = "labelEdad";
-            this.labelEdad.Size = new System.Drawing.Size(32, 13);
-            this.labelEdad.TabIndex = 20;
-            this.labelEdad.Text = "Edad";
-            // 
-            // textBoxIdPadre
-            // 
-            this.textBoxIdPadre.Location = new System.Drawing.Point(136, 259);
-            this.textBoxIdPadre.Name = "textBoxIdPadre";
-            this.textBoxIdPadre.ReadOnly = true;
-            this.textBoxIdPadre.Size = new System.Drawing.Size(200, 20);
-            this.textBoxIdPadre.TabIndex = 19;
+            this.textBoxPeso.Location = new System.Drawing.Point(136, 216);
+            this.textBoxPeso.Name = "textBoxPeso";
+            this.textBoxPeso.ReadOnly = true;
+            this.textBoxPeso.Size = new System.Drawing.Size(200, 20);
+            this.textBoxPeso.TabIndex = 21;
             // 
             // textBoxIdMadre
             // 
-            this.textBoxIdMadre.Location = new System.Drawing.Point(136, 216);
+            this.textBoxIdMadre.Location = new System.Drawing.Point(136, 292);
             this.textBoxIdMadre.Name = "textBoxIdMadre";
             this.textBoxIdMadre.ReadOnly = true;
             this.textBoxIdMadre.Size = new System.Drawing.Size(200, 20);
             this.textBoxIdMadre.TabIndex = 18;
+            // 
+            // labelPeso
+            // 
+            this.labelPeso.AutoSize = true;
+            this.labelPeso.Location = new System.Drawing.Point(6, 219);
+            this.labelPeso.Name = "labelPeso";
+            this.labelPeso.Size = new System.Drawing.Size(31, 13);
+            this.labelPeso.TabIndex = 20;
+            this.labelPeso.Text = "Peso";
             // 
             // textBoxModoPrennes
             // 
@@ -261,24 +369,6 @@
             this.labelModoPrennes.Size = new System.Drawing.Size(69, 13);
             this.labelModoPrennes.TabIndex = 12;
             this.labelModoPrennes.Text = "Modo preñes";
-            // 
-            // labelIdPadre
-            // 
-            this.labelIdPadre.AutoSize = true;
-            this.labelIdPadre.Location = new System.Drawing.Point(6, 262);
-            this.labelIdPadre.Name = "labelIdPadre";
-            this.labelIdPadre.Size = new System.Drawing.Size(46, 13);
-            this.labelIdPadre.TabIndex = 10;
-            this.labelIdPadre.Text = "Id padre";
-            // 
-            // labelIdMadre
-            // 
-            this.labelIdMadre.AutoSize = true;
-            this.labelIdMadre.Location = new System.Drawing.Point(6, 219);
-            this.labelIdMadre.Name = "labelIdMadre";
-            this.labelIdMadre.Size = new System.Drawing.Size(48, 13);
-            this.labelIdMadre.TabIndex = 8;
-            this.labelIdMadre.Text = "Id madre";
             // 
             // labelFechaNacimiento
             // 
@@ -370,6 +460,16 @@
             this.dataGridViewPartosVacas.Size = new System.Drawing.Size(776, 371);
             this.dataGridViewPartosVacas.TabIndex = 1;
             // 
+            // tabPageParametrosReproductivos
+            // 
+            this.tabPageParametrosReproductivos.Location = new System.Drawing.Point(4, 22);
+            this.tabPageParametrosReproductivos.Name = "tabPageParametrosReproductivos";
+            this.tabPageParametrosReproductivos.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageParametrosReproductivos.Size = new System.Drawing.Size(794, 383);
+            this.tabPageParametrosReproductivos.TabIndex = 3;
+            this.tabPageParametrosReproductivos.Text = "Parámetros reproductivos ";
+            this.tabPageParametrosReproductivos.UseVisualStyleBackColor = true;
+            // 
             // exameN_ANTROPOLOGICOTableAdapter1
             // 
             this.exameN_ANTROPOLOGICOTableAdapter1.ClearBeforeFill = true;
@@ -389,6 +489,8 @@
             this.Load += new System.EventHandler(this.FormDetallesVaca_Load);
             this.tabControl.ResumeLayout(false);
             this.tabPageInformacionGeneral.ResumeLayout(false);
+            this.groupBoxActiva.ResumeLayout(false);
+            this.groupBoxActiva.PerformLayout();
             this.groupBoxDetallesVacaEspecifico.ResumeLayout(false);
             this.groupBoxDetallesVacaEspecifico.PerformLayout();
             this.groupBoxDetallesVacaGeneral.ResumeLayout(false);
@@ -429,11 +531,20 @@
         private System.Windows.Forms.Label labelFechasDestetes;
         private System.Windows.Forms.TextBox textBoxCaracteristicas;
         private System.Windows.Forms.Label labelCaracteristicas;
-        private System.Windows.Forms.TextBox textBoxEdad;
-        private System.Windows.Forms.Label labelEdad;
+        private System.Windows.Forms.TextBox textBoxPeso;
+        private System.Windows.Forms.Label labelPeso;
         private System.Windows.Forms.TextBox textBoxFechaNacimiento;
         private System.Windows.Forms.TabPage tabPagePartos;
         private System.Windows.Forms.DataGridView dataGridViewPalpacionesVaca;
         private System.Windows.Forms.DataGridView dataGridViewPartosVacas;
+        private System.Windows.Forms.TabPage tabPageParametrosReproductivos;
+        private System.Windows.Forms.TextBox textBoxDesarrollo;
+        private System.Windows.Forms.Label labelEstadoDesarrollo;
+        private System.Windows.Forms.Label labelEdad;
+        private System.Windows.Forms.TextBox textBoxEdad;
+        private System.Windows.Forms.GroupBox groupBoxActiva;
+        private System.Windows.Forms.CheckBox checkBoxActiva;
+        private System.Windows.Forms.TextBox textBoxCausaDeBaja;
+        private System.Windows.Forms.Label labelCausaDeBaja;
     }
 }

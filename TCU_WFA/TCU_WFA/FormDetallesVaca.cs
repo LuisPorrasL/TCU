@@ -46,6 +46,7 @@ namespace TCU_WFA
             textBoxModoPrennes.Text = this.informacionVacaSeleccionada.modoPrennes;
             textBoxIdMadre.Text = this.informacionVacaSeleccionada.fkNumeroTrazableMadre.ToString();
             textBoxIdPadre.Text = this.informacionVacaSeleccionada.fkNumeroTrazablePadre.ToString();
+            textBoxRaza.Text = this.informacionVacaSeleccionada.razaStr;
             int edad = -1;
             if (this.informacionVacaSeleccionada.fecha != null)
             {
@@ -53,6 +54,20 @@ namespace TCU_WFA
                 if (((DateTime)this.informacionVacaSeleccionada.fecha).Date > DateTime.Today.AddYears(-edad)) edad--;
             }
             textBoxEdad.Text = edad.ToString();
+            textBoxPeso.Text = this.informacionVacaSeleccionada.peso.ToString();
+            textBoxDesarrollo.Text = this.informacionVacaSeleccionada.desarrollo;
+            if (this.informacionVacaSeleccionada.activa)
+            {
+                checkBoxActiva.Checked = true;
+                textBoxCausaDeBaja.Visible = false;
+                labelCausaDeBaja.Visible = false;
+            }
+            else
+            {
+                checkBoxActiva.Checked = false;
+                textBoxCausaDeBaja.Visible = true;
+                textBoxCausaDeBaja.Text = this.informacionVacaSeleccionada.causaDeBaja;
+            }
         }
     }
 }

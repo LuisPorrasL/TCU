@@ -30,9 +30,9 @@ namespace TCU_WFA
         public const string MENSAJE_ERROR_SELECCION_EDITAR_VACA = "Por favor seleccionar primero la vaca que se desea editar.";
         public const string MENSAJE_ERROR_SELECCION_DETALLES_VACA = "Por favor seleccionar primero la vaca de la que desea ver los detalles.";
         //Titulos
-        public const string TITULO_AVISO_ELIMINAR_VACA = "Aviso eliminar vaca";
         public const string TITULO_AVISO_EDITAR_VACA = "Aviso editar vaca";
         public const string TITULO_AVISO_DETALLES_VACA = "Aviso detalles vaca";
+        public const string TITULO_AVISO_ELIMINAR_VACA = "Aviso eliminar vaca";
 
         public FormRegistroVacas()
         {
@@ -106,6 +106,53 @@ namespace TCU_WFA
             }
         }
 
+        private void botonEliminar_Click(object sender, EventArgs e)
+        {
+            if(dataGridViewVacas.SelectedRows.Count != 0)
+            {
+                DataGridViewRow filaSelecionada = dataGridViewVacas.SelectedRows[0];
+                if (filaSelecionada.Cells[0].Value != null)
+                {
+                    FormEliminarVaca form = new FormEliminarVaca((int)filaSelecionada.Cells[NUMERO_TRAZABLE].Value);
+                    form.Tag = this;
+                    form.Show(this);
+                    Hide();
+                }
+                else
+                {
+                    Utilities.MostrarMessageBox(MENSAJE_ERROR_SELECCION_ELIMINAR_VACA, TITULO_AVISO_ELIMINAR_VACA, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                Utilities.MostrarMessageBox(MENSAJE_ERROR_SELECCION_ELIMINAR_VACA, TITULO_AVISO_ELIMINAR_VACA, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void botonDetalles_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewVacas.SelectedRows.Count != 0)
+            {
+                DataGridViewRow filaSelecionada = dataGridViewVacas.SelectedRows[0];
+                if (filaSelecionada.Cells[0].Value != null)
+                {
+                    VacaModel informacionVacaSeleccionada = obtenerInformacionVacaSelecionada(filaSelecionada);
+                    FormDetallesVaca form = new FormDetallesVaca(informacionVacaSeleccionada);
+                    form.Tag = this;
+                    form.Show(this);
+                    Hide();
+                }
+                else
+                {
+                    Utilities.MostrarMessageBox(MENSAJE_ERROR_SELECCION_DETALLES_VACA, TITULO_AVISO_DETALLES_VACA, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                Utilities.MostrarMessageBox(MENSAJE_ERROR_SELECCION_DETALLES_VACA, TITULO_AVISO_DETALLES_VACA, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private VacaModel obtenerInformacionVacaSelecionada(DataGridViewRow filaSelecionada)
         {
             VacaModel informacionVacaSeleccionada = new VacaModel();
@@ -159,53 +206,6 @@ namespace TCU_WFA
             }
 
             return informacionVacaSeleccionada;
-        }
-
-        private void botonEliminar_Click(object sender, EventArgs e)
-        {
-            if(dataGridViewVacas.SelectedRows.Count != 0)
-            {
-                DataGridViewRow filaSelecionada = dataGridViewVacas.SelectedRows[0];
-                if (filaSelecionada.Cells[0].Value != null)
-                {
-                    DialogResult resultado = Utilities.MostrarMessageBox("¿Seguro que desea eliminar la vaca " + filaSelecionada.Cells["Id"].Value + "?. Esta operación no se puede revertir.", TITULO_AVISO_ELIMINAR_VACA, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (resultado == DialogResult.Yes)
-                    {
-                    }
-                }
-                else
-                {
-                    Utilities.MostrarMessageBox(MENSAJE_ERROR_SELECCION_ELIMINAR_VACA, TITULO_AVISO_ELIMINAR_VACA, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                Utilities.MostrarMessageBox(MENSAJE_ERROR_SELECCION_ELIMINAR_VACA, TITULO_AVISO_ELIMINAR_VACA, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void botonDetalles_Click(object sender, EventArgs e)
-        {
-            if (dataGridViewVacas.SelectedRows.Count != 0)
-            {
-                DataGridViewRow filaSelecionada = dataGridViewVacas.SelectedRows[0];
-                if (filaSelecionada.Cells[0].Value != null)
-                {
-                    VacaModel informacionVacaSeleccionada = obtenerInformacionVacaSelecionada(filaSelecionada);
-                    FormDetallesVaca form = new FormDetallesVaca(informacionVacaSeleccionada);
-                    form.Tag = this;
-                    form.Show(this);
-                    Hide();
-                }
-                else
-                {
-                    Utilities.MostrarMessageBox(MENSAJE_ERROR_SELECCION_DETALLES_VACA, TITULO_AVISO_DETALLES_VACA, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                Utilities.MostrarMessageBox(MENSAJE_ERROR_SELECCION_DETALLES_VACA, TITULO_AVISO_DETALLES_VACA, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void checkBoxVerBajas_CheckedChanged(object sender, EventArgs e)
