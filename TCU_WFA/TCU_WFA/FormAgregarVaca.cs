@@ -78,6 +78,25 @@ namespace TCU_WFA
             }
         }
 
+        private VacaModel ObtenerDatosEntradaUsuario()
+        {
+            VacaModel resultado = new VacaModel();
+            resultado.pkNumeroTrazable = Int32.Parse(textBoxNumeroTrazableVaca.Text);
+            resultado.nombre = textBoxNombre.Text;
+            resultado.caracteriscas = textBoxCaracteristicas.Text;
+            if (textBoxPeso.Text != "") resultado.peso = double.Parse(textBoxPeso.Text.Replace('.', ','));
+            else resultado.peso = null;
+            if (comboBoxIdMadre.Text != "") resultado.fkNumeroTrazableMadre = Int32.Parse(comboBoxIdMadre.Text);
+            else resultado.fkNumeroTrazableMadre = null;
+            if (comboBoxIdPadre.Text != "") resultado.fkNumeroTrazablePadre = Int32.Parse(comboBoxIdPadre.Text);
+            else resultado.fkNumeroTrazablePadre = null;
+            resultado.raza = Utilities.ObtenerIdTabla(QUERY_OBTENER_ID_RAZA, RAZA_PARAM, comboBoxRaza.Text);
+            resultado.fkModoPrennes = Utilities.ObtenerIdTabla(QUERY_OBTENER_ID_MODO_PRENNES, MODO_PRENNES_PARAM, comboBoxModoPrennes.Text);
+            resultado.fkDesarrollo = Utilities.ObtenerIdTabla(QUERY_OBTENER_ID_DESARROLLO, DESARROLLO_PARAM, comboBoxDesarrollo.Text);
+            resultado.fecha = dateTimePickerFechaNacimiento.Value;
+            return resultado;
+        }
+
         private bool RevisarEntradaUsuario()
         {
             try
@@ -105,25 +124,6 @@ namespace TCU_WFA
             {
                 return false;
             }
-        }
-
-        private VacaModel ObtenerDatosEntradaUsuario()
-        {
-            VacaModel resultado = new VacaModel();
-            resultado.pkNumeroTrazable = Int32.Parse(textBoxNumeroTrazableVaca.Text);
-            resultado.nombre = textBoxNombre.Text;
-            resultado.caracteriscas = textBoxCaracteristicas.Text;
-            if (textBoxPeso.Text != "") resultado.peso = double.Parse(textBoxPeso.Text.Replace('.', ','));
-            else resultado.peso = null;
-            if (comboBoxIdMadre.Text != "") resultado.fkNumeroTrazableMadre = Int32.Parse(comboBoxIdMadre.Text);
-            else resultado.fkNumeroTrazableMadre = null;
-            if (comboBoxIdPadre.Text != "") resultado.fkNumeroTrazablePadre = Int32.Parse(comboBoxIdPadre.Text);
-            else resultado.fkNumeroTrazablePadre = null;
-            resultado.raza = Utilities.ObtenerIdTabla(QUERY_LLENAR_COMBO_BOX_RAZA, RAZA_PARAM, comboBoxRaza.Text);
-            resultado.fkModoPrennes = Utilities.ObtenerIdTabla(QUERY_LLENAR_COMBO_BOX_MODO_PRENNES, MODO_PRENNES_PARAM, comboBoxModoPrennes.Text);
-            resultado.fkDesarrollo = Utilities.ObtenerIdTabla(QUERY_OBTENER_ID_DESARROLLO, DESARROLLO_PARAM, comboBoxDesarrollo.Text);
-            resultado.fecha = dateTimePickerFechaNacimiento.Value;
-            return resultado;
         }
 
         private void LimpiarEntradaUsuario()

@@ -211,6 +211,8 @@ namespace TCU_WFA
         private void checkBoxVerBajas_CheckedChanged(object sender, EventArgs e)
         {
             LlenarDataGridViewVacas();
+            botonEditar.Enabled = !checkBoxVerBajas.Checked;
+            botonEliminar.Enabled = !checkBoxVerBajas.Checked;
         }
     }
 }
