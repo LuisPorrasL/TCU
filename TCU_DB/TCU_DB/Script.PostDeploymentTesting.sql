@@ -22,6 +22,7 @@ DELETE FROM [dbo].[PALPACION]
 DELETE FROM [dbo].[PARTO]
 DELETE FROM [dbo].[EXAMEN_ANTROPOLOGICO]
 
+--Datos reales
 SET IDENTITY_INSERT dbo.[MODO_PRENNES] ON
 INSERT INTO [dbo].[MODO_PRENNES] ([PK_ID_MODO_PRENNES], [MODO_PRENNES]) 
 VALUES	(1, 'No preñada'),
@@ -34,9 +35,29 @@ SET IDENTITY_INSERT dbo.[MODO_PRENNES] OFF
 SET IDENTITY_INSERT dbo.[RAZA] ON
 INSERT INTO dbo.[RAZA] ([PK_ID_RAZA], [RAZA])
 VALUES	(1, 'Desconocida'),
-		(2, 'Raza 1'), 
-		(3, 'Raza 2'),
-		(4, 'Raza 3');
+		(2, 'Holstein'), 
+		(3, 'Holstein Rojo'),
+		(4, 'Jersey'),
+		(5, 'Pardo Suizo'),
+		(6, 'Guernsey'),
+		(7, 'Ayrshire'),
+		(8, 'Brahman'),
+		(9, 'Nelore'),
+		(10, 'Gyr'),
+		(11, 'Gyrolando'),
+		(12, 'Guzerat'),
+		(13, 'Angus'),
+		(14, 'Charolaise'),
+		(15, 'Limousine'),
+		(16, 'Blonde D’Aquitaine'),
+		(17, 'Simmental'),
+		(18, 'Wagyu'),
+		(19, 'Brangus'),
+		(20, 'Simbrah'),
+		(21, 'Charbray'),
+		(22, 'Senepol'),
+		(23, 'Sueco Rojo'),
+		(24, 'Chumeca');
 SET IDENTITY_INSERT dbo.[RAZA] OFF
 
 SET IDENTITY_INSERT dbo.[DESARROLLO] ON
@@ -46,6 +67,7 @@ VALUES	(1, 'Ternera'),
 		(3, 'Vaca');
 SET IDENTITY_INSERT dbo.[DESARROLLO] OFF
 
+--Datos de prueba
 INSERT INTO [dbo].[VACA]([PK_NUMERO_TRAZABLE], [NOMBRE], [CARACTERISTICAS], [FK_ID_RAZA], [FECHA_NACIMIENTO], [FK_ID_MODO_PRENNES], [FK_NUMERO_TRAZABLE_VACA], [FK_NUMERO_TRAZABLE_TORO], [PESO], [FK_ID_DESARROLLO], [ACTIVA], [CAUSA_DE_BAJA])
 VALUES	(1, 'Lola', 'Inútil', 2, '2018-1-1', 1, NULL, NULL, 100.2, 3, 1, NULL),
 		(2, NULL, 'Útil', 3, '2019-2-1', 2, NULL, NULL, 100.3, 2, 1, NULL),

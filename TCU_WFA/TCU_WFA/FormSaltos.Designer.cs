@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.botonVolver = new System.Windows.Forms.Button();
-            this.groupBoxDestete = new System.Windows.Forms.GroupBox();
+            this.groupBoxCelos = new System.Windows.Forms.GroupBox();
             this.dateTimePickerFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.comboBoxNumeroTrazableVaca = new System.Windows.Forms.ComboBox();
-            this.labelFechaSalto = new System.Windows.Forms.Label();
+            this.labelFechaCelo = new System.Windows.Forms.Label();
             this.labelNumeroTrazableVaca = new System.Windows.Forms.Label();
             this.botonRegistrar = new System.Windows.Forms.Button();
-            this.groupBoxDestete.SuspendLayout();
+            this.groupBoxCelos.SuspendLayout();
             this.SuspendLayout();
             // 
             // botonVolver
@@ -48,17 +48,17 @@
             this.botonVolver.UseVisualStyleBackColor = true;
             this.botonVolver.Click += new System.EventHandler(this.botonVolver_Click);
             // 
-            // groupBoxDestete
+            // groupBoxCelos
             // 
-            this.groupBoxDestete.Controls.Add(this.dateTimePickerFechaNacimiento);
-            this.groupBoxDestete.Controls.Add(this.comboBoxNumeroTrazableVaca);
-            this.groupBoxDestete.Controls.Add(this.labelFechaSalto);
-            this.groupBoxDestete.Controls.Add(this.labelNumeroTrazableVaca);
-            this.groupBoxDestete.Location = new System.Drawing.Point(228, 12);
-            this.groupBoxDestete.Name = "groupBoxDestete";
-            this.groupBoxDestete.Size = new System.Drawing.Size(345, 80);
-            this.groupBoxDestete.TabIndex = 2;
-            this.groupBoxDestete.TabStop = false;
+            this.groupBoxCelos.Controls.Add(this.dateTimePickerFechaNacimiento);
+            this.groupBoxCelos.Controls.Add(this.comboBoxNumeroTrazableVaca);
+            this.groupBoxCelos.Controls.Add(this.labelFechaCelo);
+            this.groupBoxCelos.Controls.Add(this.labelNumeroTrazableVaca);
+            this.groupBoxCelos.Location = new System.Drawing.Point(228, 12);
+            this.groupBoxCelos.Name = "groupBoxCelos";
+            this.groupBoxCelos.Size = new System.Drawing.Size(345, 80);
+            this.groupBoxCelos.TabIndex = 2;
+            this.groupBoxCelos.TabStop = false;
             // 
             // dateTimePickerFechaNacimiento
             // 
@@ -76,14 +76,14 @@
             this.comboBoxNumeroTrazableVaca.Size = new System.Drawing.Size(200, 21);
             this.comboBoxNumeroTrazableVaca.TabIndex = 3;
             // 
-            // labelFechaSalto
+            // labelFechaCelo
             // 
-            this.labelFechaSalto.AutoSize = true;
-            this.labelFechaSalto.Location = new System.Drawing.Point(6, 56);
-            this.labelFechaSalto.Name = "labelFechaSalto";
-            this.labelFechaSalto.Size = new System.Drawing.Size(79, 13);
-            this.labelFechaSalto.TabIndex = 8;
-            this.labelFechaSalto.Text = "Fecha del salto";
+            this.labelFechaCelo.AutoSize = true;
+            this.labelFechaCelo.Location = new System.Drawing.Point(6, 56);
+            this.labelFechaCelo.Name = "labelFechaCelo";
+            this.labelFechaCelo.Size = new System.Drawing.Size(77, 13);
+            this.labelFechaCelo.TabIndex = 8;
+            this.labelFechaCelo.Text = "Fecha del celo";
             // 
             // labelNumeroTrazableVaca
             // 
@@ -111,15 +111,15 @@
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.botonRegistrar);
-            this.Controls.Add(this.groupBoxDestete);
+            this.Controls.Add(this.groupBoxCelos);
             this.Controls.Add(this.botonVolver);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormSaltos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Saltos";
+            this.Text = "Celos";
             this.Load += new System.EventHandler(this.FormSaltos_Load);
-            this.groupBoxDestete.ResumeLayout(false);
-            this.groupBoxDestete.PerformLayout();
+            this.groupBoxCelos.ResumeLayout(false);
+            this.groupBoxCelos.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -127,10 +127,10 @@
         #endregion
 
         private System.Windows.Forms.Button botonVolver;
-        private System.Windows.Forms.GroupBox groupBoxDestete;
+        private System.Windows.Forms.GroupBox groupBoxCelos;
         private System.Windows.Forms.DateTimePicker dateTimePickerFechaNacimiento;
         private System.Windows.Forms.ComboBox comboBoxNumeroTrazableVaca;
-        private System.Windows.Forms.Label labelFechaSalto;
+        private System.Windows.Forms.Label labelFechaCelo;
         private System.Windows.Forms.Label labelNumeroTrazableVaca;
         private System.Windows.Forms.Button botonRegistrar;
     }

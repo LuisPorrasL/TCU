@@ -104,7 +104,7 @@
             this.botonSalto.Name = "botonSalto";
             this.botonSalto.Size = new System.Drawing.Size(121, 70);
             this.botonSalto.TabIndex = 3;
-            this.botonSalto.Text = "Salto";
+            this.botonSalto.Text = "Celo";
             this.botonSalto.UseVisualStyleBackColor = true;
             this.botonSalto.Click += new System.EventHandler(this.botonSalto_Click);
             // 
