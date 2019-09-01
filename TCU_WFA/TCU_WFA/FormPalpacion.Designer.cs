@@ -42,7 +42,14 @@
             this.labelFechaPalpacion = new System.Windows.Forms.Label();
             this.labelNumeroTrazable = new System.Windows.Forms.Label();
             this.botonsRegistrar = new System.Windows.Forms.Button();
+            this.labelActualizarInformacionVaca = new System.Windows.Forms.Label();
+            this.radioButtonNo = new System.Windows.Forms.RadioButton();
+            this.radioButtonSi = new System.Windows.Forms.RadioButton();
+            this.groupBoxNuevoModoPrennes = new System.Windows.Forms.GroupBox();
+            this.comboBoxNuevoModoPrennes = new System.Windows.Forms.ComboBox();
+            this.labelNuevoModoPrennes = new System.Windows.Forms.Label();
             this.groupBoxAgregarVaca.SuspendLayout();
+            this.groupBoxNuevoModoPrennes.SuspendLayout();
             this.SuspendLayout();
             // 
             // botonVolver
@@ -84,6 +91,7 @@
             this.radioButtonVacia.TabStop = true;
             this.radioButtonVacia.Text = "Vacía";
             this.radioButtonVacia.UseVisualStyleBackColor = true;
+            this.radioButtonVacia.CheckedChanged += new System.EventHandler(this.radioButtonVacia_CheckedChanged);
             // 
             // radioButtonPositiva
             // 
@@ -95,6 +103,7 @@
             this.radioButtonPositiva.TabStop = true;
             this.radioButtonPositiva.Text = "Positiva";
             this.radioButtonPositiva.UseVisualStyleBackColor = true;
+            this.radioButtonPositiva.CheckedChanged += new System.EventHandler(this.radioButtonPositiva_CheckedChanged);
             // 
             // comboBoxNumeroTrazable
             // 
@@ -185,12 +194,77 @@
             this.botonsRegistrar.UseVisualStyleBackColor = true;
             this.botonsRegistrar.Click += new System.EventHandler(this.botonsRegistrar_Click);
             // 
+            // labelActualizarInformacionVaca
+            // 
+            this.labelActualizarInformacionVaca.AutoSize = true;
+            this.labelActualizarInformacionVaca.Location = new System.Drawing.Point(230, 291);
+            this.labelActualizarInformacionVaca.Name = "labelActualizarInformacionVaca";
+            this.labelActualizarInformacionVaca.Size = new System.Drawing.Size(182, 13);
+            this.labelActualizarInformacionVaca.TabIndex = 15;
+            this.labelActualizarInformacionVaca.Text = "¿Actualizar modo preñes de la vaca?";
+            // 
+            // radioButtonNo
+            // 
+            this.radioButtonNo.AutoSize = true;
+            this.radioButtonNo.Location = new System.Drawing.Point(470, 289);
+            this.radioButtonNo.Name = "radioButtonNo";
+            this.radioButtonNo.Size = new System.Drawing.Size(39, 17);
+            this.radioButtonNo.TabIndex = 20;
+            this.radioButtonNo.TabStop = true;
+            this.radioButtonNo.Text = "No";
+            this.radioButtonNo.UseVisualStyleBackColor = true;
+            this.radioButtonNo.CheckedChanged += new System.EventHandler(this.radioButtonNo_CheckedChanged);
+            // 
+            // radioButtonSi
+            // 
+            this.radioButtonSi.AutoSize = true;
+            this.radioButtonSi.Location = new System.Drawing.Point(428, 289);
+            this.radioButtonSi.Name = "radioButtonSi";
+            this.radioButtonSi.Size = new System.Drawing.Size(36, 17);
+            this.radioButtonSi.TabIndex = 19;
+            this.radioButtonSi.TabStop = true;
+            this.radioButtonSi.Text = "Sí";
+            this.radioButtonSi.UseVisualStyleBackColor = true;
+            this.radioButtonSi.CheckedChanged += new System.EventHandler(this.radioButtonSi_CheckedChanged);
+            // 
+            // groupBoxNuevoModoPrennes
+            // 
+            this.groupBoxNuevoModoPrennes.Controls.Add(this.comboBoxNuevoModoPrennes);
+            this.groupBoxNuevoModoPrennes.Controls.Add(this.labelNuevoModoPrennes);
+            this.groupBoxNuevoModoPrennes.Location = new System.Drawing.Point(224, 312);
+            this.groupBoxNuevoModoPrennes.Name = "groupBoxNuevoModoPrennes";
+            this.groupBoxNuevoModoPrennes.Size = new System.Drawing.Size(345, 58);
+            this.groupBoxNuevoModoPrennes.TabIndex = 19;
+            this.groupBoxNuevoModoPrennes.TabStop = false;
+            // 
+            // comboBoxNuevoModoPrennes
+            // 
+            this.comboBoxNuevoModoPrennes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxNuevoModoPrennes.FormattingEnabled = true;
+            this.comboBoxNuevoModoPrennes.Location = new System.Drawing.Point(139, 19);
+            this.comboBoxNuevoModoPrennes.Name = "comboBoxNuevoModoPrennes";
+            this.comboBoxNuevoModoPrennes.Size = new System.Drawing.Size(200, 21);
+            this.comboBoxNuevoModoPrennes.TabIndex = 16;
+            // 
+            // labelNuevoModoPrennes
+            // 
+            this.labelNuevoModoPrennes.AutoSize = true;
+            this.labelNuevoModoPrennes.Location = new System.Drawing.Point(9, 22);
+            this.labelNuevoModoPrennes.Name = "labelNuevoModoPrennes";
+            this.labelNuevoModoPrennes.Size = new System.Drawing.Size(107, 13);
+            this.labelNuevoModoPrennes.TabIndex = 4;
+            this.labelNuevoModoPrennes.Text = "Nuevo modo preñes*";
+            // 
             // FormPalpacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.groupBoxNuevoModoPrennes);
+            this.Controls.Add(this.radioButtonNo);
+            this.Controls.Add(this.radioButtonSi);
+            this.Controls.Add(this.labelActualizarInformacionVaca);
             this.Controls.Add(this.botonsRegistrar);
             this.Controls.Add(this.groupBoxAgregarVaca);
             this.Controls.Add(this.botonVolver);
@@ -201,7 +275,10 @@
             this.Load += new System.EventHandler(this.FormPalpacion_Load);
             this.groupBoxAgregarVaca.ResumeLayout(false);
             this.groupBoxAgregarVaca.PerformLayout();
+            this.groupBoxNuevoModoPrennes.ResumeLayout(false);
+            this.groupBoxNuevoModoPrennes.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -221,5 +298,11 @@
         private System.Windows.Forms.Label labelFechaPalpacion;
         private System.Windows.Forms.Label labelNumeroTrazable;
         private System.Windows.Forms.Button botonsRegistrar;
+        private System.Windows.Forms.Label labelActualizarInformacionVaca;
+        private System.Windows.Forms.RadioButton radioButtonNo;
+        private System.Windows.Forms.RadioButton radioButtonSi;
+        private System.Windows.Forms.GroupBox groupBoxNuevoModoPrennes;
+        protected internal System.Windows.Forms.ComboBox comboBoxNuevoModoPrennes;
+        private System.Windows.Forms.Label labelNuevoModoPrennes;
     }
 }

@@ -17,12 +17,16 @@ namespace TCU_WFA
 
         //Constantes
         private const string QUERY_LLENAR_COMBO_BOX_ID_MADRE = "SELECT v.PK_NUMERO_TRAZABLE, v.PK_NUMERO_TRAZABLE FROM [dbo].[VACA] v WHERE v.ACTIVA = 1;";
+        private const string QUERY_LLENAR_COMBO_BOX_MODO_PRENNES = "SELECT * FROM [dbo].[MODO_PRENNES];";
+        private const string QUERY_OBTENER_ID_MODO_PRENNES = "SELECT mp.PK_ID_MODO_PRENNES FROM [dbo].[MODO_PRENNES] mP WHERE mP.MODO_PRENNES = @ModoPrennes";
+        private const string MODO_PRENNES_PARAM = "@ModoPrennes";
         //Campos
         private DateTime fechaPalpacion;
         private int numeroTrazable;
         private float condicionCorporal;
         private bool confirmacion;
         private string resultadoPalpacion;
+        private int fkNuevoModoPrennes;
 
         public FormPalpacion()
         {
@@ -37,16 +41,24 @@ namespace TCU_WFA
             this.condicionCorporal = 0.0f;
             this.confirmacion = false;
             this.resultadoPalpacion = "";
+            this.fkNuevoModoPrennes = 0;
         }
 
         private void FormPalpacion_Load(object sender, EventArgs e)
         {
+            OcultarComponentes();
             LlenarComboBoxList();
+        }
+
+        private void OcultarComponentes()
+        {
+            labelActualizarInformacionVaca.Visible = radioButtonSi.Visible = radioButtonNo.Visible = groupBoxNuevoModoPrennes.Visible = false;
         }
 
         private void LlenarComboBoxList()
         {
             Utilities.LlenarComboBoxList(QUERY_LLENAR_COMBO_BOX_ID_MADRE, comboBoxNumeroTrazable);
+            Utilities.LlenarComboBoxList(QUERY_LLENAR_COMBO_BOX_MODO_PRENNES, comboBoxNuevoModoPrennes);
             llenarComboBoxListCondicionCorporal();
         }
 
@@ -102,6 +114,11 @@ namespace TCU_WFA
             {
                 int resultado = ProcedimientosAlmacenados.ProcRegistrarPalpacion(this.numeroTrazable, this.fechaPalpacion, this.condicionCorporal, this.confirmacion, this.resultadoPalpacion);
                 if (resultado == Utilities.RESULTADO_ERROR) return false;
+                if (radioButtonPositiva.Checked && radioButtonSi.Checked)
+                {
+                    resultado = ProcedimientosAlmacenados.ProcActualizarModoPrennesVaca(this.numeroTrazable, this.fkNuevoModoPrennes);
+                    if (resultado == Utilities.RESULTADO_ERROR) return false;
+                }
                 return true;
             }
             catch
@@ -118,6 +135,10 @@ namespace TCU_WFA
             if (radioButtonPositiva.Checked) this.confirmacion = true;
             else this.confirmacion = false;
             this.resultadoPalpacion = textBoxResultado.Text;
+            if (radioButtonPositiva.Checked && radioButtonSi.Checked)
+            {
+                this.fkNuevoModoPrennes = Utilities.ObtenerIdTabla(QUERY_OBTENER_ID_MODO_PRENNES, MODO_PRENNES_PARAM, comboBoxNuevoModoPrennes.Text);
+            }
         }
 
         private bool RevisarEntradaUsuario()
@@ -129,11 +150,51 @@ namespace TCU_WFA
                 float cC = float.Parse(comboBoxCondicionCorporal.Text.Replace(',', '.'), CultureInfo.InvariantCulture.NumberFormat);
                 if (cC < 1f || cC > 5f) return false;
                 if (!radioButtonPositiva.Checked && !radioButtonVacia.Checked) return false;
+                if (radioButtonPositiva.Checked)
+                {
+                    if (!radioButtonSi.Checked && !radioButtonNo.Checked) return false;
+                    if (radioButtonSi.Checked)
+                    {
+                        if (comboBoxNuevoModoPrennes.Text == "") return false;
+                    }
+                }
                 return true;
             }
             catch
             {
                 return false;
+            }
+        }
+
+        private void radioButtonPositiva_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonPositiva.Checked)
+            {
+                labelActualizarInformacionVaca.Visible = radioButtonSi.Visible = radioButtonNo.Visible = true;
+            }
+        }
+
+        private void radioButtonVacia_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonVacia.Checked)
+            {
+                labelActualizarInformacionVaca.Visible = radioButtonSi.Visible = radioButtonNo.Visible = groupBoxNuevoModoPrennes.Visible = false;
+            }
+        }
+
+        private void radioButtonSi_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonSi.Checked)
+            {
+                groupBoxNuevoModoPrennes.Visible = true;
+            }
+        }
+
+        private void radioButtonNo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonNo.Checked)
+            {
+                groupBoxNuevoModoPrennes.Visible = false;
             }
         }
     }

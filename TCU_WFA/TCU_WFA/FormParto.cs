@@ -204,7 +204,7 @@ namespace TCU_WFA
             if (radioButtonSi.Checked)
             {
                 labelCausaAborto.Visible = textBoxCausaAborto.Visible = true;
-                labelRegistrarTernero.Visible = radioButtonSiRegistroTernero.Visible = radioButtonNoRegistroTernero.Visible = false;
+                labelRegistrarTernero.Visible = radioButtonSiRegistroTernero.Visible = radioButtonNoRegistroTernero.Visible = groupBoxRegistroTernero.Visible = false;
             }
         }
 
