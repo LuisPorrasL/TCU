@@ -1,10 +1,14 @@
-﻿using System;
+﻿// Hecho por Luis Porras.
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace TCU_WFA
 {
+    /// <summary>
+    /// Clase estática de utilidades.
+    /// </summary>
     public static class Utilities
     {
         //Constantes
@@ -19,11 +23,24 @@ namespace TCU_WFA
         public const string TITULO_ERROR = "Error";
         public const string TITULO_EXITO = "Exito";
 
+        /// <summary>
+        /// Despliega una ventana emergente con el mensaje "mensaje", el titulo "titulo", los botones "botones" y el icono "icono".s 
+        /// </summary>
+        /// <param name="mensaje">Mensaje a mostrar en la ventana emergente</param>
+        /// <param name="titulo">Titulo a mostrar en la ventana emergente</param>
+        /// <param name="botones">Los botones a mostrar en la ventana emergente</param>
+        /// <param name="icono">El icono a mostrar en la ventana emergente</param>
+        /// <returns></returns>
         public static DialogResult MostrarMessageBox(string mensaje, string titulo, MessageBoxButtons botones, MessageBoxIcon icono)
         {
             return MessageBox.Show(mensaje, titulo, botones, icono);
         }
 
+        /// <summary>
+        /// Puebla al combobox "comboBoxName" con el resultado de la consulta "query".
+        /// </summary>
+        /// <param name="query">Consulta a ejecutar</param>
+        /// <param name="comboBoxName">ComboBox que se desea poblar</param>
         public static void LlenarComboBoxList(string query, ComboBox comboBoxName)
         {
             DataTable dt = new DataTable();
@@ -50,6 +67,13 @@ namespace TCU_WFA
             comboBoxName.DisplayMember = dt.Columns[1].ColumnName;
         }
 
+        /// <summary>
+        /// Devuelve un entero con el id resultado de ejecutar la consulta "queryObtenerId" con los parámetros "tablaParam" y "valorParam".
+        /// </summary>
+        /// <param name="queryObtenerId">Consulta para obtener el id de uba tabla</param>
+        /// <param name="tablaParam">Nombre de la tabla objetivo</param>
+        /// <param name="valorParam">Nombre del atributo id de la tabla</param>
+        /// <returns>Un entero con el id de una tabla</returns>
         public static int ObtenerIdTabla(string queryObtenerId, string tablaParam, string valorParam)
         {
             int resultado;
@@ -72,6 +96,11 @@ namespace TCU_WFA
             return resultado;
         }
 
+        /// <summary>
+        /// Llena al DataGridView "dataGridView" con el resultado de la consulta "query"
+        /// </summary>
+        /// <param name="query">Consulta que devuelve lo que se desea mostrar en el DataGridView</param>
+        /// <param name="dataGridView">DataGridView a poblar</param>
         public static void LlenarDataGridView(string query, DataGridView dataGridView)
         {
             var conn = new SqlConnection(CONNECTION_STRING);

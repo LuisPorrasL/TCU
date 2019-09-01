@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// Hecho por Luis Porras.
+using System;
 using System.Windows.Forms;
 using TCU_WFA.Models;
 using TCU_WFA.Repository;
@@ -26,6 +20,7 @@ namespace TCU_WFA
         private const string DESARROLLO_PARAM = "@estadoDesarrollo";
         private const string MODO_PRENNES_TERNERO = "No preñada";
         private const string DESARROLLO_TERNERO = "Ternera";
+
         //Campos
         private DateTime fechaParto;
         private char sexoCria;
@@ -35,12 +30,18 @@ namespace TCU_WFA
         private string causaAborto;
         private VacaModel informacionTernero;
 
+        /// <summary>
+        /// Constructor.
+        /// </summary>
         public FormParto()
         {
             InitializeComponent();
             InicializarCampos();
         }
 
+        /// <summary>
+        /// Asigna un valor inicial a los atributos privados de la clase.
+        /// </summary>
         private void InicializarCampos()
         {
             this.fechaParto = new DateTime();
@@ -52,17 +53,28 @@ namespace TCU_WFA
             this.informacionTernero = new VacaModel();
         }
 
+        /// <summary>
+        /// Método que se llama cada vez que se carga el form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormParto_Load(object sender, EventArgs e)
         {
             OcultarComponentes();
             LlenarComboBoxList();
         }
 
+        /// <summary>
+        /// Oculta componentes del form.
+        /// </summary>
         private void OcultarComponentes()
         {
             labelCausaAborto.Visible = textBoxCausaAborto.Visible = labelRegistrarTernero.Visible = radioButtonSiRegistroTernero.Visible = radioButtonNoRegistroTernero.Visible = groupBoxRegistroTernero.Visible = false;
         }
 
+        /// <summary>
+        /// Llena todos los ComboBoxList del form.
+        /// </summary>
         private void LlenarComboBoxList()
         {
             Utilities.LlenarComboBoxList(QUERY_LLENAR_COMBO_BOX_ID_MADRE, comboBoxIdMadre);
@@ -72,6 +84,9 @@ namespace TCU_WFA
             Utilities.LlenarComboBoxList(QUERY_LLENAR_COMBO_BOX_RAZA, comboBoxRaza);
         }
 
+        /// <summary>
+        /// Pobla el ComboBoxListSexo del form con datos válidos.
+        /// </summary>
         private void llenarComboBoxListSexo()
         {
             comboBoxSexo.DisplayMember = "sexo";
@@ -81,6 +96,11 @@ namespace TCU_WFA
             comboBoxSexo.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Implementa la función principal del form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void botonsRegistrar_Click(object sender, EventArgs e)
         {
             bool entradaUsuarioCorrecta = RevisarEntradaUsuario();
@@ -101,6 +121,9 @@ namespace TCU_WFA
             }
         }
 
+        /// <summary>
+        /// Limpia la entrada realizada por el usuario.
+        /// </summary>
         private void LimpiarEntradaUsuario()
         {
             InicializarCampos();
@@ -113,6 +136,10 @@ namespace TCU_WFA
             textBoxNumeroTrazableTernero.Text = textBoxNombre.Text = textBoxPeso.Text = textBoxCaracteristicasTernero.Text = ""; 
         }
 
+        /// <summary>
+        /// Intenta insertar un nuevo parto en la base de datos.
+        /// </summary>
+        /// <returns>Un booleano. True sí la operación fue correcta, false en caso contrario.</returns>
         private bool RegistrarParto()
         {
             try
@@ -133,6 +160,9 @@ namespace TCU_WFA
             }
         }
 
+        /// <summary>
+        /// Obtiene los datos digitados o seleccionados por el usuario.
+        /// </summary>
         private void ObtenerDatosEntradaUsuario()
         {
             this.fechaParto = dateTimePickerFechaParto.Value;
@@ -165,6 +195,10 @@ namespace TCU_WFA
             this.causaAborto = textBoxCausaAborto.Text;
         }
 
+        /// <summary>
+        /// Revisa que los datos insertados o seleccionados por el usuario sean válidos.
+        /// </summary>
+        /// <returns>Un booleano. True sí los datos insertados por el usuario son válidos, false en caso contrario.</returns>
         private bool RevisarEntradaUsuario()
         {
             try

@@ -1,4 +1,5 @@
-﻿using System;
+﻿//Hecho por Luis Porras.
+using System;
 using TCU_WFA.Models;
 
 namespace TCU_WFA
@@ -11,13 +12,24 @@ namespace TCU_WFA
         private const string QUERY_SELECT_DATA_GRID_VIEW_PALPACIONES = "SELECT p.PK_FK_NUMERO_TRAZABLE_VACA AS 'Id', p.PK_FECHA AS 'Fecha', p.CONDICION_CORPORAL AS 'Condición corporal', p.RESULTADO AS 'Resultado', p.CONFIRMACION AS 'Confirmación' FROM [dbo].[PALPACION] p WHERE p.PK_FK_NUMERO_TRAZABLE_VACA = ";
         private const string QUERY_SELECT_DATA_GRID_VIEW_PARTOS = "SELECT p.PK_FK_NUMERO_TRAZABLE_VACA AS 'Id madre', p.FK_NUMERO_TRAZABLE_TORO AS 'Id padre', p.PK_FECHA AS 'Fecha', p.SEXO AS 'Sexo cría', p.MUERTE_PREMATURA AS 'Muerte prematura', p.CAUSA_ABORTO AS 'Causa aborto' FROM [dbo].[PARTO] p WHERE p.PK_FK_NUMERO_TRAZABLE_VACA = ";
 
+        //Campos
         private VacaModel informacionVacaSeleccionada;
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="informacionVacaSeleccionada">VacaModel con la información de la vaca a mostrar</param>
         public FormDetallesVaca(VacaModel informacionVacaSeleccionada = null)
         {
             InitializeComponent();
             this.informacionVacaSeleccionada = informacionVacaSeleccionada;
         }
 
+        /// <summary>
+        /// Método que se llama cada vez que se carga el form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormDetallesVaca_Load(object sender, EventArgs e)
         {
             LlenarComboBoxList();
@@ -25,18 +37,27 @@ namespace TCU_WFA
             LlenarDataGridViews();
         }
 
+        /// <summary>
+        /// Llena todos los DataGridViews del form.
+        /// </summary>
         public void LlenarDataGridViews()
         {
             Utilities.LlenarDataGridView(QUERY_SELECT_DATA_GRID_VIEW_PALPACIONES + informacionVacaSeleccionada.pkNumeroTrazable + ";", dataGridViewPalpacionesVaca);
             Utilities.LlenarDataGridView(QUERY_SELECT_DATA_GRID_VIEW_PARTOS + informacionVacaSeleccionada.pkNumeroTrazable + ";", dataGridViewPartosVacas);
         }
 
+        /// <summary>
+        /// Llena todos los ComboBoxList del form.
+        /// </summary>
         private void LlenarComboBoxList()
         {
             Utilities.LlenarComboBoxList(QUERY_LLENAR_COMBO_BOX_FECHAS_SALTOS + informacionVacaSeleccionada.pkNumeroTrazable + ";", comboBoxFechasSaltos);
             Utilities.LlenarComboBoxList(QUERY_LLENAR_COMBO_BOX_FECHAS_DESTETES + informacionVacaSeleccionada.pkNumeroTrazable + ";", comboBoxFechasDestetes);
         }
 
+        /// <summary>
+        /// Asigna a los componentes del form la información de la vaca seleccionada.  
+        /// </summary>
         private void LlenarInformcionVaca()
         {
             textBoxNumeroTrazableVaca.Text = this.informacionVacaSeleccionada.pkNumeroTrazable.ToString();

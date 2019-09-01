@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Hecho por Luis Porras.
+using System;
 using System.Windows.Forms;
 using TCU_WFA.Repository;
 
@@ -6,7 +7,6 @@ namespace TCU_WFA
 {
     public partial class FormSaltos : DefaultForm
     {
-
         // Constantes
         private const string QUERY_LLENAR_COMBO_BOX_NUMERO_TRAZABLE_VACA = "SELECT v.PK_NUMERO_TRAZABLE, v.PK_NUMERO_TRAZABLE FROM [dbo].[VACA] v WHERE v.ACTIVA = 1;";
 
@@ -14,35 +14,54 @@ namespace TCU_WFA
         private int vacaId;
         private DateTime fechaSalto;
 
+        /// <summary>
+        /// Constructor.
+        /// </summary>
         public FormSaltos()
         {
             InitializeComponent();
             InicializarCampos();
         }
 
+        /// <summary>
+        /// Asigna un valor inicial a los atributos privados de la clase.
+        /// </summary>
         private void InicializarCampos()
         {
             this.vacaId = 0;
             this.fechaSalto = new DateTime();
         }
 
+        /// <summary>
+        /// Método que se llama cada vez que se carga el form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormSaltos_Load(object sender, EventArgs e)
         {
             LlenarComboBoxList();
         }
 
+        /// <summary>
+        /// Llena todos los ComboBoxList del form.
+        /// </summary>
         private void LlenarComboBoxList()
         {
             Utilities.LlenarComboBoxList(QUERY_LLENAR_COMBO_BOX_NUMERO_TRAZABLE_VACA, comboBoxNumeroTrazableVaca);
         }
 
+        /// <summary>
+        /// Implementa la función principal del form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void botonRegistrar_Click(object sender, EventArgs e)
         {
             bool entradaUsuarioCorrecta = RevisarEntradaUsuario();
             if (entradaUsuarioCorrecta)
             {
                 ObtenerDatosEntradaUsuario();
-                bool resultado = InsertarDestete();
+                bool resultado = InsertarCelo();
                 if (resultado)
                 {
                     Utilities.MostrarMessageBox(Utilities.MENSAJE_EXITO, Utilities.TITULO_EXITO, MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -56,6 +75,9 @@ namespace TCU_WFA
             }
         }
 
+        /// <summary>
+        /// Limpia la entrada realizada por el usuario.
+        /// </summary>
         private void LimpiarEntradaUsuario()
         {
             InicializarCampos();
@@ -63,7 +85,11 @@ namespace TCU_WFA
             dateTimePickerFechaNacimiento.Value = DateTime.Now;
         }
 
-        private bool InsertarDestete()
+        /// <summary>
+        /// Intenta insertar un nuevo celo en la base de datos.
+        /// </summary>
+        /// <returns>Un booleano. True sí la operación fue correcta, false en caso contrario.</returns>
+        private bool InsertarCelo()
         {
             try
             {
@@ -77,12 +103,19 @@ namespace TCU_WFA
             }
         }
 
+        /// <summary>
+        /// Obtiene los datos digitados o seleccionados por el usuario.
+        /// </summary>
         private void ObtenerDatosEntradaUsuario()
         {
             this.vacaId = Int32.Parse(comboBoxNumeroTrazableVaca.Text);
             this.fechaSalto = dateTimePickerFechaNacimiento.Value;
         }
 
+        /// <summary>
+        /// Revisa que los datos insertados o seleccionados por el usuario sean válidos.
+        /// </summary>
+        /// <returns>Un booleano. True sí los datos insertados por el usuario son válidos, false en caso contrario.</returns>
         private bool RevisarEntradaUsuario()
         {
             try

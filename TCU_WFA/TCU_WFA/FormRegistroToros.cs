@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Hecho por Luis Porras.
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,6 +23,11 @@ namespace TCU_WFA
         {
         }
 
+        /// <summary>
+        /// Redirige al form FormAgregarToro.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void botonAgregarToro_Click(object sender, EventArgs e)
         {
             FormAgregarToro form = new FormAgregarToro();

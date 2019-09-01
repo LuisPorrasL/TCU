@@ -1,13 +1,12 @@
-﻿using System;
+﻿//Hecho por Luis Porras.
+using System;
 using System.Windows.Forms;
 using TCU_WFA.Models;
-using TCU_WFA.Repository;
 
 namespace TCU_WFA
 {
     public partial class FormRegistroVacas : DefaultForm
     {
-
         //Constantes
         private const string QUERY_SELECT_VACAS_DATA_GRID_VIEW = "SELECT v.PK_NUMERO_TRAZABLE as 'Id', v.NOMBRE AS 'Nombre', v.FECHA_NACIMIENTO AS 'Fecha nacimiento', r.RAZA AS 'Raza', v.PESO AS 'Peso', d.ESTADO AS 'Estado desarrollo', v.CARACTERISTICAS AS 'Caracteristicas', mP.MODO_PRENNES AS 'Modo preñes', v.FK_NUMERO_TRAZABLE_VACA AS 'Id madre', v.FK_NUMERO_TRAZABLE_TORO AS 'Id padre', v.ACTIVA AS '¿Activa?' FROM dbo.[VACA] v, dbo.[MODO_PRENNES] mP, dbo.[RAZA] r, dbo.DESARROLLO d WHERE v.ACTIVA = 1 AND v.FK_ID_MODO_PRENNES = mP.PK_ID_MODO_PRENNES AND v.FK_ID_RAZA = r.PK_ID_RAZA AND v.FK_ID_DESARROLLO = d.PK_ID_DESARROLLO;";
         private const string QUERY_SELECT_BAJAS_VACAS_DATA_GRID_VIEW = "SELECT v.PK_NUMERO_TRAZABLE as 'Id', v.NOMBRE AS 'Nombre', v.FECHA_NACIMIENTO AS 'Fecha nacimiento', r.RAZA AS 'Raza', v.PESO AS 'Peso', d.ESTADO AS 'Estado desarrollo', v.CARACTERISTICAS AS 'Caracteristicas', mP.MODO_PRENNES AS 'Modo preñes', v.FK_NUMERO_TRAZABLE_VACA AS 'Id madre', v.FK_NUMERO_TRAZABLE_TORO AS 'Id padre', v.ACTIVA AS '¿Activa?', v.CAUSA_DE_BAJA AS 'Causa de baja' FROM dbo.[VACA] v, dbo.[MODO_PRENNES] mP, dbo.[RAZA] r, dbo.DESARROLLO d WHERE v.ACTIVA = 0 AND v.FK_ID_MODO_PRENNES = mP.PK_ID_MODO_PRENNES AND v.FK_ID_RAZA = r.PK_ID_RAZA AND v.FK_ID_DESARROLLO = d.PK_ID_DESARROLLO;";
@@ -25,25 +24,38 @@ namespace TCU_WFA
         private const int PADRE_ID = 9;
         private const int ACTIVA = 10;
         private const int CAUSA_DE_BAJA = 11;
+
         //Mensajes
         public const string MENSAJE_ERROR_SELECCION_ELIMINAR_VACA = "Por favor seleccionar primero la vaca que se desea eliminar.";
         public const string MENSAJE_ERROR_SELECCION_EDITAR_VACA = "Por favor seleccionar primero la vaca que se desea editar.";
         public const string MENSAJE_ERROR_SELECCION_DETALLES_VACA = "Por favor seleccionar primero la vaca de la que desea ver los detalles.";
+
         //Titulos
         public const string TITULO_AVISO_EDITAR_VACA = "Aviso editar vaca";
         public const string TITULO_AVISO_DETALLES_VACA = "Aviso detalles vaca";
         public const string TITULO_AVISO_ELIMINAR_VACA = "Aviso eliminar vaca";
 
+        /// <summary>
+        /// Constructor.
+        /// </summary>
         public FormRegistroVacas()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Método que se llama cada vez que se carga el form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormRegistroVacas_Load(object sender, EventArgs e)
         {
             LlenarDataGridViewVacas();
         }
 
+        /// <summary>
+        /// Pobla el DataGridView del form.
+        /// </summary>
         public void LlenarDataGridViewVacas()
         {
             string query = QUERY_SELECT_VACAS_DATA_GRID_VIEW;
@@ -51,18 +63,15 @@ namespace TCU_WFA
             Utilities.LlenarDataGridView(query, dataGridViewVacas);
         }
 
-        private void botonAgregarVaca_Click(object sender, EventArgs e)
-        {
-            FormAgregarVaca form = new FormAgregarVaca();
-            form.Tag = this;
-            form.Show(this);
-            Hide();
-        }
-
+        /// <summary>
+        /// Actualiza el DataGridView del form según lo que desea buscar el usuario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void botonBuscarVaca_Click(object sender, EventArgs e)
         {
             string textoBuscar = textBoxBuscarVaca.Text;
-            if(textoBuscar != "")
+            if (textoBuscar != "")
             {
                 try
                 {
@@ -82,6 +91,24 @@ namespace TCU_WFA
             }
         }
 
+        /// <summary>
+        /// Redirige al form FormAgregarVaca.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void botonAgregarVaca_Click(object sender, EventArgs e)
+        {
+            FormAgregarVaca form = new FormAgregarVaca();
+            form.Tag = this;
+            form.Show(this);
+            Hide();
+        }
+
+        /// <summary>
+        /// Redirige al form FormEditarVaca.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void botonEditar_Click(object sender, EventArgs e)
         {
             if (dataGridViewVacas.SelectedRows.Count != 0)
@@ -106,6 +133,11 @@ namespace TCU_WFA
             }
         }
 
+        /// <summary>
+        /// Redirige al form FormEliminarVaca.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void botonEliminar_Click(object sender, EventArgs e)
         {
             if(dataGridViewVacas.SelectedRows.Count != 0)
@@ -129,6 +161,11 @@ namespace TCU_WFA
             }
         }
 
+        /// <summary>
+        /// Redirige al form FormDetallesVaca.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void botonDetalles_Click(object sender, EventArgs e)
         {
             if (dataGridViewVacas.SelectedRows.Count != 0)
@@ -153,6 +190,11 @@ namespace TCU_WFA
             }
         }
 
+        /// <summary>
+        /// Extrae la información sobre la vaca seleccioada por el usuario en el DataGridView del form.
+        /// </summary>
+        /// <param name="filaSelecionada"></param>
+        /// <returns>Un VacaModel con la información de la vaca seleccionada.</returns>
         private VacaModel obtenerInformacionVacaSelecionada(DataGridViewRow filaSelecionada)
         {
             VacaModel informacionVacaSeleccionada = new VacaModel();

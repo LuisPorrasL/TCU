@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿// Hecho por Luis Porras.
+using System;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TCU_WFA.Repository;
 
@@ -28,12 +22,18 @@ namespace TCU_WFA
         private string resultadoPalpacion;
         private int fkNuevoModoPrennes;
 
+        /// <summary>
+        /// Constructor.
+        /// </summary>
         public FormPalpacion()
         {
             InitializeComponent();
             InicializarCampos();
         }
 
+        /// <summary>
+        /// Asigna un valor inicial a los atributos privados de la clase.
+        /// </summary>
         private void InicializarCampos()
         {
             this.fechaPalpacion = new DateTime();
@@ -44,17 +44,28 @@ namespace TCU_WFA
             this.fkNuevoModoPrennes = 0;
         }
 
+        /// <summary>
+        /// Método que se llama cada vez que se carga el form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormPalpacion_Load(object sender, EventArgs e)
         {
             OcultarComponentes();
             LlenarComboBoxList();
         }
 
+        /// <summary>
+        /// Oculta componentes del form.
+        /// </summary>
         private void OcultarComponentes()
         {
             labelActualizarInformacionVaca.Visible = radioButtonSi.Visible = radioButtonNo.Visible = groupBoxNuevoModoPrennes.Visible = false;
         }
 
+        /// <summary>
+        /// Llena todos los ComboBoxList del form.
+        /// </summary>
         private void LlenarComboBoxList()
         {
             Utilities.LlenarComboBoxList(QUERY_LLENAR_COMBO_BOX_ID_MADRE, comboBoxNumeroTrazable);
@@ -62,6 +73,9 @@ namespace TCU_WFA
             llenarComboBoxListCondicionCorporal();
         }
 
+        /// <summary>
+        /// Pobla el ComboBoxListCondicionCorporal del form con datos válidos.
+        /// </summary>
         private void llenarComboBoxListCondicionCorporal()
         {
             comboBoxCondicionCorporal.DisplayMember = "condicionCorporal";
@@ -78,6 +92,11 @@ namespace TCU_WFA
             comboBoxCondicionCorporal.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Implementa la función principal del form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void botonsRegistrar_Click(object sender, EventArgs e)
         {
             bool entradaUsuarioCorrecta = RevisarEntradaUsuario();
@@ -98,6 +117,9 @@ namespace TCU_WFA
             }
         }
 
+        /// <summary>
+        /// Limpia la entrada realizada por el usuario.
+        /// </summary>
         private void LimpiarEntradaUsuario()
         {
             InicializarCampos();
@@ -108,6 +130,10 @@ namespace TCU_WFA
             textBoxResultado.Text = "";
         }
 
+        /// <summary>
+        /// Intenta insertar una nueva palpación en la base de datos. 
+        /// </summary>
+        /// <returns>Un booleano. True sí la operación fue correcta, false en caso contrario.</returns>
         private bool RegistrarPalpacion()
         {
             try
@@ -127,6 +153,9 @@ namespace TCU_WFA
             }
         }
 
+        /// <summary>
+        /// Obtiene los datos digitados o seleccionados por el usuario.
+        /// </summary>
         private void ObtenerDatosEntradaUsuario()
         {
             this.fechaPalpacion = dateTimePickerFechaPalpacion.Value;
@@ -141,6 +170,10 @@ namespace TCU_WFA
             }
         }
 
+        /// <summary>
+        /// Revisa que los datos insertados o seleccionados por el usuario sean válidos.
+        /// </summary>
+        /// <returns>Un booleano. True sí los datos insertados por el usuario son válidos, false en caso contrario.</returns>
         private bool RevisarEntradaUsuario()
         {
             try

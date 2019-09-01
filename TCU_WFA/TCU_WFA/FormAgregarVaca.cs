@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Hecho por Luis Porras.
+using System;
 using System.Windows.Forms;
 using TCU_WFA.Models;
 using TCU_WFA.Repository;
@@ -7,7 +8,6 @@ namespace TCU_WFA
 {
     public partial class FormAgregarVaca : DefaultForm
     {
-
         // Constantes
         private const string QUERY_LLENAR_COMBO_BOX_RAZA = "SELECT * FROM [dbo].[RAZA];";
         private const string QUERY_LLENAR_COMBO_BOX_MODO_PRENNES = "SELECT * FROM [dbo].[MODO_PRENNES];";
@@ -21,16 +21,27 @@ namespace TCU_WFA
         private const string QUERY_OBTENER_ID_DESARROLLO = "SELECT d.PK_ID_DESARROLLO FROM [dbo].[DESARROLLO] d WHERE d.ESTADO = @estadoDesarrollo";
         private const string DESARROLLO_PARAM = "@estadoDesarrollo";
 
+        /// <summary>
+        /// Constructor.
+        /// </summary>
         public FormAgregarVaca()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Método que se llama cada vez que se carga el form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormAgregarVaca_Load(object sender, EventArgs e)
         {
             LlenarComboBoxList();
         }
 
+        /// <summary>
+        /// Llena todos los ComboBoxList del form.
+        /// </summary>
         private void LlenarComboBoxList()
         {
             Utilities.LlenarComboBoxList(QUERY_LLENAR_COMBO_BOX_RAZA, comboBoxRaza);
@@ -42,6 +53,11 @@ namespace TCU_WFA
             comboBoxIdPadre.Text = "";
         }
 
+        /// <summary>
+        /// Implementa la función principal del form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void botonAgregar_Click(object sender, EventArgs e)
         {
             bool entradaUsuarioCorrecta = RevisarEntradaUsuario();
@@ -64,6 +80,11 @@ namespace TCU_WFA
             }
         }
 
+        /// <summary>
+        /// Intenta insertar la nueva vaca en la base de datos.
+        /// </summary>
+        /// <param name="datosNuevaVaca">De tipo VacaModel tiene todos los datos de la vaca que se desea insertar</param>
+        /// <returns>Un booleano. True sí la operación fue correcta, false en caso contrario.</returns>
         private bool AgregarNuevaVaca(VacaModel datosNuevaVaca)
         {
             try
@@ -78,6 +99,10 @@ namespace TCU_WFA
             }
         }
 
+        /// <summary>
+        /// Obtiene los datos digitados o seleccionados por el usuario.
+        /// </summary>
+        /// <returns>Un VacaModel con la información ingresada por el usuario.</returns>
         private VacaModel ObtenerDatosEntradaUsuario()
         {
             VacaModel resultado = new VacaModel();
@@ -97,6 +122,10 @@ namespace TCU_WFA
             return resultado;
         }
 
+        /// <summary>
+        /// Revisa que los datos insertados o seleccionados por el usuario sean válidos.
+        /// </summary>
+        /// <returns>Un booleano. True sí los datos insertados por el usuario son válidos, false en caso contrario.</returns>
         private bool RevisarEntradaUsuario()
         {
             try
@@ -126,6 +155,9 @@ namespace TCU_WFA
             }
         }
 
+        /// <summary>
+        /// Limpia la entrada realizada por el usuario.
+        /// </summary>
         private void LimpiarEntradaUsuario()
         {
             textBoxNumeroTrazableVaca.Clear();

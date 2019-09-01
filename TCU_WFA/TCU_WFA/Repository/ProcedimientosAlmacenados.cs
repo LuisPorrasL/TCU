@@ -1,10 +1,14 @@
-﻿using System;
+﻿// Hecho por Luis Porras.
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using TCU_WFA.Models;
 
 namespace TCU_WFA.Repository
 {
+    /// <summary>
+    /// Clase estáctica utilizada para llamar procedimientos almacenados.
+    /// </summary>
     public static class ProcedimientosAlmacenados
     {
         public static int ProcInsertarVaca(VacaModel vaca)
