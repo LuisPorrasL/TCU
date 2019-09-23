@@ -81,6 +81,10 @@
     <Build Include="PROC_REGISTRAR_PARTO.sql" />
     <Build Include="RAZA.sql" />
     <Build Include="DESARROLLO.sql" />
+    <Build Include="PROC_OBTENER_ULTIMO_IEP.sql" />
+    <Build Include="PROC_OBTENER_IEP.sql" />
+    <Build Include="PROC_OBTENER_ULTIMO_IEP_HISTORICO.sql" />
+    <Build Include="PROC_OBTENER_IEP_HISTORICO.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.PostDeploymentTesting.sql" />
