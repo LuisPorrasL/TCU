@@ -69,10 +69,6 @@
             this.dataGridViewPartosVacas = new System.Windows.Forms.DataGridView();
             this.tabPageParametrosReproductivos = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBoxDiasAbiertosPromedio = new System.Windows.Forms.TextBox();
-            this.textBoxDiasAbiertos = new System.Windows.Forms.TextBox();
-            this.labelDiasAbiertosPromedio = new System.Windows.Forms.Label();
-            this.labelDiasAbiertos = new System.Windows.Forms.Label();
             this.textBoxIEP = new System.Windows.Forms.TextBox();
             this.labelIEPUltimo = new System.Windows.Forms.Label();
             this.textBoxIEPPromedio = new System.Windows.Forms.TextBox();
@@ -485,53 +481,15 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBoxDiasAbiertosPromedio);
-            this.groupBox1.Controls.Add(this.textBoxDiasAbiertos);
-            this.groupBox1.Controls.Add(this.labelDiasAbiertosPromedio);
-            this.groupBox1.Controls.Add(this.labelDiasAbiertos);
             this.groupBox1.Controls.Add(this.textBoxIEP);
             this.groupBox1.Controls.Add(this.labelIEPUltimo);
             this.groupBox1.Controls.Add(this.textBoxIEPPromedio);
             this.groupBox1.Controls.Add(this.labelIEPPromedio);
             this.groupBox1.Location = new System.Drawing.Point(224, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(345, 168);
+            this.groupBox1.Size = new System.Drawing.Size(345, 91);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
-            // 
-            // textBoxDiasAbiertosPromedio
-            // 
-            this.textBoxDiasAbiertosPromedio.Location = new System.Drawing.Point(136, 88);
-            this.textBoxDiasAbiertosPromedio.Name = "textBoxDiasAbiertosPromedio";
-            this.textBoxDiasAbiertosPromedio.ReadOnly = true;
-            this.textBoxDiasAbiertosPromedio.Size = new System.Drawing.Size(200, 20);
-            this.textBoxDiasAbiertosPromedio.TabIndex = 22;
-            // 
-            // textBoxDiasAbiertos
-            // 
-            this.textBoxDiasAbiertos.Location = new System.Drawing.Point(136, 131);
-            this.textBoxDiasAbiertos.Name = "textBoxDiasAbiertos";
-            this.textBoxDiasAbiertos.ReadOnly = true;
-            this.textBoxDiasAbiertos.Size = new System.Drawing.Size(200, 20);
-            this.textBoxDiasAbiertos.TabIndex = 16;
-            // 
-            // labelDiasAbiertosPromedio
-            // 
-            this.labelDiasAbiertosPromedio.AutoSize = true;
-            this.labelDiasAbiertosPromedio.Location = new System.Drawing.Point(6, 94);
-            this.labelDiasAbiertosPromedio.Name = "labelDiasAbiertosPromedio";
-            this.labelDiasAbiertosPromedio.Size = new System.Drawing.Size(116, 13);
-            this.labelDiasAbiertosPromedio.TabIndex = 6;
-            this.labelDiasAbiertosPromedio.Text = "Días abiertos promedio";
-            // 
-            // labelDiasAbiertos
-            // 
-            this.labelDiasAbiertos.AutoSize = true;
-            this.labelDiasAbiertos.Location = new System.Drawing.Point(6, 134);
-            this.labelDiasAbiertos.Name = "labelDiasAbiertos";
-            this.labelDiasAbiertos.Size = new System.Drawing.Size(70, 13);
-            this.labelDiasAbiertos.TabIndex = 4;
-            this.labelDiasAbiertos.Text = "Días abiertos";
             // 
             // textBoxIEP
             // 
@@ -647,10 +605,6 @@
         private System.Windows.Forms.TextBox textBoxCausaDeBaja;
         private System.Windows.Forms.Label labelCausaDeBaja;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBoxDiasAbiertosPromedio;
-        private System.Windows.Forms.TextBox textBoxDiasAbiertos;
-        private System.Windows.Forms.Label labelDiasAbiertosPromedio;
-        private System.Windows.Forms.Label labelDiasAbiertos;
         private System.Windows.Forms.TextBox textBoxIEP;
         private System.Windows.Forms.Label labelIEPUltimo;
         private System.Windows.Forms.TextBox textBoxIEPPromedio;
