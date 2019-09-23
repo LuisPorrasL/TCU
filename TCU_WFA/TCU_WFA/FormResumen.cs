@@ -15,6 +15,15 @@ namespace TCU_WFA
 {
     public partial class FormResumen : DefaultForm
     {
+        //Valores del resumen
+        private DateTime fechaActual;
+        private double hembrasConsideradas = 0;
+        private double hembrasParido = 0;
+        private double iepPromHistoricoMeses = 0;
+        private double porcParicionHistorico = 0;
+        private double ultimoIEPVacaMeses = 0;
+        private double ultimoPorcParicion = 0;
+        private double promPartosHato = 0;
 
         public FormResumen()
         {
@@ -23,7 +32,24 @@ namespace TCU_WFA
 
         private void FormResumen_Load(object sender, EventArgs e)
         {
+            CargarDatosResumen();
+        }
 
+        /// <summary>
+        /// Método para obtener de la BD todos los datos a utilzar en el resumen y actualizar los valores del form
+        /// </summary>
+        private void CargarDatosResumen()
+        {
+            //Se obtienen los datos a cargar
+
+            //Se actualizan los datos del form
+            labelHembrasConsideradasValue.Text = hembrasConsideradas.ToString();
+            labelHembrasParidoValue.Text = hembrasParido.ToString();
+            labelPromHistoricoMesesValue.Text = iepPromHistoricoMeses.ToString();
+            labelPorcParicionHistoricoValue.Text = porcParicionHistorico.ToString();
+            labelUltimoIEPVacaMesesValue.Text = ultimoIEPVacaMeses.ToString();
+            labelUltimoPorcParicionValue.Text = ultimoPorcParicion.ToString();
+            labelPromPartosHatoValue.Text = promPartosHato.ToString();
         }
 
         /// <summary>
@@ -67,24 +93,18 @@ namespace TCU_WFA
             //Se guarda el documento
             string ubicacionDocumentos = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             string nombreDocumentoResumen = ubicacionDocumentos + @"\" + "Resumen_" + DateTime.Now.ToString().Replace("/",".").Replace(":", ".").Replace(" ","_").Replace("\\", ".") + ".xlsx";
-
             try
             {
                 documentoExcel.SaveAs(new FileInfo(nombreDocumentoResumen));
 
                 //Se muestra el mensaje que indica al usuario en donde quedó el documento
-                MessageBox.Show("El documento se guardó con exito en: " + nombreDocumentoResumen);
+                Utilities.MostrarMessageBox("El documento se guardó con exito en: " + nombreDocumentoResumen, "Documento generado", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
             catch
             {
                 //Se muestra el mensaje que indica al usuario en donde quedó el documento
-                MessageBox.Show("Ocurrió un error al guardar el documento","Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                Utilities.MostrarMessageBox("Ocurrió un error al guardar el documento","Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
-            
-
-            
-
-
             //Se cierra el documento
             documentoExcel.Dispose();
         }
