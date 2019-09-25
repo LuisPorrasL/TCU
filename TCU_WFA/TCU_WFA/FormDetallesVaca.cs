@@ -1,6 +1,7 @@
 ﻿//Hecho por Luis Porras.
 using System;
 using TCU_WFA.Models;
+using TCU_WFA.Repository;
 
 namespace TCU_WFA
 {
@@ -88,6 +89,27 @@ namespace TCU_WFA
                 checkBoxActiva.Checked = false;
                 textBoxCausaDeBaja.Visible = true;
                 textBoxCausaDeBaja.Text = this.informacionVacaSeleccionada.causaDeBaja;
+            }
+            // Se calculan los parametros reproductivos de la vaca.
+            try
+            {
+                double resultado = ProcedimientosAlmacenados.ProcObtenerUltimoIEP(this.informacionVacaSeleccionada.pkNumeroTrazable);
+                if ((int)resultado == Utilities.RESULTADO_ERROR) textBoxUltimoIEP.Text = "Error";
+                else textBoxUltimoIEP.Text = resultado.ToString();
+            }
+            catch
+            {
+                textBoxUltimoIEP.Text = "Error";
+            }
+            try
+            {
+                double resultado = ProcedimientosAlmacenados.ProcObtenerIEP(this.informacionVacaSeleccionada.pkNumeroTrazable);
+                if ((int)resultado == Utilities.RESULTADO_ERROR) textBoxIEPPromedio.Text = "Error";
+                else textBoxIEPPromedio.Text = resultado.ToString();
+            }
+            catch
+            {
+                textBoxIEPPromedio.Text = "Error";
             }
         }
     }

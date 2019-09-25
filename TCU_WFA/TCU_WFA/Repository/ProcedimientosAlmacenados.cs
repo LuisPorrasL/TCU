@@ -257,6 +257,153 @@ namespace TCU_WFA.Repository
             return resultado;
         }
 
+        //Proc para recuperación de parametros reproductivos.
+        public static double ProcObtenerUltimoIEP(int vacaId)
+        {
+            double resultado = 0;
+            string sql = "PROC_OBTENER_ULTIMO_IEP";
+            using (SqlConnection conn = new SqlConnection(Utilities.CONNECTION_STRING))
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter inIdVacaParam = new SqlParameter("@idVaca", SqlDbType.Int)
+                {
+                    Direction = ParameterDirection.Input
+                };
+
+                inIdVacaParam.Value = vacaId;
+
+                cmd.Parameters.Add(inIdVacaParam);
+
+                SqlParameter outputUltimoIEPParam = new SqlParameter("@ultimoIEP", SqlDbType.Decimal)
+                {
+                    Direction = ParameterDirection.Output
+                };
+
+                cmd.Parameters.Add(outputUltimoIEPParam);
+
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+
+                    resultado = double.Parse(cmd.Parameters["@ultimoIEP"].Value.ToString());
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    resultado = Utilities.RESULTADO_ERROR;
+                }
+            }
+            return resultado;
+        }
+
+        public static double ProcObtenerIEP(int vacaId)
+        {
+            double resultado = 0;
+            string sql = "PROC_OBTENER_IEP";
+            using (SqlConnection conn = new SqlConnection(Utilities.CONNECTION_STRING))
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter inIdVacaParam = new SqlParameter("@idVaca", SqlDbType.Int)
+                {
+                    Direction = ParameterDirection.Input
+                };
+
+                inIdVacaParam.Value = vacaId;
+
+                cmd.Parameters.Add(inIdVacaParam);
+
+                SqlParameter outputUltimoIEPParam = new SqlParameter("@IEP", SqlDbType.Decimal)
+                {
+                    Direction = ParameterDirection.Output
+                };
+
+                cmd.Parameters.Add(outputUltimoIEPParam);
+
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+
+                    resultado = double.Parse(cmd.Parameters["@IEP"].Value.ToString());
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    resultado = Utilities.RESULTADO_ERROR;
+                }
+            }
+            return resultado;
+        }
+
+        public static double ProcObtenerUltimoIEPHistorico(int vacaId)
+        {
+            double resultado = 0;
+            string sql = "PROC_OBTENER_ULTIMO_IEP_HISTORICO";
+            using (SqlConnection conn = new SqlConnection(Utilities.CONNECTION_STRING))
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter outputUltimoIEPParam = new SqlParameter("@ultimoIEPHistorico", SqlDbType.Decimal)
+                {
+                    Direction = ParameterDirection.Output
+                };
+
+                cmd.Parameters.Add(outputUltimoIEPParam);
+
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+
+                    resultado = double.Parse(cmd.Parameters["@ultimoIEPHistorico"].Value.ToString());
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    resultado = Utilities.RESULTADO_ERROR;
+                }
+            }
+            return resultado;
+        }
+
+        public static double ProcObtenerIEPHistorico(int vacaId)
+        {
+            double resultado = 0;
+            string sql = "PROC_OBTENER_IEP_HISTORICO";
+            using (SqlConnection conn = new SqlConnection(Utilities.CONNECTION_STRING))
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter outputUltimoIEPParam = new SqlParameter("@IEPHistorico", SqlDbType.Decimal)
+                {
+                    Direction = ParameterDirection.Output
+                };
+
+                cmd.Parameters.Add(outputUltimoIEPParam);
+
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+
+                    resultado = double.Parse(cmd.Parameters["@IEPHistorico"].Value.ToString());
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    resultado = Utilities.RESULTADO_ERROR;
+                }
+            }
+            return resultado;
+        }
+
     }
 }
 

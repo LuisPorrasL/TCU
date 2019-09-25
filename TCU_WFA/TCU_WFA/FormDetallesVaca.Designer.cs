@@ -69,10 +69,10 @@
             this.dataGridViewPartosVacas = new System.Windows.Forms.DataGridView();
             this.tabPageParametrosReproductivos = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBoxIEP = new System.Windows.Forms.TextBox();
-            this.labelIEPUltimo = new System.Windows.Forms.Label();
+            this.textBoxUltimoIEP = new System.Windows.Forms.TextBox();
             this.textBoxIEPPromedio = new System.Windows.Forms.TextBox();
             this.labelIEPPromedio = new System.Windows.Forms.Label();
+            this.labelIEPUltimo = new System.Windows.Forms.Label();
             this.exameN_ANTROPOLOGICOTableAdapter1 = new TCU_WFA.TCU_DBDataSetTableAdapters.EXAMEN_ANTROPOLOGICOTableAdapter();
             this.tabControl.SuspendLayout();
             this.tabPageInformacionGeneral.SuspendLayout();
@@ -481,36 +481,27 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBoxIEP);
-            this.groupBox1.Controls.Add(this.labelIEPUltimo);
+            this.groupBox1.Controls.Add(this.textBoxUltimoIEP);
             this.groupBox1.Controls.Add(this.textBoxIEPPromedio);
             this.groupBox1.Controls.Add(this.labelIEPPromedio);
+            this.groupBox1.Controls.Add(this.labelIEPUltimo);
             this.groupBox1.Location = new System.Drawing.Point(224, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(345, 91);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             // 
-            // textBoxIEP
+            // textBoxUltimoIEP
             // 
-            this.textBoxIEP.Location = new System.Drawing.Point(136, 51);
-            this.textBoxIEP.Name = "textBoxIEP";
-            this.textBoxIEP.ReadOnly = true;
-            this.textBoxIEP.Size = new System.Drawing.Size(200, 20);
-            this.textBoxIEP.TabIndex = 3;
-            // 
-            // labelIEPUltimo
-            // 
-            this.labelIEPUltimo.AutoSize = true;
-            this.labelIEPUltimo.Location = new System.Drawing.Point(6, 54);
-            this.labelIEPUltimo.Name = "labelIEPUltimo";
-            this.labelIEPUltimo.Size = new System.Drawing.Size(24, 13);
-            this.labelIEPUltimo.TabIndex = 2;
-            this.labelIEPUltimo.Text = "IEP";
+            this.textBoxUltimoIEP.Location = new System.Drawing.Point(136, 19);
+            this.textBoxUltimoIEP.Name = "textBoxUltimoIEP";
+            this.textBoxUltimoIEP.ReadOnly = true;
+            this.textBoxUltimoIEP.Size = new System.Drawing.Size(200, 20);
+            this.textBoxUltimoIEP.TabIndex = 3;
             // 
             // textBoxIEPPromedio
             // 
-            this.textBoxIEPPromedio.Location = new System.Drawing.Point(136, 13);
+            this.textBoxIEPPromedio.Location = new System.Drawing.Point(136, 55);
             this.textBoxIEPPromedio.Name = "textBoxIEPPromedio";
             this.textBoxIEPPromedio.ReadOnly = true;
             this.textBoxIEPPromedio.Size = new System.Drawing.Size(200, 20);
@@ -519,11 +510,20 @@
             // labelIEPPromedio
             // 
             this.labelIEPPromedio.AutoSize = true;
-            this.labelIEPPromedio.Location = new System.Drawing.Point(6, 16);
+            this.labelIEPPromedio.Location = new System.Drawing.Point(6, 58);
             this.labelIEPPromedio.Name = "labelIEPPromedio";
             this.labelIEPPromedio.Size = new System.Drawing.Size(70, 13);
             this.labelIEPPromedio.TabIndex = 0;
             this.labelIEPPromedio.Text = "IEP promedio";
+            // 
+            // labelIEPUltimo
+            // 
+            this.labelIEPUltimo.AutoSize = true;
+            this.labelIEPUltimo.Location = new System.Drawing.Point(6, 22);
+            this.labelIEPUltimo.Name = "labelIEPUltimo";
+            this.labelIEPUltimo.Size = new System.Drawing.Size(56, 13);
+            this.labelIEPUltimo.TabIndex = 2;
+            this.labelIEPUltimo.Text = "Ultimo IEP";
             // 
             // exameN_ANTROPOLOGICOTableAdapter1
             // 
@@ -605,7 +605,7 @@
         private System.Windows.Forms.TextBox textBoxCausaDeBaja;
         private System.Windows.Forms.Label labelCausaDeBaja;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBoxIEP;
+        private System.Windows.Forms.TextBox textBoxUltimoIEP;
         private System.Windows.Forms.Label labelIEPUltimo;
         private System.Windows.Forms.TextBox textBoxIEPPromedio;
         private System.Windows.Forms.Label labelIEPPromedio;
