@@ -340,7 +340,7 @@ namespace TCU_WFA.Repository
             return resultado;
         }
 
-        public static double ProcObtenerUltimoIEPHistorico(int vacaId)
+        public static double ProcObtenerUltimoIEPHistorico()
         {
             double resultado = 0;
             string sql = "PROC_OBTENER_ULTIMO_IEP_HISTORICO";
@@ -372,7 +372,7 @@ namespace TCU_WFA.Repository
             return resultado;
         }
 
-        public static double ProcObtenerIEPHistorico(int vacaId)
+        public static double ProcObtenerIEPHistorico()
         {
             double resultado = 0;
             string sql = "PROC_OBTENER_IEP_HISTORICO";
