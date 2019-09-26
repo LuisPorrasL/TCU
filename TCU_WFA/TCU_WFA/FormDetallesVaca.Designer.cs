@@ -69,14 +69,10 @@
             this.dataGridViewPartosVacas = new System.Windows.Forms.DataGridView();
             this.tabPageParametrosReproductivos = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBoxDiasAbiertosPromedio = new System.Windows.Forms.TextBox();
-            this.textBoxDiasAbiertos = new System.Windows.Forms.TextBox();
-            this.labelDiasAbiertosPromedio = new System.Windows.Forms.Label();
-            this.labelDiasAbiertos = new System.Windows.Forms.Label();
-            this.textBoxIEP = new System.Windows.Forms.TextBox();
-            this.labelIEPUltimo = new System.Windows.Forms.Label();
+            this.textBoxUltimoIEP = new System.Windows.Forms.TextBox();
             this.textBoxIEPPromedio = new System.Windows.Forms.TextBox();
             this.labelIEPPromedio = new System.Windows.Forms.Label();
+            this.labelIEPUltimo = new System.Windows.Forms.Label();
             this.exameN_ANTROPOLOGICOTableAdapter1 = new TCU_WFA.TCU_DBDataSetTableAdapters.EXAMEN_ANTROPOLOGICOTableAdapter();
             this.tabControl.SuspendLayout();
             this.tabPageInformacionGeneral.SuspendLayout();
@@ -485,74 +481,27 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBoxDiasAbiertosPromedio);
-            this.groupBox1.Controls.Add(this.textBoxDiasAbiertos);
-            this.groupBox1.Controls.Add(this.labelDiasAbiertosPromedio);
-            this.groupBox1.Controls.Add(this.labelDiasAbiertos);
-            this.groupBox1.Controls.Add(this.textBoxIEP);
-            this.groupBox1.Controls.Add(this.labelIEPUltimo);
+            this.groupBox1.Controls.Add(this.textBoxUltimoIEP);
             this.groupBox1.Controls.Add(this.textBoxIEPPromedio);
             this.groupBox1.Controls.Add(this.labelIEPPromedio);
+            this.groupBox1.Controls.Add(this.labelIEPUltimo);
             this.groupBox1.Location = new System.Drawing.Point(224, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(345, 168);
+            this.groupBox1.Size = new System.Drawing.Size(345, 91);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             // 
-            // textBoxDiasAbiertosPromedio
+            // textBoxUltimoIEP
             // 
-            this.textBoxDiasAbiertosPromedio.Location = new System.Drawing.Point(136, 88);
-            this.textBoxDiasAbiertosPromedio.Name = "textBoxDiasAbiertosPromedio";
-            this.textBoxDiasAbiertosPromedio.ReadOnly = true;
-            this.textBoxDiasAbiertosPromedio.Size = new System.Drawing.Size(200, 20);
-            this.textBoxDiasAbiertosPromedio.TabIndex = 22;
-            // 
-            // textBoxDiasAbiertos
-            // 
-            this.textBoxDiasAbiertos.Location = new System.Drawing.Point(136, 131);
-            this.textBoxDiasAbiertos.Name = "textBoxDiasAbiertos";
-            this.textBoxDiasAbiertos.ReadOnly = true;
-            this.textBoxDiasAbiertos.Size = new System.Drawing.Size(200, 20);
-            this.textBoxDiasAbiertos.TabIndex = 16;
-            // 
-            // labelDiasAbiertosPromedio
-            // 
-            this.labelDiasAbiertosPromedio.AutoSize = true;
-            this.labelDiasAbiertosPromedio.Location = new System.Drawing.Point(6, 94);
-            this.labelDiasAbiertosPromedio.Name = "labelDiasAbiertosPromedio";
-            this.labelDiasAbiertosPromedio.Size = new System.Drawing.Size(116, 13);
-            this.labelDiasAbiertosPromedio.TabIndex = 6;
-            this.labelDiasAbiertosPromedio.Text = "Días abiertos promedio";
-            // 
-            // labelDiasAbiertos
-            // 
-            this.labelDiasAbiertos.AutoSize = true;
-            this.labelDiasAbiertos.Location = new System.Drawing.Point(6, 134);
-            this.labelDiasAbiertos.Name = "labelDiasAbiertos";
-            this.labelDiasAbiertos.Size = new System.Drawing.Size(70, 13);
-            this.labelDiasAbiertos.TabIndex = 4;
-            this.labelDiasAbiertos.Text = "Días abiertos";
-            // 
-            // textBoxIEP
-            // 
-            this.textBoxIEP.Location = new System.Drawing.Point(136, 51);
-            this.textBoxIEP.Name = "textBoxIEP";
-            this.textBoxIEP.ReadOnly = true;
-            this.textBoxIEP.Size = new System.Drawing.Size(200, 20);
-            this.textBoxIEP.TabIndex = 3;
-            // 
-            // labelIEPUltimo
-            // 
-            this.labelIEPUltimo.AutoSize = true;
-            this.labelIEPUltimo.Location = new System.Drawing.Point(6, 54);
-            this.labelIEPUltimo.Name = "labelIEPUltimo";
-            this.labelIEPUltimo.Size = new System.Drawing.Size(24, 13);
-            this.labelIEPUltimo.TabIndex = 2;
-            this.labelIEPUltimo.Text = "IEP";
+            this.textBoxUltimoIEP.Location = new System.Drawing.Point(136, 19);
+            this.textBoxUltimoIEP.Name = "textBoxUltimoIEP";
+            this.textBoxUltimoIEP.ReadOnly = true;
+            this.textBoxUltimoIEP.Size = new System.Drawing.Size(200, 20);
+            this.textBoxUltimoIEP.TabIndex = 3;
             // 
             // textBoxIEPPromedio
             // 
-            this.textBoxIEPPromedio.Location = new System.Drawing.Point(136, 13);
+            this.textBoxIEPPromedio.Location = new System.Drawing.Point(136, 55);
             this.textBoxIEPPromedio.Name = "textBoxIEPPromedio";
             this.textBoxIEPPromedio.ReadOnly = true;
             this.textBoxIEPPromedio.Size = new System.Drawing.Size(200, 20);
@@ -561,11 +510,20 @@
             // labelIEPPromedio
             // 
             this.labelIEPPromedio.AutoSize = true;
-            this.labelIEPPromedio.Location = new System.Drawing.Point(6, 16);
+            this.labelIEPPromedio.Location = new System.Drawing.Point(6, 58);
             this.labelIEPPromedio.Name = "labelIEPPromedio";
             this.labelIEPPromedio.Size = new System.Drawing.Size(70, 13);
             this.labelIEPPromedio.TabIndex = 0;
             this.labelIEPPromedio.Text = "IEP promedio";
+            // 
+            // labelIEPUltimo
+            // 
+            this.labelIEPUltimo.AutoSize = true;
+            this.labelIEPUltimo.Location = new System.Drawing.Point(6, 22);
+            this.labelIEPUltimo.Name = "labelIEPUltimo";
+            this.labelIEPUltimo.Size = new System.Drawing.Size(56, 13);
+            this.labelIEPUltimo.TabIndex = 2;
+            this.labelIEPUltimo.Text = "Ultimo IEP";
             // 
             // exameN_ANTROPOLOGICOTableAdapter1
             // 
@@ -647,11 +605,7 @@
         private System.Windows.Forms.TextBox textBoxCausaDeBaja;
         private System.Windows.Forms.Label labelCausaDeBaja;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBoxDiasAbiertosPromedio;
-        private System.Windows.Forms.TextBox textBoxDiasAbiertos;
-        private System.Windows.Forms.Label labelDiasAbiertosPromedio;
-        private System.Windows.Forms.Label labelDiasAbiertos;
-        private System.Windows.Forms.TextBox textBoxIEP;
+        private System.Windows.Forms.TextBox textBoxUltimoIEP;
         private System.Windows.Forms.Label labelIEPUltimo;
         private System.Windows.Forms.TextBox textBoxIEPPromedio;
         private System.Windows.Forms.Label labelIEPPromedio;

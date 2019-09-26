@@ -12,7 +12,7 @@ namespace TCU_WFA
     public static class Utilities
     {
         //Constantes
-        public const int RESULTADO_ERROR = -1;
+        public const int RESULTADO_ERROR = -18;
         //Connection string 
         public const string CONNECTION_STRING = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog = TCU_DB; Integrated Security = True; Connect Timeout = 60; Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         //Mensajes

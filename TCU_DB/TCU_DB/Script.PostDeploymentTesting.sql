@@ -69,8 +69,31 @@ SET IDENTITY_INSERT dbo.[DESARROLLO] OFF
 
 --Datos de prueba
 INSERT INTO [dbo].[VACA]([PK_NUMERO_TRAZABLE], [NOMBRE], [CARACTERISTICAS], [FK_ID_RAZA], [FECHA_NACIMIENTO], [FK_ID_MODO_PRENNES], [FK_NUMERO_TRAZABLE_VACA], [FK_NUMERO_TRAZABLE_TORO], [PESO], [FK_ID_DESARROLLO], [ACTIVA], [CAUSA_DE_BAJA])
-VALUES	(1, 'Lola', 'Inútil', 2, '2018-1-1', 1, NULL, NULL, 100.2, 3, 1, NULL),
-		(2, NULL, 'Útil', 3, '2019-2-1', 2, NULL, NULL, 100.3, 2, 1, NULL),
-		(3, 'Lula', 'Medio útil', 2, '2019-1-1', 1, 1, NULL, 99.3, 3, 1, NULL),
-		(4, NULL, 'Muerta #1', 3, '2018-1-1', 1, NULL, NULL, NULL, 3, 0, 'Venta'),
-		(5, NULL, 'Muerta #2', 3, '2018-5-5', 1, NULL, NULL, NULL, 1, 0, 'Muerte prematura');
+VALUES	(447, 'Mojarra', 'Real', 2, '2007-01-20', 2, NULL, NULL, 300, 3, 1, NULL),
+		(451, 'Volillera', 'Real', 2, '2007-03-07', 2, NULL, NULL, 300, 3, 1, NULL),
+		(457, 'Baya', 'Real', 2, '2007-10-06', 2, NULL, NULL, 300, 3, 1, NULL);
+
+INSERT INTO [dbo].[PARTO]([PK_FK_NUMERO_TRAZABLE_VACA], [PK_FECHA], [FK_NUMERO_TRAZABLE_TORO], [SEXO], [MUERTE_PREMATURA], [CAUSA_ABORTO])
+VALUES	(447, '2009-08-09', NULL, 'H', 0, NULL),
+		(447, '2010-12-27', NULL, 'H', 0, NULL),
+		(447, '2012-01-06', NULL, 'H', 0, NULL),
+		(447, '2013-03-01', NULL, 'H', 0, NULL),
+		(447, '2014-01-23', NULL, 'H', 0, NULL),
+		(447, '2015-02-15', NULL, 'H', 0, NULL),
+		(447, '2016-04-01', NULL, 'H', 0, NULL),
+		(447, '2017-10-10', NULL, 'H', 0, NULL),
+		(447, '2018-10-13', NULL, 'M', 1, 'Desconocida'),
+		(451, '2009-08-07', NULL, 'M', 0, NULL),
+		(451, '2011-01-21', NULL, 'M', 0, NULL),
+		(451, '2013-03-17', NULL, 'M', 0, NULL),
+		(451, '2014-06-05', NULL, 'M', 0, NULL),
+		(451, '2015-12-31', NULL, 'M', 0, NULL),
+		(451, '2018-01-24', NULL, 'M', 0, NULL),
+		(457, '2010-05-16', NULL, 'H', 0, NULL),
+		(457, '2012-03-08', NULL, 'H', 0, NULL),
+		(457, '2014-03-19', NULL, 'H', 0, NULL),
+		(457, '2015-04-12', NULL, 'H', 0, NULL),
+		(457, '2016-04-16', NULL, 'H', 0, NULL),
+		(457, '2017-04-11', NULL, 'H', 0, NULL),
+		(457, '2018-01-20', NULL, 'H', 0, NULL),
+		(457, '2018-05-26', NULL, 'H', 0, NULL);
