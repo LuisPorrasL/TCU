@@ -37,13 +37,13 @@
             this.labelIEPPromHistoricoMeses = new System.Windows.Forms.Label();
             this.labelHembrasHanParido = new System.Windows.Forms.Label();
             this.labelNumeroHembrasConsideradas = new System.Windows.Forms.Label();
-            this.labelHembrasConsideradasValue = new System.Windows.Forms.TextBox();
-            this.labelHembrasParidoValue = new System.Windows.Forms.TextBox();
-            this.labelPorcParicionHistoricoValue = new System.Windows.Forms.TextBox();
-            this.labelPromHistoricoMesesValue = new System.Windows.Forms.TextBox();
-            this.labelPromPartosHatoValue = new System.Windows.Forms.TextBox();
-            this.labelUltimoPorcParicionValue = new System.Windows.Forms.TextBox();
-            this.labelUltimoIEPVacaMesesValue = new System.Windows.Forms.TextBox();
+            this.textBoxHembrasConsideradasValue = new System.Windows.Forms.TextBox();
+            this.textBoxHembrasParidoValue = new System.Windows.Forms.TextBox();
+            this.textBoxPorcParicionHistoricoValue = new System.Windows.Forms.TextBox();
+            this.textBoxPromHistoricoMesesValue = new System.Windows.Forms.TextBox();
+            this.textBoxPromPartosHatoValue = new System.Windows.Forms.TextBox();
+            this.textBoxUltimoPorcParicionValue = new System.Windows.Forms.TextBox();
+            this.textBoxUltimoIEPVacaMesesValue = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // botonVolver
@@ -54,7 +54,6 @@
             this.botonVolver.TabIndex = 0;
             this.botonVolver.Text = "Volver";
             this.botonVolver.UseVisualStyleBackColor = true;
-            this.botonVolver.Click += new System.EventHandler(this.botonVolver_Click);
             // 
             // botonGenerarInformeExcel
             // 
@@ -136,61 +135,61 @@
             this.labelNumeroHembrasConsideradas.TabIndex = 18;
             this.labelNumeroHembrasConsideradas.Text = "Número hembras consideradas";
             // 
-            // labelHembrasConsideradasValue
+            // textBoxHembrasConsideradasValue
             // 
-            this.labelHembrasConsideradasValue.Location = new System.Drawing.Point(284, 39);
-            this.labelHembrasConsideradasValue.Name = "labelHembrasConsideradasValue";
-            this.labelHembrasConsideradasValue.ReadOnly = true;
-            this.labelHembrasConsideradasValue.Size = new System.Drawing.Size(165, 20);
-            this.labelHembrasConsideradasValue.TabIndex = 32;
+            this.textBoxHembrasConsideradasValue.Location = new System.Drawing.Point(284, 39);
+            this.textBoxHembrasConsideradasValue.Name = "textBoxHembrasConsideradasValue";
+            this.textBoxHembrasConsideradasValue.ReadOnly = true;
+            this.textBoxHembrasConsideradasValue.Size = new System.Drawing.Size(165, 20);
+            this.textBoxHembrasConsideradasValue.TabIndex = 32;
             // 
-            // labelHembrasParidoValue
+            // textBoxHembrasParidoValue
             // 
-            this.labelHembrasParidoValue.Location = new System.Drawing.Point(284, 84);
-            this.labelHembrasParidoValue.Name = "labelHembrasParidoValue";
-            this.labelHembrasParidoValue.ReadOnly = true;
-            this.labelHembrasParidoValue.Size = new System.Drawing.Size(165, 20);
-            this.labelHembrasParidoValue.TabIndex = 33;
+            this.textBoxHembrasParidoValue.Location = new System.Drawing.Point(284, 84);
+            this.textBoxHembrasParidoValue.Name = "textBoxHembrasParidoValue";
+            this.textBoxHembrasParidoValue.ReadOnly = true;
+            this.textBoxHembrasParidoValue.Size = new System.Drawing.Size(165, 20);
+            this.textBoxHembrasParidoValue.TabIndex = 33;
             // 
-            // labelPorcParicionHistoricoValue
+            // textBoxPorcParicionHistoricoValue
             // 
-            this.labelPorcParicionHistoricoValue.Location = new System.Drawing.Point(284, 173);
-            this.labelPorcParicionHistoricoValue.Name = "labelPorcParicionHistoricoValue";
-            this.labelPorcParicionHistoricoValue.ReadOnly = true;
-            this.labelPorcParicionHistoricoValue.Size = new System.Drawing.Size(165, 20);
-            this.labelPorcParicionHistoricoValue.TabIndex = 35;
+            this.textBoxPorcParicionHistoricoValue.Location = new System.Drawing.Point(284, 173);
+            this.textBoxPorcParicionHistoricoValue.Name = "textBoxPorcParicionHistoricoValue";
+            this.textBoxPorcParicionHistoricoValue.ReadOnly = true;
+            this.textBoxPorcParicionHistoricoValue.Size = new System.Drawing.Size(165, 20);
+            this.textBoxPorcParicionHistoricoValue.TabIndex = 35;
             // 
-            // labelPromHistoricoMesesValue
+            // textBoxPromHistoricoMesesValue
             // 
-            this.labelPromHistoricoMesesValue.Location = new System.Drawing.Point(284, 128);
-            this.labelPromHistoricoMesesValue.Name = "labelPromHistoricoMesesValue";
-            this.labelPromHistoricoMesesValue.ReadOnly = true;
-            this.labelPromHistoricoMesesValue.Size = new System.Drawing.Size(165, 20);
-            this.labelPromHistoricoMesesValue.TabIndex = 34;
+            this.textBoxPromHistoricoMesesValue.Location = new System.Drawing.Point(284, 128);
+            this.textBoxPromHistoricoMesesValue.Name = "textBoxPromHistoricoMesesValue";
+            this.textBoxPromHistoricoMesesValue.ReadOnly = true;
+            this.textBoxPromHistoricoMesesValue.Size = new System.Drawing.Size(165, 20);
+            this.textBoxPromHistoricoMesesValue.TabIndex = 34;
             // 
-            // labelPromPartosHatoValue
+            // textBoxPromPartosHatoValue
             // 
-            this.labelPromPartosHatoValue.Location = new System.Drawing.Point(284, 307);
-            this.labelPromPartosHatoValue.Name = "labelPromPartosHatoValue";
-            this.labelPromPartosHatoValue.ReadOnly = true;
-            this.labelPromPartosHatoValue.Size = new System.Drawing.Size(165, 20);
-            this.labelPromPartosHatoValue.TabIndex = 38;
+            this.textBoxPromPartosHatoValue.Location = new System.Drawing.Point(284, 307);
+            this.textBoxPromPartosHatoValue.Name = "textBoxPromPartosHatoValue";
+            this.textBoxPromPartosHatoValue.ReadOnly = true;
+            this.textBoxPromPartosHatoValue.Size = new System.Drawing.Size(165, 20);
+            this.textBoxPromPartosHatoValue.TabIndex = 38;
             // 
-            // labelUltimoPorcParicionValue
+            // textBoxUltimoPorcParicionValue
             // 
-            this.labelUltimoPorcParicionValue.Location = new System.Drawing.Point(284, 262);
-            this.labelUltimoPorcParicionValue.Name = "labelUltimoPorcParicionValue";
-            this.labelUltimoPorcParicionValue.ReadOnly = true;
-            this.labelUltimoPorcParicionValue.Size = new System.Drawing.Size(165, 20);
-            this.labelUltimoPorcParicionValue.TabIndex = 37;
+            this.textBoxUltimoPorcParicionValue.Location = new System.Drawing.Point(284, 262);
+            this.textBoxUltimoPorcParicionValue.Name = "textBoxUltimoPorcParicionValue";
+            this.textBoxUltimoPorcParicionValue.ReadOnly = true;
+            this.textBoxUltimoPorcParicionValue.Size = new System.Drawing.Size(165, 20);
+            this.textBoxUltimoPorcParicionValue.TabIndex = 37;
             // 
-            // labelUltimoIEPVacaMesesValue
+            // textBoxUltimoIEPVacaMesesValue
             // 
-            this.labelUltimoIEPVacaMesesValue.Location = new System.Drawing.Point(284, 218);
-            this.labelUltimoIEPVacaMesesValue.Name = "labelUltimoIEPVacaMesesValue";
-            this.labelUltimoIEPVacaMesesValue.ReadOnly = true;
-            this.labelUltimoIEPVacaMesesValue.Size = new System.Drawing.Size(165, 20);
-            this.labelUltimoIEPVacaMesesValue.TabIndex = 36;
+            this.textBoxUltimoIEPVacaMesesValue.Location = new System.Drawing.Point(284, 218);
+            this.textBoxUltimoIEPVacaMesesValue.Name = "textBoxUltimoIEPVacaMesesValue";
+            this.textBoxUltimoIEPVacaMesesValue.ReadOnly = true;
+            this.textBoxUltimoIEPVacaMesesValue.Size = new System.Drawing.Size(165, 20);
+            this.textBoxUltimoIEPVacaMesesValue.TabIndex = 36;
             // 
             // FormResumen
             // 
@@ -198,13 +197,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.labelPromPartosHatoValue);
-            this.Controls.Add(this.labelUltimoPorcParicionValue);
-            this.Controls.Add(this.labelUltimoIEPVacaMesesValue);
-            this.Controls.Add(this.labelPorcParicionHistoricoValue);
-            this.Controls.Add(this.labelPromHistoricoMesesValue);
-            this.Controls.Add(this.labelHembrasParidoValue);
-            this.Controls.Add(this.labelHembrasConsideradasValue);
+            this.Controls.Add(this.textBoxPromPartosHatoValue);
+            this.Controls.Add(this.textBoxUltimoPorcParicionValue);
+            this.Controls.Add(this.textBoxUltimoIEPVacaMesesValue);
+            this.Controls.Add(this.textBoxPorcParicionHistoricoValue);
+            this.Controls.Add(this.textBoxPromHistoricoMesesValue);
+            this.Controls.Add(this.textBoxHembrasParidoValue);
+            this.Controls.Add(this.textBoxHembrasConsideradasValue);
             this.Controls.Add(this.labelPromedioPartosHato);
             this.Controls.Add(this.labelUltimoPorcentajeParicion);
             this.Controls.Add(this.labelUltimoIEPVacaMeses);
@@ -235,12 +234,12 @@
         private System.Windows.Forms.Label labelIEPPromHistoricoMeses;
         private System.Windows.Forms.Label labelHembrasHanParido;
         private System.Windows.Forms.Label labelNumeroHembrasConsideradas;
-        private System.Windows.Forms.TextBox labelHembrasConsideradasValue;
-        private System.Windows.Forms.TextBox labelHembrasParidoValue;
-        private System.Windows.Forms.TextBox labelPorcParicionHistoricoValue;
-        private System.Windows.Forms.TextBox labelPromHistoricoMesesValue;
-        private System.Windows.Forms.TextBox labelPromPartosHatoValue;
-        private System.Windows.Forms.TextBox labelUltimoPorcParicionValue;
-        private System.Windows.Forms.TextBox labelUltimoIEPVacaMesesValue;
+        private System.Windows.Forms.TextBox textBoxHembrasConsideradasValue;
+        private System.Windows.Forms.TextBox textBoxHembrasParidoValue;
+        private System.Windows.Forms.TextBox textBoxPorcParicionHistoricoValue;
+        private System.Windows.Forms.TextBox textBoxPromHistoricoMesesValue;
+        private System.Windows.Forms.TextBox textBoxPromPartosHatoValue;
+        private System.Windows.Forms.TextBox textBoxUltimoPorcParicionValue;
+        private System.Windows.Forms.TextBox textBoxUltimoIEPVacaMesesValue;
     }
 }

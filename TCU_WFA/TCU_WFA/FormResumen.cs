@@ -1,4 +1,5 @@
-﻿using System;
+﻿//Hecho por Ariel Arias
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,20 +11,34 @@ using System.Windows.Forms;
 using OfficeOpenXml;
 using System.IO;
 using System.Diagnostics;
+using TCU_WFA.Repository;
 
 namespace TCU_WFA
 {
     public partial class FormResumen : DefaultForm
     {
+        //Constantes
+        private const string MENSAJE_ERROR = "Error";
+        private const string TITULO_MENSAJE = "Documento generado";
+        private const string MENSAJE_CORRECTO = "El documento se guardó en: ";
+        private const string MENSAJE_INCORRECTO = "Ocurrió un error al guardar el documento";
+        private const string TITULO_HOJA_EXCEL = "Resumen";
+        
+
+        //Consultas
+        private const string CONSULTA_HEMBRAS_CONSIDERADAS = "SELECT COUNT(*) FROM [dbo].[VACA]";
+        private const string CONSULTA_HEMBRAS_PARIDO = "SELECT COUNT (DISTINCT V.PK_NUMERO_TRAZABLE) FROM [dbo].[VACA] V INNER JOIN [dbo].[PARTO] P ON V.PK_NUMERO_TRAZABLE = P.PK_FK_NUMERO_TRAZABLE_VACA";
+
         //Valores del resumen
-        private DateTime fechaActual;
-        private double hembrasConsideradas = 0;
-        private double hembrasParido = 0;
-        private double iepPromHistoricoMeses = 0;
-        private double porcParicionHistorico = 0;
-        private double ultimoIEPVacaMeses = 0;
-        private double ultimoPorcParicion = 0;
-        private double promPartosHato = 0;
+        private string fechaActual;
+        private string hembrasConsideradas;
+        private string hembrasParido;
+        private string iepPromHistoricoMeses;
+        private string porcParicionHistorico;
+        private string ultimoIEPVacaMeses;
+        private string ultimoPorcParicion;
+        private string promPartosHato;
+        
 
         public FormResumen()
         {
@@ -41,15 +56,42 @@ namespace TCU_WFA
         private void CargarDatosResumen()
         {
             //Se obtienen los datos a cargar
-
+            fechaActual = DateTime.Now.ToShortDateString();
+            try
+            {
+                int resultadoHembrasConsideradas = Utilities.EjecutarConsultaCount(CONSULTA_HEMBRAS_CONSIDERADAS);
+                hembrasConsideradas = resultadoHembrasConsideradas == Utilities.RESULTADO_ERROR ? MENSAJE_ERROR : resultadoHembrasConsideradas.ToString();
+            }
+            catch
+            {
+                hembrasConsideradas = MENSAJE_ERROR;
+            }
+            try
+            {
+                int resultadoHembrasParido = Utilities.EjecutarConsultaCount(CONSULTA_HEMBRAS_PARIDO);
+                hembrasParido = resultadoHembrasParido == Utilities.RESULTADO_ERROR ? MENSAJE_ERROR : resultadoHembrasParido.ToString();
+            }
+            catch
+            {
+                hembrasParido = MENSAJE_ERROR;
+            }
+            try
+            {
+                double resultadoIEPHistorico = ProcedimientosAlmacenados.ProcObtenerIEPHistorico();
+                iepPromHistoricoMeses = resultadoIEPHistorico == (double)Utilities.RESULTADO_ERROR ? MENSAJE_ERROR : resultadoIEPHistorico.ToString();
+            }
+            catch
+            {
+                iepPromHistoricoMeses = MENSAJE_ERROR;
+            }
             //Se actualizan los datos del form
-            labelHembrasConsideradasValue.Text = hembrasConsideradas.ToString();
-            labelHembrasParidoValue.Text = hembrasParido.ToString();
-            labelPromHistoricoMesesValue.Text = iepPromHistoricoMeses.ToString();
-            labelPorcParicionHistoricoValue.Text = porcParicionHistorico.ToString();
-            labelUltimoIEPVacaMesesValue.Text = ultimoIEPVacaMeses.ToString();
-            labelUltimoPorcParicionValue.Text = ultimoPorcParicion.ToString();
-            labelPromPartosHatoValue.Text = promPartosHato.ToString();
+            textBoxHembrasConsideradasValue.Text = hembrasConsideradas;
+            textBoxHembrasParidoValue.Text = hembrasParido;
+            textBoxPromHistoricoMesesValue.Text = iepPromHistoricoMeses;
+            textBoxPorcParicionHistoricoValue.Text = porcParicionHistorico;
+            textBoxUltimoIEPVacaMesesValue.Text = ultimoIEPVacaMeses;
+            textBoxUltimoPorcParicionValue.Text = ultimoPorcParicion;
+            textBoxPromPartosHatoValue.Text = promPartosHato;
         }
 
         /// <summary>
@@ -69,26 +111,25 @@ namespace TCU_WFA
         private void GenerarExcelResumen()
         {
             //Se obtienen los datos a utilizar en el resumen
-            //ToDo
 
-            //Se genera el documento excel
-            CrearDocumentoExcel();
+                //Se genera el documento excel
+                CrearDocumentoResumenExcel();
         }
 
-        private void CrearDocumentoExcel()
+        private void CrearDocumentoResumenExcel()
         {
             //Se crea una instancia del paquete de excel del documento a utilizar
             ExcelPackage documentoExcel = new ExcelPackage();
 
             //Se crea la hoja que se va a generar
-            ExcelWorksheet hojaResumen = documentoExcel.Workbook.Worksheets.Add("Resumen");
+            ExcelWorksheet hojaResumen = documentoExcel.Workbook.Worksheets.Add(TITULO_HOJA_EXCEL);
 
             //Se establece el primer rango de celdas a utilizar para la información general
             ExcelRange celdasInformacionGeneral = hojaResumen.Cells[1, 1, 8, 3];
 
             //Se completan las celdas con sus valores respectivos
             celdasInformacionGeneral[1, 1].Value = "Fecha referencia";
-            celdasInformacionGeneral[1, 3].Value = DateTime.Now.ToString();
+            celdasInformacionGeneral[1, 3].Value = fechaActual;
 
             //Se guarda el documento
             string ubicacionDocumentos = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
@@ -98,12 +139,12 @@ namespace TCU_WFA
                 documentoExcel.SaveAs(new FileInfo(nombreDocumentoResumen));
 
                 //Se muestra el mensaje que indica al usuario en donde quedó el documento
-                Utilities.MostrarMessageBox("El documento se guardó con exito en: " + nombreDocumentoResumen, "Documento generado", MessageBoxButtons.OK, MessageBoxIcon.None);
+                Utilities.MostrarMessageBox(MENSAJE_CORRECTO + nombreDocumentoResumen, TITULO_MENSAJE, MessageBoxButtons.OK, MessageBoxIcon.None);
             }
             catch
             {
                 //Se muestra el mensaje que indica al usuario en donde quedó el documento
-                Utilities.MostrarMessageBox("Ocurrió un error al guardar el documento","Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                Utilities.MostrarMessageBox(MENSAJE_INCORRECTO, MENSAJE_ERROR, MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
             //Se cierra el documento
             documentoExcel.Dispose();
