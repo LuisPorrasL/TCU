@@ -53,7 +53,6 @@
             this.botonVolver.TabIndex = 0;
             this.botonVolver.Text = "Volver";
             this.botonVolver.UseVisualStyleBackColor = true;
-            this.botonVolver.Click += new System.EventHandler(this.botonVolver_Click);
             // 
             // botonAgregarToro
             // 
@@ -73,6 +72,7 @@
             this.botonBuscarToro.TabIndex = 3;
             this.botonBuscarToro.Text = "Buscar toro";
             this.botonBuscarToro.UseVisualStyleBackColor = true;
+            this.botonBuscarToro.Click += new System.EventHandler(this.botonBuscarToro_Click);
             // 
             // textBoxBuscarToro
             // 
