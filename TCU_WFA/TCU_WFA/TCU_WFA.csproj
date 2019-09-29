@@ -76,6 +76,12 @@
     <Compile Include="FormDestete.Designer.cs">
       <DependentUpon>FormDestete.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDetallesExamenAntropologico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDetallesExamenAntropologico.Designer.cs">
+      <DependentUpon>FormDetallesExamenAntropologico.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDetallesToro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDestete.resx">
       <DependentUpon>FormDestete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDetallesExamenAntropologico.resx">
+      <DependentUpon>FormDetallesExamenAntropologico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDetallesToro.resx">
       <DependentUpon>FormDetallesToro.cs</DependentUpon>
