@@ -1,16 +1,7 @@
 ﻿//Hecho por Ariel Arias
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using OfficeOpenXml;
-using System.IO;
-using System.Diagnostics;
+using TCU_WFA.Models;
 using TCU_WFA.Repository;
 
 namespace TCU_WFA
@@ -18,26 +9,19 @@ namespace TCU_WFA
     public partial class FormResumen : DefaultForm
     {
         //Constantes
-        private const string MENSAJE_ERROR = "Error";
-        private const string TITULO_MENSAJE = "Documento generado";
-        private const string MENSAJE_CORRECTO = "El documento se guardó en: ";
-        private const string MENSAJE_INCORRECTO = "Ocurrió un error al guardar el documento";
-        private const string TITULO_HOJA_EXCEL = "Resumen";
-        
+        private const string MENSAJE_ERROR = "Error";        
 
         //Consultas
         private const string CONSULTA_HEMBRAS_CONSIDERADAS = "SELECT COUNT(*) FROM [dbo].[VACA]";
+        private const string CONSULTA_VACAS = "SELECT PK_NUMERO_TRAZABLE FROM [dbo].[VACA]";
         private const string CONSULTA_HEMBRAS_PARIDO = "SELECT COUNT (DISTINCT V.PK_NUMERO_TRAZABLE) FROM [dbo].[VACA] V INNER JOIN [dbo].[PARTO] P ON V.PK_NUMERO_TRAZABLE = P.PK_FK_NUMERO_TRAZABLE_VACA";
+        private const string CONSULTA_PARTOS = "SELECT COUNT (*) FROM [dbo].[PARTO]";
 
         //Valores del resumen
-        private string fechaActual;
-        private string hembrasConsideradas;
-        private string hembrasParido;
-        private string iepPromHistoricoMeses;
-        private string porcParicionHistorico;
-        private string ultimoIEPVacaMeses;
-        private string ultimoPorcParicion;
-        private string promPartosHato;
+        DatosGeneralesResumen datosResumen = new DatosGeneralesResumen();
+
+        //Lista de vacas
+        List<VacaModel> listaVacas;
         
 
         public FormResumen()
@@ -48,6 +32,7 @@ namespace TCU_WFA
         private void FormResumen_Load(object sender, EventArgs e)
         {
             CargarDatosResumen();
+            ActualizarDatosForm();
         }
 
         /// <summary>
@@ -56,42 +41,75 @@ namespace TCU_WFA
         private void CargarDatosResumen()
         {
             //Se obtienen los datos a cargar
-            fechaActual = DateTime.Now.ToShortDateString();
+            datosResumen.fechaActual = DateTime.Now.ToShortDateString();
             try
             {
-                int resultadoHembrasConsideradas = Utilities.EjecutarConsultaCount(CONSULTA_HEMBRAS_CONSIDERADAS);
-                hembrasConsideradas = resultadoHembrasConsideradas == Utilities.RESULTADO_ERROR ? MENSAJE_ERROR : resultadoHembrasConsideradas.ToString();
+                datosResumen.hembrasConsideradas = Utilities.EjecutarConsultaCount(CONSULTA_HEMBRAS_CONSIDERADAS);
             }
             catch
             {
-                hembrasConsideradas = MENSAJE_ERROR;
+                datosResumen.hembrasConsideradas = Utilities.RESULTADO_ERROR;
             }
             try
             {
-                int resultadoHembrasParido = Utilities.EjecutarConsultaCount(CONSULTA_HEMBRAS_PARIDO);
-                hembrasParido = resultadoHembrasParido == Utilities.RESULTADO_ERROR ? MENSAJE_ERROR : resultadoHembrasParido.ToString();
+                datosResumen.hembrasParido = Utilities.EjecutarConsultaCount(CONSULTA_HEMBRAS_PARIDO);                
             }
             catch
             {
-                hembrasParido = MENSAJE_ERROR;
+                datosResumen.hembrasParido = Utilities.RESULTADO_ERROR;
             }
             try
             {
-                double resultadoIEPHistorico = ProcedimientosAlmacenados.ProcObtenerIEPHistorico();
-                iepPromHistoricoMeses = resultadoIEPHistorico == (double)Utilities.RESULTADO_ERROR ? MENSAJE_ERROR : resultadoIEPHistorico.ToString();
+                datosResumen.iepPromHistoricoMeses = ProcedimientosAlmacenados.ProcObtenerIEPHistorico();                
             }
             catch
             {
-                iepPromHistoricoMeses = MENSAJE_ERROR;
+                datosResumen.iepPromHistoricoMeses = Utilities.RESULTADO_ERROR;
             }
+            try
+            {
+                int resultadoPartos = Utilities.EjecutarConsultaCount(CONSULTA_PARTOS);
+                if (resultadoPartos != Utilities.RESULTADO_ERROR && datosResumen.hembrasConsideradas != Utilities.RESULTADO_ERROR && datosResumen.hembrasConsideradas != 0)
+                {
+                    datosResumen.promPartosHato = (double)resultadoPartos / (double)datosResumen.hembrasConsideradas;
+                }
+                else
+                {
+                    datosResumen.promPartosHato = Utilities.RESULTADO_ERROR;
+                }
+            }
+            catch
+            {
+                datosResumen.promPartosHato = Utilities.RESULTADO_ERROR;
+            }
+            try
+            {
+                datosResumen.ultimoIEPVacaMeses = ProcedimientosAlmacenados.ProcObtenerUltimoIEPHistorico();
+            }
+            catch
+            {
+                datosResumen.ultimoIEPVacaMeses = Utilities.RESULTADO_ERROR;
+            }
+            if(datosResumen.hembrasParido != Utilities.RESULTADO_ERROR && datosResumen.hembrasConsideradas != Utilities.RESULTADO_ERROR && datosResumen.hembrasConsideradas != 0)
+            {
+                datosResumen.porcParicionHistorico = ((double)datosResumen.hembrasParido / (double)datosResumen.hembrasConsideradas) * 100;
+            }
+            //ToDo obtener el último % de parición
+        }
+
+        /// <summary>
+        /// Metodo para actualizar los datos del form
+        /// </summary>
+        private void ActualizarDatosForm()
+        {
             //Se actualizan los datos del form
-            textBoxHembrasConsideradasValue.Text = hembrasConsideradas;
-            textBoxHembrasParidoValue.Text = hembrasParido;
-            textBoxPromHistoricoMesesValue.Text = iepPromHistoricoMeses;
-            textBoxPorcParicionHistoricoValue.Text = porcParicionHistorico;
-            textBoxUltimoIEPVacaMesesValue.Text = ultimoIEPVacaMeses;
-            textBoxUltimoPorcParicionValue.Text = ultimoPorcParicion;
-            textBoxPromPartosHatoValue.Text = promPartosHato;
+            textBoxHembrasConsideradasValue.Text = datosResumen.hembrasConsideradas != Utilities.RESULTADO_ERROR ? datosResumen.hembrasConsideradas.ToString() : MENSAJE_ERROR;
+            textBoxHembrasParidoValue.Text = datosResumen.hembrasParido != Utilities.RESULTADO_ERROR ? datosResumen.hembrasParido.ToString() : MENSAJE_ERROR;
+            textBoxPromHistoricoMesesValue.Text = datosResumen.iepPromHistoricoMeses != (double)Utilities.RESULTADO_ERROR ? datosResumen.iepPromHistoricoMeses.ToString() : MENSAJE_ERROR;
+            textBoxPorcParicionHistoricoValue.Text = datosResumen.porcParicionHistorico != (double)Utilities.RESULTADO_ERROR ? datosResumen.porcParicionHistorico.ToString() : MENSAJE_ERROR;
+            textBoxUltimoIEPVacaMesesValue.Text = datosResumen.ultimoIEPVacaMeses != (double)Utilities.RESULTADO_ERROR ? datosResumen.ultimoIEPVacaMeses.ToString() : MENSAJE_ERROR;
+            textBoxUltimoPorcParicionValue.Text = datosResumen.ultimoPorcParicion != (double)Utilities.RESULTADO_ERROR ? datosResumen.ultimoPorcParicion.ToString() : MENSAJE_ERROR;
+            textBoxPromPartosHatoValue.Text = datosResumen.promPartosHato != (double)Utilities.RESULTADO_ERROR ? datosResumen.promPartosHato.ToString() : MENSAJE_ERROR;
         }
 
         /// <summary>
@@ -101,53 +119,30 @@ namespace TCU_WFA
         /// <param name="e"></param>
         private void botonGenerarInformeExcel_Click(object sender, EventArgs e)
         {
-            //Se genera el excel con toda la información correspondiente del resumen
-            GenerarExcelResumen();
+            //Se obtienen los datos a utilizar en el resumen
+            CargarDatosResumen();
+            CargarDatosVacas();
+            
+            //Se genera el documento excel
+            ExcelGenerator.CrearDocumentoResumenExcel(datosResumen, listaVacas);
         }
 
         /// <summary>
-        /// Método para generar el documento de Excel con el resumen y los datos correspondientes.
+        /// Metodo para obtener todos los datos de las vacas registradas para el documento excel
         /// </summary>
-        private void GenerarExcelResumen()
+        private void CargarDatosVacas()
         {
-            //Se obtienen los datos a utilizar en el resumen
-
-                //Se genera el documento excel
-                CrearDocumentoResumenExcel();
-        }
-
-        private void CrearDocumentoResumenExcel()
-        {
-            //Se crea una instancia del paquete de excel del documento a utilizar
-            ExcelPackage documentoExcel = new ExcelPackage();
-
-            //Se crea la hoja que se va a generar
-            ExcelWorksheet hojaResumen = documentoExcel.Workbook.Worksheets.Add(TITULO_HOJA_EXCEL);
-
-            //Se establece el primer rango de celdas a utilizar para la información general
-            ExcelRange celdasInformacionGeneral = hojaResumen.Cells[1, 1, 8, 3];
-
-            //Se completan las celdas con sus valores respectivos
-            celdasInformacionGeneral[1, 1].Value = "Fecha referencia";
-            celdasInformacionGeneral[1, 3].Value = fechaActual;
-
-            //Se guarda el documento
-            string ubicacionDocumentos = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            string nombreDocumentoResumen = ubicacionDocumentos + @"\" + "Resumen_" + DateTime.Now.ToString().Replace("/",".").Replace(":", ".").Replace(" ","_").Replace("\\", ".") + ".xlsx";
-            try
+            if(datosResumen.hembrasConsideradas > 0)
             {
-                documentoExcel.SaveAs(new FileInfo(nombreDocumentoResumen));
-
-                //Se muestra el mensaje que indica al usuario en donde quedó el documento
-                Utilities.MostrarMessageBox(MENSAJE_CORRECTO + nombreDocumentoResumen, TITULO_MENSAJE, MessageBoxButtons.OK, MessageBoxIcon.None);
+                listaVacas = new List<VacaModel>();
+                List<int> idsVacas = Utilities.ObtenerListaIDsVacas(CONSULTA_VACAS);
+                //Ciclo para obtener los datos de todas las vacas
+                for(int iteradorVacas = 0; iteradorVacas < idsVacas.Count; iteradorVacas++)
+                {
+                    listaVacas.Add(new VacaModel());
+                    listaVacas[iteradorVacas].pkNumeroTrazable = idsVacas[iteradorVacas];
+                }
             }
-            catch
-            {
-                //Se muestra el mensaje que indica al usuario en donde quedó el documento
-                Utilities.MostrarMessageBox(MENSAJE_INCORRECTO, MENSAJE_ERROR, MessageBoxButtons.OK,MessageBoxIcon.Error);
-            }
-            //Se cierra el documento
-            documentoExcel.Dispose();
         }
     }
 }

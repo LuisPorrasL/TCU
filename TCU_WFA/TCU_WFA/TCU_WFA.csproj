@@ -58,6 +58,7 @@
     <Compile Include="DefaultForm.Designer.cs">
       <DependentUpon>DefaultForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ExcelGenerator.cs" />
     <Compile Include="FormAgregarToro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +155,7 @@
     <Compile Include="FormSincronizacion.Designer.cs">
       <DependentUpon>FormSincronizacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\DatosGeneralesResumen.cs" />
     <Compile Include="Models\VacaModel.cs" />
     <Compile Include="Repository\ProcedimientosAlmacenados.cs" />
     <Compile Include="TCU_DBDataSet.cs">
