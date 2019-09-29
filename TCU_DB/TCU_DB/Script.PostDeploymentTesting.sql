@@ -97,3 +97,8 @@ VALUES	(447, '2009-08-09', NULL, 'H', 0, NULL),
 		(457, '2017-04-11', NULL, 'H', 0, NULL),
 		(457, '2018-01-20', NULL, 'H', 0, NULL),
 		(457, '2018-05-26', NULL, 'H', 0, NULL);
+
+INSERT INTO [dbo].[TORO]([PK_NUMERO_TRAZABLE], [NOMBRE], [CARACTERISTICAS], [FK_ID_RAZA], [ACTIVA], [CAUSA_DE_BAJA])
+VALUES	(1, 'Toro 0', 'Fake', 5, 1, NULL),
+		(2, 'Toro 1', 'Fake', 6, 1, NULL),
+		(3, 'Toro 2', 'Fake', 4, 1, NULL);
