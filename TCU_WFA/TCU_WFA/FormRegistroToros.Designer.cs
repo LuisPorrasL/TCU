@@ -53,6 +53,7 @@
             this.botonVolver.TabIndex = 0;
             this.botonVolver.Text = "Volver";
             this.botonVolver.UseVisualStyleBackColor = true;
+            this.botonVolver.Click += new System.EventHandler(this.botonVolver_Click);
             // 
             // botonAgregarToro
             // 
@@ -112,6 +113,7 @@
             this.botonEditar.TabIndex = 6;
             this.botonEditar.Text = "Editar";
             this.botonEditar.UseVisualStyleBackColor = true;
+            this.botonEditar.Click += new System.EventHandler(this.botonEditar_Click);
             // 
             // botonEliminar
             // 
@@ -121,6 +123,7 @@
             this.botonEliminar.TabIndex = 7;
             this.botonEliminar.Text = "Eliminar";
             this.botonEliminar.UseVisualStyleBackColor = true;
+            this.botonEliminar.Click += new System.EventHandler(this.botonEliminar_Click);
             // 
             // botonDetalles
             // 
@@ -130,6 +133,7 @@
             this.botonDetalles.TabIndex = 8;
             this.botonDetalles.Text = "Detalles";
             this.botonDetalles.UseVisualStyleBackColor = true;
+            this.botonDetalles.Click += new System.EventHandler(this.botonDetalles_Click);
             // 
             // FormRegistroToros
             // 

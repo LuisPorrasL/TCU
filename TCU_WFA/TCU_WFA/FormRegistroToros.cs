@@ -1,13 +1,7 @@
 ﻿// Hecho por Luis Porras.
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using TCU_WFA.Models;
 
 namespace TCU_WFA
 {
@@ -15,8 +9,24 @@ namespace TCU_WFA
     {
 
         //Constantes
-        private const string QUERY_SELECT_TOROS_DATA_GRID_VIEW = "SELECT t.PK_NUMERO_TRAZABLE as 'Id', t.NOMBRE AS 'Nombre', r.RAZA AS 'Raza', t.CARACTERISTICAS AS 'Caracteristicas', t.ACTIVA AS '¿Activo?' FROM dbo.[TORO] t, dbo.[RAZA] r WHERE t.ACTIVA = 1 AND t.FK_ID_RAZA = r.PK_ID_RAZA;";
-        private const string QUERY_BUSCAR_TORO_DATA_GRID_VIEW = "SELECT t.PK_NUMERO_TRAZABLE as 'Id', t.NOMBRE AS 'Nombre', r.RAZA AS 'Raza', t.CARACTERISTICAS AS 'Caracteristicas', t.ACTIVA AS '¿Activo?' FROM dbo.[TORO] t, dbo.[RAZA] r WHERE t.ACTIVA = 1 AND t.FK_ID_RAZA = r.PK_ID_RAZA AND t.PK_NUMERO_TRAZABLE = ";
+        private const string QUERY_SELECT_TOROS_DATA_GRID_VIEW = "SELECT t.PK_NUMERO_TRAZABLE as 'Id', t.NOMBRE AS 'Nombre', r.RAZA AS 'Raza', t.CARACTERISTICAS AS 'Caracteristicas' FROM dbo.[TORO] t, dbo.[RAZA] r WHERE t.ACTIVA = 1 AND t.FK_ID_RAZA = r.PK_ID_RAZA;";
+        private const string QUERY_BUSCAR_TORO_DATA_GRID_VIEW = "SELECT t.PK_NUMERO_TRAZABLE as 'Id', t.NOMBRE AS 'Nombre', r.RAZA AS 'Raza', t.CARACTERISTICAS AS 'Caracteristicas' FROM dbo.[TORO] t, dbo.[RAZA] r WHERE t.ACTIVA = 1 AND t.FK_ID_RAZA = r.PK_ID_RAZA AND t.PK_NUMERO_TRAZABLE = ";
+        private const int NUMERO_TRAZABLE = 0;
+        private const int NOMBRE = 1;
+        private const int RAZA = 2;
+        private const int CARACTERISTICAS = 3;
+
+        //Mensajes
+        public const string MENSAJE_ERROR_SELECCION_ELIMINAR_TORO = "Por favor seleccionar primero el toro que se desea eliminar.";
+        public const string MENSAJE_ERROR_SELECCION_EDITAR_TORO = "Por favor seleccionar primero el toro que se desea editar.";
+        public const string MENSAJE_ERROR_SELECCION_DETALLES_TORO = "Por favor seleccionar primero el toro de la que desea ver los detalles.";
+
+        //Titulos
+        public const string TITULO_AVISO_EDITAR_TORO = "Aviso editar vaca";
+        public const string TITULO_AVISO_DETALLES_TORO = "Aviso detalles vaca";
+        public const string TITULO_AVISO_ELIMINAR_TORO = "Aviso eliminar vaca";
+
+
 
         /// <summary>
         /// Constructor.
@@ -83,6 +93,115 @@ namespace TCU_WFA
             form.Tag = this;
             form.Show(this);
             Hide();
+        }
+
+        /// <summary>
+        /// Redirige al form FormEditarToro.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void botonEditar_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewToros.SelectedRows.Count != 0)
+            {
+                DataGridViewRow filaSelecionada = dataGridViewToros.SelectedRows[0];
+                if (filaSelecionada.Cells[0].Value != null)
+                {
+                    ToroModel informacionToroSeleccionado = obtenerInformacionToroSelecionado(filaSelecionada);
+                    FormEditarToro form = new FormEditarToro(informacionToroSeleccionado);
+                    form.Tag = this;
+                    form.Show(this);
+                    Hide();
+                }
+                else
+                {
+                    Utilities.MostrarMessageBox(MENSAJE_ERROR_SELECCION_EDITAR_TORO, TITULO_AVISO_EDITAR_TORO, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                Utilities.MostrarMessageBox(MENSAJE_ERROR_SELECCION_EDITAR_TORO, TITULO_AVISO_EDITAR_TORO, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Redirige al form FormEliminarToro.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void botonEliminar_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewToros.SelectedRows.Count != 0)
+            {
+                DataGridViewRow filaSelecionada = dataGridViewToros.SelectedRows[0];
+                if (filaSelecionada.Cells[0].Value != null)
+                {
+                    FormEliminarToro form = new FormEliminarToro((int)filaSelecionada.Cells[NUMERO_TRAZABLE].Value);
+                    form.Tag = this;
+                    form.Show(this);
+                    Hide();
+                }
+                else
+                {
+                    Utilities.MostrarMessageBox(MENSAJE_ERROR_SELECCION_ELIMINAR_TORO, TITULO_AVISO_ELIMINAR_TORO, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                Utilities.MostrarMessageBox(MENSAJE_ERROR_SELECCION_ELIMINAR_TORO, TITULO_AVISO_ELIMINAR_TORO, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Redirige al form FormDetallesToro.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void botonDetalles_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewToros.SelectedRows.Count != 0)
+            {
+                DataGridViewRow filaSelecionada = dataGridViewToros.SelectedRows[0];
+                if (filaSelecionada.Cells[0].Value != null)
+                {
+                    ToroModel informacionToroSeleccionado = obtenerInformacionToroSelecionado(filaSelecionada);
+                    FormDetallesToro form = new FormDetallesToro(informacionToroSeleccionado);
+                    form.Tag = this;
+                    form.Show(this);
+                    Hide();
+                }
+                else
+                {
+                    Utilities.MostrarMessageBox(MENSAJE_ERROR_SELECCION_DETALLES_TORO, TITULO_AVISO_DETALLES_TORO, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                Utilities.MostrarMessageBox(MENSAJE_ERROR_SELECCION_DETALLES_TORO, TITULO_AVISO_DETALLES_TORO, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Extrae la información sobre la vaca seleccioada por el usuario en el DataGridView del form.
+        /// </summary>
+        /// <param name="filaSelecionada"></param>
+        /// <returns>Un VacaModel con la información de la vaca seleccionada.</returns>
+        private ToroModel obtenerInformacionToroSelecionado(DataGridViewRow filaSelecionada)
+        {
+            ToroModel informaciontoroSeleccionado = new ToroModel();
+            informaciontoroSeleccionado.pkNumeroTrazable = (int)filaSelecionada.Cells[NUMERO_TRAZABLE].Value;
+            try
+            {
+                informaciontoroSeleccionado.nombre = (string)filaSelecionada.Cells[NOMBRE].Value;
+            }
+            catch
+            {
+                informaciontoroSeleccionado.nombre = null;
+            }
+            informaciontoroSeleccionado.razaStr = (string)filaSelecionada.Cells[RAZA].Value;
+            informaciontoroSeleccionado.caracteriscas = (string)filaSelecionada.Cells[CARACTERISTICAS].Value;
+
+            return informaciontoroSeleccionado;
         }
     }
 }

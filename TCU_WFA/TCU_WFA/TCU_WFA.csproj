@@ -76,17 +76,35 @@
     <Compile Include="FormDestete.Designer.cs">
       <DependentUpon>FormDestete.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDetallesToro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDetallesToro.Designer.cs">
+      <DependentUpon>FormDetallesToro.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDetallesVaca.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormDetallesVaca.Designer.cs">
       <DependentUpon>FormDetallesVaca.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormEditarToro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditarToro.Designer.cs">
+      <DependentUpon>FormEditarToro.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormEditarVaca.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormEditarVaca.Designer.cs">
       <DependentUpon>FormEditarVaca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEliminarToro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEliminarToro.Designer.cs">
+      <DependentUpon>FormEliminarToro.cs</DependentUpon>
     </Compile>
     <Compile Include="FormEliminarVaca.cs">
       <SubType>Form</SubType>
@@ -148,6 +166,7 @@
     <Compile Include="FormSincronizacion.Designer.cs">
       <DependentUpon>FormSincronizacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\ToroModel.cs" />
     <Compile Include="Models\VacaModel.cs" />
     <Compile Include="Repository\ProcedimientosAlmacenados.cs" />
     <Compile Include="TCU_DBDataSet.cs">
@@ -182,11 +201,20 @@
     <EmbeddedResource Include="FormDestete.resx">
       <DependentUpon>FormDestete.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDetallesToro.resx">
+      <DependentUpon>FormDetallesToro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDetallesVaca.resx">
       <DependentUpon>FormDetallesVaca.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormEditarToro.resx">
+      <DependentUpon>FormEditarToro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormEditarVaca.resx">
       <DependentUpon>FormEditarVaca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEliminarToro.resx">
+      <DependentUpon>FormEliminarToro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEliminarVaca.resx">
       <DependentUpon>FormEliminarVaca.cs</DependentUpon>
