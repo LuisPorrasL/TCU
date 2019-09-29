@@ -290,6 +290,31 @@ namespace TCU_WFA.Repository
             return resultado;
         }
 
+        public static int ProcEliminarToro(int vacaId, string causaDeBaja)
+        {
+            int resultado = 0;
+            string sql = "EXECUTE PROC_ELIMINAR_TORO @numeroTrazable, @causaDeBaja";
+            using (SqlConnection conn = new SqlConnection(Utilities.CONNECTION_STRING))
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.Add("@numeroTrazable", SqlDbType.Int);
+                cmd.Parameters["@numeroTrazable"].Value = vacaId;
+                cmd.Parameters.Add("@causaDeBaja", SqlDbType.NVarChar);
+                cmd.Parameters["@causaDeBaja"].Value = causaDeBaja;
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteScalar();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    resultado = Utilities.RESULTADO_ERROR;
+                }
+            }
+            return resultado;
+        }
+
         public static int ProcActualizarModoPrennesVaca(int vacaId, int nuevoModoPrennes)
         {
             int resultado = 0;

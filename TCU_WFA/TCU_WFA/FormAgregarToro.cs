@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// Hecho por Luis Porras.
+using System;
 using System.Windows.Forms;
 using TCU_WFA.Models;
 using TCU_WFA.Repository;
