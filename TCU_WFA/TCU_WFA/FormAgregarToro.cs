@@ -84,6 +84,11 @@ namespace TCU_WFA
             LlenarComboBoxList();
         }
 
+        /// <summary>
+        /// Intenta insertar el nuevo toro en la base de datos.
+        /// </summary>
+        /// <param name="datosNuevoToro">De tipo ToroModel tiene todos los datos del toro que se desea insertar</param>
+        /// <returns>Un booleano. True sí la operación fue correcta, false en caso contrario.</returns>
         private bool AgregarNuevoToro(ToroModel datosNuevoToro)
         {
             try

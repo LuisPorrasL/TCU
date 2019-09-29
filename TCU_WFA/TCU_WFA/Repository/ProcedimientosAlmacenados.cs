@@ -122,6 +122,35 @@ namespace TCU_WFA.Repository
             return resultado;
         }
 
+        public static int ProcEditarToro(ToroModel toro)
+        {
+            int resultado = 0;
+            string sql = "EXECUTE PROC_EDITAR_TORO @numeroTrazable, @nombre, @caracteristicas, @raza";
+            using (SqlConnection conn = new SqlConnection(Utilities.CONNECTION_STRING))
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.Add("@numeroTrazable", SqlDbType.Int);
+                cmd.Parameters["@numeroTrazable"].Value = toro.pkNumeroTrazable;
+                cmd.Parameters.Add("@nombre", SqlDbType.NVarChar);
+                cmd.Parameters["@nombre"].Value = toro.nombre;
+                cmd.Parameters.Add("@caracteristicas", SqlDbType.NVarChar);
+                cmd.Parameters["@caracteristicas"].Value = toro.caracteriscas;
+                cmd.Parameters.Add("@raza", SqlDbType.Int);
+                cmd.Parameters["@raza"].Value = toro.raza;
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteScalar();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    resultado = Utilities.RESULTADO_ERROR;
+                }
+            }
+            return resultado;
+        }
+
         public static int ProcRegistrarParto(DateTime fechaParto, char sexoCria, int idMadre, int? idPadre, bool muertePrematura, string causaAborto)
         {
             int resultado = 0;
