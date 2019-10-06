@@ -11,7 +11,16 @@ namespace TCU_WFA
     public partial class FormResumen : DefaultForm
     {
         //Constantes
-        private const string MENSAJE_ERROR = "Error";        
+        private const string MENSAJE_ERROR = "Error";
+        private const int INDICE_DTR_NUMERO_TRAZABLE = 0;
+        private const int INDICE_DTR_NOMBRE = 1;
+        private const int INDICE_DTR_EDAD_PRIMER_PARTO = 2;
+        private const int INDICE_DTR_PARTOS = 3;
+        private const int INDICE_DTR_EDAD_ULTIMA_CRIA = 4;
+        private const int INDICE_DTR_FECHA_DESTETE_ULTIMA_CRIA = 5;
+        private const int INDICE_DTR_IEP_PROMEDIO = 6;
+        private const int INDICE_DTR_ULTIMO_IEP = 7;
+        private const int INDICE_DTR_FECHA_ULTIMA_MONTA = 8;
 
         //Consultas
         private const string CONSULTA_HEMBRAS_CONSIDERADAS = "SELECT COUNT(*) FROM [dbo].[VACA]";
@@ -134,26 +143,47 @@ namespace TCU_WFA
         /// </summary>
         private void CargarDatosVacas()
         {
-            if(datosResumen.hembrasConsideradas > 0)
+            if (datosResumen.hembrasConsideradas > 0)
             {
+                //Se obtienen los datos de las vacas y se guardan en la lista 
                 listaVacas = new List<VacaModel>();
-                List<int> idsVacas = Utilities.ObtenerListaIDsVacas(CONSULTA_VACAS);
-                if(idsVacas[0] != Utilities.RESULTADO_ERROR)
+                DataTable dt = new DataTable();
+                dt = ProcedimientosAlmacenados.ProcObtenerResumenVacas();
+                if (dt != null && dt.Rows.Count > 0)
                 {
-                    //Ciclo para obtener los datos de todas las vacas
-                    //for (int iteradorVacas = 0; iteradorVacas < idsVacas.Count; iteradorVacas++)
-                    //{
-                    //    listaVacas.Add(new VacaModel());
-                    //    listaVacas[iteradorVacas].pkNumeroTrazable = idsVacas[iteradorVacas];
-                    //    listaVacas[iteradorVacas].nombre = "ToDo";
-                    //}
-                    DataTable dt = new DataTable();
-                    dt = ProcedimientosAlmacenados.ProcObtenerResumenVacas();
-                    for(int iteradorVacas = 0; iteradorVacas < dt.Rows.Count; ++iteradorVacas)
+                    for (int iteradorVacas = 0; iteradorVacas < dt.Rows.Count; ++iteradorVacas)
                     {
                         listaVacas.Add(new VacaModel());
-                        listaVacas[iteradorVacas].pkNumeroTrazable = (int)dt.Rows[iteradorVacas][0];
-                        listaVacas[iteradorVacas].nombre = dt.Rows[iteradorVacas][1].ToString();
+                        listaVacas[iteradorVacas].pkNumeroTrazable = (int)dt.Rows[iteradorVacas][INDICE_DTR_NUMERO_TRAZABLE];
+                        listaVacas[iteradorVacas].nombre = dt.Rows[iteradorVacas][INDICE_DTR_NOMBRE] != DBNull.Value ? dt.Rows[iteradorVacas][INDICE_DTR_NOMBRE].ToString() : null;
+                        if (dt.Rows[iteradorVacas][INDICE_DTR_EDAD_PRIMER_PARTO] != DBNull.Value)
+                        {
+                            listaVacas[iteradorVacas].edadAPrimerPartoMeses = (int)dt.Rows[iteradorVacas][INDICE_DTR_EDAD_PRIMER_PARTO];
+                        }
+                        if (dt.Rows[iteradorVacas][INDICE_DTR_PARTOS] != DBNull.Value)
+                        {
+                            listaVacas[iteradorVacas].numeroDePartos = (int)dt.Rows[iteradorVacas][INDICE_DTR_PARTOS];
+                        }
+                        if (dt.Rows[iteradorVacas][INDICE_DTR_EDAD_ULTIMA_CRIA] != DBNull.Value)
+                        {
+                            listaVacas[iteradorVacas].edadUltimaCria = (int)dt.Rows[iteradorVacas][INDICE_DTR_EDAD_ULTIMA_CRIA];
+                        }
+                        if (dt.Rows[iteradorVacas][INDICE_DTR_FECHA_DESTETE_ULTIMA_CRIA] != DBNull.Value)
+                        {
+                            listaVacas[iteradorVacas].fechaDesteteUltimaCria = (DateTime)dt.Rows[iteradorVacas][INDICE_DTR_FECHA_DESTETE_ULTIMA_CRIA];
+                        }
+                        if (dt.Rows[iteradorVacas][INDICE_DTR_IEP_PROMEDIO] != DBNull.Value)
+                        {
+                            listaVacas[iteradorVacas].iepPromedioMeses = Convert.ToDouble(dt.Rows[iteradorVacas][INDICE_DTR_IEP_PROMEDIO]);
+                        }
+                        if (dt.Rows[iteradorVacas][INDICE_DTR_ULTIMO_IEP] != DBNull.Value)
+                        {
+                            listaVacas[iteradorVacas].ultimoIEPMeses = Convert.ToDouble(dt.Rows[iteradorVacas][INDICE_DTR_ULTIMO_IEP]);
+                        }
+                        if (dt.Rows[iteradorVacas][INDICE_DTR_FECHA_ULTIMA_MONTA] != DBNull.Value)
+                        {
+                            listaVacas[iteradorVacas].FechaUltimaMonta = (DateTime)dt.Rows[iteradorVacas][INDICE_DTR_FECHA_ULTIMA_MONTA];
+                        }
                     }
                 }
             }

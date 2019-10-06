@@ -29,7 +29,7 @@ namespace TCU_WFA.Models
         public int? edadUltimaCria { get; set; }
         public DateTime? fechaDesteteUltimaCria { get; set; }
         public double? iepPromedioMeses { get; set; }
-        public int? ultimoIEPMeses { get; set; }
+        public double? ultimoIEPMeses { get; set; }
         public DateTime? FechaUltimaMonta { get; set; }
     }
 }

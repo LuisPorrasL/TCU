@@ -90,9 +90,11 @@ namespace TCU_WFA
             if (listaVacas.Count > 0)
             {
                 celdasListaVacas[10, 1, 9 + listaVacas.Count, 12].Style.Fill.BackgroundColor.SetColor(Color.FromArgb(216, 216, 216));
+                celdasListaVacas[10, 1, 9 + listaVacas.Count, 12].Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center;
+                celdasListaVacas[10, 1, 9 + listaVacas.Count, 12].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
                 for (int iterador = 0; iterador < listaVacas.Count; iterador++)
                 {
-                    celdasListaVacas[10 + iterador, 1].Value = iterador;
+                    celdasListaVacas[10 + iterador, 1].Value = iterador + 1;
                     celdasListaVacas[10 + iterador, 2].Value = listaVacas[iterador].nombre;
                     celdasListaVacas[10 + iterador, 3].Value = listaVacas[iterador].pkNumeroTrazable;
                     celdasListaVacas[10 + iterador, 4].Value = listaVacas[iterador].edadAPrimerPartoMeses;
