@@ -136,11 +136,15 @@ namespace TCU_WFA
             {
                 listaVacas = new List<VacaModel>();
                 List<int> idsVacas = Utilities.ObtenerListaIDsVacas(CONSULTA_VACAS);
-                //Ciclo para obtener los datos de todas las vacas
-                for(int iteradorVacas = 0; iteradorVacas < idsVacas.Count; iteradorVacas++)
+                if(idsVacas[0] != Utilities.RESULTADO_ERROR)
                 {
-                    listaVacas.Add(new VacaModel());
-                    listaVacas[iteradorVacas].pkNumeroTrazable = idsVacas[iteradorVacas];
+                    //Ciclo para obtener los datos de todas las vacas
+                    for (int iteradorVacas = 0; iteradorVacas < idsVacas.Count; iteradorVacas++)
+                    {
+                        listaVacas.Add(new VacaModel());
+                        listaVacas[iteradorVacas].pkNumeroTrazable = idsVacas[iteradorVacas];
+                        listaVacas[iteradorVacas].nombre = "ToDo";
+                    }
                 }
             }
         }
