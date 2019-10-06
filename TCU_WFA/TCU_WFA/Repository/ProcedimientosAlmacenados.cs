@@ -407,7 +407,7 @@ namespace TCU_WFA.Repository
         public static DataTable ProcObtenerResumenVacas()
         {
             DataTable resumen_resultado = new DataTable();
-            string sql = "EXEC PROC_OBTENER_RESUMEN_VACAS";
+            string sql = "PROC_OBTENER_RESUMEN_VACAS";
             using (SqlConnection conn = new SqlConnection(Utilities.CONNECTION_STRING))
             {
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
