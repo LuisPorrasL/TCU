@@ -1,6 +1,8 @@
 ﻿//Hecho por Ariel Arias
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using TCU_WFA.Models;
 using TCU_WFA.Repository;
 
@@ -139,11 +141,19 @@ namespace TCU_WFA
                 if(idsVacas[0] != Utilities.RESULTADO_ERROR)
                 {
                     //Ciclo para obtener los datos de todas las vacas
-                    for (int iteradorVacas = 0; iteradorVacas < idsVacas.Count; iteradorVacas++)
+                    //for (int iteradorVacas = 0; iteradorVacas < idsVacas.Count; iteradorVacas++)
+                    //{
+                    //    listaVacas.Add(new VacaModel());
+                    //    listaVacas[iteradorVacas].pkNumeroTrazable = idsVacas[iteradorVacas];
+                    //    listaVacas[iteradorVacas].nombre = "ToDo";
+                    //}
+                    DataTable dt = new DataTable();
+                    dt = ProcedimientosAlmacenados.ProcObtenerResumenVacas();
+                    for(int iteradorVacas = 0; iteradorVacas < dt.Rows.Count; ++iteradorVacas)
                     {
                         listaVacas.Add(new VacaModel());
-                        listaVacas[iteradorVacas].pkNumeroTrazable = idsVacas[iteradorVacas];
-                        listaVacas[iteradorVacas].nombre = "ToDo";
+                        listaVacas[iteradorVacas].pkNumeroTrazable = (int)dt.Rows[iteradorVacas][0];
+                        listaVacas[iteradorVacas].nombre = dt.Rows[iteradorVacas][1].ToString();
                     }
                 }
             }

@@ -404,6 +404,30 @@ namespace TCU_WFA.Repository
             return resultado;
         }
 
+        public static DataTable ProcObtenerResumenVacas()
+        {
+            DataTable resumen_resultado = new DataTable();
+            string sql = "EXEC PROC_OBTENER_RESUMEN_VACAS";
+            using (SqlConnection conn = new SqlConnection(Utilities.CONNECTION_STRING))
+            {
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    try
+                    {
+                        conn.Open();
+                        resumen_resultado.Load(cmd.ExecuteReader());
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        return null;
+                    }
+                }
+            }
+            return resumen_resultado;
+        }
+
     }
 }
 

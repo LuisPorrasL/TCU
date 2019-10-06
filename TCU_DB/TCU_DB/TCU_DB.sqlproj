@@ -85,6 +85,8 @@
     <Build Include="PROC_OBTENER_IEP.sql" />
     <Build Include="PROC_OBTENER_ULTIMO_IEP_HISTORICO.sql" />
     <Build Include="PROC_OBTENER_IEP_HISTORICO.sql" />
+    <Build Include="PROC_OBTENER_RESUMEN_VACAS.sql" />
+    <Build Include="TIPO_RESUMEN_VACAS.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.PostDeploymentTesting.sql" />
