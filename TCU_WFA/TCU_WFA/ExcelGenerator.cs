@@ -103,7 +103,9 @@ namespace TCU_WFA
                     celdasListaVacas[10 + iterador, 7].Value = listaVacas[iterador].fechaDesteteUltimaCria;
                     celdasListaVacas[10 + iterador, 8].Value = listaVacas[iterador].iepPromedioMeses;
                     celdasListaVacas[10 + iterador, 9].Value = listaVacas[iterador].ultimoIEPMeses;
-                    celdasListaVacas[10 + iterador, 10].Value = listaVacas[iterador].FechaUltimaMonta;
+                    celdasListaVacas[10 + iterador, 10].Value = listaVacas[iterador].fechaUltimaMonta;
+                    celdasListaVacas[10 + iterador, 11].Value = listaVacas[iterador].gestacionDias;
+                    celdasListaVacas[10 + iterador, 12].Value = listaVacas[iterador].fechaParto;
                 }
             }
 

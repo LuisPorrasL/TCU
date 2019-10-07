@@ -1,6 +1,11 @@
 ﻿CREATE PROCEDURE [dbo].[PROC_OBTENER_RESUMEN_VACAS]
 AS
 	BEGIN
+		--Constantes
+		DECLARE @CANTIDAD_MESES_DESTETE INT = 7;
+		DECLARE @CANTIDAD_MESES_PARTO INT = 9;
+
+
 		DECLARE @cantidad_vacas INT;
 		DECLARE @resultado_resumen TIPO_RESUMEN_VACAS;
 		--Se obtiene la cantidad de vacas registradas
@@ -41,11 +46,14 @@ AS
 				--Edad, fecha destete y numero trazable de última cría
 				IF @temporal_cantidad_partos > 0
 				BEGIN
-					SELECT TOP(1) @temporal_fecha_nacimiento_ultima_cria = V.FECHA_NACIMIENTO, @temporal_numero_trazable_ultima_cria = V.PK_NUMERO_TRAZABLE FROM [dbo].[Vaca] V WHERE V.ACTIVA = 1 AND V.FK_NUMERO_TRAZABLE_VACA = @numero_trazable_ultima_vaca ORDER BY V.FECHA_NACIMIENTO DESC;
+					SELECT TOP(1) @temporal_fecha_nacimiento_ultima_cria = V.FECHA_NACIMIENTO, @temporal_numero_trazable_ultima_cria = V.PK_NUMERO_TRAZABLE FROM [dbo].[VACA] V WHERE V.ACTIVA = 1 AND V.FK_NUMERO_TRAZABLE_VACA = @numero_trazable_ultima_vaca ORDER BY V.FECHA_NACIMIENTO DESC;
 					IF @temporal_fecha_nacimiento_ultima_cria IS NOT NULL
 						BEGIN
-							SELECT TOP(1) @temporal_fecha_destete_ultima_cria = F.PK_FECHA FROM [dbo].FECHAS_DESTETES F WHERE F.PK_FK_NUMERO_TRAZABLE_VACA = @temporal_numero_trazable_ultima_cria ORDER BY F.PK_FECHA DESC;
 							SET @temporal_edad_ultima_cria = CAST(DATEDIFF(MONTH, @temporal_fecha_nacimiento_ultima_cria, @temporal_fecha_actual) AS INT);
+							IF @temporal_edad_ultima_cria < 7
+							BEGIN
+								SET @temporal_fecha_destete_ultima_cria = CAST(DATEADD(MONTH, @CANTIDAD_MESES_DESTETE, @temporal_fecha_nacimiento_ultima_cria) AS INT);
+							END
 						END
 					--IEP y Ultimo IEP
 					EXEC [dbo].[PROC_OBTENER_ULTIMO_IEP] @idVaca = @numero_trazable_ultima_vaca, @ultimoIEP = @temporal_ultimo_iep_vaca OUTPUT;
@@ -53,18 +61,18 @@ AS
 				END
 
 				--Fecha última monta
-				SELECT TOP(1) @temporal_ultima_monta = M.PK_FECHA FROM [dbo].FECHAS_CELOS M WHERE M.PK_FK_NUMERO_TRAZABLE_VACA = @numero_trazable_ultima_vaca ORDER BY M.PK_FECHA DESC;
+				SELECT TOP(1) @temporal_ultima_monta = M.PK_FECHA FROM [dbo].[FECHAS_CELOS] M WHERE M.PK_FK_NUMERO_TRAZABLE_VACA = @numero_trazable_ultima_vaca ORDER BY M.PK_FECHA DESC;
 
 				--Dias de gestación y fecha de parto
 				IF @temporal_ultima_monta IS NOT NULL AND CAST(DATEDIFF(MONTH, @temporal_ultima_monta, @temporal_fecha_actual) AS INT) <= 9
 				BEGIN
 						SET @temporal_dias_gestacion = CAST(DATEDIFF(DAY, @temporal_ultima_monta, @temporal_fecha_actual) AS INT);
-						SET @temporal_fecha_parto = CAST(DATEADD(DAY, @temporal_dias_gestacion, @temporal_ultima_monta) AS INT);
+						SET @temporal_fecha_parto = CAST(DATEADD(MONTH, @CANTIDAD_MESES_PARTO, @temporal_ultima_monta) AS INT);
 				END
 				
 				--Se insertan los datos de la vaca en los resultados
 				INSERT INTO @resultado_resumen 
-				VALUES (@numero_trazable_ultima_vaca, @temporal_nombre, @temporal_edad_primer_parto, @temporal_cantidad_partos, @temporal_edad_ultima_cria, @temporal_fecha_destete_ultima_cria, @temporal_iep_vaca, @temporal_ultimo_iep_vaca, @temporal_ultima_monta);
+				VALUES (@numero_trazable_ultima_vaca, @temporal_nombre, @temporal_edad_primer_parto, @temporal_cantidad_partos, @temporal_edad_ultima_cria, @temporal_fecha_destete_ultima_cria, @temporal_iep_vaca, @temporal_ultimo_iep_vaca, @temporal_ultima_monta, @temporal_dias_gestacion, @temporal_fecha_parto);
 				
 				--Se incrementa el indice
 				SET @indice_vacas = @indice_vacas + 1;
@@ -82,6 +90,8 @@ AS
 				SET @temporal_iep_vaca = NULL;
 				SET @temporal_ultimo_iep_vaca = NULL;
 				SET @temporal_ultima_monta = NULL;
+				SET @temporal_dias_gestacion = NULL;
+				SET @temporal_fecha_parto = NULL;
 			END
 		END
 		--Se realiza la consulta a devolver

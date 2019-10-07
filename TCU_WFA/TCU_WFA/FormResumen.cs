@@ -21,6 +21,8 @@ namespace TCU_WFA
         private const int INDICE_DTR_IEP_PROMEDIO = 6;
         private const int INDICE_DTR_ULTIMO_IEP = 7;
         private const int INDICE_DTR_FECHA_ULTIMA_MONTA = 8;
+        private const int INDICE_DTR_GESTACION_DIAS = 9;
+        private const int INDICE_DTR_FECHA_PARTO = 10;
 
         //Consultas
         private const string CONSULTA_HEMBRAS_CONSIDERADAS = "SELECT COUNT(*) FROM [dbo].[VACA]";
@@ -170,7 +172,7 @@ namespace TCU_WFA
                         }
                         if (dt.Rows[iteradorVacas][INDICE_DTR_FECHA_DESTETE_ULTIMA_CRIA] != DBNull.Value)
                         {
-                            listaVacas[iteradorVacas].fechaDesteteUltimaCria = (DateTime)dt.Rows[iteradorVacas][INDICE_DTR_FECHA_DESTETE_ULTIMA_CRIA];
+                            listaVacas[iteradorVacas].fechaDesteteUltimaCria = ((DateTime)dt.Rows[iteradorVacas][INDICE_DTR_FECHA_DESTETE_ULTIMA_CRIA]).ToShortDateString();
                         }
                         if (dt.Rows[iteradorVacas][INDICE_DTR_IEP_PROMEDIO] != DBNull.Value)
                         {
@@ -182,7 +184,15 @@ namespace TCU_WFA
                         }
                         if (dt.Rows[iteradorVacas][INDICE_DTR_FECHA_ULTIMA_MONTA] != DBNull.Value)
                         {
-                            listaVacas[iteradorVacas].FechaUltimaMonta = (DateTime)dt.Rows[iteradorVacas][INDICE_DTR_FECHA_ULTIMA_MONTA];
+                            listaVacas[iteradorVacas].fechaUltimaMonta = ((DateTime)dt.Rows[iteradorVacas][INDICE_DTR_FECHA_ULTIMA_MONTA]).ToShortDateString();
+                        }
+                        if (dt.Rows[iteradorVacas][INDICE_DTR_GESTACION_DIAS] != DBNull.Value)
+                        {
+                            listaVacas[iteradorVacas].gestacionDias = (int)dt.Rows[iteradorVacas][INDICE_DTR_GESTACION_DIAS];
+                        }
+                        if (dt.Rows[iteradorVacas][INDICE_DTR_FECHA_PARTO] != DBNull.Value)
+                        {
+                            listaVacas[iteradorVacas].fechaParto = ((DateTime)dt.Rows[iteradorVacas][INDICE_DTR_FECHA_PARTO]).ToShortDateString();
                         }
                     }
                 }

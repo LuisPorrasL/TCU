@@ -27,9 +27,11 @@ namespace TCU_WFA.Models
         public int? edadAPrimerPartoMeses { get; set; }
         public int? numeroDePartos { get; set; }
         public int? edadUltimaCria { get; set; }
-        public DateTime? fechaDesteteUltimaCria { get; set; }
+        public string fechaDesteteUltimaCria { get; set; }
         public double? iepPromedioMeses { get; set; }
         public double? ultimoIEPMeses { get; set; }
-        public DateTime? FechaUltimaMonta { get; set; }
+        public string fechaUltimaMonta { get; set; }
+        public int gestacionDias { get; set; }
+        public string fechaParto { get; set; }
     }
 }
