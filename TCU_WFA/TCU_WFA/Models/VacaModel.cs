@@ -1,4 +1,5 @@
 ﻿// Hecho por Luis Porras. 
+// Modificado por Ariel Arias (9/29/2019). 
 using System;
 
 namespace TCU_WFA.Models
@@ -23,5 +24,14 @@ namespace TCU_WFA.Models
         public string desarrollo { get; set; }
         public bool activa { get; set; }
         public string causaDeBaja { get; set; }
+        public int? edadAPrimerPartoMeses { get; set; }
+        public int? numeroDePartos { get; set; }
+        public int? edadUltimaCria { get; set; }
+        public string fechaDesteteUltimaCria { get; set; }
+        public double? iepPromedioMeses { get; set; }
+        public double? ultimoIEPMeses { get; set; }
+        public string fechaUltimaMonta { get; set; }
+        public int gestacionDias { get; set; }
+        public string fechaParto { get; set; }
     }
 }

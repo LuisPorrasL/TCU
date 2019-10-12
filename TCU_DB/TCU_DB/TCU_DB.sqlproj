@@ -85,6 +85,14 @@
     <Build Include="PROC_OBTENER_IEP.sql" />
     <Build Include="PROC_OBTENER_ULTIMO_IEP_HISTORICO.sql" />
     <Build Include="PROC_OBTENER_IEP_HISTORICO.sql" />
+    <Build Include="PROC_OBTENER_RESUMEN_VACAS.sql" />
+    <Build Include="TIPO_RESUMEN_VACAS.sql" />
+    <Build Include="PROC_OBTENER_EDAD_PRIMER_PARTO.sql" />
+    <Build Include="PROC_OBTENER_EDAD_ULTIMA_CRIA.sql" />
+    <Build Include="PROC_OBTENER_FECHA_DESTETE_ULTIMA_CRIA.sql" />
+    <Build Include="PROC_OBTENER_ULTIMA_MONTA.sql" />
+    <Build Include="PROC_OBTENER_DIAS_GESTACION_RESTANTES.sql" />
+    <Build Include="PROC_OBTENER_FECHA_PARTO.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.PostDeploymentTesting.sql" />
