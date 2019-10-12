@@ -52,6 +52,35 @@ namespace TCU_WFA.Repository
             return resultado;
         }
 
+        public static int ProcInsertarToro(ToroModel toro)
+        {
+            int resultado = 0;
+            string sql = "EXECUTE PROC_INSERTAR_TORO @numeroTrazable, @nombre, @caracteristicas, @raza";
+            using (SqlConnection conn = new SqlConnection(Utilities.CONNECTION_STRING))
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.Add("@numeroTrazable", SqlDbType.Int);
+                cmd.Parameters["@numeroTrazable"].Value = toro.pkNumeroTrazable;
+                cmd.Parameters.Add("@nombre", SqlDbType.NVarChar);
+                cmd.Parameters["@nombre"].Value = toro.nombre;
+                cmd.Parameters.Add("@caracteristicas", SqlDbType.NVarChar);
+                cmd.Parameters["@caracteristicas"].Value = toro.caracteriscas;
+                cmd.Parameters.Add("@raza", SqlDbType.Int);
+                cmd.Parameters["@raza"].Value = toro.raza;
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteScalar();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    resultado = Utilities.RESULTADO_ERROR;
+                }
+            }
+            return resultado;
+        }
+
         public static int ProcEditarVaca(VacaModel vaca)
         {
             int resultado = 0;
@@ -79,6 +108,35 @@ namespace TCU_WFA.Repository
                 cmd.Parameters["@peso"].Value = (object)vaca.peso ?? DBNull.Value;
                 cmd.Parameters.Add("@fkDesarrollo", SqlDbType.Int);
                 cmd.Parameters["@fkDesarrollo"].Value = vaca.fkDesarrollo;
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteScalar();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    resultado = Utilities.RESULTADO_ERROR;
+                }
+            }
+            return resultado;
+        }
+
+        public static int ProcEditarToro(ToroModel toro)
+        {
+            int resultado = 0;
+            string sql = "EXECUTE PROC_EDITAR_TORO @numeroTrazable, @nombre, @caracteristicas, @raza";
+            using (SqlConnection conn = new SqlConnection(Utilities.CONNECTION_STRING))
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.Add("@numeroTrazable", SqlDbType.Int);
+                cmd.Parameters["@numeroTrazable"].Value = toro.pkNumeroTrazable;
+                cmd.Parameters.Add("@nombre", SqlDbType.NVarChar);
+                cmd.Parameters["@nombre"].Value = toro.nombre;
+                cmd.Parameters.Add("@caracteristicas", SqlDbType.NVarChar);
+                cmd.Parameters["@caracteristicas"].Value = toro.caracteriscas;
+                cmd.Parameters.Add("@raza", SqlDbType.Int);
+                cmd.Parameters["@raza"].Value = toro.raza;
                 try
                 {
                     conn.Open();
@@ -211,6 +269,31 @@ namespace TCU_WFA.Repository
         {
             int resultado = 0;
             string sql = "EXECUTE PROC_ELIMINAR_VACA @numeroTrazable, @causaDeBaja";
+            using (SqlConnection conn = new SqlConnection(Utilities.CONNECTION_STRING))
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.Add("@numeroTrazable", SqlDbType.Int);
+                cmd.Parameters["@numeroTrazable"].Value = vacaId;
+                cmd.Parameters.Add("@causaDeBaja", SqlDbType.NVarChar);
+                cmd.Parameters["@causaDeBaja"].Value = causaDeBaja;
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteScalar();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    resultado = Utilities.RESULTADO_ERROR;
+                }
+            }
+            return resultado;
+        }
+
+        public static int ProcEliminarToro(int vacaId, string causaDeBaja)
+        {
+            int resultado = 0;
+            string sql = "EXECUTE PROC_ELIMINAR_TORO @numeroTrazable, @causaDeBaja";
             using (SqlConnection conn = new SqlConnection(Utilities.CONNECTION_STRING))
             {
                 SqlCommand cmd = new SqlCommand(sql, conn);
