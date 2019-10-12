@@ -25,8 +25,7 @@ namespace TCU_WFA
         private const int INDICE_DTR_FECHA_PARTO = 10;
 
         //Consultas
-        private const string CONSULTA_HEMBRAS_CONSIDERADAS = "SELECT COUNT(*) FROM [dbo].[VACA]";
-        private const string CONSULTA_VACAS = "SELECT PK_NUMERO_TRAZABLE FROM [dbo].[VACA]";
+        private const string CONSULTA_HEMBRAS_CONSIDERADAS = "SELECT COUNT(*) FROM [dbo].[VACA]";       
         private const string CONSULTA_HEMBRAS_PARIDO = "SELECT COUNT (DISTINCT V.PK_NUMERO_TRAZABLE) FROM [dbo].[VACA] V INNER JOIN [dbo].[PARTO] P ON V.PK_NUMERO_TRAZABLE = P.PK_FK_NUMERO_TRAZABLE_VACA";
         private const string CONSULTA_PARTOS = "SELECT COUNT (*) FROM [dbo].[PARTO]";
 

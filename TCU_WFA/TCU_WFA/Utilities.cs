@@ -139,40 +139,6 @@ namespace TCU_WFA
             }
             return cantidad;
         }
-
-        /// <summary>
-        /// Método para obtener los id de las vacas 
-        /// </summary>
-        /// <param name="query">La consulta con la que se van a obtener los ids</param>
-        /// <returns>Una lista de enteros con los ids de las vacas registradas en el sistema</returns>
-        public static List<int> ObtenerListaIDsVacas(string query)
-        {
-            List<int> listaVacas = new List<int>();
-            using (SqlConnection conexion = new SqlConnection(CONNECTION_STRING))
-            {
-                using (SqlCommand cmd = new SqlCommand(query, conexion))
-                {
-                    conexion.Open();
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        try
-                        {
-                            while (reader.Read())
-                            {
-                                listaVacas.Add(reader.GetInt32(0));
-                            }
-                        }
-                        catch
-                        {
-                            //Se borra la lista y se retorna una con un único valor de error
-                            listaVacas = new List<int>();
-                            listaVacas.Add(RESULTADO_ERROR);
-                            return listaVacas;
-                        }
-                    }
-                }
-            }
-            return listaVacas;
-        }
+        
     }
 }
