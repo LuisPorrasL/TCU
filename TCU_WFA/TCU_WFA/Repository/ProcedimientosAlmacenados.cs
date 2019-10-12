@@ -11,6 +11,138 @@ namespace TCU_WFA.Repository
     /// </summary>
     public static class ProcedimientosAlmacenados
     {
+        public static int ProcInsertarExamen(ExamenModel examen)
+        {
+            int resultado = 0;
+            string sql = "EXECUTE PROC_INSERTAR_EXAMEN @numeroTrazable, @fecha, @condCorp, @libido, @capacidadM, @descansoSexual, @prepucio, @pene, @testiculos, @epididimos, @glandulasB, @prostata, @vesiculasS, @ampulas, @circunferenciaEsc, @volumenEyaculado, @concentracion, @motilidadMasal, @motilidadProgresiva, @morfologiaNormal, @anormalidadesP, @dannosAcrosomales, @anormalidadesS, @totalAnormalidades, @anomaliaFrecuente, @leucocitos, @celulasEpit, @observaciones, @satisfactorio, @veterinario, @palpacion, @ecografia, @vaginaArt, @electroEya, @protusion ";
+            using (SqlConnection conn = new SqlConnection(Utilities.CONNECTION_STRING))
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                cmd.Parameters.Add("@numeroTrazable", SqlDbType.Int);//1
+                cmd.Parameters["@numeroTrazable"].Value = examen.pkNumeroTrazable;
+
+                cmd.Parameters.Add("@fecha", SqlDbType.DateTime);//2
+                cmd.Parameters["@fecha"].Value = examen.pkFecha;
+
+                cmd.Parameters.Add("@condCorp", SqlDbType.VarChar);//3
+                cmd.Parameters["@condCorp"].Value = examen.condicionCorporal;
+
+                cmd.Parameters.Add("@libido", SqlDbType.Bit);//4
+                cmd.Parameters["@libido"].Value = examen.libido;
+
+                cmd.Parameters.Add("@capacidadM", SqlDbType.Bit);//5
+                cmd.Parameters["@capacidadM"].Value = examen.capacidadMonta;
+
+                cmd.Parameters.Add("@descansoSexual", SqlDbType.Int);//6
+                cmd.Parameters["@descansoSexual"].Value = examen.descansoSexual;
+
+                cmd.Parameters.Add("@prepucio", SqlDbType.Bit);//7
+                cmd.Parameters["@prepucio"].Value = examen.prepucio;
+
+                cmd.Parameters.Add("@pene", SqlDbType.Bit);//8
+                cmd.Parameters["@pene"].Value = examen.pene;
+
+                cmd.Parameters.Add("@testiculos", SqlDbType.Bit);//9
+                cmd.Parameters["@testiculos"].Value = examen.testiculos;
+
+                cmd.Parameters.Add("@epididimos", SqlDbType.Bit);//10
+                cmd.Parameters["@epididimos"].Value = examen.epididimos;
+
+                cmd.Parameters.Add("@glandulasB", SqlDbType.Bit);//11
+                cmd.Parameters["@glandulasB"].Value = examen.glandulasB;
+
+                cmd.Parameters.Add("@prostata", SqlDbType.Bit);//12
+                cmd.Parameters["@prostata"].Value = examen.prostata;
+
+                cmd.Parameters.Add("@vesiculasS", SqlDbType.Bit);//13
+                cmd.Parameters["@vesiculasS"].Value = examen.vesiculasSeminales;
+
+                cmd.Parameters.Add("@ampulas", SqlDbType.Bit);//14
+                cmd.Parameters["@ampulas"].Value = examen.ampulas;
+
+                cmd.Parameters.Add("@circunferenciaEsc", SqlDbType.Decimal);//15
+                cmd.Parameters["@circunferenciaEsc"].Value = examen.circunferenciaEscrotal;
+
+                cmd.Parameters.Add("@volumenEyaculado", SqlDbType.Decimal);//16
+                cmd.Parameters["@volumenEyaculado"].Value = examen.volumenEyaculado;
+
+                cmd.Parameters.Add("@concentracion", SqlDbType.NVarChar);//17
+                cmd.Parameters["@concentracion"].Value = examen.concentracion;
+
+                cmd.Parameters.Add("@motilidadMasal", SqlDbType.Int);//18
+                cmd.Parameters["@motilidadMasal"].Value = examen.motilidadMasal;
+
+                cmd.Parameters.Add("@motilidadProgresiva", SqlDbType.Int);//19
+                cmd.Parameters["@motilidadProgresiva"].Value = examen.motidilidadProgresiva;
+
+                cmd.Parameters.Add("@morfologiaNormal", SqlDbType.Int);//20
+                cmd.Parameters["@morfologiaNormal"].Value = examen.morfologiaNormal;
+
+                cmd.Parameters.Add("@anormalidadesP", SqlDbType.NVarChar);//21
+                cmd.Parameters["@anormalidadesP"].Value = examen.anormalidadesPrimarias;
+
+                cmd.Parameters.Add("@dannosAcrosomales", SqlDbType.NVarChar);//22
+                cmd.Parameters["@dannosAcrosomales"].Value = examen.dannosAcrosomales;
+
+                cmd.Parameters.Add("@anormalidadesS", SqlDbType.VarChar);//23
+                cmd.Parameters["@anormalidadesS"].Value = examen.anormalidadesSecundarias;
+
+                cmd.Parameters.Add("@totalAnormalidades", SqlDbType.Int);//24
+                cmd.Parameters["@totalAnormalidades"].Value = examen.totalAnormalidades;
+
+                cmd.Parameters.Add("@anomaliaFrecuente", SqlDbType.NVarChar);//25
+                cmd.Parameters["@anomaliaFrecuente"].Value = examen.anomaliaFrecuente;
+
+                cmd.Parameters.Add("@leucocitos", SqlDbType.Int);//26
+                cmd.Parameters["@leucocitos"].Value = examen.leucocitos;
+
+                cmd.Parameters.Add("@celulasEpit", SqlDbType.Int);//27
+                cmd.Parameters["@celulasEpit"].Value = examen.celulasEpit;
+
+                cmd.Parameters.Add("@observaciones", SqlDbType.NVarChar);//28
+                cmd.Parameters["@observaciones"].Value = examen.observaciones;
+
+                cmd.Parameters.Add("@satisfactorio", SqlDbType.Bit);//29
+                cmd.Parameters["@satisfactorio"].Value = examen.satisfactorio;
+
+                cmd.Parameters.Add("@veterinario", SqlDbType.NVarChar);//30
+                cmd.Parameters["@veterinario"].Value = examen.veterinario;
+
+                cmd.Parameters.Add("@palpacion", SqlDbType.Bit);//31
+                cmd.Parameters["@palpacion"].Value = examen.palpacion;
+
+                cmd.Parameters.Add("@ecografia", SqlDbType.Bit);//32
+                cmd.Parameters["@ecografia"].Value = examen.ecografia;
+
+                cmd.Parameters.Add("@vaginaArt", SqlDbType.Bit);//33
+                cmd.Parameters["@vaginaArt"].Value = examen.vaginaArt;
+
+                cmd.Parameters.Add("@electroEya", SqlDbType.Bit);//34
+                cmd.Parameters["@electroEya"].Value = examen.electroEya;
+
+                cmd.Parameters.Add("@protusion", SqlDbType.Bit);//35
+                cmd.Parameters["@protusion"].Value = examen.protusion;
+
+
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteScalar();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    resultado = Utilities.RESULTADO_ERROR;
+                }
+            }
+
+            return resultado;
+        }
+
+
+
+
         public static int ProcInsertarVaca(VacaModel vaca)
         {
             int resultado = 0;
@@ -403,6 +535,41 @@ namespace TCU_WFA.Repository
             }
             return resultado;
         }
+
+        public static double ProcInsertarExamen()
+        {
+            double resultado = 0;
+            string sql = "PROC_OBTENER_IEP_HISTORICO";
+            using (SqlConnection conn = new SqlConnection(Utilities.CONNECTION_STRING))
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter outputUltimoIEPParam = new SqlParameter("@IEPHistorico", SqlDbType.Decimal)
+                {
+                    Direction = ParameterDirection.Output
+                };
+
+                cmd.Parameters.Add(outputUltimoIEPParam);
+
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+
+                    resultado = double.Parse(cmd.Parameters["@IEPHistorico"].Value.ToString());
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    resultado = Utilities.RESULTADO_ERROR;
+                }
+            }
+            return resultado;
+        }
+
+
+
 
     }
 }

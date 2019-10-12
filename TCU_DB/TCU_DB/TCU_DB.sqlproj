@@ -85,8 +85,12 @@
     <Build Include="PROC_OBTENER_IEP.sql" />
     <Build Include="PROC_OBTENER_ULTIMO_IEP_HISTORICO.sql" />
     <Build Include="PROC_OBTENER_IEP_HISTORICO.sql" />
+    <Build Include="PROC_INSERTAR_EXAMEN.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.PostDeploymentTesting.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="TCU_DB.refactorlog" />
   </ItemGroup>
 </Project>

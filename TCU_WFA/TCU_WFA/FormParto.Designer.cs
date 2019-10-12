@@ -64,13 +64,13 @@
             // 
             // botonVolver
             // 
-            this.botonVolver.Location = new System.Drawing.Point(713, 415);
+            this.botonVolver.Location = new System.Drawing.Point(951, 511);
+            this.botonVolver.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.botonVolver.Name = "botonVolver";
-            this.botonVolver.Size = new System.Drawing.Size(75, 23);
+            this.botonVolver.Size = new System.Drawing.Size(100, 28);
             this.botonVolver.TabIndex = 0;
             this.botonVolver.Text = "Volver";
             this.botonVolver.UseVisualStyleBackColor = true;
-            this.botonVolver.Click += new System.EventHandler(this.botonVolver_Click);
             // 
             // groupBoxAgregarVaca
             // 
@@ -87,18 +87,21 @@
             this.groupBoxAgregarVaca.Controls.Add(this.dateTimePickerFechaParto);
             this.groupBoxAgregarVaca.Controls.Add(this.labelFechaParto);
             this.groupBoxAgregarVaca.Controls.Add(this.labelSexoCria);
-            this.groupBoxAgregarVaca.Location = new System.Drawing.Point(12, 12);
+            this.groupBoxAgregarVaca.Location = new System.Drawing.Point(16, 15);
+            this.groupBoxAgregarVaca.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBoxAgregarVaca.Name = "groupBoxAgregarVaca";
-            this.groupBoxAgregarVaca.Size = new System.Drawing.Size(345, 292);
+            this.groupBoxAgregarVaca.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxAgregarVaca.Size = new System.Drawing.Size(460, 359);
             this.groupBoxAgregarVaca.TabIndex = 3;
             this.groupBoxAgregarVaca.TabStop = false;
             // 
             // radioButtonNo
             // 
             this.radioButtonNo.AutoSize = true;
-            this.radioButtonNo.Location = new System.Drawing.Point(175, 191);
+            this.radioButtonNo.Location = new System.Drawing.Point(233, 235);
+            this.radioButtonNo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioButtonNo.Name = "radioButtonNo";
-            this.radioButtonNo.Size = new System.Drawing.Size(39, 17);
+            this.radioButtonNo.Size = new System.Drawing.Size(47, 21);
             this.radioButtonNo.TabIndex = 18;
             this.radioButtonNo.TabStop = true;
             this.radioButtonNo.Text = "No";
@@ -108,9 +111,10 @@
             // radioButtonSi
             // 
             this.radioButtonSi.AutoSize = true;
-            this.radioButtonSi.Location = new System.Drawing.Point(133, 191);
+            this.radioButtonSi.Location = new System.Drawing.Point(177, 235);
+            this.radioButtonSi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioButtonSi.Name = "radioButtonSi";
-            this.radioButtonSi.Size = new System.Drawing.Size(36, 17);
+            this.radioButtonSi.Size = new System.Drawing.Size(41, 21);
             this.radioButtonSi.TabIndex = 17;
             this.radioButtonSi.TabStop = true;
             this.radioButtonSi.Text = "Sí";
@@ -121,52 +125,59 @@
             // 
             this.comboBoxSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSexo.FormattingEnabled = true;
-            this.comboBoxSexo.Location = new System.Drawing.Point(136, 62);
+            this.comboBoxSexo.Location = new System.Drawing.Point(181, 76);
+            this.comboBoxSexo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxSexo.Name = "comboBoxSexo";
-            this.comboBoxSexo.Size = new System.Drawing.Size(200, 21);
+            this.comboBoxSexo.Size = new System.Drawing.Size(265, 24);
             this.comboBoxSexo.TabIndex = 16;
             // 
             // textBoxCausaAborto
             // 
-            this.textBoxCausaAborto.Location = new System.Drawing.Point(100, 231);
-            this.textBoxCausaAborto.MinimumSize = new System.Drawing.Size(236, 50);
+            this.textBoxCausaAborto.Location = new System.Drawing.Point(133, 284);
+            this.textBoxCausaAborto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxCausaAborto.MinimumSize = new System.Drawing.Size(313, 61);
             this.textBoxCausaAborto.Multiline = true;
             this.textBoxCausaAborto.Name = "textBoxCausaAborto";
-            this.textBoxCausaAborto.Size = new System.Drawing.Size(236, 50);
+            this.textBoxCausaAborto.Size = new System.Drawing.Size(313, 61);
             this.textBoxCausaAborto.TabIndex = 15;
             // 
             // labelCausaAborto
             // 
             this.labelCausaAborto.AutoSize = true;
-            this.labelCausaAborto.Location = new System.Drawing.Point(6, 234);
+            this.labelCausaAborto.Location = new System.Drawing.Point(8, 288);
+            this.labelCausaAborto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelCausaAborto.Name = "labelCausaAborto";
-            this.labelCausaAborto.Size = new System.Drawing.Size(70, 13);
+            this.labelCausaAborto.Size = new System.Drawing.Size(93, 17);
             this.labelCausaAborto.TabIndex = 14;
             this.labelCausaAborto.Text = "Causa aborto";
             // 
             // labelMuertePrematura
             // 
             this.labelMuertePrematura.AutoSize = true;
-            this.labelMuertePrematura.Location = new System.Drawing.Point(3, 193);
+            this.labelMuertePrematura.Location = new System.Drawing.Point(4, 238);
+            this.labelMuertePrematura.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelMuertePrematura.Name = "labelMuertePrematura";
-            this.labelMuertePrematura.Size = new System.Drawing.Size(91, 13);
+            this.labelMuertePrematura.Size = new System.Drawing.Size(121, 17);
             this.labelMuertePrematura.TabIndex = 12;
             this.labelMuertePrematura.Text = "Muete prematura*";
             // 
             // comboBoxIdPadre
             // 
             this.comboBoxIdPadre.FormattingEnabled = true;
-            this.comboBoxIdPadre.Location = new System.Drawing.Point(136, 142);
+            this.comboBoxIdPadre.Location = new System.Drawing.Point(181, 175);
+            this.comboBoxIdPadre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxIdPadre.Name = "comboBoxIdPadre";
-            this.comboBoxIdPadre.Size = new System.Drawing.Size(200, 21);
+            this.comboBoxIdPadre.Size = new System.Drawing.Size(265, 24);
             this.comboBoxIdPadre.TabIndex = 11;
+            this.comboBoxIdPadre.SelectedIndexChanged += new System.EventHandler(this.comboBoxIdPadre_SelectedIndexChanged);
             // 
             // labelIdPadre
             // 
             this.labelIdPadre.AutoSize = true;
-            this.labelIdPadre.Location = new System.Drawing.Point(6, 145);
+            this.labelIdPadre.Location = new System.Drawing.Point(8, 178);
+            this.labelIdPadre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelIdPadre.Name = "labelIdPadre";
-            this.labelIdPadre.Size = new System.Drawing.Size(46, 13);
+            this.labelIdPadre.Size = new System.Drawing.Size(60, 17);
             this.labelIdPadre.TabIndex = 10;
             this.labelIdPadre.Text = "Id padre";
             // 
@@ -174,50 +185,56 @@
             // 
             this.comboBoxIdMadre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxIdMadre.FormattingEnabled = true;
-            this.comboBoxIdMadre.Location = new System.Drawing.Point(136, 99);
+            this.comboBoxIdMadre.Location = new System.Drawing.Point(181, 122);
+            this.comboBoxIdMadre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxIdMadre.Name = "comboBoxIdMadre";
-            this.comboBoxIdMadre.Size = new System.Drawing.Size(200, 21);
+            this.comboBoxIdMadre.Size = new System.Drawing.Size(265, 24);
             this.comboBoxIdMadre.TabIndex = 9;
             // 
             // labelIdMadre
             // 
             this.labelIdMadre.AutoSize = true;
-            this.labelIdMadre.Location = new System.Drawing.Point(6, 102);
+            this.labelIdMadre.Location = new System.Drawing.Point(8, 126);
+            this.labelIdMadre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelIdMadre.Name = "labelIdMadre";
-            this.labelIdMadre.Size = new System.Drawing.Size(52, 13);
+            this.labelIdMadre.Size = new System.Drawing.Size(68, 17);
             this.labelIdMadre.TabIndex = 8;
             this.labelIdMadre.Text = "Id madre*";
             // 
             // dateTimePickerFechaParto
             // 
-            this.dateTimePickerFechaParto.Location = new System.Drawing.Point(136, 19);
+            this.dateTimePickerFechaParto.Location = new System.Drawing.Point(181, 23);
+            this.dateTimePickerFechaParto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateTimePickerFechaParto.Name = "dateTimePickerFechaParto";
-            this.dateTimePickerFechaParto.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerFechaParto.Size = new System.Drawing.Size(265, 22);
             this.dateTimePickerFechaParto.TabIndex = 7;
             // 
             // labelFechaParto
             // 
             this.labelFechaParto.AutoSize = true;
-            this.labelFechaParto.Location = new System.Drawing.Point(6, 25);
+            this.labelFechaParto.Location = new System.Drawing.Point(8, 31);
+            this.labelFechaParto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelFechaParto.Name = "labelFechaParto";
-            this.labelFechaParto.Size = new System.Drawing.Size(68, 13);
+            this.labelFechaParto.Size = new System.Drawing.Size(89, 17);
             this.labelFechaParto.TabIndex = 6;
             this.labelFechaParto.Text = "Fecha parto*";
             // 
             // labelSexoCria
             // 
             this.labelSexoCria.AutoSize = true;
-            this.labelSexoCria.Location = new System.Drawing.Point(6, 65);
+            this.labelSexoCria.Location = new System.Drawing.Point(8, 80);
+            this.labelSexoCria.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelSexoCria.Name = "labelSexoCria";
-            this.labelSexoCria.Size = new System.Drawing.Size(57, 13);
+            this.labelSexoCria.Size = new System.Drawing.Size(71, 17);
             this.labelSexoCria.TabIndex = 4;
             this.labelSexoCria.Text = "Sexo cría*";
             // 
             // botonsRegistrar
             // 
-            this.botonsRegistrar.Location = new System.Drawing.Point(632, 415);
+            this.botonsRegistrar.Location = new System.Drawing.Point(843, 511);
+            this.botonsRegistrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.botonsRegistrar.Name = "botonsRegistrar";
-            this.botonsRegistrar.Size = new System.Drawing.Size(75, 23);
+            this.botonsRegistrar.Size = new System.Drawing.Size(100, 28);
             this.botonsRegistrar.TabIndex = 4;
             this.botonsRegistrar.Text = "Registrar";
             this.botonsRegistrar.UseVisualStyleBackColor = true;
@@ -235,41 +252,47 @@
             this.groupBoxRegistroTernero.Controls.Add(this.textBoxNombre);
             this.groupBoxRegistroTernero.Controls.Add(this.labelNombre);
             this.groupBoxRegistroTernero.Controls.Add(this.labelCaracteristicasTernero);
-            this.groupBoxRegistroTernero.Location = new System.Drawing.Point(443, 57);
+            this.groupBoxRegistroTernero.Location = new System.Drawing.Point(591, 70);
+            this.groupBoxRegistroTernero.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBoxRegistroTernero.Name = "groupBoxRegistroTernero";
-            this.groupBoxRegistroTernero.Size = new System.Drawing.Size(345, 247);
+            this.groupBoxRegistroTernero.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxRegistroTernero.Size = new System.Drawing.Size(460, 304);
             this.groupBoxRegistroTernero.TabIndex = 19;
             this.groupBoxRegistroTernero.TabStop = false;
             // 
             // textBoxPeso
             // 
-            this.textBoxPeso.Location = new System.Drawing.Point(139, 125);
+            this.textBoxPeso.Location = new System.Drawing.Point(185, 154);
+            this.textBoxPeso.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxPeso.Name = "textBoxPeso";
-            this.textBoxPeso.Size = new System.Drawing.Size(200, 20);
+            this.textBoxPeso.Size = new System.Drawing.Size(265, 22);
             this.textBoxPeso.TabIndex = 26;
             // 
             // textBoxNumeroTrazableTernero
             // 
-            this.textBoxNumeroTrazableTernero.Location = new System.Drawing.Point(139, 18);
+            this.textBoxNumeroTrazableTernero.Location = new System.Drawing.Point(185, 22);
+            this.textBoxNumeroTrazableTernero.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxNumeroTrazableTernero.Name = "textBoxNumeroTrazableTernero";
-            this.textBoxNumeroTrazableTernero.Size = new System.Drawing.Size(200, 20);
+            this.textBoxNumeroTrazableTernero.Size = new System.Drawing.Size(265, 22);
             this.textBoxNumeroTrazableTernero.TabIndex = 21;
             // 
             // labelPeso
             // 
             this.labelPeso.AutoSize = true;
-            this.labelPeso.Location = new System.Drawing.Point(9, 128);
+            this.labelPeso.Location = new System.Drawing.Point(12, 158);
+            this.labelPeso.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPeso.Name = "labelPeso";
-            this.labelPeso.Size = new System.Drawing.Size(31, 13);
+            this.labelPeso.Size = new System.Drawing.Size(40, 17);
             this.labelPeso.TabIndex = 25;
             this.labelPeso.Text = "Peso";
             // 
             // labelNumeroTrazableTernero
             // 
             this.labelNumeroTrazableTernero.AutoSize = true;
-            this.labelNumeroTrazableTernero.Location = new System.Drawing.Point(9, 21);
+            this.labelNumeroTrazableTernero.Location = new System.Drawing.Point(12, 26);
+            this.labelNumeroTrazableTernero.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelNumeroTrazableTernero.Name = "labelNumeroTrazableTernero";
-            this.labelNumeroTrazableTernero.Size = new System.Drawing.Size(88, 13);
+            this.labelNumeroTrazableTernero.Size = new System.Drawing.Size(118, 17);
             this.labelNumeroTrazableTernero.TabIndex = 20;
             this.labelNumeroTrazableTernero.Text = "Número trazable*";
             // 
@@ -277,69 +300,77 @@
             // 
             this.comboBoxRaza.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxRaza.FormattingEnabled = true;
-            this.comboBoxRaza.Location = new System.Drawing.Point(139, 88);
+            this.comboBoxRaza.Location = new System.Drawing.Point(185, 108);
+            this.comboBoxRaza.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxRaza.Name = "comboBoxRaza";
-            this.comboBoxRaza.Size = new System.Drawing.Size(200, 21);
+            this.comboBoxRaza.Size = new System.Drawing.Size(265, 24);
             this.comboBoxRaza.TabIndex = 24;
             // 
             // labelRaza
             // 
             this.labelRaza.AutoSize = true;
-            this.labelRaza.Location = new System.Drawing.Point(9, 91);
+            this.labelRaza.Location = new System.Drawing.Point(12, 112);
+            this.labelRaza.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelRaza.Name = "labelRaza";
-            this.labelRaza.Size = new System.Drawing.Size(32, 13);
+            this.labelRaza.Size = new System.Drawing.Size(41, 17);
             this.labelRaza.TabIndex = 23;
             this.labelRaza.Text = "Raza";
             // 
             // textBoxCaracteristicasTernero
             // 
-            this.textBoxCaracteristicasTernero.Location = new System.Drawing.Point(103, 191);
-            this.textBoxCaracteristicasTernero.MinimumSize = new System.Drawing.Size(236, 50);
+            this.textBoxCaracteristicasTernero.Location = new System.Drawing.Point(137, 235);
+            this.textBoxCaracteristicasTernero.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxCaracteristicasTernero.MinimumSize = new System.Drawing.Size(313, 61);
             this.textBoxCaracteristicasTernero.Multiline = true;
             this.textBoxCaracteristicasTernero.Name = "textBoxCaracteristicasTernero";
-            this.textBoxCaracteristicasTernero.Size = new System.Drawing.Size(236, 50);
+            this.textBoxCaracteristicasTernero.Size = new System.Drawing.Size(313, 61);
             this.textBoxCaracteristicasTernero.TabIndex = 15;
             // 
             // textBoxNombre
             // 
-            this.textBoxNombre.Location = new System.Drawing.Point(139, 55);
+            this.textBoxNombre.Location = new System.Drawing.Point(185, 68);
+            this.textBoxNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxNombre.Name = "textBoxNombre";
-            this.textBoxNombre.Size = new System.Drawing.Size(200, 20);
+            this.textBoxNombre.Size = new System.Drawing.Size(265, 22);
             this.textBoxNombre.TabIndex = 22;
             // 
             // labelNombre
             // 
             this.labelNombre.AutoSize = true;
-            this.labelNombre.Location = new System.Drawing.Point(9, 58);
+            this.labelNombre.Location = new System.Drawing.Point(12, 71);
+            this.labelNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelNombre.Name = "labelNombre";
-            this.labelNombre.Size = new System.Drawing.Size(44, 13);
+            this.labelNombre.Size = new System.Drawing.Size(58, 17);
             this.labelNombre.TabIndex = 21;
             this.labelNombre.Text = "Nombre";
             // 
             // labelCaracteristicasTernero
             // 
             this.labelCaracteristicasTernero.AutoSize = true;
-            this.labelCaracteristicasTernero.Location = new System.Drawing.Point(9, 194);
+            this.labelCaracteristicasTernero.Location = new System.Drawing.Point(12, 239);
+            this.labelCaracteristicasTernero.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelCaracteristicasTernero.Name = "labelCaracteristicasTernero";
-            this.labelCaracteristicasTernero.Size = new System.Drawing.Size(80, 13);
+            this.labelCaracteristicasTernero.Size = new System.Drawing.Size(106, 17);
             this.labelCaracteristicasTernero.TabIndex = 14;
             this.labelCaracteristicasTernero.Text = "Caracteristicas*";
             // 
             // labelRegistrarTernero
             // 
             this.labelRegistrarTernero.AutoSize = true;
-            this.labelRegistrarTernero.Location = new System.Drawing.Point(449, 37);
+            this.labelRegistrarTernero.Location = new System.Drawing.Point(599, 46);
+            this.labelRegistrarTernero.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelRegistrarTernero.Name = "labelRegistrarTernero";
-            this.labelRegistrarTernero.Size = new System.Drawing.Size(97, 13);
+            this.labelRegistrarTernero.Size = new System.Drawing.Size(132, 17);
             this.labelRegistrarTernero.TabIndex = 19;
             this.labelRegistrarTernero.Text = "¿Registrar ternero?";
             // 
             // radioButtonSiRegistroTernero
             // 
             this.radioButtonSiRegistroTernero.AutoSize = true;
-            this.radioButtonSiRegistroTernero.Location = new System.Drawing.Point(590, 35);
+            this.radioButtonSiRegistroTernero.Location = new System.Drawing.Point(787, 43);
+            this.radioButtonSiRegistroTernero.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioButtonSiRegistroTernero.Name = "radioButtonSiRegistroTernero";
-            this.radioButtonSiRegistroTernero.Size = new System.Drawing.Size(36, 17);
+            this.radioButtonSiRegistroTernero.Size = new System.Drawing.Size(41, 21);
             this.radioButtonSiRegistroTernero.TabIndex = 20;
             this.radioButtonSiRegistroTernero.TabStop = true;
             this.radioButtonSiRegistroTernero.Text = "Sí";
@@ -349,9 +380,10 @@
             // radioButtonNoRegistroTernero
             // 
             this.radioButtonNoRegistroTernero.AutoSize = true;
-            this.radioButtonNoRegistroTernero.Location = new System.Drawing.Point(632, 35);
+            this.radioButtonNoRegistroTernero.Location = new System.Drawing.Point(843, 43);
+            this.radioButtonNoRegistroTernero.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioButtonNoRegistroTernero.Name = "radioButtonNoRegistroTernero";
-            this.radioButtonNoRegistroTernero.Size = new System.Drawing.Size(39, 17);
+            this.radioButtonNoRegistroTernero.Size = new System.Drawing.Size(47, 21);
             this.radioButtonNoRegistroTernero.TabIndex = 21;
             this.radioButtonNoRegistroTernero.TabStop = true;
             this.radioButtonNoRegistroTernero.Text = "No";
@@ -360,10 +392,10 @@
             // 
             // FormParto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.groupBoxRegistroTernero);
             this.Controls.Add(this.botonsRegistrar);
             this.Controls.Add(this.groupBoxAgregarVaca);
@@ -372,6 +404,7 @@
             this.Controls.Add(this.radioButtonNoRegistroTernero);
             this.Controls.Add(this.radioButtonSiRegistroTernero);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "FormParto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Parto";

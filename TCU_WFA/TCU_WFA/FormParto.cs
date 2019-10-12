@@ -266,5 +266,10 @@ namespace TCU_WFA
                 groupBoxRegistroTernero.Visible = false;
             }
         }
+
+        private void comboBoxIdPadre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
