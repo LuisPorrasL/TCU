@@ -116,6 +116,7 @@
             this.botonVolver.TabIndex = 0;
             this.botonVolver.Text = "Volver";
             this.botonVolver.UseVisualStyleBackColor = true;
+            this.botonVolver.Click += new System.EventHandler(this.botonVolver_Click);
             // 
             // labelNumeroTrazableToro
             // 
@@ -293,20 +294,26 @@
             // numericUpDownCircEscrotal
             // 
             this.numericUpDownCircEscrotal.Location = new System.Drawing.Point(166, 452);
+            this.numericUpDownCircEscrotal.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
             this.numericUpDownCircEscrotal.Name = "numericUpDownCircEscrotal";
             this.numericUpDownCircEscrotal.Size = new System.Drawing.Size(57, 22);
             this.numericUpDownCircEscrotal.TabIndex = 28;
-            this.numericUpDownCircEscrotal.Maximum = 999;
-            this.numericUpDownCircEscrotal.Minimum = 0;
             // 
             // numericUpDownDS
             // 
             this.numericUpDownDS.Location = new System.Drawing.Point(166, 419);
+            this.numericUpDownDS.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
             this.numericUpDownDS.Name = "numericUpDownDS";
             this.numericUpDownDS.Size = new System.Drawing.Size(57, 22);
             this.numericUpDownDS.TabIndex = 27;
-            this.numericUpDownDS.Maximum = 999;
-            this.numericUpDownDS.Minimum = 0;
             // 
             // labelDescansoSexual
             // 
@@ -403,22 +410,26 @@
             // numericUpDownCelulasE
             // 
             this.numericUpDownCelulasE.Location = new System.Drawing.Point(206, 455);
+            this.numericUpDownCelulasE.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
             this.numericUpDownCelulasE.Name = "numericUpDownCelulasE";
             this.numericUpDownCelulasE.Size = new System.Drawing.Size(57, 22);
             this.numericUpDownCelulasE.TabIndex = 43;
-            this.numericUpDownCelulasE.Maximum = 999;
-            this.numericUpDownCelulasE.Minimum = 0;
-
             // 
             // numericUpDownLeucocitos
             // 
             this.numericUpDownLeucocitos.Location = new System.Drawing.Point(206, 419);
+            this.numericUpDownLeucocitos.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
             this.numericUpDownLeucocitos.Name = "numericUpDownLeucocitos";
             this.numericUpDownLeucocitos.Size = new System.Drawing.Size(57, 22);
             this.numericUpDownLeucocitos.TabIndex = 42;
-            this.numericUpDownLeucocitos.Maximum = 999;
-            this.numericUpDownLeucocitos.Minimum = 0;
-
             // 
             // numericUpDownTotalAnormalidades
             // 
@@ -426,8 +437,6 @@
             this.numericUpDownTotalAnormalidades.Name = "numericUpDownTotalAnormalidades";
             this.numericUpDownTotalAnormalidades.Size = new System.Drawing.Size(57, 22);
             this.numericUpDownTotalAnormalidades.TabIndex = 41;
-            this.numericUpDownTotalAnormalidades.Maximum = 100;
-            this.numericUpDownTotalAnormalidades.Minimum = 0;
             // 
             // numericUpDownMorfologiaN
             // 
@@ -435,8 +444,6 @@
             this.numericUpDownMorfologiaN.Name = "numericUpDownMorfologiaN";
             this.numericUpDownMorfologiaN.Size = new System.Drawing.Size(57, 22);
             this.numericUpDownMorfologiaN.TabIndex = 40;
-            this.numericUpDownMorfologiaN.Maximum = 100;
-            this.numericUpDownMorfologiaN.Minimum = 0;
             // 
             // numericUpDownMotilidadP
             // 
@@ -444,8 +451,6 @@
             this.numericUpDownMotilidadP.Name = "numericUpDownMotilidadP";
             this.numericUpDownMotilidadP.Size = new System.Drawing.Size(44, 22);
             this.numericUpDownMotilidadP.TabIndex = 39;
-            this.numericUpDownMotilidadP.Maximum = 100;
-            this.numericUpDownMotilidadP.Minimum = 0;
             // 
             // numericUpDownMotilidadM
             // 
@@ -453,26 +458,30 @@
             this.numericUpDownMotilidadM.Name = "numericUpDownMotilidadM";
             this.numericUpDownMotilidadM.Size = new System.Drawing.Size(57, 22);
             this.numericUpDownMotilidadM.TabIndex = 38;
-            this.numericUpDownMotilidadM.Maximum = 100;
-            this.numericUpDownMotilidadM.Minimum = 0;
             // 
             // numericUpDownConcentracion
             // 
             this.numericUpDownConcentracion.Location = new System.Drawing.Point(206, 76);
+            this.numericUpDownConcentracion.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
             this.numericUpDownConcentracion.Name = "numericUpDownConcentracion";
             this.numericUpDownConcentracion.Size = new System.Drawing.Size(57, 22);
             this.numericUpDownConcentracion.TabIndex = 37;
-            this.numericUpDownConcentracion.Maximum = 999;
-            this.numericUpDownConcentracion.Minimum = 0;
             // 
             // numericUpDownVolumenEya
             // 
             this.numericUpDownVolumenEya.Location = new System.Drawing.Point(206, 37);
+            this.numericUpDownVolumenEya.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
             this.numericUpDownVolumenEya.Name = "numericUpDownVolumenEya";
             this.numericUpDownVolumenEya.Size = new System.Drawing.Size(57, 22);
             this.numericUpDownVolumenEya.TabIndex = 29;
-            this.numericUpDownVolumenEya.Maximum = 999;
-            this.numericUpDownVolumenEya.Minimum = 0;
             // 
             // textBoxAnomaliaMasF
             // 
