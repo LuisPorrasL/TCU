@@ -58,6 +58,13 @@
     <Compile Include="DefaultForm.Designer.cs">
       <DependentUpon>DefaultForm.cs</DependentUpon>
     </Compile>
+
+    <Compile Include="FormValoresReferenciaExamen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormValoresReferenciaExamen.Designer.cs">
+      <DependentUpon>FormValoresReferenciaExamen.cs</DependentUpon>
+    </Compile>
     <Compile Include="ExcelGenerator.cs" />
     <Compile Include="FormAgregarToro.cs">
       <SubType>Form</SubType>
@@ -179,6 +186,7 @@
     <Compile Include="FormSincronizacion.Designer.cs">
       <DependentUpon>FormSincronizacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\ExamenModel.cs" />
     <Compile Include="Models\ToroModel.cs" />
     <Compile Include="Models\DatosGeneralesResumen.cs" />
     <Compile Include="Models\VacaModel.cs" />
@@ -262,6 +270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSincronizacion.resx">
       <DependentUpon>FormSincronizacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormValoresReferenciaExamen.resx">
+      <DependentUpon>FormValoresReferenciaExamen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VentanaPrincipal.resx">
       <DependentUpon>VentanaPrincipal.cs</DependentUpon>

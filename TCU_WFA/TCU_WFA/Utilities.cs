@@ -50,6 +50,7 @@ namespace TCU_WFA
             {
                 using (var cmd = new SqlCommand(query, cn))
                 {
+                
                     cn.Open();
 
                     try
