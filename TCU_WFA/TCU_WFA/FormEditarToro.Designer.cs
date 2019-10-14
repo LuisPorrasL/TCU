@@ -1,6 +1,6 @@
 ﻿namespace TCU_WFA
 {
-    partial class FormAgregarToro : DefaultForm
+    partial class FormEditarToro : DefaultForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.botonVolver = new System.Windows.Forms.Button();
+            this.botonEditar = new System.Windows.Forms.Button();
             this.groupBoxAgregarVaca = new System.Windows.Forms.GroupBox();
             this.comboBoxRaza = new System.Windows.Forms.ComboBox();
             this.textBoxCaracteristicas = new System.Windows.Forms.TextBox();
@@ -38,7 +39,6 @@
             this.labelNombre = new System.Windows.Forms.Label();
             this.textBoxNumeroTrazableToro = new System.Windows.Forms.TextBox();
             this.labelNumeroTrazableToro = new System.Windows.Forms.Label();
-            this.botonAgregar = new System.Windows.Forms.Button();
             this.groupBoxAgregarVaca.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,10 +47,20 @@
             this.botonVolver.Location = new System.Drawing.Point(713, 415);
             this.botonVolver.Name = "botonVolver";
             this.botonVolver.Size = new System.Drawing.Size(75, 23);
-            this.botonVolver.TabIndex = 2;
+            this.botonVolver.TabIndex = 3;
             this.botonVolver.Text = "Volver";
             this.botonVolver.UseVisualStyleBackColor = true;
             this.botonVolver.Click += new System.EventHandler(this.botonVolver_Click);
+            // 
+            // botonEditar
+            // 
+            this.botonEditar.Location = new System.Drawing.Point(632, 415);
+            this.botonEditar.Name = "botonEditar";
+            this.botonEditar.Size = new System.Drawing.Size(75, 23);
+            this.botonEditar.TabIndex = 5;
+            this.botonEditar.Text = "Editar";
+            this.botonEditar.UseVisualStyleBackColor = true;
+            this.botonEditar.Click += new System.EventHandler(this.botonEditar_Click);
             // 
             // groupBoxAgregarVaca
             // 
@@ -65,7 +75,7 @@
             this.groupBoxAgregarVaca.Location = new System.Drawing.Point(228, 12);
             this.groupBoxAgregarVaca.Name = "groupBoxAgregarVaca";
             this.groupBoxAgregarVaca.Size = new System.Drawing.Size(345, 205);
-            this.groupBoxAgregarVaca.TabIndex = 3;
+            this.groupBoxAgregarVaca.TabIndex = 6;
             this.groupBoxAgregarVaca.TabStop = false;
             // 
             // comboBoxRaza
@@ -122,6 +132,7 @@
             // 
             // textBoxNumeroTrazableToro
             // 
+            this.textBoxNumeroTrazableToro.Enabled = false;
             this.textBoxNumeroTrazableToro.Location = new System.Drawing.Point(136, 13);
             this.textBoxNumeroTrazableToro.Name = "textBoxNumeroTrazableToro";
             this.textBoxNumeroTrazableToro.Size = new System.Drawing.Size(200, 20);
@@ -136,30 +147,20 @@
             this.labelNumeroTrazableToro.TabIndex = 0;
             this.labelNumeroTrazableToro.Text = "Número trazable*";
             // 
-            // botonAgregar
-            // 
-            this.botonAgregar.Location = new System.Drawing.Point(632, 415);
-            this.botonAgregar.Name = "botonAgregar";
-            this.botonAgregar.Size = new System.Drawing.Size(75, 23);
-            this.botonAgregar.TabIndex = 4;
-            this.botonAgregar.Text = "Agregar";
-            this.botonAgregar.UseVisualStyleBackColor = true;
-            this.botonAgregar.Click += new System.EventHandler(this.botonAgregar_Click);
-            // 
-            // FormAgregarToro
+            // FormEditarToro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.botonAgregar);
             this.Controls.Add(this.groupBoxAgregarVaca);
+            this.Controls.Add(this.botonEditar);
             this.Controls.Add(this.botonVolver);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "FormAgregarToro";
+            this.Name = "FormEditarToro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Agregar toro";
-            this.Load += new System.EventHandler(this.FormAgregarToro_Load);
+            this.Text = "FormEditarToro";
+            this.Load += new System.EventHandler(this.FormEditarToro_Load);
             this.groupBoxAgregarVaca.ResumeLayout(false);
             this.groupBoxAgregarVaca.PerformLayout();
             this.ResumeLayout(false);
@@ -169,7 +170,9 @@
         #endregion
 
         private System.Windows.Forms.Button botonVolver;
+        private System.Windows.Forms.Button botonEditar;
         private System.Windows.Forms.GroupBox groupBoxAgregarVaca;
+        private System.Windows.Forms.ComboBox comboBoxRaza;
         private System.Windows.Forms.TextBox textBoxCaracteristicas;
         private System.Windows.Forms.Label labelCaracteristicas;
         private System.Windows.Forms.Label labelRaza;
@@ -177,7 +180,5 @@
         private System.Windows.Forms.Label labelNombre;
         private System.Windows.Forms.TextBox textBoxNumeroTrazableToro;
         private System.Windows.Forms.Label labelNumeroTrazableToro;
-        private System.Windows.Forms.ComboBox comboBoxRaza;
-        private System.Windows.Forms.Button botonAgregar;
     }
 }

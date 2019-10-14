@@ -1,25 +1,30 @@
 ﻿// Hecho por Luis Porras.
 using System;
 using System.Windows.Forms;
-using TCU_WFA.Models;
 using TCU_WFA.Repository;
 
 namespace TCU_WFA
 {
-    public partial class FormAgregarToro : DefaultForm
+    public partial class FormEliminarToro : DefaultForm
     {
-
         // Constantes
-        private const string QUERY_LLENAR_COMBO_BOX_RAZA = "SELECT * FROM [dbo].[RAZA];";
-        private const string QUERY_OBTENER_ID_RAZA = "SELECT r.PK_ID_RAZA FROM [dbo].[RAZA] r WHERE r.RAZA = @raza";
-        private const string RAZA_PARAM = "@raza";
+        private const string QUERY_LLENAR_COMBO_BOX_NUMERO_TRAZABLE_TORO = "SELECT t.PK_NUMERO_TRAZABLE, t.PK_NUMERO_TRAZABLE FROM [dbo].[TORO] t WHERE t.ACTIVA = 1;";
+
+        //Titulos
+        public const string TITULO_AVISO_ELIMINAR_TORO = "Aviso eliminar toro";
+
+        //Campos
+        private int numeroTrazableToro;
+        private string causaDeBaja;
 
         /// <summary>
         /// Constructor.
         /// </summary>
-        public FormAgregarToro()
+        /// <param name="numeroTrazableToro"></param>
+        public FormEliminarToro(int numeroTrazableToro)
         {
             InitializeComponent();
+            this.numeroTrazableToro = numeroTrazableToro;
         }
 
         /// <summary>
@@ -27,9 +32,19 @@ namespace TCU_WFA
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void FormAgregarToro_Load(object sender, EventArgs e)
+        private void FormEliminarToro_Load(object sender, EventArgs e)
         {
             LlenarComboBoxList();
+            LlenarInformcionVaca();
+        }
+
+        /// <summary>
+        /// Asigna a los componentes del form la información del toro seleccionado.
+        /// </summary>
+        private void LlenarInformcionVaca()
+        {
+            comboBoxNumeroTrazableToro.SelectedIndex = comboBoxNumeroTrazableToro.FindString(this.numeroTrazableToro.ToString());
+            textBoxCausaDeBaja.Text = "";
         }
 
         /// <summary>
@@ -37,7 +52,7 @@ namespace TCU_WFA
         /// </summary>
         private void LlenarComboBoxList()
         {
-            Utilities.LlenarComboBoxList(QUERY_LLENAR_COMBO_BOX_RAZA, comboBoxRaza);
+            Utilities.LlenarComboBoxList(QUERY_LLENAR_COMBO_BOX_NUMERO_TRAZABLE_TORO, comboBoxNumeroTrazableToro);
         }
 
         /// <summary>
@@ -45,19 +60,19 @@ namespace TCU_WFA
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void botonAgregar_Click(object sender, EventArgs e)
+        private void botonDarDeBaja_Click(object sender, EventArgs e)
         {
             bool entradaUsuarioCorrecta = RevisarEntradaUsuario();
             if (entradaUsuarioCorrecta)
             {
-                ToroModel datosNuevoToro = ObtenerDatosEntradaUsuario();
-                bool resultado = AgregarNuevoToro(datosNuevoToro);
+                ObtenerDatosEntradaUsuario();
+                bool resultado = EliminarToro();
                 if (resultado)
                 {
                     Utilities.MostrarMessageBox(Utilities.MENSAJE_EXITO, Utilities.TITULO_EXITO, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LimpiarEntradaUsuario();
                     FormRegistroToros formRegistroToros = (FormRegistroToros)Tag;
                     formRegistroToros.LlenarDataGridViewToros();
+                    LimpiarEntradaUsuario();
                 }
                 else Utilities.MostrarMessageBox(Utilities.MENSAJE_ERROR, Utilities.TITULO_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -72,43 +87,41 @@ namespace TCU_WFA
         /// </summary>
         private void LimpiarEntradaUsuario()
         {
-            textBoxNumeroTrazableToro.Clear();
-            textBoxNombre.Clear();
-            textBoxCaracteristicas.Clear();
+            this.numeroTrazableToro = -1;
+            textBoxCausaDeBaja.Text = "";
             LlenarComboBoxList();
         }
 
         /// <summary>
-        /// Intenta insertar el nuevo toro en la base de datos.
+        /// Intenta eliminar el toro seleccionado de la base de datos.
         /// </summary>
-        /// <param name="datosNuevoToro">De tipo ToroModel tiene todos los datos del toro que se desea insertar</param>
         /// <returns>Un booleano. True sí la operación fue correcta, false en caso contrario.</returns>
-        private bool AgregarNuevoToro(ToroModel datosNuevoToro)
+        private bool EliminarToro()
         {
-            try
+            DialogResult resultadoDialogo = Utilities.MostrarMessageBox("¿Seguro que desea eliminar el toro " + this.numeroTrazableToro + "?. Esta operación no se puede revertir.", TITULO_AVISO_ELIMINAR_TORO, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (resultadoDialogo == DialogResult.Yes)
             {
-                int resultado = ProcedimientosAlmacenados.ProcInsertarToro(datosNuevoToro);
-                if (resultado == Utilities.RESULTADO_ERROR) return false;
-                return true;
+                try
+                {
+                    int resultado = ProcedimientosAlmacenados.ProcEliminarToro(this.numeroTrazableToro, this.causaDeBaja);
+                    if (resultado == Utilities.RESULTADO_ERROR) return false;
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
             }
-            catch
-            {
-                return false;
-            }
+            else return false;
         }
 
         /// <summary>
         /// Obtiene los datos digitados o seleccionados por el usuario.
         /// </summary>
-        /// <returns>Un ToroModel con la información ingresada por el usuario.</returns>
-        private ToroModel ObtenerDatosEntradaUsuario()
+        private void ObtenerDatosEntradaUsuario()
         {
-            ToroModel resultado = new ToroModel();
-            resultado.pkNumeroTrazable = Int32.Parse(textBoxNumeroTrazableToro.Text);
-            resultado.nombre = textBoxNombre.Text;
-            resultado.caracteriscas = textBoxCaracteristicas.Text;
-            resultado.raza = Utilities.ObtenerIdTabla(QUERY_OBTENER_ID_RAZA, RAZA_PARAM, comboBoxRaza.Text);
-            return resultado;
+            this.numeroTrazableToro = Int32.Parse(comboBoxNumeroTrazableToro.Text);
+            this.causaDeBaja = textBoxCausaDeBaja.Text;
         }
 
         /// <summary>
@@ -119,8 +132,8 @@ namespace TCU_WFA
         {
             try
             {
-                if (textBoxNumeroTrazableToro.Text == "" || Int32.Parse(textBoxNumeroTrazableToro.Text) <= 0) return false;
-                if (textBoxCaracteristicas.Text == "") return false;
+                if (comboBoxNumeroTrazableToro.Text == "" || Int32.Parse(comboBoxNumeroTrazableToro.Text) <= 0) return false;
+                if (textBoxCausaDeBaja.Text == "") return false;
                 return true;
             }
             catch

@@ -1,5 +1,6 @@
 ﻿// Hecho por Luis Porras.
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -113,5 +114,32 @@ namespace TCU_WFA
             dataGridView.ReadOnly = true;
             dataGridView.DataSource = ds.Tables[0];
         }
+
+        /// <summary>
+        /// Devuelve el resultado de realizar una consulta que solo retorna un Count, de lo contrario retorna el valor de la primera fila y columna.
+        /// </summary>
+        /// <param name="query">Consulta que retorna un Count()</param>
+        /// <returns>Un entero con el resultado, en caso de error retorna el código de error</returns>
+        public static int EjecutarConsultaCount(string query)
+        {
+            int cantidad = 0;
+            using (SqlConnection conexion = new SqlConnection(CONNECTION_STRING))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conexion))
+                {
+                    try
+                    {
+                        conexion.Open();
+                        cantidad  = (Int32)cmd.ExecuteScalar();
+                    }
+                    catch
+                    {
+                        cantidad = RESULTADO_ERROR;
+                    }
+                }
+            }
+            return cantidad;
+        }
+        
     }
 }

@@ -6,20 +6,24 @@ using TCU_WFA.Repository;
 
 namespace TCU_WFA
 {
-    public partial class FormAgregarToro : DefaultForm
+    public partial class FormEditarToro : DefaultForm
     {
-
         // Constantes
         private const string QUERY_LLENAR_COMBO_BOX_RAZA = "SELECT * FROM [dbo].[RAZA];";
         private const string QUERY_OBTENER_ID_RAZA = "SELECT r.PK_ID_RAZA FROM [dbo].[RAZA] r WHERE r.RAZA = @raza";
         private const string RAZA_PARAM = "@raza";
 
+        // Campos
+        private ToroModel informacionToroSeleccionado;
+
         /// <summary>
         /// Constructor.
         /// </summary>
-        public FormAgregarToro()
+        /// <param name="informacionToroSeleccionado">ToroModel con la información del toro a mostrar</param>
+        public FormEditarToro(ToroModel informacionToroSeleccionado = null)
         {
             InitializeComponent();
+            this.informacionToroSeleccionado = informacionToroSeleccionado;
         }
 
         /// <summary>
@@ -27,9 +31,21 @@ namespace TCU_WFA
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void FormAgregarToro_Load(object sender, EventArgs e)
+        private void FormEditarToro_Load(object sender, EventArgs e)
         {
             LlenarComboBoxList();
+            LlenarInformcionVaca();
+        }
+
+        /// <summary>
+        /// Asigna a los componentes del form la información del toro seleccionado.
+        /// </summary>
+        private void LlenarInformcionVaca()
+        {
+            textBoxNumeroTrazableToro.Text = this.informacionToroSeleccionado.pkNumeroTrazable.ToString();
+            textBoxNombre.Text = this.informacionToroSeleccionado.nombre;
+            textBoxCaracteristicas.Text = this.informacionToroSeleccionado.caracteriscas;
+            comboBoxRaza.SelectedIndex = comboBoxRaza.FindString(this.informacionToroSeleccionado.razaStr);
         }
 
         /// <summary>
@@ -45,19 +61,19 @@ namespace TCU_WFA
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void botonAgregar_Click(object sender, EventArgs e)
+        private void botonEditar_Click(object sender, EventArgs e)
         {
             bool entradaUsuarioCorrecta = RevisarEntradaUsuario();
             if (entradaUsuarioCorrecta)
             {
                 ToroModel datosNuevoToro = ObtenerDatosEntradaUsuario();
-                bool resultado = AgregarNuevoToro(datosNuevoToro);
+                bool resultado = EditarToro(datosNuevoToro);
                 if (resultado)
                 {
                     Utilities.MostrarMessageBox(Utilities.MENSAJE_EXITO, Utilities.TITULO_EXITO, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LimpiarEntradaUsuario();
                     FormRegistroToros formRegistroToros = (FormRegistroToros)Tag;
                     formRegistroToros.LlenarDataGridViewToros();
+                    this.informacionToroSeleccionado = datosNuevoToro;
                 }
                 else Utilities.MostrarMessageBox(Utilities.MENSAJE_ERROR, Utilities.TITULO_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -68,26 +84,15 @@ namespace TCU_WFA
         }
 
         /// <summary>
-        /// Limpia la entrada realizada por el usuario.
+        /// Intenta editar la información del toro en la base de datos.
         /// </summary>
-        private void LimpiarEntradaUsuario()
-        {
-            textBoxNumeroTrazableToro.Clear();
-            textBoxNombre.Clear();
-            textBoxCaracteristicas.Clear();
-            LlenarComboBoxList();
-        }
-
-        /// <summary>
-        /// Intenta insertar el nuevo toro en la base de datos.
-        /// </summary>
-        /// <param name="datosNuevoToro">De tipo ToroModel tiene todos los datos del toro que se desea insertar</param>
+        /// <param name="datosNuevoToro"></param>
         /// <returns>Un booleano. True sí la operación fue correcta, false en caso contrario.</returns>
-        private bool AgregarNuevoToro(ToroModel datosNuevoToro)
+        private bool EditarToro(ToroModel datosNuevoToro)
         {
             try
             {
-                int resultado = ProcedimientosAlmacenados.ProcInsertarToro(datosNuevoToro);
+                int resultado = ProcedimientosAlmacenados.ProcEditarToro(datosNuevoToro);
                 if (resultado == Utilities.RESULTADO_ERROR) return false;
                 return true;
             }
