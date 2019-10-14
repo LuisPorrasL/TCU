@@ -65,12 +65,13 @@
             // botonVolver
             // 
             this.botonVolver.Location = new System.Drawing.Point(951, 511);
-            this.botonVolver.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonVolver.Margin = new System.Windows.Forms.Padding(4);
             this.botonVolver.Name = "botonVolver";
             this.botonVolver.Size = new System.Drawing.Size(100, 28);
             this.botonVolver.TabIndex = 0;
             this.botonVolver.Text = "Volver";
             this.botonVolver.UseVisualStyleBackColor = true;
+            this.botonVolver.Click += new System.EventHandler(this.botonVolver_Click);
             // 
             // groupBoxAgregarVaca
             // 
@@ -88,9 +89,9 @@
             this.groupBoxAgregarVaca.Controls.Add(this.labelFechaParto);
             this.groupBoxAgregarVaca.Controls.Add(this.labelSexoCria);
             this.groupBoxAgregarVaca.Location = new System.Drawing.Point(16, 15);
-            this.groupBoxAgregarVaca.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxAgregarVaca.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxAgregarVaca.Name = "groupBoxAgregarVaca";
-            this.groupBoxAgregarVaca.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxAgregarVaca.Padding = new System.Windows.Forms.Padding(4);
             this.groupBoxAgregarVaca.Size = new System.Drawing.Size(460, 359);
             this.groupBoxAgregarVaca.TabIndex = 3;
             this.groupBoxAgregarVaca.TabStop = false;
@@ -99,7 +100,7 @@
             // 
             this.radioButtonNo.AutoSize = true;
             this.radioButtonNo.Location = new System.Drawing.Point(233, 235);
-            this.radioButtonNo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButtonNo.Margin = new System.Windows.Forms.Padding(4);
             this.radioButtonNo.Name = "radioButtonNo";
             this.radioButtonNo.Size = new System.Drawing.Size(47, 21);
             this.radioButtonNo.TabIndex = 18;
@@ -112,7 +113,7 @@
             // 
             this.radioButtonSi.AutoSize = true;
             this.radioButtonSi.Location = new System.Drawing.Point(177, 235);
-            this.radioButtonSi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButtonSi.Margin = new System.Windows.Forms.Padding(4);
             this.radioButtonSi.Name = "radioButtonSi";
             this.radioButtonSi.Size = new System.Drawing.Size(41, 21);
             this.radioButtonSi.TabIndex = 17;
@@ -126,7 +127,7 @@
             this.comboBoxSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSexo.FormattingEnabled = true;
             this.comboBoxSexo.Location = new System.Drawing.Point(181, 76);
-            this.comboBoxSexo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxSexo.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxSexo.Name = "comboBoxSexo";
             this.comboBoxSexo.Size = new System.Drawing.Size(265, 24);
             this.comboBoxSexo.TabIndex = 16;
@@ -134,7 +135,7 @@
             // textBoxCausaAborto
             // 
             this.textBoxCausaAborto.Location = new System.Drawing.Point(133, 284);
-            this.textBoxCausaAborto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxCausaAborto.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxCausaAborto.MinimumSize = new System.Drawing.Size(313, 61);
             this.textBoxCausaAborto.Multiline = true;
             this.textBoxCausaAborto.Name = "textBoxCausaAborto";
@@ -165,7 +166,7 @@
             // 
             this.comboBoxIdPadre.FormattingEnabled = true;
             this.comboBoxIdPadre.Location = new System.Drawing.Point(181, 175);
-            this.comboBoxIdPadre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxIdPadre.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxIdPadre.Name = "comboBoxIdPadre";
             this.comboBoxIdPadre.Size = new System.Drawing.Size(265, 24);
             this.comboBoxIdPadre.TabIndex = 11;
@@ -186,7 +187,7 @@
             this.comboBoxIdMadre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxIdMadre.FormattingEnabled = true;
             this.comboBoxIdMadre.Location = new System.Drawing.Point(181, 122);
-            this.comboBoxIdMadre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxIdMadre.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxIdMadre.Name = "comboBoxIdMadre";
             this.comboBoxIdMadre.Size = new System.Drawing.Size(265, 24);
             this.comboBoxIdMadre.TabIndex = 9;
@@ -204,7 +205,7 @@
             // dateTimePickerFechaParto
             // 
             this.dateTimePickerFechaParto.Location = new System.Drawing.Point(181, 23);
-            this.dateTimePickerFechaParto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePickerFechaParto.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePickerFechaParto.Name = "dateTimePickerFechaParto";
             this.dateTimePickerFechaParto.Size = new System.Drawing.Size(265, 22);
             this.dateTimePickerFechaParto.TabIndex = 7;
@@ -232,7 +233,7 @@
             // botonsRegistrar
             // 
             this.botonsRegistrar.Location = new System.Drawing.Point(843, 511);
-            this.botonsRegistrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonsRegistrar.Margin = new System.Windows.Forms.Padding(4);
             this.botonsRegistrar.Name = "botonsRegistrar";
             this.botonsRegistrar.Size = new System.Drawing.Size(100, 28);
             this.botonsRegistrar.TabIndex = 4;
@@ -253,9 +254,9 @@
             this.groupBoxRegistroTernero.Controls.Add(this.labelNombre);
             this.groupBoxRegistroTernero.Controls.Add(this.labelCaracteristicasTernero);
             this.groupBoxRegistroTernero.Location = new System.Drawing.Point(591, 70);
-            this.groupBoxRegistroTernero.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxRegistroTernero.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxRegistroTernero.Name = "groupBoxRegistroTernero";
-            this.groupBoxRegistroTernero.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxRegistroTernero.Padding = new System.Windows.Forms.Padding(4);
             this.groupBoxRegistroTernero.Size = new System.Drawing.Size(460, 304);
             this.groupBoxRegistroTernero.TabIndex = 19;
             this.groupBoxRegistroTernero.TabStop = false;
@@ -263,7 +264,7 @@
             // textBoxPeso
             // 
             this.textBoxPeso.Location = new System.Drawing.Point(185, 154);
-            this.textBoxPeso.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxPeso.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPeso.Name = "textBoxPeso";
             this.textBoxPeso.Size = new System.Drawing.Size(265, 22);
             this.textBoxPeso.TabIndex = 26;
@@ -271,7 +272,7 @@
             // textBoxNumeroTrazableTernero
             // 
             this.textBoxNumeroTrazableTernero.Location = new System.Drawing.Point(185, 22);
-            this.textBoxNumeroTrazableTernero.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxNumeroTrazableTernero.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNumeroTrazableTernero.Name = "textBoxNumeroTrazableTernero";
             this.textBoxNumeroTrazableTernero.Size = new System.Drawing.Size(265, 22);
             this.textBoxNumeroTrazableTernero.TabIndex = 21;
@@ -301,7 +302,7 @@
             this.comboBoxRaza.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxRaza.FormattingEnabled = true;
             this.comboBoxRaza.Location = new System.Drawing.Point(185, 108);
-            this.comboBoxRaza.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxRaza.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxRaza.Name = "comboBoxRaza";
             this.comboBoxRaza.Size = new System.Drawing.Size(265, 24);
             this.comboBoxRaza.TabIndex = 24;
@@ -319,7 +320,7 @@
             // textBoxCaracteristicasTernero
             // 
             this.textBoxCaracteristicasTernero.Location = new System.Drawing.Point(137, 235);
-            this.textBoxCaracteristicasTernero.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxCaracteristicasTernero.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxCaracteristicasTernero.MinimumSize = new System.Drawing.Size(313, 61);
             this.textBoxCaracteristicasTernero.Multiline = true;
             this.textBoxCaracteristicasTernero.Name = "textBoxCaracteristicasTernero";
@@ -329,7 +330,7 @@
             // textBoxNombre
             // 
             this.textBoxNombre.Location = new System.Drawing.Point(185, 68);
-            this.textBoxNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxNombre.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNombre.Name = "textBoxNombre";
             this.textBoxNombre.Size = new System.Drawing.Size(265, 22);
             this.textBoxNombre.TabIndex = 22;
@@ -368,7 +369,7 @@
             // 
             this.radioButtonSiRegistroTernero.AutoSize = true;
             this.radioButtonSiRegistroTernero.Location = new System.Drawing.Point(787, 43);
-            this.radioButtonSiRegistroTernero.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButtonSiRegistroTernero.Margin = new System.Windows.Forms.Padding(4);
             this.radioButtonSiRegistroTernero.Name = "radioButtonSiRegistroTernero";
             this.radioButtonSiRegistroTernero.Size = new System.Drawing.Size(41, 21);
             this.radioButtonSiRegistroTernero.TabIndex = 20;
@@ -381,7 +382,7 @@
             // 
             this.radioButtonNoRegistroTernero.AutoSize = true;
             this.radioButtonNoRegistroTernero.Location = new System.Drawing.Point(843, 43);
-            this.radioButtonNoRegistroTernero.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButtonNoRegistroTernero.Margin = new System.Windows.Forms.Padding(4);
             this.radioButtonNoRegistroTernero.Name = "radioButtonNoRegistroTernero";
             this.radioButtonNoRegistroTernero.Size = new System.Drawing.Size(47, 21);
             this.radioButtonNoRegistroTernero.TabIndex = 21;
@@ -404,7 +405,7 @@
             this.Controls.Add(this.radioButtonNoRegistroTernero);
             this.Controls.Add(this.radioButtonSiRegistroTernero);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "FormParto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Parto";

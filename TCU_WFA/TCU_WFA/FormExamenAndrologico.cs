@@ -1,6 +1,5 @@
 ﻿
 //Hecho por Alberto Soto
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,102 +17,29 @@ namespace TCU_WFA
     public partial class FormExamenAndrologico : DefaultForm
     {
         private const string QUERY_LLENAR_COMBO_BOX_TORO = "SELECT t.PK_NUMERO_TRAZABLE, t.PK_NUMERO_TRAZABLE FROM [dbo].[TORO] t;";
-
-
-        //Constructor
+        
+        ///<summary>
+        ///Constructor del form.
+        ///</summary>
         public FormExamenAndrologico()
         {
             InitializeComponent();
-
             textBoxObservaciones.AutoSize = false;
             textBoxObservaciones.Size = new System.Drawing.Size(230, 50);
-
         
             Utilities.LlenarComboBoxList(QUERY_LLENAR_COMBO_BOX_TORO, comboBoxNumToro);
             comboBoxNumToro.Text = "";
         }
 
-        private void FormExamenAndrologico_Load(object sender, EventArgs e)
+        ///<summary>
+        ///Método que se llama al clickear el boton de agregar.
+        ///</summary>
+        ///<param name="e"></param>
+        ///<param name="sender"></param>
+        ///<returns> void </returns>
+        private void botonAgregar_click(object sender, EventArgs e)
         {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox4_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox7_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label19_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label20_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        //Método que se llama al tocar el boton de agregar
-        private void button2_Click(object sender, EventArgs e)
-        {
-            bool entradaUsuarioCorrecta = RevisarEntradaUsuario();
-            if (entradaUsuarioCorrecta)
-            {
+          
                 ExamenModel nuevoExamen = ObtenerDatosEntradaUsuario();
 
                 bool resultado = AgregarNuevoExamen(nuevoExamen);
@@ -123,14 +49,14 @@ namespace TCU_WFA
                     LimpiarEntradaUsuario();     
                 }
                 else Utilities.MostrarMessageBox(Utilities.MENSAJE_ERROR, Utilities.TITULO_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                Utilities.MostrarMessageBox(Utilities.MENSAJE_ERROR_ENTRADA_USUARIO, Utilities.TITULO_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+          
         }
 
-        //Agrega el examen mediante la el procedimiento almacenado
+        ///<summary>
+        ///Agrega el examen mediante el procedimiento almacenado.
+        ///</summary>
+        ///<param name="datosNuevoExamen"></param>
+        ///<returns> booleano dependiendo de si fue exitosa o no la insercion del examen. </returns>
         private bool AgregarNuevoExamen(ExamenModel datosNuevoExamen)
         {
             try
@@ -145,7 +71,10 @@ namespace TCU_WFA
             }
         }
 
-        //Extrae los valores ingresados por el usuario
+        ///<summary>
+        ///Extrae los valores ingresados por el usuario.
+        ///</summary>
+        ///<returns> objeto de tipo ExamenModel inicializado con toda la informacion que ingreso el usuario. </returns>
         private ExamenModel ObtenerDatosEntradaUsuario()
         {
             ExamenModel resultado = new ExamenModel();
@@ -320,33 +249,10 @@ namespace TCU_WFA
         }
 
 
-        //Verifica que los campos de porcentaje esten dentro del rango de 0 a 100
-        private bool RevisarEntradaUsuario()
-        {
-                if(numericUpDownMotilidadM.Value<0 | numericUpDownMotilidadM.Value > 100)
-                {
-                    return false;
-                }
-
-                if (numericUpDownMotilidadP.Value < 0 | numericUpDownMotilidadP.Value > 100)
-                {
-                    return false;
-                }
-
-                if (numericUpDownMorfologiaN.Value < 0 | numericUpDownMorfologiaN.Value > 100)
-                {
-                    return false;
-                }
-
-                if (numericUpDownTotalAnormalidades.Value < 0 | numericUpDownTotalAnormalidades.Value > 100)
-                {
-                    return false;
-                }
-
-                return true;
-        }
-
-        //Una vez que se inserta un examen exitosamente, limpia los campos de texto
+        ///<summary>
+        ///Una vez que se inserta un examen exitosamente limpia los campos de texto.
+        ///</summary>
+        ///<returns> void </returns>
         private void LimpiarEntradaUsuario()
         {           
             dateTimePickerExamen.Value = DateTime.Now;
@@ -360,22 +266,19 @@ namespace TCU_WFA
         }
 
 
-        //Muestra una pantalla con los valores de referencia
-        private void button1_Click(object sender, EventArgs e)
+        ///<summary>
+        ///Muestra una pantalla con los valores de referencia
+        ///</summary>
+        ///<param name="e"></param>
+        ///<param name="sender"></param>
+        ///<returns> void </returns>
+        private void botonValoresReferencia_click(object sender, EventArgs e)
         {
             FormValoresReferenciaExamen form = new FormValoresReferenciaExamen();
             form.Tag = this;
             form.Show(this);
         }
 
-        private void label22_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

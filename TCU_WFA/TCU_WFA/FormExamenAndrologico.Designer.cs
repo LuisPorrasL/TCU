@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.botonVolver = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelNumeroTrazableToro = new System.Windows.Forms.Label();
+            this.labelCondicionCorporal = new System.Windows.Forms.Label();
             this.textBoxCondC = new System.Windows.Forms.TextBox();
             this.checkBoxLibido = new System.Windows.Forms.CheckBox();
             this.checkBoxTesticulos = new System.Windows.Forms.CheckBox();
@@ -45,16 +45,16 @@
             this.checkBoxVaginaArt = new System.Windows.Forms.CheckBox();
             this.checkBoxElectroEya = new System.Windows.Forms.CheckBox();
             this.checkBoxProtusion = new System.Windows.Forms.CheckBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxFisicos = new System.Windows.Forms.GroupBox();
             this.numericUpDownCircEscrotal = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownDS = new System.Windows.Forms.NumericUpDown();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.labelDescansoSexual = new System.Windows.Forms.Label();
+            this.labelCircunferenciaEscrotal = new System.Windows.Forms.Label();
             this.checkBoxAmpulas = new System.Windows.Forms.CheckBox();
             this.checkBoxVesiculasS = new System.Windows.Forms.CheckBox();
             this.checkBoxProstata = new System.Windows.Forms.CheckBox();
             this.checkBoxGlandulasB = new System.Windows.Forms.CheckBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBoxSemen = new System.Windows.Forms.GroupBox();
             this.numericUpDownCelulasE = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownLeucocitos = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownTotalAnormalidades = new System.Windows.Forms.NumericUpDown();
@@ -68,34 +68,34 @@
             this.textBoxAnormalidadesP = new System.Windows.Forms.TextBox();
             this.textBoxDannos = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.labelConcentracion = new System.Windows.Forms.Label();
+            this.labelMotilidadMasal = new System.Windows.Forms.Label();
+            this.labelMotilidadProgresiva = new System.Windows.Forms.Label();
+            this.labelMotrfologiaNormal = new System.Windows.Forms.Label();
+            this.labelAnormalidadesPrimarias = new System.Windows.Forms.Label();
+            this.labelAnormalidadesSecundarias = new System.Windows.Forms.Label();
+            this.labelDannosAcrosomales = new System.Windows.Forms.Label();
+            this.labelTotalAnormalidades = new System.Windows.Forms.Label();
+            this.labelAnormalidadMasFrecuente = new System.Windows.Forms.Label();
+            this.labeLeucocitos = new System.Windows.Forms.Label();
+            this.labelCelulasEpiteliales = new System.Windows.Forms.Label();
+            this.labelVolumenEyaculado = new System.Windows.Forms.Label();
             this.usuarioTableAdapter1 = new TCU_WFA.TCU_DBDataSetTableAdapters.USUARIOTableAdapter();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonValoresReferencia = new System.Windows.Forms.Button();
             this.botonAgregar = new System.Windows.Forms.Button();
             this.checkBoxSatisfactorio = new System.Windows.Forms.CheckBox();
             this.checkBoxNoSatisfactorio = new System.Windows.Forms.CheckBox();
-            this.label21 = new System.Windows.Forms.Label();
+            this.labelObservaciones = new System.Windows.Forms.Label();
             this.textBoxObservaciones = new System.Windows.Forms.TextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBoxMetodoUtilizados = new System.Windows.Forms.GroupBox();
             this.textBoxVeterinario = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
+            this.labelVeterinario = new System.Windows.Forms.Label();
             this.dateTimePickerExamen = new System.Windows.Forms.DateTimePicker();
             this.comboBoxNumToro = new System.Windows.Forms.ComboBox();
-            this.groupBox1.SuspendLayout();
+            this.groupBoxFisicos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCircEscrotal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDS)).BeginInit();
-            this.groupBox2.SuspendLayout();
+            this.groupBoxSemen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCelulasE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLeucocitos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTotalAnormalidades)).BeginInit();
@@ -104,7 +104,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMotilidadM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownConcentracion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownVolumenEya)).BeginInit();
-            this.groupBox3.SuspendLayout();
+            this.groupBoxMetodoUtilizados.SuspendLayout();
             this.SuspendLayout();
             // 
             // botonVolver
@@ -117,25 +117,23 @@
             this.botonVolver.Text = "Volver";
             this.botonVolver.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // labelNumeroTrazableToro
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 17);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Número trazable toro";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.labelNumeroTrazableToro.AutoSize = true;
+            this.labelNumeroTrazableToro.Location = new System.Drawing.Point(12, 17);
+            this.labelNumeroTrazableToro.Name = "labelNumeroTrazableToro";
+            this.labelNumeroTrazableToro.Size = new System.Drawing.Size(142, 17);
+            this.labelNumeroTrazableToro.TabIndex = 2;
+            this.labelNumeroTrazableToro.Text = "Número trazable toro";
             // 
-            // label3
+            // labelCondicionCorporal
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(520, 17);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(97, 17);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Cond corporal";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.labelCondicionCorporal.AutoSize = true;
+            this.labelCondicionCorporal.Location = new System.Drawing.Point(520, 17);
+            this.labelCondicionCorporal.Name = "labelCondicionCorporal";
+            this.labelCondicionCorporal.Size = new System.Drawing.Size(97, 17);
+            this.labelCondicionCorporal.TabIndex = 6;
+            this.labelCondicionCorporal.Text = "Cond corporal";
             // 
             // textBoxCondC
             // 
@@ -148,18 +146,17 @@
             // checkBoxLibido
             // 
             this.checkBoxLibido.AutoSize = true;
-            this.checkBoxLibido.Location = new System.Drawing.Point(6, 35);
+            this.checkBoxLibido.Location = new System.Drawing.Point(9, 35);
             this.checkBoxLibido.Name = "checkBoxLibido";
             this.checkBoxLibido.Size = new System.Drawing.Size(68, 21);
             this.checkBoxLibido.TabIndex = 7;
             this.checkBoxLibido.Text = "Libido";
             this.checkBoxLibido.UseVisualStyleBackColor = true;
-            this.checkBoxLibido.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // checkBoxTesticulos
             // 
             this.checkBoxTesticulos.AutoSize = true;
-            this.checkBoxTesticulos.Location = new System.Drawing.Point(6, 186);
+            this.checkBoxTesticulos.Location = new System.Drawing.Point(9, 186);
             this.checkBoxTesticulos.Name = "checkBoxTesticulos";
             this.checkBoxTesticulos.Size = new System.Drawing.Size(94, 21);
             this.checkBoxTesticulos.TabIndex = 8;
@@ -169,7 +166,7 @@
             // checkBoxPene
             // 
             this.checkBoxPene.AutoSize = true;
-            this.checkBoxPene.Location = new System.Drawing.Point(6, 150);
+            this.checkBoxPene.Location = new System.Drawing.Point(9, 150);
             this.checkBoxPene.Name = "checkBoxPene";
             this.checkBoxPene.Size = new System.Drawing.Size(63, 21);
             this.checkBoxPene.TabIndex = 9;
@@ -179,18 +176,17 @@
             // checkBoxPrepucio
             // 
             this.checkBoxPrepucio.AutoSize = true;
-            this.checkBoxPrepucio.Location = new System.Drawing.Point(6, 110);
+            this.checkBoxPrepucio.Location = new System.Drawing.Point(9, 110);
             this.checkBoxPrepucio.Name = "checkBoxPrepucio";
             this.checkBoxPrepucio.Size = new System.Drawing.Size(86, 21);
             this.checkBoxPrepucio.TabIndex = 10;
             this.checkBoxPrepucio.Text = "Prepucio";
             this.checkBoxPrepucio.UseVisualStyleBackColor = true;
-            this.checkBoxPrepucio.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
             // 
             // checkBoxCM
             // 
             this.checkBoxCM.AutoSize = true;
-            this.checkBoxCM.Location = new System.Drawing.Point(6, 71);
+            this.checkBoxCM.Location = new System.Drawing.Point(9, 71);
             this.checkBoxCM.Name = "checkBoxCM";
             this.checkBoxCM.Size = new System.Drawing.Size(160, 21);
             this.checkBoxCM.TabIndex = 12;
@@ -200,31 +196,26 @@
             // checkBoxEpi
             // 
             this.checkBoxEpi.AutoSize = true;
-            this.checkBoxEpi.Location = new System.Drawing.Point(6, 226);
+            this.checkBoxEpi.Location = new System.Drawing.Point(9, 226);
             this.checkBoxEpi.Name = "checkBoxEpi";
             this.checkBoxEpi.Size = new System.Drawing.Size(98, 21);
             this.checkBoxEpi.TabIndex = 13;
             this.checkBoxEpi.Text = "Epidídimos";
             this.checkBoxEpi.UseVisualStyleBackColor = true;
-            this.checkBoxEpi.CheckedChanged += new System.EventHandler(this.checkBox7_CheckedChanged);
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(548, 38);
+            this.label4.Location = new System.Drawing.Point(0, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(0, 17);
-            this.label4.TabIndex = 14;
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.label4.Size = new System.Drawing.Size(100, 23);
+            this.label4.TabIndex = 35;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(554, 38);
+            this.label5.Location = new System.Drawing.Point(0, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 17);
-            this.label5.TabIndex = 15;
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            this.label5.Size = new System.Drawing.Size(100, 23);
+            this.label5.TabIndex = 34;
             // 
             // checkBoxPalpacion
             // 
@@ -276,28 +267,28 @@
             this.checkBoxProtusion.Text = "Protusión";
             this.checkBoxProtusion.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // groupBoxFisicos
             // 
-            this.groupBox1.Controls.Add(this.numericUpDownCircEscrotal);
-            this.groupBox1.Controls.Add(this.numericUpDownDS);
-            this.groupBox1.Controls.Add(this.label19);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.checkBoxAmpulas);
-            this.groupBox1.Controls.Add(this.checkBoxVesiculasS);
-            this.groupBox1.Controls.Add(this.checkBoxProstata);
-            this.groupBox1.Controls.Add(this.checkBoxGlandulasB);
-            this.groupBox1.Controls.Add(this.checkBoxCM);
-            this.groupBox1.Controls.Add(this.checkBoxLibido);
-            this.groupBox1.Controls.Add(this.checkBoxTesticulos);
-            this.groupBox1.Controls.Add(this.checkBoxPene);
-            this.groupBox1.Controls.Add(this.checkBoxPrepucio);
-            this.groupBox1.Controls.Add(this.checkBoxEpi);
-            this.groupBox1.Location = new System.Drawing.Point(15, 49);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(229, 493);
-            this.groupBox1.TabIndex = 22;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Físicos";
+            this.groupBoxFisicos.Controls.Add(this.numericUpDownCircEscrotal);
+            this.groupBoxFisicos.Controls.Add(this.numericUpDownDS);
+            this.groupBoxFisicos.Controls.Add(this.labelDescansoSexual);
+            this.groupBoxFisicos.Controls.Add(this.labelCircunferenciaEscrotal);
+            this.groupBoxFisicos.Controls.Add(this.checkBoxAmpulas);
+            this.groupBoxFisicos.Controls.Add(this.checkBoxVesiculasS);
+            this.groupBoxFisicos.Controls.Add(this.checkBoxProstata);
+            this.groupBoxFisicos.Controls.Add(this.checkBoxGlandulasB);
+            this.groupBoxFisicos.Controls.Add(this.checkBoxCM);
+            this.groupBoxFisicos.Controls.Add(this.checkBoxLibido);
+            this.groupBoxFisicos.Controls.Add(this.checkBoxTesticulos);
+            this.groupBoxFisicos.Controls.Add(this.checkBoxPene);
+            this.groupBoxFisicos.Controls.Add(this.checkBoxPrepucio);
+            this.groupBoxFisicos.Controls.Add(this.checkBoxEpi);
+            this.groupBoxFisicos.Location = new System.Drawing.Point(15, 49);
+            this.groupBoxFisicos.Name = "groupBoxFisicos";
+            this.groupBoxFisicos.Size = new System.Drawing.Size(229, 493);
+            this.groupBoxFisicos.TabIndex = 22;
+            this.groupBoxFisicos.TabStop = false;
+            this.groupBoxFisicos.Text = "Físicos";
             // 
             // numericUpDownCircEscrotal
             // 
@@ -305,6 +296,8 @@
             this.numericUpDownCircEscrotal.Name = "numericUpDownCircEscrotal";
             this.numericUpDownCircEscrotal.Size = new System.Drawing.Size(57, 22);
             this.numericUpDownCircEscrotal.TabIndex = 28;
+            this.numericUpDownCircEscrotal.Maximum = 999;
+            this.numericUpDownCircEscrotal.Minimum = 0;
             // 
             // numericUpDownDS
             // 
@@ -312,30 +305,31 @@
             this.numericUpDownDS.Name = "numericUpDownDS";
             this.numericUpDownDS.Size = new System.Drawing.Size(57, 22);
             this.numericUpDownDS.TabIndex = 27;
+            this.numericUpDownDS.Maximum = 999;
+            this.numericUpDownDS.Minimum = 0;
             // 
-            // label19
+            // labelDescansoSexual
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(5, 424);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(155, 17);
-            this.label19.TabIndex = 25;
-            this.label19.Text = "Descanso sexual (días)";
-            this.label19.Click += new System.EventHandler(this.label19_Click);
+            this.labelDescansoSexual.AutoSize = true;
+            this.labelDescansoSexual.Location = new System.Drawing.Point(5, 424);
+            this.labelDescansoSexual.Name = "labelDescansoSexual";
+            this.labelDescansoSexual.Size = new System.Drawing.Size(155, 17);
+            this.labelDescansoSexual.TabIndex = 25;
+            this.labelDescansoSexual.Text = "Descanso sexual (días)";
             // 
-            // label6
+            // labelCircunferenciaEscrotal
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 457);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(138, 17);
-            this.label6.TabIndex = 18;
-            this.label6.Text = "Circunf escrotal (cm)";
+            this.labelCircunferenciaEscrotal.AutoSize = true;
+            this.labelCircunferenciaEscrotal.Location = new System.Drawing.Point(6, 457);
+            this.labelCircunferenciaEscrotal.Name = "labelCircunferenciaEscrotal";
+            this.labelCircunferenciaEscrotal.Size = new System.Drawing.Size(138, 17);
+            this.labelCircunferenciaEscrotal.TabIndex = 18;
+            this.labelCircunferenciaEscrotal.Text = "Circunf escrotal (cm)";
             // 
             // checkBoxAmpulas
             // 
             this.checkBoxAmpulas.AutoSize = true;
-            this.checkBoxAmpulas.Location = new System.Drawing.Point(6, 385);
+            this.checkBoxAmpulas.Location = new System.Drawing.Point(9, 385);
             this.checkBoxAmpulas.Name = "checkBoxAmpulas";
             this.checkBoxAmpulas.Size = new System.Drawing.Size(84, 21);
             this.checkBoxAmpulas.TabIndex = 17;
@@ -345,7 +339,7 @@
             // checkBoxVesiculasS
             // 
             this.checkBoxVesiculasS.AutoSize = true;
-            this.checkBoxVesiculasS.Location = new System.Drawing.Point(6, 346);
+            this.checkBoxVesiculasS.Location = new System.Drawing.Point(9, 346);
             this.checkBoxVesiculasS.Name = "checkBoxVesiculasS";
             this.checkBoxVesiculasS.Size = new System.Drawing.Size(157, 21);
             this.checkBoxVesiculasS.TabIndex = 16;
@@ -355,7 +349,7 @@
             // checkBoxProstata
             // 
             this.checkBoxProstata.AutoSize = true;
-            this.checkBoxProstata.Location = new System.Drawing.Point(6, 306);
+            this.checkBoxProstata.Location = new System.Drawing.Point(9, 306);
             this.checkBoxProstata.Name = "checkBoxProstata";
             this.checkBoxProstata.Size = new System.Drawing.Size(83, 21);
             this.checkBoxProstata.TabIndex = 15;
@@ -365,47 +359,46 @@
             // checkBoxGlandulasB
             // 
             this.checkBoxGlandulasB.AutoSize = true;
-            this.checkBoxGlandulasB.Location = new System.Drawing.Point(6, 266);
+            this.checkBoxGlandulasB.Location = new System.Drawing.Point(9, 266);
             this.checkBoxGlandulasB.Name = "checkBoxGlandulasB";
             this.checkBoxGlandulasB.Size = new System.Drawing.Size(189, 21);
             this.checkBoxGlandulasB.TabIndex = 14;
             this.checkBoxGlandulasB.Text = "Glandulas bulbouretrales";
             this.checkBoxGlandulasB.UseVisualStyleBackColor = true;
             // 
-            // groupBox2
+            // groupBoxSemen
             // 
-            this.groupBox2.Controls.Add(this.numericUpDownCelulasE);
-            this.groupBox2.Controls.Add(this.numericUpDownLeucocitos);
-            this.groupBox2.Controls.Add(this.numericUpDownTotalAnormalidades);
-            this.groupBox2.Controls.Add(this.numericUpDownMorfologiaN);
-            this.groupBox2.Controls.Add(this.numericUpDownMotilidadP);
-            this.groupBox2.Controls.Add(this.numericUpDownMotilidadM);
-            this.groupBox2.Controls.Add(this.numericUpDownConcentracion);
-            this.groupBox2.Controls.Add(this.numericUpDownVolumenEya);
-            this.groupBox2.Controls.Add(this.textBoxAnomaliaMasF);
-            this.groupBox2.Controls.Add(this.textBoxAnormalidadesS);
-            this.groupBox2.Controls.Add(this.textBoxAnormalidadesP);
-            this.groupBox2.Controls.Add(this.textBoxDannos);
-            this.groupBox2.Controls.Add(this.label20);
-            this.groupBox2.Controls.Add(this.label18);
-            this.groupBox2.Controls.Add(this.label17);
-            this.groupBox2.Controls.Add(this.label16);
-            this.groupBox2.Controls.Add(this.label15);
-            this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Location = new System.Drawing.Point(260, 49);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(272, 493);
-            this.groupBox2.TabIndex = 23;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Semen";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            this.groupBoxSemen.Controls.Add(this.numericUpDownCelulasE);
+            this.groupBoxSemen.Controls.Add(this.numericUpDownLeucocitos);
+            this.groupBoxSemen.Controls.Add(this.numericUpDownTotalAnormalidades);
+            this.groupBoxSemen.Controls.Add(this.numericUpDownMorfologiaN);
+            this.groupBoxSemen.Controls.Add(this.numericUpDownMotilidadP);
+            this.groupBoxSemen.Controls.Add(this.numericUpDownMotilidadM);
+            this.groupBoxSemen.Controls.Add(this.numericUpDownConcentracion);
+            this.groupBoxSemen.Controls.Add(this.numericUpDownVolumenEya);
+            this.groupBoxSemen.Controls.Add(this.textBoxAnomaliaMasF);
+            this.groupBoxSemen.Controls.Add(this.textBoxAnormalidadesS);
+            this.groupBoxSemen.Controls.Add(this.textBoxAnormalidadesP);
+            this.groupBoxSemen.Controls.Add(this.textBoxDannos);
+            this.groupBoxSemen.Controls.Add(this.label20);
+            this.groupBoxSemen.Controls.Add(this.labelConcentracion);
+            this.groupBoxSemen.Controls.Add(this.labelMotilidadMasal);
+            this.groupBoxSemen.Controls.Add(this.labelMotilidadProgresiva);
+            this.groupBoxSemen.Controls.Add(this.labelMotrfologiaNormal);
+            this.groupBoxSemen.Controls.Add(this.labelAnormalidadesPrimarias);
+            this.groupBoxSemen.Controls.Add(this.labelAnormalidadesSecundarias);
+            this.groupBoxSemen.Controls.Add(this.labelDannosAcrosomales);
+            this.groupBoxSemen.Controls.Add(this.labelTotalAnormalidades);
+            this.groupBoxSemen.Controls.Add(this.labelAnormalidadMasFrecuente);
+            this.groupBoxSemen.Controls.Add(this.labeLeucocitos);
+            this.groupBoxSemen.Controls.Add(this.labelCelulasEpiteliales);
+            this.groupBoxSemen.Controls.Add(this.labelVolumenEyaculado);
+            this.groupBoxSemen.Location = new System.Drawing.Point(260, 49);
+            this.groupBoxSemen.Name = "groupBoxSemen";
+            this.groupBoxSemen.Size = new System.Drawing.Size(272, 493);
+            this.groupBoxSemen.TabIndex = 23;
+            this.groupBoxSemen.TabStop = false;
+            this.groupBoxSemen.Text = "Semen";
             // 
             // numericUpDownCelulasE
             // 
@@ -413,6 +406,9 @@
             this.numericUpDownCelulasE.Name = "numericUpDownCelulasE";
             this.numericUpDownCelulasE.Size = new System.Drawing.Size(57, 22);
             this.numericUpDownCelulasE.TabIndex = 43;
+            this.numericUpDownCelulasE.Maximum = 999;
+            this.numericUpDownCelulasE.Minimum = 0;
+
             // 
             // numericUpDownLeucocitos
             // 
@@ -420,6 +416,9 @@
             this.numericUpDownLeucocitos.Name = "numericUpDownLeucocitos";
             this.numericUpDownLeucocitos.Size = new System.Drawing.Size(57, 22);
             this.numericUpDownLeucocitos.TabIndex = 42;
+            this.numericUpDownLeucocitos.Maximum = 999;
+            this.numericUpDownLeucocitos.Minimum = 0;
+
             // 
             // numericUpDownTotalAnormalidades
             // 
@@ -427,6 +426,8 @@
             this.numericUpDownTotalAnormalidades.Name = "numericUpDownTotalAnormalidades";
             this.numericUpDownTotalAnormalidades.Size = new System.Drawing.Size(57, 22);
             this.numericUpDownTotalAnormalidades.TabIndex = 41;
+            this.numericUpDownTotalAnormalidades.Maximum = 100;
+            this.numericUpDownTotalAnormalidades.Minimum = 0;
             // 
             // numericUpDownMorfologiaN
             // 
@@ -434,6 +435,8 @@
             this.numericUpDownMorfologiaN.Name = "numericUpDownMorfologiaN";
             this.numericUpDownMorfologiaN.Size = new System.Drawing.Size(57, 22);
             this.numericUpDownMorfologiaN.TabIndex = 40;
+            this.numericUpDownMorfologiaN.Maximum = 100;
+            this.numericUpDownMorfologiaN.Minimum = 0;
             // 
             // numericUpDownMotilidadP
             // 
@@ -441,6 +444,8 @@
             this.numericUpDownMotilidadP.Name = "numericUpDownMotilidadP";
             this.numericUpDownMotilidadP.Size = new System.Drawing.Size(44, 22);
             this.numericUpDownMotilidadP.TabIndex = 39;
+            this.numericUpDownMotilidadP.Maximum = 100;
+            this.numericUpDownMotilidadP.Minimum = 0;
             // 
             // numericUpDownMotilidadM
             // 
@@ -448,6 +453,8 @@
             this.numericUpDownMotilidadM.Name = "numericUpDownMotilidadM";
             this.numericUpDownMotilidadM.Size = new System.Drawing.Size(57, 22);
             this.numericUpDownMotilidadM.TabIndex = 38;
+            this.numericUpDownMotilidadM.Maximum = 100;
+            this.numericUpDownMotilidadM.Minimum = 0;
             // 
             // numericUpDownConcentracion
             // 
@@ -455,6 +462,8 @@
             this.numericUpDownConcentracion.Name = "numericUpDownConcentracion";
             this.numericUpDownConcentracion.Size = new System.Drawing.Size(57, 22);
             this.numericUpDownConcentracion.TabIndex = 37;
+            this.numericUpDownConcentracion.Maximum = 999;
+            this.numericUpDownConcentracion.Minimum = 0;
             // 
             // numericUpDownVolumenEya
             // 
@@ -462,6 +471,8 @@
             this.numericUpDownVolumenEya.Name = "numericUpDownVolumenEya";
             this.numericUpDownVolumenEya.Size = new System.Drawing.Size(57, 22);
             this.numericUpDownVolumenEya.TabIndex = 29;
+            this.numericUpDownVolumenEya.Maximum = 999;
+            this.numericUpDownVolumenEya.Minimum = 0;
             // 
             // textBoxAnomaliaMasF
             // 
@@ -490,138 +501,129 @@
             this.textBoxDannos.Name = "textBoxDannos";
             this.textBoxDannos.Size = new System.Drawing.Size(60, 22);
             this.textBoxDannos.TabIndex = 32;
+         
             // 
-            // label20
+            // labelConcentracion
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(18, 22);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(0, 17);
-            this.label20.TabIndex = 12;
-            this.label20.Click += new System.EventHandler(this.label20_Click);
+            this.labelConcentracion.AutoSize = true;
+            this.labelConcentracion.Location = new System.Drawing.Point(18, 76);
+            this.labelConcentracion.Name = "labelConcentracion";
+            this.labelConcentracion.Size = new System.Drawing.Size(99, 17);
+            this.labelConcentracion.TabIndex = 11;
+            this.labelConcentracion.Text = "Concentración";
             // 
-            // label18
+            // labelMotilidadMasal
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(18, 76);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(99, 17);
-            this.label18.TabIndex = 11;
-            this.label18.Text = "Concentración";
+            this.labelMotilidadMasal.AutoSize = true;
+            this.labelMotilidadMasal.Location = new System.Drawing.Point(18, 117);
+            this.labelMotilidadMasal.Name = "labelMotilidadMasal";
+            this.labelMotilidadMasal.Size = new System.Drawing.Size(125, 17);
+            this.labelMotilidadMasal.TabIndex = 10;
+            this.labelMotilidadMasal.Text = "Motilidad masal % ";
             // 
-            // label17
+            // labelMotilidadProgresiva
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(18, 117);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(125, 17);
-            this.label17.TabIndex = 10;
-            this.label17.Text = "Motilidad masal % ";
+            this.labelMotilidadProgresiva.AutoSize = true;
+            this.labelMotilidadProgresiva.Location = new System.Drawing.Point(18, 156);
+            this.labelMotilidadProgresiva.Name = "labelMotilidadProgresiva";
+            this.labelMotilidadProgresiva.Size = new System.Drawing.Size(195, 17);
+            this.labelMotilidadProgresiva.TabIndex = 9;
+            this.labelMotilidadProgresiva.Text = "Motilidad progresiva rápida %";
             // 
-            // label16
+            // labelMotrfologiaNormal
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(18, 156);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(195, 17);
-            this.label16.TabIndex = 9;
-            this.label16.Text = "Motilidad progresiva rápida %";
+            this.labelMotrfologiaNormal.AutoSize = true;
+            this.labelMotrfologiaNormal.Location = new System.Drawing.Point(18, 197);
+            this.labelMotrfologiaNormal.Name = "labelMotrfologiaNormal";
+            this.labelMotrfologiaNormal.Size = new System.Drawing.Size(137, 17);
+            this.labelMotrfologiaNormal.TabIndex = 8;
+            this.labelMotrfologiaNormal.Text = "Morfología normal %";
             // 
-            // label15
+            // labelAnormalidadesPrimarias
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(18, 197);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(137, 17);
-            this.label15.TabIndex = 8;
-            this.label15.Text = "Morfología normal %";
+            this.labelAnormalidadesPrimarias.AutoSize = true;
+            this.labelAnormalidadesPrimarias.Location = new System.Drawing.Point(18, 277);
+            this.labelAnormalidadesPrimarias.Name = "labelAnormalidadesPrimarias";
+            this.labelAnormalidadesPrimarias.Size = new System.Drawing.Size(164, 17);
+            this.labelAnormalidadesPrimarias.TabIndex = 7;
+            this.labelAnormalidadesPrimarias.Text = "Anormalidades primarias";
             // 
-            // label14
+            // labelAnormalidadesSecundarias
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(18, 277);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(164, 17);
-            this.label14.TabIndex = 7;
-            this.label14.Text = "Anormalidades primarias";
+            this.labelAnormalidadesSecundarias.AutoSize = true;
+            this.labelAnormalidadesSecundarias.Location = new System.Drawing.Point(18, 317);
+            this.labelAnormalidadesSecundarias.Name = "labelAnormalidadesSecundarias";
+            this.labelAnormalidadesSecundarias.Size = new System.Drawing.Size(183, 17);
+            this.labelAnormalidadesSecundarias.TabIndex = 6;
+            this.labelAnormalidadesSecundarias.Text = "Anormalidades secundarias";
             // 
-            // label13
+            // labelDannosAcrosomales
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(18, 317);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(183, 17);
-            this.label13.TabIndex = 6;
-            this.label13.Text = "Anormalidades secundarias";
+            this.labelDannosAcrosomales.AutoSize = true;
+            this.labelDannosAcrosomales.Location = new System.Drawing.Point(19, 239);
+            this.labelDannosAcrosomales.Name = "labelDannosAcrosomales";
+            this.labelDannosAcrosomales.Size = new System.Drawing.Size(133, 17);
+            this.labelDannosAcrosomales.TabIndex = 5;
+            this.labelDannosAcrosomales.Text = "Daños acrosomales";
             // 
-            // label12
+            // labelTotalAnormalidades
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(19, 239);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(133, 17);
-            this.label12.TabIndex = 5;
-            this.label12.Text = "Daños acrosomales";
+            this.labelTotalAnormalidades.AutoSize = true;
+            this.labelTotalAnormalidades.Location = new System.Drawing.Point(18, 354);
+            this.labelTotalAnormalidades.Name = "labelTotalAnormalidades";
+            this.labelTotalAnormalidades.Size = new System.Drawing.Size(153, 17);
+            this.labelTotalAnormalidades.TabIndex = 4;
+            this.labelTotalAnormalidades.Text = "Total anormalidades %";
             // 
-            // label11
+            // labelAnormalidadMasFrecuente
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(18, 354);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(153, 17);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "Total anormalidades %";
+            this.labelAnormalidadMasFrecuente.AutoSize = true;
+            this.labelAnormalidadMasFrecuente.Location = new System.Drawing.Point(18, 390);
+            this.labelAnormalidadMasFrecuente.Name = "labelAnormalidadMasFrecuente";
+            this.labelAnormalidadMasFrecuente.Size = new System.Drawing.Size(181, 17);
+            this.labelAnormalidadMasFrecuente.TabIndex = 3;
+            this.labelAnormalidadMasFrecuente.Text = "Anormalidad más frecuente";
             // 
-            // label10
+            // labeLeucocitos
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(18, 390);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(181, 17);
-            this.label10.TabIndex = 3;
-            this.label10.Text = "Anormalidad más frecuente";
+            this.labeLeucocitos.AutoSize = true;
+            this.labeLeucocitos.Location = new System.Drawing.Point(18, 425);
+            this.labeLeucocitos.Name = "labeLeucocitos";
+            this.labeLeucocitos.Size = new System.Drawing.Size(76, 17);
+            this.labeLeucocitos.TabIndex = 2;
+            this.labeLeucocitos.Text = "Leucocitos";
             // 
-            // label9
+            // labelCelulasEpiteliales
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(18, 425);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(76, 17);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "Leucocitos";
+            this.labelCelulasEpiteliales.AutoSize = true;
+            this.labelCelulasEpiteliales.Location = new System.Drawing.Point(18, 457);
+            this.labelCelulasEpiteliales.Name = "labelCelulasEpiteliales";
+            this.labelCelulasEpiteliales.Size = new System.Drawing.Size(121, 17);
+            this.labelCelulasEpiteliales.TabIndex = 1;
+            this.labelCelulasEpiteliales.Text = "Celulas epiteliales";
             // 
-            // label8
+            // labelVolumenEyaculado
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(18, 457);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(121, 17);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "Celulas epiteliales";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(18, 39);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(160, 17);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Volumen eyaculado (ml)";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
+            this.labelVolumenEyaculado.AutoSize = true;
+            this.labelVolumenEyaculado.Location = new System.Drawing.Point(18, 39);
+            this.labelVolumenEyaculado.Name = "labelVolumenEyaculado";
+            this.labelVolumenEyaculado.Size = new System.Drawing.Size(160, 17);
+            this.labelVolumenEyaculado.TabIndex = 0;
+            this.labelVolumenEyaculado.Text = "Volumen eyaculado (ml)";
             // 
             // usuarioTableAdapter1
             // 
             this.usuarioTableAdapter1.ClearBeforeFill = true;
             // 
-            // button1
+            // buttonValoresReferencia
             // 
-            this.button1.Location = new System.Drawing.Point(557, 291);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(165, 23);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "Valores de referencia";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonValoresReferencia.Location = new System.Drawing.Point(557, 291);
+            this.buttonValoresReferencia.Name = "buttonValoresReferencia";
+            this.buttonValoresReferencia.Size = new System.Drawing.Size(165, 23);
+            this.buttonValoresReferencia.TabIndex = 24;
+            this.buttonValoresReferencia.Text = "Valores de referencia";
+            this.buttonValoresReferencia.UseVisualStyleBackColor = true;
+            this.buttonValoresReferencia.Click += new System.EventHandler(this.botonValoresReferencia_click);
             // 
             // botonAgregar
             // 
@@ -631,7 +633,7 @@
             this.botonAgregar.TabIndex = 25;
             this.botonAgregar.Text = "Agregar examen";
             this.botonAgregar.UseVisualStyleBackColor = true;
-            this.botonAgregar.Click += new System.EventHandler(this.button2_Click);
+            this.botonAgregar.Click += new System.EventHandler(this.botonAgregar_click);
             // 
             // checkBoxSatisfactorio
             // 
@@ -653,14 +655,14 @@
             this.checkBoxNoSatisfactorio.Text = "No satisfactorio";
             this.checkBoxNoSatisfactorio.UseVisualStyleBackColor = true;
             // 
-            // label21
+            // labelObservaciones
             // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(554, 395);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(103, 17);
-            this.label21.TabIndex = 28;
-            this.label21.Text = "Observaciones";
+            this.labelObservaciones.AutoSize = true;
+            this.labelObservaciones.Location = new System.Drawing.Point(554, 395);
+            this.labelObservaciones.Name = "labelObservaciones";
+            this.labelObservaciones.Size = new System.Drawing.Size(103, 17);
+            this.labelObservaciones.TabIndex = 28;
+            this.labelObservaciones.Text = "Observaciones";
             // 
             // textBoxObservaciones
             // 
@@ -669,19 +671,19 @@
             this.textBoxObservaciones.Size = new System.Drawing.Size(100, 22);
             this.textBoxObservaciones.TabIndex = 29;
             // 
-            // groupBox3
+            // groupBoxMetodoUtilizados
             // 
-            this.groupBox3.Controls.Add(this.checkBoxPalpacion);
-            this.groupBox3.Controls.Add(this.checkBoxEcogrfia);
-            this.groupBox3.Controls.Add(this.checkBoxVaginaArt);
-            this.groupBox3.Controls.Add(this.checkBoxElectroEya);
-            this.groupBox3.Controls.Add(this.checkBoxProtusion);
-            this.groupBox3.Location = new System.Drawing.Point(560, 49);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(200, 236);
-            this.groupBox3.TabIndex = 30;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Métodos utilizados";
+            this.groupBoxMetodoUtilizados.Controls.Add(this.checkBoxPalpacion);
+            this.groupBoxMetodoUtilizados.Controls.Add(this.checkBoxEcogrfia);
+            this.groupBoxMetodoUtilizados.Controls.Add(this.checkBoxVaginaArt);
+            this.groupBoxMetodoUtilizados.Controls.Add(this.checkBoxElectroEya);
+            this.groupBoxMetodoUtilizados.Controls.Add(this.checkBoxProtusion);
+            this.groupBoxMetodoUtilizados.Location = new System.Drawing.Point(560, 49);
+            this.groupBoxMetodoUtilizados.Name = "groupBoxMetodoUtilizados";
+            this.groupBoxMetodoUtilizados.Size = new System.Drawing.Size(200, 236);
+            this.groupBoxMetodoUtilizados.TabIndex = 30;
+            this.groupBoxMetodoUtilizados.TabStop = false;
+            this.groupBoxMetodoUtilizados.Text = "Métodos utilizados";
             // 
             // textBoxVeterinario
             // 
@@ -689,17 +691,15 @@
             this.textBoxVeterinario.Name = "textBoxVeterinario";
             this.textBoxVeterinario.Size = new System.Drawing.Size(193, 22);
             this.textBoxVeterinario.TabIndex = 29;
-            this.textBoxVeterinario.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // label22
+            // labelVeterinario
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(554, 366);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(77, 17);
-            this.label22.TabIndex = 28;
-            this.label22.Text = "Veterinario";
-            this.label22.Click += new System.EventHandler(this.label22_Click);
+            this.labelVeterinario.AutoSize = true;
+            this.labelVeterinario.Location = new System.Drawing.Point(554, 366);
+            this.labelVeterinario.Name = "labelVeterinario";
+            this.labelVeterinario.Size = new System.Drawing.Size(77, 17);
+            this.labelVeterinario.TabIndex = 28;
+            this.labelVeterinario.Text = "Veterinario";
             // 
             // dateTimePickerExamen
             // 
@@ -725,34 +725,33 @@
             this.Controls.Add(this.comboBoxNumToro);
             this.Controls.Add(this.dateTimePickerExamen);
             this.Controls.Add(this.textBoxVeterinario);
-            this.Controls.Add(this.label22);
-            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.labelVeterinario);
+            this.Controls.Add(this.groupBoxMetodoUtilizados);
             this.Controls.Add(this.textBoxObservaciones);
-            this.Controls.Add(this.label21);
+            this.Controls.Add(this.labelObservaciones);
             this.Controls.Add(this.checkBoxNoSatisfactorio);
             this.Controls.Add(this.checkBoxSatisfactorio);
             this.Controls.Add(this.botonAgregar);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.buttonValoresReferencia);
+            this.Controls.Add(this.groupBoxSemen);
+            this.Controls.Add(this.groupBoxFisicos);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labelCondicionCorporal);
             this.Controls.Add(this.textBoxCondC);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelNumeroTrazableToro);
             this.Controls.Add(this.botonVolver);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "FormExamenAndrologico";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Examen andrológico";
-            this.Load += new System.EventHandler(this.FormExamenAndrologico_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBoxFisicos.ResumeLayout(false);
+            this.groupBoxFisicos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCircEscrotal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDS)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.groupBoxSemen.ResumeLayout(false);
+            this.groupBoxSemen.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCelulasE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLeucocitos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTotalAnormalidades)).EndInit();
@@ -761,8 +760,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMotilidadM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownConcentracion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownVolumenEya)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.groupBoxMetodoUtilizados.ResumeLayout(false);
+            this.groupBoxMetodoUtilizados.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -771,8 +770,8 @@
         #endregion
 
         private System.Windows.Forms.Button botonVolver;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelNumeroTrazableToro;
+        private System.Windows.Forms.Label labelCondicionCorporal;
         private System.Windows.Forms.TextBox textBoxCondC;
         private System.Windows.Forms.CheckBox checkBoxLibido;
         private System.Windows.Forms.CheckBox checkBoxTesticulos;
@@ -787,39 +786,39 @@
         private System.Windows.Forms.CheckBox checkBoxVaginaArt;
         private System.Windows.Forms.CheckBox checkBoxElectroEya;
         private System.Windows.Forms.CheckBox checkBoxProtusion;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxFisicos;
         private System.Windows.Forms.CheckBox checkBoxProstata;
         private System.Windows.Forms.CheckBox checkBoxGlandulasB;
         private System.Windows.Forms.CheckBox checkBoxVesiculasS;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label labelCircunferenciaEscrotal;
         private System.Windows.Forms.CheckBox checkBoxAmpulas;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.GroupBox groupBoxSemen;
+        private System.Windows.Forms.Label labelVolumenEyaculado;
+        private System.Windows.Forms.Label labelConcentracion;
+        private System.Windows.Forms.Label labelMotilidadMasal;
+        private System.Windows.Forms.Label labelMotilidadProgresiva;
+        private System.Windows.Forms.Label labelMotrfologiaNormal;
+        private System.Windows.Forms.Label labelAnormalidadesPrimarias;
+        private System.Windows.Forms.Label labelAnormalidadesSecundarias;
+        private System.Windows.Forms.Label labelDannosAcrosomales;
+        private System.Windows.Forms.Label labelTotalAnormalidades;
+        private System.Windows.Forms.Label labelAnormalidadMasFrecuente;
+        private System.Windows.Forms.Label labeLeucocitos;
+        private System.Windows.Forms.Label labelCelulasEpiteliales;
+        private System.Windows.Forms.Label labelDescansoSexual;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox textBoxAnomaliaMasF;
         private TCU_DBDataSetTableAdapters.USUARIOTableAdapter usuarioTableAdapter1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonValoresReferencia;
         private System.Windows.Forms.Button botonAgregar;
         private System.Windows.Forms.CheckBox checkBoxSatisfactorio;
         private System.Windows.Forms.CheckBox checkBoxNoSatisfactorio;
-        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label labelObservaciones;
         private System.Windows.Forms.TextBox textBoxObservaciones;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBoxMetodoUtilizados;
         private System.Windows.Forms.NumericUpDown numericUpDownDS;
         private System.Windows.Forms.TextBox textBoxVeterinario;
-        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label labelVeterinario;
         private System.Windows.Forms.DateTimePicker dateTimePickerExamen;
         private System.Windows.Forms.NumericUpDown numericUpDownCircEscrotal;
         private System.Windows.Forms.NumericUpDown numericUpDownCelulasE;
