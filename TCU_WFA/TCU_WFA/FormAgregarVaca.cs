@@ -115,9 +115,9 @@ namespace TCU_WFA
             else resultado.fkNumeroTrazableMadre = null;
             if (comboBoxIdPadre.Text != "") resultado.fkNumeroTrazablePadre = Int32.Parse(comboBoxIdPadre.Text);
             else resultado.fkNumeroTrazablePadre = null;
-            resultado.raza = Utilities.ObtenerIdTabla(QUERY_OBTENER_ID_RAZA, RAZA_PARAM, comboBoxRaza.Text);
-            resultado.fkModoPrennes = Utilities.ObtenerIdTabla(QUERY_OBTENER_ID_MODO_PRENNES, MODO_PRENNES_PARAM, comboBoxModoPrennes.Text);
-            resultado.fkDesarrollo = Utilities.ObtenerIdTabla(QUERY_OBTENER_ID_DESARROLLO, DESARROLLO_PARAM, comboBoxDesarrollo.Text);
+            resultado.raza = (Int32)Utilities.ObtenerAtributoTabla(QUERY_OBTENER_ID_RAZA, RAZA_PARAM, comboBoxRaza.Text);
+            resultado.fkModoPrennes = (Int32)Utilities.ObtenerAtributoTabla(QUERY_OBTENER_ID_MODO_PRENNES, MODO_PRENNES_PARAM, comboBoxModoPrennes.Text);
+            resultado.fkDesarrollo = (Int32)Utilities.ObtenerAtributoTabla(QUERY_OBTENER_ID_DESARROLLO, DESARROLLO_PARAM, comboBoxDesarrollo.Text);
             resultado.fecha = dateTimePickerFechaNacimiento.Value;
             return resultado;
         }

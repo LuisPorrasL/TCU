@@ -10,7 +10,7 @@ namespace TCU_WFA
     {
         //Constantes
         private const string QUERY_LLENAR_COMBO_BOX_ID_MADRE = "SELECT v.PK_NUMERO_TRAZABLE, v.PK_NUMERO_TRAZABLE FROM [dbo].[VACA] v, [dbo].[DESARROLLO] d WHERE v.ACTIVA = 1 AND d.ESTADO != 'Ternera' AND v.FK_ID_DESARROLLO = d.PK_ID_DESARROLLO;";
-        private const string QUERY_LLENAR_COMBO_BOX_ID_PADRE = "SELECT t.PK_NUMERO_TRAZABLE, t.PK_NUMERO_TRAZABLE FROM [dbo].[TORO] t;";
+        private const string QUERY_LLENAR_COMBO_BOX_ID_PADRE = "SELECT t.PK_NUMERO_TRAZABLE, t.PK_NUMERO_TRAZABLE FROM [dbo].[TORO] t WHERE t.ACTIVA = 1;";
         private const string QUERY_LLENAR_COMBO_BOX_RAZA = "SELECT * FROM [dbo].[RAZA];";
         private const string QUERY_OBTENER_ID_MODO_PRENNES = "SELECT mp.PK_ID_MODO_PRENNES FROM [dbo].[MODO_PRENNES] mP WHERE mP.MODO_PRENNES = @ModoPrennes";
         private const string MODO_PRENNES_PARAM = "@ModoPrennes";
@@ -184,12 +184,12 @@ namespace TCU_WFA
                     this.informacionTernero.fkNumeroTrazablePadre = this.idPadre;
                     this.informacionTernero.pkNumeroTrazable = Int32.Parse(textBoxNumeroTrazableTernero.Text);
                     this.informacionTernero.nombre = textBoxNombre.Text;
-                    this.informacionTernero.raza = Utilities.ObtenerIdTabla(QUERY_OBTENER_ID_RAZA, RAZA_PARAM, comboBoxRaza.Text);
+                    this.informacionTernero.raza = (Int32)Utilities.ObtenerAtributoTabla(QUERY_OBTENER_ID_RAZA, RAZA_PARAM, comboBoxRaza.Text);
                     if (textBoxPeso.Text != "") this.informacionTernero.peso = double.Parse(textBoxPeso.Text.Replace('.', ','));
                     else this.informacionTernero.peso = null;
                     this.informacionTernero.caracteriscas = textBoxCaracteristicasTernero.Text;
-                    this.informacionTernero.fkModoPrennes = Utilities.ObtenerIdTabla(QUERY_OBTENER_ID_MODO_PRENNES, MODO_PRENNES_PARAM, MODO_PRENNES_TERNERO);
-                    this.informacionTernero.fkDesarrollo = Utilities.ObtenerIdTabla(QUERY_OBTENER_ID_DESARROLLO, DESARROLLO_PARAM, DESARROLLO_TERNERO);
+                    this.informacionTernero.fkModoPrennes = (Int32)Utilities.ObtenerAtributoTabla(QUERY_OBTENER_ID_MODO_PRENNES, MODO_PRENNES_PARAM, MODO_PRENNES_TERNERO);
+                    this.informacionTernero.fkDesarrollo = (Int32)Utilities.ObtenerAtributoTabla(QUERY_OBTENER_ID_DESARROLLO, DESARROLLO_PARAM, DESARROLLO_TERNERO);
                 }
             }
             this.causaAborto = textBoxCausaAborto.Text;
@@ -271,7 +271,5 @@ namespace TCU_WFA
         {
 
         }
-
-      
     }
 }

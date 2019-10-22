@@ -1,13 +1,6 @@
 ﻿
 //Hecho por Alberto Soto
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TCU_WFA.Models;
 using TCU_WFA.Repository;
@@ -16,7 +9,7 @@ namespace TCU_WFA
 {
     public partial class FormExamenAndrologico : DefaultForm
     {
-        private const string QUERY_LLENAR_COMBO_BOX_TORO = "SELECT t.PK_NUMERO_TRAZABLE, t.PK_NUMERO_TRAZABLE FROM [dbo].[TORO] t;";
+        private const string QUERY_LLENAR_COMBO_BOX_TORO = "SELECT t.PK_NUMERO_TRAZABLE, t.PK_NUMERO_TRAZABLE FROM [dbo].[TORO] t WHERE t.ACTIVA = 1;";
         
         ///<summary>
         ///Constructor del form.
@@ -278,7 +271,5 @@ namespace TCU_WFA
             form.Tag = this;
             form.Show(this);
         }
-
-     
     }
 }

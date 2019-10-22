@@ -1,6 +1,5 @@
 ﻿// Hecho por Luis Porras.
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -14,6 +13,7 @@ namespace TCU_WFA
     {
         //Constantes
         public const int RESULTADO_ERROR = -18;
+        public const int TIEMPO_GESTACION_VACA_MESES = 9;
         //Connection string 
         public const string CONNECTION_STRING = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog = TCU_DB; Integrated Security = True; Connect Timeout = 60; Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         //Mensajes
@@ -72,22 +72,35 @@ namespace TCU_WFA
         /// <summary>
         /// Devuelve un entero con el id resultado de ejecutar la consulta "queryObtenerId" con los parámetros "tablaParam" y "valorParam".
         /// </summary>
-        /// <param name="queryObtenerId">Consulta para obtener el id de uba tabla</param>
+        /// <param name="queryObtenerId">Consulta para obtener el atributo de una tabla</param>
         /// <param name="tablaParam">Nombre de la tabla objetivo</param>
-        /// <param name="valorParam">Nombre del atributo id de la tabla</param>
-        /// <returns>Un entero con el id de una tabla</returns>
-        public static int ObtenerIdTabla(string queryObtenerId, string tablaParam, string valorParam)
+        /// <param name="valorParam">Nombre del atributo de la tabla</param>
+        /// <returns>Un objeto con el atributo de una tabla</returns>
+        public static Object ObtenerAtributoTabla(string queryObtenerAtributo, string tablaParam, Object valorParam)
         {
-            int resultado;
+            Object resultado;
             using (SqlConnection conn = new SqlConnection(CONNECTION_STRING))
             {
-                SqlCommand cmd = new SqlCommand(queryObtenerId, conn);
-                cmd.Parameters.Add(tablaParam, SqlDbType.VarChar);
+                SqlCommand cmd = new SqlCommand(queryObtenerAtributo, conn);
+                string tipoValorParam = valorParam.GetType().ToString();
+                switch (tipoValorParam)
+                {
+                    case "System.Int32":
+                        cmd.Parameters.Add(tablaParam, SqlDbType.Int);
+                        break;
+                    case "System.String":
+                        cmd.Parameters.Add(tablaParam, SqlDbType.VarChar);
+                        break;
+                    default:
+                        cmd.Parameters.Add(tablaParam, SqlDbType.VarChar);
+                        break;
+                }
+                
                 cmd.Parameters[tablaParam].Value = valorParam;
                 try
                 {
                     conn.Open();
-                    resultado = (Int32)cmd.ExecuteScalar();
+                    resultado = cmd.ExecuteScalar();
                 }
                 catch (Exception ex)
                 {

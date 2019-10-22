@@ -166,7 +166,7 @@ namespace TCU_WFA
             this.resultadoPalpacion = textBoxResultado.Text;
             if (radioButtonPositiva.Checked && radioButtonSi.Checked)
             {
-                this.fkNuevoModoPrennes = Utilities.ObtenerIdTabla(QUERY_OBTENER_ID_MODO_PRENNES, MODO_PRENNES_PARAM, comboBoxNuevoModoPrennes.Text);
+                this.fkNuevoModoPrennes = (Int32)Utilities.ObtenerAtributoTabla(QUERY_OBTENER_ID_MODO_PRENNES, MODO_PRENNES_PARAM, comboBoxNuevoModoPrennes.Text);
             }
         }
 

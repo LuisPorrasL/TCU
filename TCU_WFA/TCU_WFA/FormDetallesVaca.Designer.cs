@@ -36,6 +36,8 @@
             this.labelCausaDeBaja = new System.Windows.Forms.Label();
             this.checkBoxActiva = new System.Windows.Forms.CheckBox();
             this.groupBoxDetallesVacaEspecifico = new System.Windows.Forms.GroupBox();
+            this.textBoxFechaTentativaParto = new System.Windows.Forms.TextBox();
+            this.labelFechaTentativaParto = new System.Windows.Forms.Label();
             this.textBoxEdad = new System.Windows.Forms.TextBox();
             this.labelEdad = new System.Windows.Forms.Label();
             this.textBoxCaracteristicas = new System.Windows.Forms.TextBox();
@@ -127,15 +129,15 @@
             this.groupBoxActiva.Controls.Add(this.textBoxCausaDeBaja);
             this.groupBoxActiva.Controls.Add(this.labelCausaDeBaja);
             this.groupBoxActiva.Controls.Add(this.checkBoxActiva);
-            this.groupBoxActiva.Location = new System.Drawing.Point(360, 230);
+            this.groupBoxActiva.Location = new System.Drawing.Point(360, 247);
             this.groupBoxActiva.Name = "groupBoxActiva";
-            this.groupBoxActiva.Size = new System.Drawing.Size(345, 147);
+            this.groupBoxActiva.Size = new System.Drawing.Size(345, 130);
             this.groupBoxActiva.TabIndex = 21;
             this.groupBoxActiva.TabStop = false;
             // 
             // textBoxCausaDeBaja
             // 
-            this.textBoxCausaDeBaja.Location = new System.Drawing.Point(103, 48);
+            this.textBoxCausaDeBaja.Location = new System.Drawing.Point(103, 43);
             this.textBoxCausaDeBaja.MinimumSize = new System.Drawing.Size(236, 50);
             this.textBoxCausaDeBaja.Multiline = true;
             this.textBoxCausaDeBaja.Name = "textBoxCausaDeBaja";
@@ -146,7 +148,7 @@
             // labelCausaDeBaja
             // 
             this.labelCausaDeBaja.AutoSize = true;
-            this.labelCausaDeBaja.Location = new System.Drawing.Point(6, 54);
+            this.labelCausaDeBaja.Location = new System.Drawing.Point(6, 46);
             this.labelCausaDeBaja.Name = "labelCausaDeBaja";
             this.labelCausaDeBaja.Size = new System.Drawing.Size(75, 13);
             this.labelCausaDeBaja.TabIndex = 21;
@@ -165,6 +167,8 @@
             // 
             // groupBoxDetallesVacaEspecifico
             // 
+            this.groupBoxDetallesVacaEspecifico.Controls.Add(this.textBoxFechaTentativaParto);
+            this.groupBoxDetallesVacaEspecifico.Controls.Add(this.labelFechaTentativaParto);
             this.groupBoxDetallesVacaEspecifico.Controls.Add(this.textBoxEdad);
             this.groupBoxDetallesVacaEspecifico.Controls.Add(this.labelEdad);
             this.groupBoxDetallesVacaEspecifico.Controls.Add(this.textBoxCaracteristicas);
@@ -175,9 +179,26 @@
             this.groupBoxDetallesVacaEspecifico.Controls.Add(this.labelFechasSaltos);
             this.groupBoxDetallesVacaEspecifico.Location = new System.Drawing.Point(360, 6);
             this.groupBoxDetallesVacaEspecifico.Name = "groupBoxDetallesVacaEspecifico";
-            this.groupBoxDetallesVacaEspecifico.Size = new System.Drawing.Size(345, 218);
+            this.groupBoxDetallesVacaEspecifico.Size = new System.Drawing.Size(345, 242);
             this.groupBoxDetallesVacaEspecifico.TabIndex = 5;
             this.groupBoxDetallesVacaEspecifico.TabStop = false;
+            // 
+            // textBoxFechaTentativaParto
+            // 
+            this.textBoxFechaTentativaParto.Location = new System.Drawing.Point(139, 121);
+            this.textBoxFechaTentativaParto.Name = "textBoxFechaTentativaParto";
+            this.textBoxFechaTentativaParto.ReadOnly = true;
+            this.textBoxFechaTentativaParto.Size = new System.Drawing.Size(200, 20);
+            this.textBoxFechaTentativaParto.TabIndex = 22;
+            // 
+            // labelFechaTentativaParto
+            // 
+            this.labelFechaTentativaParto.AutoSize = true;
+            this.labelFechaTentativaParto.Location = new System.Drawing.Point(5, 124);
+            this.labelFechaTentativaParto.Name = "labelFechaTentativaParto";
+            this.labelFechaTentativaParto.Size = new System.Drawing.Size(123, 13);
+            this.labelFechaTentativaParto.TabIndex = 21;
+            this.labelFechaTentativaParto.Text = "Fecha tentativa de parto";
             // 
             // textBoxEdad
             // 
@@ -198,7 +219,7 @@
             // 
             // textBoxCaracteristicas
             // 
-            this.textBoxCaracteristicas.Location = new System.Drawing.Point(103, 131);
+            this.textBoxCaracteristicas.Location = new System.Drawing.Point(103, 153);
             this.textBoxCaracteristicas.MinimumSize = new System.Drawing.Size(236, 50);
             this.textBoxCaracteristicas.Multiline = true;
             this.textBoxCaracteristicas.Name = "textBoxCaracteristicas";
@@ -209,7 +230,7 @@
             // labelCaracteristicas
             // 
             this.labelCaracteristicas.AutoSize = true;
-            this.labelCaracteristicas.Location = new System.Drawing.Point(6, 137);
+            this.labelCaracteristicas.Location = new System.Drawing.Point(5, 160);
             this.labelCaracteristicas.Name = "labelCaracteristicas";
             this.labelCaracteristicas.Size = new System.Drawing.Size(78, 13);
             this.labelCaracteristicas.TabIndex = 16;
@@ -219,7 +240,7 @@
             // 
             this.comboBoxFechasDestetes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxFechasDestetes.FormattingEnabled = true;
-            this.comboBoxFechasDestetes.Location = new System.Drawing.Point(139, 88);
+            this.comboBoxFechasDestetes.Location = new System.Drawing.Point(139, 86);
             this.comboBoxFechasDestetes.Name = "comboBoxFechasDestetes";
             this.comboBoxFechasDestetes.Size = new System.Drawing.Size(200, 21);
             this.comboBoxFechasDestetes.TabIndex = 3;
@@ -227,7 +248,7 @@
             // labelFechasDestetes
             // 
             this.labelFechasDestetes.AutoSize = true;
-            this.labelFechasDestetes.Location = new System.Drawing.Point(6, 91);
+            this.labelFechasDestetes.Location = new System.Drawing.Point(6, 89);
             this.labelFechasDestetes.Name = "labelFechasDestetes";
             this.labelFechasDestetes.Size = new System.Drawing.Size(85, 13);
             this.labelFechasDestetes.TabIndex = 2;
@@ -237,7 +258,7 @@
             // 
             this.comboBoxFechasSaltos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxFechasSaltos.FormattingEnabled = true;
-            this.comboBoxFechasSaltos.Location = new System.Drawing.Point(139, 51);
+            this.comboBoxFechasSaltos.Location = new System.Drawing.Point(139, 49);
             this.comboBoxFechasSaltos.Name = "comboBoxFechasSaltos";
             this.comboBoxFechasSaltos.Size = new System.Drawing.Size(200, 21);
             this.comboBoxFechasSaltos.TabIndex = 1;
@@ -245,11 +266,11 @@
             // labelFechasSaltos
             // 
             this.labelFechasSaltos.AutoSize = true;
-            this.labelFechasSaltos.Location = new System.Drawing.Point(6, 54);
+            this.labelFechasSaltos.Location = new System.Drawing.Point(6, 52);
             this.labelFechasSaltos.Name = "labelFechasSaltos";
-            this.labelFechasSaltos.Size = new System.Drawing.Size(72, 13);
+            this.labelFechasSaltos.Size = new System.Drawing.Size(70, 13);
             this.labelFechasSaltos.TabIndex = 0;
-            this.labelFechasSaltos.Text = "Fechas saltos";
+            this.labelFechasSaltos.Text = "Fechas celos";
             // 
             // groupBoxDetallesVacaGeneral
             // 
@@ -609,5 +630,7 @@
         private System.Windows.Forms.Label labelIEPUltimo;
         private System.Windows.Forms.TextBox textBoxIEPPromedio;
         private System.Windows.Forms.Label labelIEPPromedio;
+        private System.Windows.Forms.TextBox textBoxFechaTentativaParto;
+        private System.Windows.Forms.Label labelFechaTentativaParto;
     }
 }

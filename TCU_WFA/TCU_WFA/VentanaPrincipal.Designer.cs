@@ -45,10 +45,12 @@
             this.botonConfiguracion = new System.Windows.Forms.Button();
             this.groupBoxNavegacionVentanaPrincipal = new System.Windows.Forms.GroupBox();
             this.pictureBoxVentanaPrincipal = new System.Windows.Forms.PictureBox();
+            this.pictureBoxVentanaPrincipalUCR = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.groupBoxNavegacionVentanaPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVentanaPrincipal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVentanaPrincipalUCR)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -222,11 +224,21 @@
             // pictureBoxVentanaPrincipal
             // 
             this.pictureBoxVentanaPrincipal.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxVentanaPrincipal.Image")));
-            this.pictureBoxVentanaPrincipal.Location = new System.Drawing.Point(266, 12);
+            this.pictureBoxVentanaPrincipal.Location = new System.Drawing.Point(87, 12);
             this.pictureBoxVentanaPrincipal.Name = "pictureBoxVentanaPrincipal";
             this.pictureBoxVentanaPrincipal.Size = new System.Drawing.Size(280, 230);
             this.pictureBoxVentanaPrincipal.TabIndex = 3;
             this.pictureBoxVentanaPrincipal.TabStop = false;
+            // 
+            // pictureBoxVentanaPrincipalUCR
+            // 
+            this.pictureBoxVentanaPrincipalUCR.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxVentanaPrincipalUCR.Image")));
+            this.pictureBoxVentanaPrincipalUCR.InitialImage = null;
+            this.pictureBoxVentanaPrincipalUCR.Location = new System.Drawing.Point(442, 12);
+            this.pictureBoxVentanaPrincipalUCR.Name = "pictureBoxVentanaPrincipalUCR";
+            this.pictureBoxVentanaPrincipalUCR.Size = new System.Drawing.Size(280, 230);
+            this.pictureBoxVentanaPrincipalUCR.TabIndex = 4;
+            this.pictureBoxVentanaPrincipalUCR.TabStop = false;
             // 
             // VentanaPrincipal
             // 
@@ -234,6 +246,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pictureBoxVentanaPrincipalUCR);
             this.Controls.Add(this.pictureBoxVentanaPrincipal);
             this.Controls.Add(this.groupBoxNavegacionVentanaPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -244,6 +257,7 @@
             this.flowLayoutPanel2.ResumeLayout(false);
             this.groupBoxNavegacionVentanaPrincipal.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVentanaPrincipal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVentanaPrincipalUCR)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -266,6 +280,7 @@
         private System.Windows.Forms.Button botonConfiguracion;
         private System.Windows.Forms.GroupBox groupBoxNavegacionVentanaPrincipal;
         private System.Windows.Forms.PictureBox pictureBoxVentanaPrincipal;
+        private System.Windows.Forms.PictureBox pictureBoxVentanaPrincipalUCR;
     }
 }
 

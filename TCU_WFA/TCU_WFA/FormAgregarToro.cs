@@ -107,7 +107,7 @@ namespace TCU_WFA
             resultado.pkNumeroTrazable = Int32.Parse(textBoxNumeroTrazableToro.Text);
             resultado.nombre = textBoxNombre.Text;
             resultado.caracteriscas = textBoxCaracteristicas.Text;
-            resultado.raza = Utilities.ObtenerIdTabla(QUERY_OBTENER_ID_RAZA, RAZA_PARAM, comboBoxRaza.Text);
+            resultado.raza = (Int32)Utilities.ObtenerAtributoTabla(QUERY_OBTENER_ID_RAZA, RAZA_PARAM, comboBoxRaza.Text);
             return resultado;
         }
 

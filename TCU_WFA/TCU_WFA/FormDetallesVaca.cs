@@ -8,10 +8,12 @@ namespace TCU_WFA
     public partial class FormDetallesVaca : DefaultForm
     {
         // Constantes
-        private const string QUERY_LLENAR_COMBO_BOX_FECHAS_SALTOS = "SELECT * FROM [dbo].[FECHAS_SALTOS] f WHERE f.PK_FK_NUMERO_TRAZABLE_VACA = ";
+        private const string QUERY_LLENAR_COMBO_BOX_FECHAS_SALTOS = "SELECT * FROM [dbo].[FECHAS_CELOS] f WHERE f.PK_FK_NUMERO_TRAZABLE_VACA = ";
         private const string QUERY_LLENAR_COMBO_BOX_FECHAS_DESTETES = "SELECT * FROM [dbo].[FECHAS_DESTETES] f WHERE f.PK_FK_NUMERO_TRAZABLE_VACA = ";
         private const string QUERY_SELECT_DATA_GRID_VIEW_PALPACIONES = "SELECT p.PK_FK_NUMERO_TRAZABLE_VACA AS 'Id', p.PK_FECHA AS 'Fecha', p.CONDICION_CORPORAL AS 'Condición corporal', p.RESULTADO AS 'Resultado', p.CONFIRMACION AS 'Confirmación' FROM [dbo].[PALPACION] p WHERE p.PK_FK_NUMERO_TRAZABLE_VACA = ";
         private const string QUERY_SELECT_DATA_GRID_VIEW_PARTOS = "SELECT p.PK_FK_NUMERO_TRAZABLE_VACA AS 'Id madre', p.FK_NUMERO_TRAZABLE_TORO AS 'Id padre', p.PK_FECHA AS 'Fecha', p.SEXO AS 'Sexo cría', p.MUERTE_PREMATURA AS 'Muerte prematura', p.CAUSA_ABORTO AS 'Causa aborto' FROM [dbo].[PARTO] p WHERE p.PK_FK_NUMERO_TRAZABLE_VACA = ";
+        private const string QUERY_SELECT_FECHA_ULTIMO_CELO_VACA = "SELECT MAX(c.PK_FECHA) FROM [dbo].[FECHAS_CELOS] c WHERE c.PK_FK_NUMERO_TRAZABLE_VACA = @idVaca";
+        private const string VACA_PARAM = "@idVaca";
 
         //Campos
         private VacaModel informacionVacaSeleccionada;
@@ -52,8 +54,8 @@ namespace TCU_WFA
         /// </summary>
         private void LlenarComboBoxList()
         {
-            Utilities.LlenarComboBoxList(QUERY_LLENAR_COMBO_BOX_FECHAS_SALTOS + informacionVacaSeleccionada.pkNumeroTrazable + ";", comboBoxFechasSaltos);
-            Utilities.LlenarComboBoxList(QUERY_LLENAR_COMBO_BOX_FECHAS_DESTETES + informacionVacaSeleccionada.pkNumeroTrazable + ";", comboBoxFechasDestetes);
+            Utilities.LlenarComboBoxList(QUERY_LLENAR_COMBO_BOX_FECHAS_SALTOS + informacionVacaSeleccionada.pkNumeroTrazable + " ORDER BY f.PK_FECHA DESC;", comboBoxFechasSaltos);
+            Utilities.LlenarComboBoxList(QUERY_LLENAR_COMBO_BOX_FECHAS_DESTETES + informacionVacaSeleccionada.pkNumeroTrazable + " ORDER BY f.PK_FECHA DESC;", comboBoxFechasDestetes);
         }
 
         /// <summary>
@@ -111,6 +113,32 @@ namespace TCU_WFA
             {
                 textBoxIEPPromedio.Text = "Error";
             }
+            // Se calcula una fecha de parto tentativa.
+            Object resultadoQuery = Utilities.ObtenerAtributoTabla(QUERY_SELECT_FECHA_ULTIMO_CELO_VACA, VACA_PARAM, this.informacionVacaSeleccionada.pkNumeroTrazable);
+            if (resultadoQuery != null)
+            {
+                if (resultadoQuery.GetType().ToString() == "System.Int32") textBoxFechaTentativaParto.Text = "Error";
+                else
+                {
+                    try
+                    {
+                        DateTime fechaUltimoCeloVaca = (DateTime)resultadoQuery;
+                        DateTime fechaActual = DateTime.Now;
+                        int diferenciaMesesFechas = (fechaActual.Year - fechaUltimoCeloVaca.Year) * 12 + fechaActual.Month - fechaUltimoCeloVaca.Month;
+                        if (diferenciaMesesFechas < Utilities.TIEMPO_GESTACION_VACA_MESES)
+                        {
+                            DateTime fechaTentativaParto = fechaUltimoCeloVaca.AddMonths(Utilities.TIEMPO_GESTACION_VACA_MESES);
+                            textBoxFechaTentativaParto.Text = fechaTentativaParto.ToShortDateString();
+                        }
+                        else textBoxFechaTentativaParto.Text = "";
+                    }
+                    catch
+                    {
+                        textBoxFechaTentativaParto.Text = "";
+                    }
+                }
+            }
+            else textBoxFechaTentativaParto.Text = "";
         }
     }
 }
