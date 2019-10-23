@@ -127,5 +127,15 @@ namespace TCU_WFA
             //Se cierra el documento
             documentoExcel.Dispose();
         }
+
+        /// <summary>
+        /// Método para generar el documento excel de gráficos
+        /// </summary>
+        /// <param name="promedioIEPHato">El IEP promedio de todo el hato</param>
+        /// <param name="listaDatosVacas">Lista de vacas con su respectiva información</param>
+        public static void CrearDocumentoGraficosExcel(double promedioIEPHato, List<DatosVacaGraficos> listaDatosVacas)
+        {
+            //ToDo Crear el Excel
+        }
     }
 }
