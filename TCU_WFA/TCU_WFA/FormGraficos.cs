@@ -106,7 +106,7 @@ namespace TCU_WFA
         private void GenerarExcelGraficos()
         {
             //Se llama al método para generar el excel con los datos obtenidos
-            ExcelGenerator.CrearDocumentoGraficosExcel(promedioIEPHato, listaDatosVacas);
+          //  ExcelGenerator.CrearDocumentoGraficosExcel(promedioIEPHato, listaDatosVacas);
         }
 
     }
