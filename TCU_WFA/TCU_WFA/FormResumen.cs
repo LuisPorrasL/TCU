@@ -34,7 +34,12 @@ namespace TCU_WFA
 
         //Lista de vacas
         List<VacaModel> listaVacas;
-        
+
+        //Fechas a utilizar por defecto
+        //Primer día del año y el día actual
+        private DateTime fechaPrimerDiaInicio = new DateTime(DateTime.Now.Year, 1, 1);
+        private DateTime fechaDiaActual = DateTime.Now;
+
 
         public FormResumen()
         {
@@ -43,17 +48,23 @@ namespace TCU_WFA
 
         private void FormResumen_Load(object sender, EventArgs e)
         {
-            CargarDatosResumen();
+            dateTimePickerInicio.Value = fechaPrimerDiaInicio;
+            dateTimePickerFinal.Value = fechaDiaActual;
+            CargarDatosResumen(fechaPrimerDiaInicio, fechaDiaActual);
             ActualizarDatosForm();
         }
 
         /// <summary>
         /// Método para obtener de la BD todos los datos a utilzar en el resumen y actualizar los valores del form
         /// </summary>
-        private void CargarDatosResumen()
+        /// <param name="fechaInicio">Parámetro que recibe la fecha desde la cual se va a analizar para la obtención de los valores</param>
+        /// <param name="fechaFinal">Parámetro que recibe la fecha hasta la cual se va a analizar para la obtención de los valores</param>
+        private void CargarDatosResumen(DateTime fechaInicio, DateTime fechaFinal)
         {
             //Se obtienen los datos a cargar
             datosResumen.fechaActual = DateTime.Now.ToShortDateString();
+            datosResumen.fechaInicioResumen = fechaInicio;
+            datosResumen.fechaFinalResumen = fechaFinal;
             try
             {
                 datosResumen.hembrasConsideradas = Utilities.EjecutarConsultaCount(CONSULTA_HEMBRAS_CONSIDERADAS);
@@ -132,7 +143,7 @@ namespace TCU_WFA
         private void botonGenerarInformeExcel_Click(object sender, EventArgs e)
         {
             //Se obtienen los datos a utilizar en el resumen
-            CargarDatosResumen();
+            CargarDatosResumen(fechaPrimerDiaInicio, fechaDiaActual);
             CargarDatosVacas();
             
             //Se genera el documento excel
@@ -196,6 +207,18 @@ namespace TCU_WFA
                     }
                 }
             }
+        }
+
+        private void dateTimePickerInicio_ValueChanged(object sender, EventArgs e)
+        {
+            CargarDatosResumen(dateTimePickerInicio.Value, dateTimePickerFinal.Value);
+            ActualizarDatosForm();
+        }
+
+        private void dateTimePickerFinal_ValueChanged(object sender, EventArgs e)
+        {
+            CargarDatosResumen(dateTimePickerInicio.Value, dateTimePickerFinal.Value);
+            ActualizarDatosForm();
         }
     }
 }

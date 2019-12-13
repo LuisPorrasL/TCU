@@ -1,5 +1,7 @@
 ﻿//Hecho por Ariel Arias
 
+using System;
+
 namespace TCU_WFA.Models
 {
     public class DatosGeneralesResumen
@@ -12,6 +14,9 @@ namespace TCU_WFA.Models
         public double ultimoIEPVacaMeses { get; set; }
         public double ultimoPorcParicion { get; set; }
         public double promPartosHato { get; set; }
+
+        public DateTime fechaInicioResumen { get; set; }
+        public DateTime fechaFinalResumen { get; set; }
 
         public DatosGeneralesResumen()
         {

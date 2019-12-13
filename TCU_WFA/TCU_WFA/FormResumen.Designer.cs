@@ -45,6 +45,10 @@
             this.textBoxUltimoPorcParicionValue = new System.Windows.Forms.TextBox();
             this.textBoxUltimoIEPVacaMesesValue = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dateTimePickerFinal = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dateTimePickerInicio = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,7 +76,7 @@
             // 
             this.labelPromedioPartosHato.AutoSize = true;
             this.labelPromedioPartosHato.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPromedioPartosHato.Location = new System.Drawing.Point(30, 294);
+            this.labelPromedioPartosHato.Location = new System.Drawing.Point(116, 354);
             this.labelPromedioPartosHato.Name = "labelPromedioPartosHato";
             this.labelPromedioPartosHato.Size = new System.Drawing.Size(107, 13);
             this.labelPromedioPartosHato.TabIndex = 24;
@@ -82,7 +86,7 @@
             // 
             this.labelUltimoPorcentajeParicion.AutoSize = true;
             this.labelUltimoPorcentajeParicion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUltimoPorcentajeParicion.Location = new System.Drawing.Point(30, 249);
+            this.labelUltimoPorcentajeParicion.Location = new System.Drawing.Point(116, 309);
             this.labelUltimoPorcentajeParicion.Name = "labelUltimoPorcentajeParicion";
             this.labelUltimoPorcentajeParicion.Size = new System.Drawing.Size(87, 13);
             this.labelUltimoPorcentajeParicion.TabIndex = 23;
@@ -92,7 +96,7 @@
             // 
             this.labelUltimoIEPVacaMeses.AutoSize = true;
             this.labelUltimoIEPVacaMeses.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUltimoIEPVacaMeses.Location = new System.Drawing.Point(30, 204);
+            this.labelUltimoIEPVacaMeses.Location = new System.Drawing.Point(116, 264);
             this.labelUltimoIEPVacaMeses.Name = "labelUltimoIEPVacaMeses";
             this.labelUltimoIEPVacaMeses.Size = new System.Drawing.Size(146, 13);
             this.labelUltimoIEPVacaMeses.TabIndex = 22;
@@ -102,7 +106,7 @@
             // 
             this.labelProcentajeParicionHistorico.AutoSize = true;
             this.labelProcentajeParicionHistorico.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProcentajeParicionHistorico.Location = new System.Drawing.Point(30, 159);
+            this.labelProcentajeParicionHistorico.Location = new System.Drawing.Point(116, 219);
             this.labelProcentajeParicionHistorico.Name = "labelProcentajeParicionHistorico";
             this.labelProcentajeParicionHistorico.Size = new System.Drawing.Size(98, 13);
             this.labelProcentajeParicionHistorico.TabIndex = 21;
@@ -112,7 +116,7 @@
             // 
             this.labelIEPPromHistoricoMeses.AutoSize = true;
             this.labelIEPPromHistoricoMeses.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelIEPPromHistoricoMeses.Location = new System.Drawing.Point(30, 114);
+            this.labelIEPPromHistoricoMeses.Location = new System.Drawing.Point(116, 174);
             this.labelIEPPromHistoricoMeses.Name = "labelIEPPromHistoricoMeses";
             this.labelIEPPromHistoricoMeses.Size = new System.Drawing.Size(134, 13);
             this.labelIEPPromHistoricoMeses.TabIndex = 20;
@@ -122,7 +126,7 @@
             // 
             this.labelHembrasHanParido.AutoSize = true;
             this.labelHembrasHanParido.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHembrasHanParido.Location = new System.Drawing.Point(30, 69);
+            this.labelHembrasHanParido.Location = new System.Drawing.Point(116, 129);
             this.labelHembrasHanParido.Name = "labelHembrasHanParido";
             this.labelHembrasHanParido.Size = new System.Drawing.Size(123, 13);
             this.labelHembrasHanParido.TabIndex = 19;
@@ -132,7 +136,7 @@
             // 
             this.labelNumeroHembrasConsideradas.AutoSize = true;
             this.labelNumeroHembrasConsideradas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.labelNumeroHembrasConsideradas.Location = new System.Drawing.Point(30, 24);
+            this.labelNumeroHembrasConsideradas.Location = new System.Drawing.Point(116, 84);
             this.labelNumeroHembrasConsideradas.Name = "labelNumeroHembrasConsideradas";
             this.labelNumeroHembrasConsideradas.Size = new System.Drawing.Size(153, 13);
             this.labelNumeroHembrasConsideradas.TabIndex = 18;
@@ -140,7 +144,7 @@
             // 
             // textBoxHembrasConsideradasValue
             // 
-            this.textBoxHembrasConsideradasValue.Location = new System.Drawing.Point(206, 23);
+            this.textBoxHembrasConsideradasValue.Location = new System.Drawing.Point(292, 83);
             this.textBoxHembrasConsideradasValue.Name = "textBoxHembrasConsideradasValue";
             this.textBoxHembrasConsideradasValue.ReadOnly = true;
             this.textBoxHembrasConsideradasValue.Size = new System.Drawing.Size(165, 20);
@@ -148,7 +152,7 @@
             // 
             // textBoxHembrasParidoValue
             // 
-            this.textBoxHembrasParidoValue.Location = new System.Drawing.Point(206, 68);
+            this.textBoxHembrasParidoValue.Location = new System.Drawing.Point(292, 128);
             this.textBoxHembrasParidoValue.Name = "textBoxHembrasParidoValue";
             this.textBoxHembrasParidoValue.ReadOnly = true;
             this.textBoxHembrasParidoValue.Size = new System.Drawing.Size(165, 20);
@@ -156,7 +160,7 @@
             // 
             // textBoxPorcParicionHistoricoValue
             // 
-            this.textBoxPorcParicionHistoricoValue.Location = new System.Drawing.Point(206, 157);
+            this.textBoxPorcParicionHistoricoValue.Location = new System.Drawing.Point(292, 217);
             this.textBoxPorcParicionHistoricoValue.Name = "textBoxPorcParicionHistoricoValue";
             this.textBoxPorcParicionHistoricoValue.ReadOnly = true;
             this.textBoxPorcParicionHistoricoValue.Size = new System.Drawing.Size(165, 20);
@@ -164,7 +168,7 @@
             // 
             // textBoxPromHistoricoMesesValue
             // 
-            this.textBoxPromHistoricoMesesValue.Location = new System.Drawing.Point(206, 112);
+            this.textBoxPromHistoricoMesesValue.Location = new System.Drawing.Point(292, 172);
             this.textBoxPromHistoricoMesesValue.Name = "textBoxPromHistoricoMesesValue";
             this.textBoxPromHistoricoMesesValue.ReadOnly = true;
             this.textBoxPromHistoricoMesesValue.Size = new System.Drawing.Size(165, 20);
@@ -172,7 +176,7 @@
             // 
             // textBoxPromPartosHatoValue
             // 
-            this.textBoxPromPartosHatoValue.Location = new System.Drawing.Point(206, 291);
+            this.textBoxPromPartosHatoValue.Location = new System.Drawing.Point(292, 351);
             this.textBoxPromPartosHatoValue.Name = "textBoxPromPartosHatoValue";
             this.textBoxPromPartosHatoValue.ReadOnly = true;
             this.textBoxPromPartosHatoValue.Size = new System.Drawing.Size(165, 20);
@@ -180,7 +184,7 @@
             // 
             // textBoxUltimoPorcParicionValue
             // 
-            this.textBoxUltimoPorcParicionValue.Location = new System.Drawing.Point(206, 246);
+            this.textBoxUltimoPorcParicionValue.Location = new System.Drawing.Point(292, 306);
             this.textBoxUltimoPorcParicionValue.Name = "textBoxUltimoPorcParicionValue";
             this.textBoxUltimoPorcParicionValue.ReadOnly = true;
             this.textBoxUltimoPorcParicionValue.Size = new System.Drawing.Size(165, 20);
@@ -188,7 +192,7 @@
             // 
             // textBoxUltimoIEPVacaMesesValue
             // 
-            this.textBoxUltimoIEPVacaMesesValue.Location = new System.Drawing.Point(206, 202);
+            this.textBoxUltimoIEPVacaMesesValue.Location = new System.Drawing.Point(292, 262);
             this.textBoxUltimoIEPVacaMesesValue.Name = "textBoxUltimoIEPVacaMesesValue";
             this.textBoxUltimoIEPVacaMesesValue.ReadOnly = true;
             this.textBoxUltimoIEPVacaMesesValue.Size = new System.Drawing.Size(165, 20);
@@ -196,6 +200,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dateTimePickerFinal);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.dateTimePickerInicio);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.textBoxPromPartosHatoValue);
             this.groupBox1.Controls.Add(this.textBoxUltimoPorcParicionValue);
             this.groupBox1.Controls.Add(this.textBoxUltimoIEPVacaMesesValue);
@@ -210,11 +218,45 @@
             this.groupBox1.Controls.Add(this.labelIEPPromHistoricoMeses);
             this.groupBox1.Controls.Add(this.labelHembrasHanParido);
             this.groupBox1.Controls.Add(this.labelNumeroHembrasConsideradas);
-            this.groupBox1.Location = new System.Drawing.Point(187, 12);
+            this.groupBox1.Location = new System.Drawing.Point(93, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(414, 335);
+            this.groupBox1.Size = new System.Drawing.Size(584, 397);
             this.groupBox1.TabIndex = 39;
             this.groupBox1.TabStop = false;
+            // 
+            // dateTimePickerFinal
+            // 
+            this.dateTimePickerFinal.Location = new System.Drawing.Point(343, 33);
+            this.dateTimePickerFinal.Name = "dateTimePickerFinal";
+            this.dateTimePickerFinal.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerFinal.TabIndex = 42;
+            this.dateTimePickerFinal.ValueChanged += new System.EventHandler(this.dateTimePickerFinal_ValueChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(302, 37);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 41;
+            this.label2.Text = "Hasta";
+            // 
+            // dateTimePickerInicio
+            // 
+            this.dateTimePickerInicio.Location = new System.Drawing.Point(74, 33);
+            this.dateTimePickerInicio.Name = "dateTimePickerInicio";
+            this.dateTimePickerInicio.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerInicio.TabIndex = 40;
+            this.dateTimePickerInicio.ValueChanged += new System.EventHandler(this.dateTimePickerInicio_ValueChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(29, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.TabIndex = 39;
+            this.label1.Text = "Desde";
             // 
             // FormResumen
             // 
@@ -255,5 +297,9 @@
         private System.Windows.Forms.TextBox textBoxUltimoPorcParicionValue;
         private System.Windows.Forms.TextBox textBoxUltimoIEPVacaMesesValue;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker dateTimePickerInicio;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker dateTimePickerFinal;
     }
 }
