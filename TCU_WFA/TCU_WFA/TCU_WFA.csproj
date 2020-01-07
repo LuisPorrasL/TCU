@@ -58,7 +58,6 @@
     <Compile Include="DefaultForm.Designer.cs">
       <DependentUpon>DefaultForm.cs</DependentUpon>
     </Compile>
-
     <Compile Include="FormValoresReferenciaExamen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +189,7 @@
     <Compile Include="Models\ToroModel.cs" />
     <Compile Include="Models\DatosGeneralesResumen.cs" />
     <Compile Include="Models\VacaModel.cs" />
+    <Compile Include="ProgramConfiguration.cs" />
     <Compile Include="Repository\ProcedimientosAlmacenados.cs" />
     <Compile Include="TCU_DBDataSet.cs">
       <DependentUpon>TCU_DBDataSet.xsd</DependentUpon>
