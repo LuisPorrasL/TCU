@@ -59,7 +59,6 @@
     <Folder Include="Properties" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="USUARIO.sql" />
     <Build Include="TORO.sql" />
     <Build Include="VACA.sql" />
     <Build Include="MODO_PRENNES.sql" />
@@ -94,7 +93,6 @@
     <Build Include="PROC_OBTENER_ULTIMA_MONTA.sql" />
     <Build Include="PROC_OBTENER_DIAS_GESTACION_RESTANTES.sql" />
     <Build Include="PROC_OBTENER_FECHA_PARTO.sql" />
-    <Build Include="CONFIGURACION.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.PostDeploymentTesting.sql" />
