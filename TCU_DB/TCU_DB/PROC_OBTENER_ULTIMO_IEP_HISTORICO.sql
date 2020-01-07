@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[PROC_OBTENER_ULTIMO_IEP_HISTORICO]
-	@ultimoIEPHistorico DECIMAL(3,1) = 0.0 OUTPUT -- Meses
+	@ultimoIEPHistorico DECIMAL(5,2) = 0.0 OUTPUT -- Dias
 AS
 	BEGIN
 		DECLARE @cantidadVacas INT;
@@ -9,8 +9,8 @@ AS
 			SELECT @cantidadVacas;
 			DECLARE @indiceVacas INT = 0;
 			DECLARE @idVacaParam INT = -1;
-			DECLARE @tmp DECIMAL(3,1);
-			DECLARE @sumatoria DECIMAL = 0.0;
+			DECLARE @tmp INT;
+			DECLARE @sumatoria INT;
 			WHILE @indiceVacas < @cantidadVacas
 			BEGIN
 				SELECT TOP(1) @idVacaParam = v.PK_NUMERO_TRAZABLE FROM [dbo].[VACA] v WHERE v.PK_NUMERO_TRAZABLE > @idVacaParam ORDER BY v.PK_NUMERO_TRAZABLE ASC;
@@ -19,6 +19,6 @@ AS
 				SET @sumatoria = @sumatoria + @tmp;
 				SET @indiceVacas = @indiceVacas + 1;
 			END
-			SET @ultimoIEPHistorico = @sumatoria / CAST(@cantidadVacas AS DECIMAL(3,1));
+			SET @ultimoIEPHistorico = @sumatoria / CAST(@cantidadVacas AS DECIMAL(5,2));
 		END
 	END

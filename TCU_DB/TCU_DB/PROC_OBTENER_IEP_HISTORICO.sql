@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[PROC_OBTENER_IEP_HISTORICO]
-	@IEPHistorico DECIMAL(3,1) = 0.0 OUTPUT -- Meses
+	@IEPHistorico DECIMAL(5,2) = 0.0 OUTPUT -- Meses
 AS
 	BEGIN
 		DECLARE @cantidadVacas INT;
@@ -9,7 +9,7 @@ AS
 			SELECT @cantidadVacas;
 			DECLARE @indiceVacas INT = 0;
 			DECLARE @idVacaParam INT = -1;
-			DECLARE @tmp DECIMAL(3,1);
+			DECLARE @tmp DECIMAL(5,2);
 			DECLARE @sumatoria DECIMAL = 0.0;
 			WHILE @indiceVacas < @cantidadVacas
 			BEGIN
@@ -19,6 +19,6 @@ AS
 				SET @sumatoria = @sumatoria + @tmp;
 				SET @indiceVacas = @indiceVacas + 1;
 			END
-			SET @IEPHistorico = @sumatoria / CAST(@cantidadVacas AS DECIMAL(3,1));
+			SET @IEPHistorico = @sumatoria / CAST(@cantidadVacas AS DECIMAL(5,2));
 		END
 	END

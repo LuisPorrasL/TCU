@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[PROC_OBTENER_IEP]
 	@idVaca INT,
-	@IEP DECIMAL(3,1) = 0.0 OUTPUT -- Meses
+	@IEP DECIMAL(5,2) = 0.0 OUTPUT -- Dias
 AS
 	BEGIN
 		DECLARE @cantidadPartos INT;
@@ -17,12 +17,12 @@ AS
 				SELECT TOP(1) @fechaMenor = p.PK_FECHA FROM [dbo].[PARTO] p WHERE p.PK_FK_NUMERO_TRAZABLE_VACA = @idVaca AND p.PK_FECHA > @fechaMenor ORDER BY p.PK_FECHA ASC;
 				SELECT TOP(1) @fechaMayor = p.PK_FECHA FROM [dbo].[PARTO] p WHERE p.PK_FK_NUMERO_TRAZABLE_VACA = @idVaca AND p.PK_FECHA > @fechaMenor ORDER BY p.PK_FECHA ASC;
 
-				SELECT @tmp = DATEDIFF(MONTH, @fechaMenor, @fechaMayor);
+				SELECT @tmp = DATEDIFF(DAY, @fechaMenor, @fechaMayor);
 
 				SET @sumatoria = @sumatoria + @tmp;
 				SET @indiceFechas = @indiceFechas + 1;
 			END
-			SET @IEP = @sumatoria / CAST (@cantidadPartos AS DECIMAL(3,1));
+			SET @IEP = @sumatoria / CAST (@cantidadPartos AS DECIMAL(5,2));
 		END
 		ELSE
 		BEGIN
