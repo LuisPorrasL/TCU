@@ -575,7 +575,6 @@ namespace TCU_WFA.Repository
                 {
                     conn.Open();
                     cmd.ExecuteNonQuery();
-
                     resultado = double.Parse(cmd.Parameters["@ultimoIEPHistorico"].Value.ToString());
                 }
                 catch (Exception ex)

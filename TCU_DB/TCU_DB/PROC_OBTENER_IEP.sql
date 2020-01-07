@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[PROC_OBTENER_IEP]
 	@idVaca INT,
-	@IEP DECIMAL(5,2) = 0.0 OUTPUT -- Dias
+	@IEP DECIMAL(8,2) = 0.0 OUTPUT -- Dias
 AS
 	BEGIN
 		DECLARE @cantidadPartos INT;
@@ -22,10 +22,10 @@ AS
 				SET @sumatoria = @sumatoria + @tmp;
 				SET @indiceFechas = @indiceFechas + 1;
 			END
-			SET @IEP = @sumatoria / CAST (@cantidadPartos AS DECIMAL(5,2));
+			SET @IEP = @sumatoria / CAST (@cantidadPartos AS DECIMAL(8,2));
 		END
 		ELSE
 		BEGIN
-			SET @IEP = 0.0;
+			SET @IEP = CAST (0.0 AS DECIMAL(8,2));
 		END
 	END
