@@ -30,6 +30,7 @@
         {
             this.botonVolver = new System.Windows.Forms.Button();
             this.tabPageExamenes = new System.Windows.Forms.TabPage();
+            this.botonDetalles = new System.Windows.Forms.Button();
             this.dataGridViewExamenesToro = new System.Windows.Forms.DataGridView();
             this.tabPageInformacionGeneral = new System.Windows.Forms.TabPage();
             this.groupBoxDetallesToroGeneral = new System.Windows.Forms.GroupBox();
@@ -42,7 +43,6 @@
             this.textBoxNumeroTrazableToro = new System.Windows.Forms.TextBox();
             this.labelNumeroTrazableVaca = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.botonDetalles = new System.Windows.Forms.Button();
             this.tabPageExamenes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExamenesToro)).BeginInit();
             this.tabPageInformacionGeneral.SuspendLayout();
@@ -58,7 +58,6 @@
             this.botonVolver.TabIndex = 3;
             this.botonVolver.Text = "Volver";
             this.botonVolver.UseVisualStyleBackColor = true;
-            this.botonVolver.Click += new System.EventHandler(this.botonVolver_Click);
             // 
             // tabPageExamenes
             // 
@@ -69,8 +68,18 @@
             this.tabPageExamenes.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageExamenes.Size = new System.Drawing.Size(794, 383);
             this.tabPageExamenes.TabIndex = 1;
-            this.tabPageExamenes.Text = "Examenes antropologicos";
+            this.tabPageExamenes.Text = "Examenes andrológicos";
             this.tabPageExamenes.UseVisualStyleBackColor = true;
+            // 
+            // botonDetalles
+            // 
+            this.botonDetalles.Location = new System.Drawing.Point(710, 6);
+            this.botonDetalles.Name = "botonDetalles";
+            this.botonDetalles.Size = new System.Drawing.Size(75, 23);
+            this.botonDetalles.TabIndex = 9;
+            this.botonDetalles.Text = "Detalles";
+            this.botonDetalles.UseVisualStyleBackColor = true;
+            this.botonDetalles.Click += new System.EventHandler(this.botonDetalles_Click);
             // 
             // dataGridViewExamenesToro
             // 
@@ -186,16 +195,6 @@
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(802, 409);
             this.tabControl.TabIndex = 4;
-            // 
-            // botonDetalles
-            // 
-            this.botonDetalles.Location = new System.Drawing.Point(710, 6);
-            this.botonDetalles.Name = "botonDetalles";
-            this.botonDetalles.Size = new System.Drawing.Size(75, 23);
-            this.botonDetalles.TabIndex = 9;
-            this.botonDetalles.Text = "Detalles";
-            this.botonDetalles.UseVisualStyleBackColor = true;
-            this.botonDetalles.Click += new System.EventHandler(this.botonDetalles_Click);
             // 
             // FormDetallesToro
             // 

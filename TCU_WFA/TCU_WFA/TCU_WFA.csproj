@@ -89,11 +89,11 @@
     <Compile Include="FormDestete.Designer.cs">
       <DependentUpon>FormDestete.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormDetallesExamenAntropologico.cs">
+    <Compile Include="FormDetallesExamenAndrologico.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDetallesExamenAntropologico.Designer.cs">
-      <DependentUpon>FormDetallesExamenAntropologico.cs</DependentUpon>
+    <Compile Include="FormDetallesExamenAndrologico.Designer.cs">
+      <DependentUpon>FormDetallesExamenAndrologico.cs</DependentUpon>
     </Compile>
     <Compile Include="FormDetallesToro.cs">
       <SubType>Form</SubType>
@@ -223,8 +223,8 @@
     <EmbeddedResource Include="FormDestete.resx">
       <DependentUpon>FormDestete.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDetallesExamenAntropologico.resx">
-      <DependentUpon>FormDetallesExamenAntropologico.cs</DependentUpon>
+    <EmbeddedResource Include="FormDetallesExamenAndrologico.resx">
+      <DependentUpon>FormDetallesExamenAndrologico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDetallesToro.resx">
       <DependentUpon>FormDetallesToro.cs</DependentUpon>

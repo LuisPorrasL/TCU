@@ -22,5 +22,10 @@ namespace TCU_WFA
         {
 
         }
+
+        private void botonGuardar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

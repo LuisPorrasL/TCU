@@ -72,7 +72,7 @@ namespace TCU_WFA
                 DataGridViewRow filaSelecionada = dataGridViewExamenesToro.SelectedRows[0];
                 if (filaSelecionada.Cells[0].Value != null)
                 {
-                    FormDetallesExamenAntropologico form = new FormDetallesExamenAntropologico((DateTime)filaSelecionada.Cells[FECHA].Value, this.informacionToroSeleccionado.pkNumeroTrazable);
+                    FormDetallesExamenAndrologico form = new FormDetallesExamenAndrologico((DateTime)filaSelecionada.Cells[FECHA].Value, this.informacionToroSeleccionado.pkNumeroTrazable);
                     form.Tag = this;
                     form.Show(this);
                     Hide();

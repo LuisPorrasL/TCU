@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace TCU_WFA
 {
-    public partial class FormDetallesExamenAntropologico : DefaultForm
+    public partial class FormDetallesExamenAndrologico : DefaultForm
     {
 
         //Campos
@@ -21,7 +21,7 @@ namespace TCU_WFA
         /// </summary>
         /// <param name="fechaExamen"></param>
         /// <param name="idToro"></param>
-        public FormDetallesExamenAntropologico(DateTime fechaExamen, int idToro)
+        public FormDetallesExamenAndrologico(DateTime fechaExamen, int idToro)
         {
             InitializeComponent();
         }
