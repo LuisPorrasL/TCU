@@ -94,6 +94,9 @@
     <Build Include="PROC_OBTENER_ULTIMA_MONTA.sql" />
     <Build Include="PROC_OBTENER_DIAS_GESTACION_RESTANTES.sql" />
     <Build Include="PROC_OBTENER_FECHA_PARTO.sql" />
+    <Build Include="PROC_OBTENER_PROMEDIO_PARTOS_HATO.sql" />
+    <Build Include="PROC_OBTENER_DATOS_GRAFICOS_VACAS.sql" />
+    <Build Include="TIPO_DATOS_GRAFICOS_VACAS.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.PostDeploymentTesting.sql" />
