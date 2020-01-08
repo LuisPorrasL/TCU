@@ -60,10 +60,18 @@ namespace TCU_WFA
 
         private void botonGuardar_Click(object sender, EventArgs e)
         {
-            config.CambiarConfig(ProgramConfiguration.LLAVE_UNIDAD_DE_TIEMPO, comboBoxUnidadDeTiempo.Text);
-            config.CambiarConfig(ProgramConfiguration.LLAVE_ALERTA_IEP, numericUpDownAlertaIEP.Value.ToString());
-            config.CambiarConfig(ProgramConfiguration.LLAVE_ALERTA_PALPACION, numericUpDownAlertaPalpacion.Value.ToString());
-            config.CambiarConfig(ProgramConfiguration.LLAVE_ALERTA_PARTO, numericUpDownParto.Value.ToString());
+            try
+            {
+                config.CambiarConfig(ProgramConfiguration.LLAVE_UNIDAD_DE_TIEMPO, comboBoxUnidadDeTiempo.Text);
+                config.CambiarConfig(ProgramConfiguration.LLAVE_ALERTA_IEP, numericUpDownAlertaIEP.Value.ToString());
+                config.CambiarConfig(ProgramConfiguration.LLAVE_ALERTA_PALPACION, numericUpDownAlertaPalpacion.Value.ToString());
+                config.CambiarConfig(ProgramConfiguration.LLAVE_ALERTA_PARTO, numericUpDownParto.Value.ToString());
+                Utilities.MostrarMessageBox(Utilities.MENSAJE_EXITO, Utilities.TITULO_EXITO, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                Utilities.MostrarMessageBox(Utilities.MENSAJE_ERROR, Utilities.TITULO_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

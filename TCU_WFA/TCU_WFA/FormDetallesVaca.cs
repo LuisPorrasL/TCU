@@ -93,11 +93,30 @@ namespace TCU_WFA
                 textBoxCausaDeBaja.Text = this.informacionVacaSeleccionada.causaDeBaja;
             }
             // Se calculan los parametros reproductivos de la vaca.
+            ProgramConfiguration config = new ProgramConfiguration();
+            string unidadDeTiempo = config.ObtenerConfig(ProgramConfiguration.LLAVE_UNIDAD_DE_TIEMPO);
             try
             {
                 double resultado = ProcedimientosAlmacenados.ProcObtenerUltimoIEP(this.informacionVacaSeleccionada.pkNumeroTrazable);
                 if ((int)resultado == Utilities.RESULTADO_ERROR) textBoxUltimoIEP.Text = "Error";
-                else textBoxUltimoIEP.Text = resultado.ToString();
+                else
+                {
+                    switch (unidadDeTiempo)
+                    {
+                        case "Meses":
+                            labelIEPUltimo.Text = "Ultimo IEP (meses)";
+                            textBoxUltimoIEP.Text = (resultado/30).ToString("0.##");
+                            break;
+                        case "Semanas":
+                            labelIEPUltimo.Text = "Ultimo IEP (semanas)";
+                            textBoxUltimoIEP.Text = (resultado / 7).ToString("0.##");
+                            break;
+                        default:
+                            labelIEPUltimo.Text = "Ultimo IEP (días)";
+                            textBoxUltimoIEP.Text = resultado.ToString("0.##");
+                            break;
+                    }
+                }
             }
             catch
             {
@@ -107,7 +126,24 @@ namespace TCU_WFA
             {
                 double resultado = ProcedimientosAlmacenados.ProcObtenerIEP(this.informacionVacaSeleccionada.pkNumeroTrazable);
                 if ((int)resultado == Utilities.RESULTADO_ERROR) textBoxIEPPromedio.Text = "Error";
-                else textBoxIEPPromedio.Text = resultado.ToString();
+                else
+                {
+                    switch (unidadDeTiempo)
+                    {
+                        case "Meses":
+                            labelIEPPromedio.Text = "IEP promedio (meses)";
+                            textBoxIEPPromedio.Text = (resultado / 30).ToString("0.##");
+                            break;
+                        case "Semanas":
+                            labelIEPPromedio.Text = "Ultimo promedio (semanas)";
+                            textBoxIEPPromedio.Text = (resultado / 7).ToString("0.##");
+                            break;
+                        default:
+                            labelIEPPromedio.Text = "Ultimo promedio (días)";
+                            textBoxIEPPromedio.Text = resultado.ToString();
+                            break;
+                    }
+                }
             }
             catch
             {
