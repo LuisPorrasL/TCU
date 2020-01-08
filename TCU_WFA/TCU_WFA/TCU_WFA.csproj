@@ -185,6 +185,7 @@
     <Compile Include="FormSincronizacion.Designer.cs">
       <DependentUpon>FormSincronizacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\DatosVacaGraficos.cs" />
     <Compile Include="Models\ExamenModel.cs" />
     <Compile Include="Models\ToroModel.cs" />
     <Compile Include="Models\DatosGeneralesResumen.cs" />

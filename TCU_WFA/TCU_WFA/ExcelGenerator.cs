@@ -1,4 +1,4 @@
-﻿//Hecho por Ariel Arias
+﻿//Hecho por Ariel Arias y Alberto Soto
 using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
@@ -21,15 +21,15 @@ namespace TCU_WFA
         private const string TITULO_MENSAJE = "Documento generado";
         private const string MENSAJE_CORRECTO = "El documento se guardó en: ";
         private const string MENSAJE_INCORRECTO = "Ocurrió un error al guardar el documento";
-
+        private static ExcelPackage documentoExcel = new ExcelPackage();
         /// <summary>
         /// Método para generar el documento excel del resumen
         /// </summary>
         /// <param name="datosResumen">Los datos a utilizar para el resumen general</param>
-        public static void CrearDocumentoResumenExcel(DatosGeneralesResumen datosResumen, List<VacaModel> listaVacas)
+        public static void CrearDocumentoResumenExcel(DatosGeneralesResumen datosResumen, List<VacaModel> listaVacas, double promedioIEPHato, List<DatosVacaGraficos> listaDatosVacas)
         {
             //Se crea una instancia del paquete de excel del documento a utilizar
-            ExcelPackage documentoExcel = new ExcelPackage();
+            //ExcelPackage documentoExcel = new ExcelPackage();
 
             //Se crea la hoja que se va a generar
             ExcelWorksheet hojaResumen = documentoExcel.Workbook.Worksheets.Add(TITULO_RESUMEN);
@@ -109,6 +109,91 @@ namespace TCU_WFA
                 }
             }
 
+            //-------------------------------Worksheet Gráfico-----------------------------
+
+            //Aqui se crea el worksheet
+            ExcelWorksheet grafico = documentoExcel.Workbook.Worksheets.Add("Gráficos");
+            ExcelRange celdasListaVacasGraficos = grafico.Cells[1, 1, 1 + listaDatosVacas.Count, 6];
+
+            //Se definen estilos
+            celdasListaVacasGraficos.Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
+            celdasListaVacasGraficos.Style.Fill.BackgroundColor.SetColor(Color.FromArgb(255, 255, 255));
+            celdasListaVacasGraficos[1, 1, 1, 6].Style.Fill.BackgroundColor.SetColor(Color.FromArgb(211, 211, 211));
+            celdasListaVacasGraficos[1, 1, 1, 6].Style.Font.Bold = true;
+            celdasListaVacasGraficos[1, 1, 1, 6].Style.Border.Left.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
+            celdasListaVacasGraficos[1, 1, 1, 6].Style.Border.Right.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
+            celdasListaVacasGraficos[1, 1, 1, 6].Style.Border.Top.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
+            celdasListaVacasGraficos[1, 1, 1, 6].Style.Border.Bottom.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
+
+
+            //Se le da un valor a los encabezados
+            celdasListaVacasGraficos[1, 1].Value = "Orden";
+            celdasListaVacasGraficos[1, 2].Value = "Núm vaca";
+            celdasListaVacasGraficos[1, 3].Value = "Prom hato";
+            celdasListaVacasGraficos[1, 4].Value = "Partos/vaca";
+            celdasListaVacasGraficos[1, 5].Value = "Prom/vaca";
+            celdasListaVacasGraficos[1, 6].Value = "Últ/vaca";
+
+            //Mas estilos
+            celdasListaVacasGraficos.Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
+            celdasListaVacasGraficos[2, 1, 1 + listaDatosVacas.Count, 1].Style.WrapText = true;
+            celdasListaVacasGraficos.Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center;
+            celdasListaVacasGraficos.Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
+            celdasListaVacasGraficos[2, 1, 1 + listaDatosVacas.Count, 1].Style.Fill.BackgroundColor.SetColor(Color.FromArgb(182, 221, 232));
+            celdasListaVacasGraficos[2, 1, 1 + listaDatosVacas.Count, 1].Style.Font.Bold = true;
+            celdasListaVacasGraficos[2, 1, 1 + listaDatosVacas.Count, 1].Style.Border.Left.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
+            celdasListaVacasGraficos[2, 1, 1 + listaDatosVacas.Count, 1].Style.Border.Right.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
+            celdasListaVacasGraficos[2, 1, 1 + listaDatosVacas.Count, 1].Style.Border.Top.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
+            celdasListaVacasGraficos[2, 1, 1 + listaDatosVacas.Count, 1].Style.Border.Bottom.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
+
+
+            //Se recorre la lista de vacas y se carga el worksheet
+            if (listaDatosVacas.Count > 0)
+            {
+                for (int iterador = 0; iterador < listaDatosVacas.Count; iterador++)
+                {
+                    celdasListaVacasGraficos[2 + iterador, 1].Value = iterador + 1;
+                    celdasListaVacasGraficos[2 + iterador, 2].Value = listaDatosVacas[iterador].pkNumeroTrazableVaca.ToString();
+                    celdasListaVacasGraficos[2 + iterador, 3].Value = promedioIEPHato;
+                    celdasListaVacasGraficos[2 + iterador, 4].Value = listaDatosVacas[iterador].partosVaca;
+                    celdasListaVacasGraficos[2 + iterador, 5].Value = listaDatosVacas[iterador].iepPromedioVacaMeses;
+                    celdasListaVacasGraficos[2 + iterador, 6].Value = listaDatosVacas[iterador].ultimoIEPVacaMeses;
+                }
+            }
+
+
+            //Se crea el gráfico
+            var chartVacas = grafico.Drawings.AddChart("chart", OfficeOpenXml.Drawing.Chart.eChartType.ColumnClustered3D);
+
+            //Valores maximos y minimos para los ejes "x" y "y"
+            chartVacas.YAxis.MinValue = 0;
+            chartVacas.XAxis.MaxValue = listaDatosVacas.Count;
+
+            //Se declaran las series que se utilizarán para poblar el gráfico
+            var serieHato = chartVacas.Series.Add("C2: C" + listaDatosVacas.Count + 1, "B2: B" + listaDatosVacas.Count + 1);
+            serieHato.Header = "Promedio Hato";
+
+            var ult = chartVacas.Series.Add("D2: D" + listaDatosVacas.Count + 1, "B2: B" + listaDatosVacas.Count + 1);
+            ult.Header =  "Partos/vaca";
+
+            var prom = chartVacas.Series.Add("E2: E" + listaDatosVacas.Count + 1, "B2: B" + listaDatosVacas.Count + 1);
+            prom.Header = "Prom c/vaca";
+
+            var partos = chartVacas.Series.Add("F2: F" + listaDatosVacas.Count + 1, "B2: B" + listaDatosVacas.Count + 1);
+            partos.Header = "Últ c/vaca";
+
+            chartVacas.Border.Fill.Color = System.Drawing.Color.Green;
+            chartVacas.Title.Text = "Todo el hato: comparación IEP del hato, último c/vaca y prom c/vaca";
+
+            //Tamaño del gráfico
+            chartVacas.SetSize(500, 300);
+
+            // Posicionamos el gráfico
+            chartVacas.SetPosition(1, 1, 13, 1);
+
+
+            //--------------------------------Worksheet Gráfico-----------------------------
+
             //Se guarda el documento
             string ubicacionDocumentos = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             string nombreDocumentoResumen = ubicacionDocumentos + @"\" + "Resumen_" + DateTime.Now.ToString().Replace("/", ".").Replace(":", ".").Replace(" ", "_").Replace("\\", ".") + ".xlsx";
@@ -127,5 +212,6 @@ namespace TCU_WFA
             //Se cierra el documento
             documentoExcel.Dispose();
         }
+
     }
 }

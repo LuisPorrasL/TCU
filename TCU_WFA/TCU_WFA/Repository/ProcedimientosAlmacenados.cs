@@ -678,6 +678,62 @@ namespace TCU_WFA.Repository
             return resumen_resultado;
         }
 
+        public static double ProcObtenerPromedioPartosHato()
+        {
+            double resultado = 0;
+            string sql = "PROC_OBTENER_PROMEDIO_PARTOS_HATO";
+            using (SqlConnection conn = new SqlConnection(Utilities.CONNECTION_STRING))
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter outputPromedioPartosHato = new SqlParameter("@promedioPartosHato", SqlDbType.Decimal)
+                {
+                    Direction = ParameterDirection.Output
+                };
+
+                cmd.Parameters.Add(outputPromedioPartosHato);
+
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+
+                    resultado = double.Parse(cmd.Parameters["@promedioPartosHato"].Value.ToString());
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    resultado = Utilities.RESULTADO_ERROR;
+                }
+            }
+            return resultado;
+        }
+
+        public static DataTable ProcObtenerDatosGraficosVacas()
+        {
+            DataTable datos_resultado = new DataTable();
+            string sql = "PROC_OBTENER_DATOS_GRAFICOS_VACAS";
+            using (SqlConnection conn = new SqlConnection(Utilities.CONNECTION_STRING))
+            {
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    try
+                    {
+                        conn.Open();
+                        datos_resultado.Load(cmd.ExecuteReader());
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        return null;
+                    }
+                }
+            }
+            return datos_resultado;
+        }
+
     }
 }
 
