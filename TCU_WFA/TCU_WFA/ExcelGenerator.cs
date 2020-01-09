@@ -113,43 +113,43 @@ namespace TCU_WFA
 
             //Aqui se crea el worksheet
             ExcelWorksheet grafico = documentoExcel.Workbook.Worksheets.Add("Gráficos");
-            ExcelRange celdasListaVacasGraficos = grafico.Cells[1, 1, 1 + listaDatosVacas.Count, 6];
-
-            //Se definen estilos
-            celdasListaVacasGraficos.Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
-            celdasListaVacasGraficos.Style.Fill.BackgroundColor.SetColor(Color.FromArgb(255, 255, 255));
-            celdasListaVacasGraficos[1, 1, 1, 6].Style.Fill.BackgroundColor.SetColor(Color.FromArgb(211, 211, 211));
-            celdasListaVacasGraficos[1, 1, 1, 6].Style.Font.Bold = true;
-            celdasListaVacasGraficos[1, 1, 1, 6].Style.Border.Left.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
-            celdasListaVacasGraficos[1, 1, 1, 6].Style.Border.Right.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
-            celdasListaVacasGraficos[1, 1, 1, 6].Style.Border.Top.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
-            celdasListaVacasGraficos[1, 1, 1, 6].Style.Border.Bottom.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
-
-
-            //Se le da un valor a los encabezados
-            celdasListaVacasGraficos[1, 1].Value = "Orden";
-            celdasListaVacasGraficos[1, 2].Value = "Núm vaca";
-            celdasListaVacasGraficos[1, 3].Value = "Prom hato";
-            celdasListaVacasGraficos[1, 4].Value = "Partos/vaca";
-            celdasListaVacasGraficos[1, 5].Value = "Prom/vaca";
-            celdasListaVacasGraficos[1, 6].Value = "Últ/vaca";
-
-            //Mas estilos
-            celdasListaVacasGraficos.Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
-            celdasListaVacasGraficos[2, 1, 1 + listaDatosVacas.Count, 1].Style.WrapText = true;
-            celdasListaVacasGraficos.Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center;
-            celdasListaVacasGraficos.Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
-            celdasListaVacasGraficos[2, 1, 1 + listaDatosVacas.Count, 1].Style.Fill.BackgroundColor.SetColor(Color.FromArgb(182, 221, 232));
-            celdasListaVacasGraficos[2, 1, 1 + listaDatosVacas.Count, 1].Style.Font.Bold = true;
-            celdasListaVacasGraficos[2, 1, 1 + listaDatosVacas.Count, 1].Style.Border.Left.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
-            celdasListaVacasGraficos[2, 1, 1 + listaDatosVacas.Count, 1].Style.Border.Right.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
-            celdasListaVacasGraficos[2, 1, 1 + listaDatosVacas.Count, 1].Style.Border.Top.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
-            celdasListaVacasGraficos[2, 1, 1 + listaDatosVacas.Count, 1].Style.Border.Bottom.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
-
-
-            //Se recorre la lista de vacas y se carga el worksheet
+            
             if (listaDatosVacas.Count > 0)
             {
+                ExcelRange celdasListaVacasGraficos = grafico.Cells[1, 1, 1 + listaDatosVacas.Count, 6];
+
+                //Se definen estilos
+                celdasListaVacasGraficos.Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
+                celdasListaVacasGraficos.Style.Fill.BackgroundColor.SetColor(Color.FromArgb(255, 255, 255));
+                celdasListaVacasGraficos[1, 1, 1, 6].Style.Fill.BackgroundColor.SetColor(Color.FromArgb(211, 211, 211));
+                celdasListaVacasGraficos[1, 1, 1, 6].Style.Font.Bold = true;
+                celdasListaVacasGraficos[1, 1, 1, 6].Style.Border.Left.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
+                celdasListaVacasGraficos[1, 1, 1, 6].Style.Border.Right.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
+                celdasListaVacasGraficos[1, 1, 1, 6].Style.Border.Top.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
+                celdasListaVacasGraficos[1, 1, 1, 6].Style.Border.Bottom.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
+
+
+                //Se le da un valor a los encabezados
+                celdasListaVacasGraficos[1, 1].Value = "Orden";
+                celdasListaVacasGraficos[1, 2].Value = "Núm vaca";
+                celdasListaVacasGraficos[1, 3].Value = "Prom hato";
+                celdasListaVacasGraficos[1, 4].Value = "Partos/vaca";
+                celdasListaVacasGraficos[1, 5].Value = "Prom/vaca";
+                celdasListaVacasGraficos[1, 6].Value = "Últ/vaca";
+
+                //Mas estilos
+                celdasListaVacasGraficos.Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
+                celdasListaVacasGraficos[2, 1, 1 + listaDatosVacas.Count, 1].Style.WrapText = true;
+                celdasListaVacasGraficos.Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center;
+                celdasListaVacasGraficos.Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
+                celdasListaVacasGraficos[2, 1, 1 + listaDatosVacas.Count, 1].Style.Fill.BackgroundColor.SetColor(Color.FromArgb(182, 221, 232));
+                celdasListaVacasGraficos[2, 1, 1 + listaDatosVacas.Count, 1].Style.Font.Bold = true;
+                celdasListaVacasGraficos[2, 1, 1 + listaDatosVacas.Count, 1].Style.Border.Left.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
+                celdasListaVacasGraficos[2, 1, 1 + listaDatosVacas.Count, 1].Style.Border.Right.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
+                celdasListaVacasGraficos[2, 1, 1 + listaDatosVacas.Count, 1].Style.Border.Top.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
+                celdasListaVacasGraficos[2, 1, 1 + listaDatosVacas.Count, 1].Style.Border.Bottom.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
+
+                //Se recorre la lista de vacas y se carga el worksheet
                 for (int iterador = 0; iterador < listaDatosVacas.Count; iterador++)
                 {
                     celdasListaVacasGraficos[2 + iterador, 1].Value = iterador + 1;

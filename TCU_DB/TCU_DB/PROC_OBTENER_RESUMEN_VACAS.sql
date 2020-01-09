@@ -14,8 +14,8 @@ AS
 			DECLARE @temporal_edad_primer_parto INT;
 			DECLARE @temporal_edad_ultima_cria INT;
 			DECLARE @temporal_fecha_destete_ultima_cria DATETIME;
-			DECLARE @temporal_iep_vaca DECIMAL (3,1);
-			DECLARE @temporal_ultimo_iep_vaca DECIMAL (3,1);
+			DECLARE @temporal_iep_vaca DECIMAL (8, 2);
+			DECLARE @temporal_ultimo_iep_vaca DECIMAL (8, 2);
 			DECLARE @temporal_ultima_monta DATETIME;
 			DECLARE @temporal_dias_gestacion INT;
 			DECLARE @temporal_fecha_parto DATETIME;

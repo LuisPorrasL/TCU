@@ -11,8 +11,8 @@ BEGIN
 		DECLARE @indice_vacas INT = 0;
 		DECLARE @numero_trazable_ultima_vaca INT = -1;
 		DECLARE @cantidad_partos_vaca INT;
-		DECLARE @iep_vaca DECIMAL (3, 1);
-		DECLARE @ultimo_iep_vaca DECIMAL (3, 1);
+		DECLARE @iep_vaca DECIMAL (8, 2);
+		DECLARE @ultimo_iep_vaca DECIMAL (8, 2);
 
 		--Se obtiene la información de todas las vacas
 		WHILE @indice_vacas < @cantidad_vacas
