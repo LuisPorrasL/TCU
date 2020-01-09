@@ -145,9 +145,11 @@ namespace TCU_WFA
             //Se obtienen los datos a utilizar en el resumen
             CargarDatosResumen(fechaPrimerDiaInicio, fechaDiaActual);
             CargarDatosVacas();
-            
+            CargarDatosVacasGrafico();
+
             //Se genera el documento excel
-            ExcelGenerator.CrearDocumentoResumenExcel(datosResumen, listaVacas);
+            ExcelGenerator.CrearDocumentoResumenExcel(datosResumen, listaVacas, promedioIEPHato, listaDatosVacas);
+           // ExcelGenerator.CrearDocumentoGraficosExcel(promedioIEPHato, listaDatosVacas);
         }
 
         /// <summary>
@@ -208,6 +210,75 @@ namespace TCU_WFA
                 }
             }
         }
+
+
+        //--------------------------------------------------------
+
+        //Consulta cantidad vacas
+        private const string CONSULTA_VACAS_CONSIDERADAS = "SELECT COUNT(*) FROM [dbo].[VACA]";
+        //Indices dataReader
+        private const int INDICE_DTR_NUMERO_TRAZABLE_GRAFICO = 0;
+        private const int INDICE_DTR_CANTIDAD_PARTOS = 1;
+        private const int INDICE_DTR_IEP_VACA = 2;
+        private const int INDICE_DTR_ULTIMO_IEP_VACA = 3;
+
+        //IEP Promedio del hato
+        private double promedioIEPHato = 0;
+
+        //Cantidad de vacas
+        private int cantidadVacas = 0;
+
+        //Lista de datos de las vacas
+        List<DatosVacaGraficos> listaDatosVacas = new List<DatosVacaGraficos>();
+
+
+
+        private void CargarDatosVacasGrafico()
+        {
+            //Se obtiene la cantidad de vacas
+            try
+            {
+                cantidadVacas = Utilities.EjecutarConsultaCount(CONSULTA_VACAS_CONSIDERADAS);
+            }
+            catch
+            {
+                cantidadVacas = Utilities.RESULTADO_ERROR;
+            }
+
+            if (cantidadVacas > 0 && cantidadVacas != Utilities.RESULTADO_ERROR)
+            {
+                //Se obtiene el IEP promedio del hato
+                promedioIEPHato = ProcedimientosAlmacenados.ProcObtenerIEPHistorico();
+
+                //Se obtienen todos los demás datos
+                DataTable dt = new DataTable();
+                dt = ProcedimientosAlmacenados.ProcObtenerDatosGraficosVacas();
+
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    for (int iteradorVacas = 0; iteradorVacas < dt.Rows.Count; ++iteradorVacas)
+                    {
+                        listaDatosVacas.Add(new DatosVacaGraficos());
+                        listaDatosVacas[iteradorVacas].pkNumeroTrazableVaca = (int)dt.Rows[iteradorVacas][INDICE_DTR_NUMERO_TRAZABLE_GRAFICO];
+
+                        if (dt.Rows[iteradorVacas][INDICE_DTR_CANTIDAD_PARTOS] != DBNull.Value)
+                        {
+                            listaDatosVacas[iteradorVacas].partosVaca = (int)dt.Rows[iteradorVacas][INDICE_DTR_CANTIDAD_PARTOS];
+                        }
+
+                        if (dt.Rows[iteradorVacas][INDICE_DTR_IEP_VACA] != DBNull.Value)
+                        {
+                            listaDatosVacas[iteradorVacas].iepPromedioVacaMeses = Convert.ToDouble(dt.Rows[iteradorVacas][INDICE_DTR_IEP_VACA]);
+                        }
+
+                        if (dt.Rows[iteradorVacas][INDICE_DTR_ULTIMO_IEP_VACA] != DBNull.Value)
+                        {
+                            listaDatosVacas[iteradorVacas].ultimoIEPVacaMeses = Convert.ToDouble(dt.Rows[iteradorVacas][INDICE_DTR_ULTIMO_IEP_VACA]);
+                        }
+                    }
+                }
+            }
+        }     
 
         private void dateTimePickerInicio_ValueChanged(object sender, EventArgs e)
         {
