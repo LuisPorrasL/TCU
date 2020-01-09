@@ -41,17 +41,36 @@ namespace TCU_WFA
             celdasInformacionGeneral[1, 4, 8, 4].Style.Font.Color.SetColor(Color.Red);
 
             //Se completan las celdas con sus valores respectivos
+
+            //Se obtiene la configuración actual de la aplicación
+            ProgramConfiguration config = new ProgramConfiguration();
+            string unidadDeTiempo = config.ObtenerConfig(ProgramConfiguration.LLAVE_UNIDAD_DE_TIEMPO);
+
+            switch (unidadDeTiempo)
+            {
+                case "Meses":
+                    celdasInformacionGeneral[6, 1].Value = "Último IEP cada vaca (meses)";
+                    celdasInformacionGeneral[4, 1].Value = "IEP Prom. Histórico (meses)";
+                    break;
+                case "Semanas":
+                    celdasInformacionGeneral[6, 1].Value = "Último IEP cada vaca (semanas)";
+                    celdasInformacionGeneral[4, 1].Value = "IEP Prom. Histórico (semanas)";
+                    break;
+                default:
+                    celdasInformacionGeneral[6, 1].Value = "Último IEP cada vaca (días)";
+                    celdasInformacionGeneral[4, 1].Value = "IEP Prom. Histórico (días)";
+                    break;
+            }
+
             celdasInformacionGeneral[1, 1].Value = "Fecha referencia";
             celdasInformacionGeneral[1, 4].Value = datosResumen.fechaActual;
             celdasInformacionGeneral[2, 1].Value = "Número hembras consideradas";
             celdasInformacionGeneral[2, 4].Value = datosResumen.hembrasConsideradas;
             celdasInformacionGeneral[3, 1].Value = "Hembras que han parido";
             celdasInformacionGeneral[3, 4].Value = datosResumen.hembrasParido;
-            celdasInformacionGeneral[4, 1].Value = "IEP Prom. Histórico, meses";
             celdasInformacionGeneral[4, 4].Value = datosResumen.iepPromHistoricoMeses;
             celdasInformacionGeneral[5, 1].Value = "% parición histórico";
             celdasInformacionGeneral[5, 4].Value = datosResumen.porcParicionHistorico;
-            celdasInformacionGeneral[6, 1].Value = "Último IEP cada vaca, meses";
             celdasInformacionGeneral[6, 4].Value = datosResumen.ultimoIEPVacaMeses;
             celdasInformacionGeneral[7, 1].Value = "Último % parición ";
             celdasInformacionGeneral[7, 4].Value = datosResumen.ultimoPorcParicion;

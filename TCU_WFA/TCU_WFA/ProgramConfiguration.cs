@@ -32,7 +32,7 @@ namespace TCU_WFA
                 //Se intenta abrir el archivo de configuración existente.
                 configActual.Load(XML_RUTA_ARCHIVO_CONFIG);
             }
-            catch (Exception ex)
+            catch
             {
                 //El archivo de configuración no existe o es incorrecto.
                 CrearConfigPorDefecto();
@@ -60,7 +60,14 @@ namespace TCU_WFA
             AgregarElementoXML(LLAVE_ALERTA_PARTO, "15", configuracion);
 
             //Se guarda el archivo XML
-            configActual.Save(XML_RUTA_ARCHIVO_CONFIG);
+            try
+            {
+                configActual.Save(XML_RUTA_ARCHIVO_CONFIG);
+            }
+            catch
+            {
+                //No fue posible guardar el archivo con la configuración por defecto
+            }
         }
 
         /// <summary>
@@ -106,7 +113,14 @@ namespace TCU_WFA
         /// </summary>
         public void EliminarConfigActual()
         {
-            if(File.Exists(XML_RUTA_ARCHIVO_CONFIG)) File.Delete(XML_RUTA_ARCHIVO_CONFIG);
+            try
+            {
+                if (File.Exists(XML_RUTA_ARCHIVO_CONFIG)) File.Delete(XML_RUTA_ARCHIVO_CONFIG);
+            }
+            catch
+            {
+                //No fue posible eliminar el archivo con la configuracion por defecto
+            }
             configActual.RemoveAll();
             CrearConfigPorDefecto();
         }
