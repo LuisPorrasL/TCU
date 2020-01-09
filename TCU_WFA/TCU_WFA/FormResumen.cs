@@ -255,7 +255,9 @@ namespace TCU_WFA
         List<DatosVacaGraficos> listaDatosVacas = new List<DatosVacaGraficos>();
 
 
-
+        /// <summary>
+        /// Método para obtener los datos a utilizar en el worksheet gráfico
+        /// </summary>
         private void CargarDatosVacasGrafico()
         {
             //Se obtiene la cantidad de vacas
