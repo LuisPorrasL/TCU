@@ -58,6 +58,12 @@
     <Compile Include="DefaultForm.Designer.cs">
       <DependentUpon>DefaultForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAlertas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAlertas.Designer.cs">
+      <DependentUpon>FormAlertas.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormValoresReferenciaExamen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormAgregarVaca.resx">
       <DependentUpon>FormAgregarVaca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAlertas.resx">
+      <DependentUpon>FormAlertas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormConfiguracion.resx">
       <DependentUpon>FormConfiguracion.cs</DependentUpon>

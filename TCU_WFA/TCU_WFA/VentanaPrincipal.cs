@@ -90,5 +90,13 @@ namespace TCU_WFA
             form.Show(this);
             Hide();
         }
+
+        private void botonAlerta_Click(object sender, EventArgs e)
+        {
+            FormAlertas form = new FormAlertas();
+            form.Tag = this;
+            form.Show(this);
+            Hide();
+        }
     }
 }

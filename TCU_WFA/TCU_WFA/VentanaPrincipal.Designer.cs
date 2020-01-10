@@ -45,6 +45,7 @@
             this.groupBoxNavegacionVentanaPrincipal = new System.Windows.Forms.GroupBox();
             this.pictureBoxVentanaPrincipal = new System.Windows.Forms.PictureBox();
             this.pictureBoxVentanaPrincipalUCR = new System.Windows.Forms.PictureBox();
+            this.botonAlerta = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.groupBoxNavegacionVentanaPrincipal.SuspendLayout();
@@ -137,6 +138,7 @@
             this.flowLayoutPanel2.Controls.Add(this.botonExamenAndrologico);
             this.flowLayoutPanel2.Controls.Add(this.botonSincronizacion);
             this.flowLayoutPanel2.Controls.Add(this.botonResumen);
+            this.flowLayoutPanel2.Controls.Add(this.botonAlerta);
             this.flowLayoutPanel2.Controls.Add(this.botonConfiguracion);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(66, 101);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
@@ -189,7 +191,7 @@
             // botonConfiguracion
             // 
             this.botonConfiguracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonConfiguracion.Location = new System.Drawing.Point(390, 3);
+            this.botonConfiguracion.Location = new System.Drawing.Point(517, 3);
             this.botonConfiguracion.Name = "botonConfiguracion";
             this.botonConfiguracion.Size = new System.Drawing.Size(121, 70);
             this.botonConfiguracion.TabIndex = 5;
@@ -226,6 +228,17 @@
             this.pictureBoxVentanaPrincipalUCR.Size = new System.Drawing.Size(280, 230);
             this.pictureBoxVentanaPrincipalUCR.TabIndex = 4;
             this.pictureBoxVentanaPrincipalUCR.TabStop = false;
+            // 
+            // botonAlerta
+            // 
+            this.botonAlerta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonAlerta.Location = new System.Drawing.Point(390, 3);
+            this.botonAlerta.Name = "botonAlerta";
+            this.botonAlerta.Size = new System.Drawing.Size(121, 70);
+            this.botonAlerta.TabIndex = 6;
+            this.botonAlerta.Text = "Alertas";
+            this.botonAlerta.UseVisualStyleBackColor = true;
+            this.botonAlerta.Click += new System.EventHandler(this.botonAlerta_Click);
             // 
             // VentanaPrincipal
             // 
@@ -267,6 +280,7 @@
         private System.Windows.Forms.GroupBox groupBoxNavegacionVentanaPrincipal;
         private System.Windows.Forms.PictureBox pictureBoxVentanaPrincipal;
         private System.Windows.Forms.PictureBox pictureBoxVentanaPrincipalUCR;
+        private System.Windows.Forms.Button botonAlerta;
     }
 }
 
