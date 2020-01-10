@@ -83,14 +83,6 @@ namespace TCU_WFA
             Hide();
         }
 
-        private void botonGraficos_Click(object sender, EventArgs e)
-        {
-            FormGraficos form = new FormGraficos();
-            form.Tag = this;
-            form.Show(this);
-            Hide();
-        }
-
         private void botonConfiguracion_Click(object sender, EventArgs e)
         {
             FormConfiguracion form = new FormConfiguracion();

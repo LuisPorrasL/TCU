@@ -41,7 +41,6 @@
             this.botonExamenAndrologico = new System.Windows.Forms.Button();
             this.botonSincronizacion = new System.Windows.Forms.Button();
             this.botonResumen = new System.Windows.Forms.Button();
-            this.botonGraficos = new System.Windows.Forms.Button();
             this.botonConfiguracion = new System.Windows.Forms.Button();
             this.groupBoxNavegacionVentanaPrincipal = new System.Windows.Forms.GroupBox();
             this.pictureBoxVentanaPrincipal = new System.Windows.Forms.PictureBox();
@@ -138,7 +137,6 @@
             this.flowLayoutPanel2.Controls.Add(this.botonExamenAndrologico);
             this.flowLayoutPanel2.Controls.Add(this.botonSincronizacion);
             this.flowLayoutPanel2.Controls.Add(this.botonResumen);
-            this.flowLayoutPanel2.Controls.Add(this.botonGraficos);
             this.flowLayoutPanel2.Controls.Add(this.botonConfiguracion);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(66, 101);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
@@ -188,21 +186,10 @@
             this.botonResumen.UseVisualStyleBackColor = true;
             this.botonResumen.Click += new System.EventHandler(this.botonResumen_Click);
             // 
-            // botonGraficos
-            // 
-            this.botonGraficos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonGraficos.Location = new System.Drawing.Point(390, 3);
-            this.botonGraficos.Name = "botonGraficos";
-            this.botonGraficos.Size = new System.Drawing.Size(121, 70);
-            this.botonGraficos.TabIndex = 4;
-            this.botonGraficos.Text = "Graficos";
-            this.botonGraficos.UseVisualStyleBackColor = true;
-            this.botonGraficos.Click += new System.EventHandler(this.botonGraficos_Click);
-            // 
             // botonConfiguracion
             // 
             this.botonConfiguracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonConfiguracion.Location = new System.Drawing.Point(517, 3);
+            this.botonConfiguracion.Location = new System.Drawing.Point(390, 3);
             this.botonConfiguracion.Name = "botonConfiguracion";
             this.botonConfiguracion.Size = new System.Drawing.Size(121, 70);
             this.botonConfiguracion.TabIndex = 5;
@@ -276,7 +263,6 @@
         private System.Windows.Forms.Button botonExamenAndrologico;
         private System.Windows.Forms.Button botonSincronizacion;
         private System.Windows.Forms.Button botonResumen;
-        private System.Windows.Forms.Button botonGraficos;
         private System.Windows.Forms.Button botonConfiguracion;
         private System.Windows.Forms.GroupBox groupBoxNavegacionVentanaPrincipal;
         private System.Windows.Forms.PictureBox pictureBoxVentanaPrincipal;
