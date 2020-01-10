@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 using TCU_WFA.Models;
 using TCU_WFA.Repository;
 
@@ -23,11 +24,14 @@ namespace TCU_WFA
         private const int INDICE_DTR_FECHA_ULTIMA_MONTA = 8;
         private const int INDICE_DTR_GESTACION_DIAS = 9;
         private const int INDICE_DTR_FECHA_PARTO = 10;
+        private const int LLAVE_TIPO_RESUMEN_GENERAL = 0;
+        private const int LLAVE_TIPO_RESUMEN_POR_FECHAS = 1;
 
-        //Consultas
+        //Consultas generales
         private const string CONSULTA_HEMBRAS_CONSIDERADAS = "SELECT COUNT(*) FROM [dbo].[VACA]";       
         private const string CONSULTA_HEMBRAS_PARIDO = "SELECT COUNT (DISTINCT V.PK_NUMERO_TRAZABLE) FROM [dbo].[VACA] V INNER JOIN [dbo].[PARTO] P ON V.PK_NUMERO_TRAZABLE = P.PK_FK_NUMERO_TRAZABLE_VACA";
         private const string CONSULTA_PARTOS = "SELECT COUNT (*) FROM [dbo].[PARTO]";
+        
 
         //Valores del resumen
         DatosGeneralesResumen datosResumen = new DatosGeneralesResumen();
@@ -48,23 +52,43 @@ namespace TCU_WFA
 
         private void FormResumen_Load(object sender, EventArgs e)
         {
+            LlenarOpcionesComboBoxTipoResumen();
             dateTimePickerInicio.Value = fechaPrimerDiaInicio;
             dateTimePickerFinal.Value = fechaDiaActual;
-            CargarDatosResumen(fechaPrimerDiaInicio, fechaDiaActual);
+            CargarDatosResumen();
             ActualizarDatosForm();
+        }
+
+        /// <summary>
+        /// Método para llenar las opciones del comboBox para seleccionar el tipo de resumen
+        /// </summary>
+        private void LlenarOpcionesComboBoxTipoResumen()
+        {
+            Dictionary<int, string> opcionesComboBox = new Dictionary<int, string>();
+            opcionesComboBox.Add(LLAVE_TIPO_RESUMEN_GENERAL, "General");
+            opcionesComboBox.Add(LLAVE_TIPO_RESUMEN_POR_FECHAS, "Por fechas");
+            comboBoxTipoResumen.DataSource = new BindingSource(opcionesComboBox, null);
+            comboBoxTipoResumen.DisplayMember = "Value";
+            comboBoxTipoResumen.ValueMember = "Key";
+            comboBoxTipoResumen.SelectedIndex = LLAVE_TIPO_RESUMEN_GENERAL;
+            datosResumen.tipoResumen = LLAVE_TIPO_RESUMEN_GENERAL;
         }
 
         /// <summary>
         /// Método para obtener de la BD todos los datos a utilzar en el resumen y actualizar los valores del form
         /// </summary>
-        /// <param name="fechaInicio">Parámetro que recibe la fecha desde la cual se va a analizar para la obtención de los valores</param>
-        /// <param name="fechaFinal">Parámetro que recibe la fecha hasta la cual se va a analizar para la obtención de los valores</param>
-        private void CargarDatosResumen(DateTime fechaInicio, DateTime fechaFinal)
+        private void CargarDatosResumen()
         {
             //Se obtienen los datos a cargar
             datosResumen.fechaActual = DateTime.Now.ToShortDateString();
-            datosResumen.fechaInicioResumen = fechaInicio;
-            datosResumen.fechaFinalResumen = fechaFinal;
+
+            //Si el resumen es por fechas se obtienen las fechas seleccionadas
+            if (datosResumen.tipoResumen == LLAVE_TIPO_RESUMEN_POR_FECHAS)
+            {
+                datosResumen.fechaInicioResumen = dateTimePickerInicio.Value;
+                datosResumen.fechaFinalResumen = dateTimePickerFinal.Value;
+            }
+
             try
             {
                 datosResumen.hembrasConsideradas = Utilities.EjecutarConsultaCount(CONSULTA_HEMBRAS_CONSIDERADAS);
@@ -143,7 +167,7 @@ namespace TCU_WFA
         private void botonGenerarInformeExcel_Click(object sender, EventArgs e)
         {
             //Se obtienen los datos a utilizar en el resumen
-            CargarDatosResumen(fechaPrimerDiaInicio, fechaDiaActual);
+            CargarDatosResumen();
             CargarDatosVacas();
             CargarDatosVacasGrafico();
 
@@ -278,17 +302,55 @@ namespace TCU_WFA
                     }
                 }
             }
-        }     
+        }
 
+        /// <summary>
+        /// Método que actualiza los datos a mostrar cuando se actualiza la fecha inicial
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dateTimePickerInicio_ValueChanged(object sender, EventArgs e)
         {
-            CargarDatosResumen(dateTimePickerInicio.Value, dateTimePickerFinal.Value);
+            CargarDatosResumen();
             ActualizarDatosForm();
         }
 
+        /// <summary>
+        /// Método que actualiza los datos a mostrar cuando se actualiza la fecha final
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dateTimePickerFinal_ValueChanged(object sender, EventArgs e)
         {
-            CargarDatosResumen(dateTimePickerInicio.Value, dateTimePickerFinal.Value);
+            CargarDatosResumen();
+            ActualizarDatosForm();
+        }
+
+        /// <summary>
+        /// Método que actualiza los datos del resumen al cambiar el tipo seleccionado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void comboBoxTipoResumen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(((KeyValuePair<int, string>)comboBoxTipoResumen.SelectedItem).Key == LLAVE_TIPO_RESUMEN_POR_FECHAS)
+            {
+                datosResumen.tipoResumen = LLAVE_TIPO_RESUMEN_POR_FECHAS;
+                labelFechaInicio.Visible = true;
+                dateTimePickerInicio.Visible = true;
+                labelFechaFinal.Visible = true;
+                dateTimePickerFinal.Visible = true;
+            }
+            else
+            {
+                datosResumen.tipoResumen = LLAVE_TIPO_RESUMEN_GENERAL;
+                labelFechaInicio.Visible = false;
+                dateTimePickerInicio.Visible = false;
+                labelFechaFinal.Visible = false;
+                dateTimePickerFinal.Visible = false;
+            }
+
+            CargarDatosResumen();
             ActualizarDatosForm();
         }
     }

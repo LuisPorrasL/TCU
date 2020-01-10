@@ -14,7 +14,7 @@ namespace TCU_WFA.Models
         public double ultimoIEPVacaMeses { get; set; }
         public double ultimoPorcParicion { get; set; }
         public double promPartosHato { get; set; }
-
+        public int tipoResumen { get; set; }
         public DateTime fechaInicioResumen { get; set; }
         public DateTime fechaFinalResumen { get; set; }
 
