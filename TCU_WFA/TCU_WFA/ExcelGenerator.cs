@@ -21,7 +21,6 @@ namespace TCU_WFA
         private const string TITULO_MENSAJE = "Documento generado";
         private const string MENSAJE_CORRECTO = "El documento se guardó en: ";
         private const string MENSAJE_INCORRECTO = "Ocurrió un error al guardar el documento";
-        private static ExcelPackage documentoExcel = new ExcelPackage();
         /// <summary>
         /// Método para generar el documento excel del resumen
         /// </summary>
@@ -29,7 +28,7 @@ namespace TCU_WFA
         public static void CrearDocumentoResumenExcel(DatosGeneralesResumen datosResumen, List<VacaModel> listaVacas, double promedioIEPHato, List<DatosVacaGraficos> listaDatosVacas)
         {
             //Se crea una instancia del paquete de excel del documento a utilizar
-            //ExcelPackage documentoExcel = new ExcelPackage();
+            ExcelPackage documentoExcel = new ExcelPackage();
 
             //Se crea la hoja que se va a generar
             ExcelWorksheet hojaResumen = documentoExcel.Workbook.Worksheets.Add(TITULO_RESUMEN);
