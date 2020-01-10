@@ -134,9 +134,9 @@
             this.labelAlertaPalpacion.AutoSize = true;
             this.labelAlertaPalpacion.Location = new System.Drawing.Point(7, 95);
             this.labelAlertaPalpacion.Name = "labelAlertaPalpacion";
-            this.labelAlertaPalpacion.Size = new System.Drawing.Size(285, 13);
+            this.labelAlertaPalpacion.Size = new System.Drawing.Size(316, 13);
             this.labelAlertaPalpacion.TabIndex = 3;
-            this.labelAlertaPalpacion.Text = "Cantidad de días antes de la palpación para mostrar alerta:";
+            this.labelAlertaPalpacion.Text = "Cantidad de días luego del salto para mostrar alerta de palpación:";
             // 
             // labelAlertaIEP
             // 

@@ -31,6 +31,12 @@ namespace TCU_WFA
             {
                 //Se intenta abrir el archivo de configuración existente.
                 configActual.Load(XML_RUTA_ARCHIVO_CONFIG);
+                if (!ValidarConfigActual())
+                {
+                    //La configuración cargada es incorrecta
+                    EliminarConfigActual();
+                    CrearConfigPorDefecto();
+                }
             }
             catch
             {
@@ -111,7 +117,7 @@ namespace TCU_WFA
         /// <summary>
         /// Elimina la configuración actual y carga la configuración por defecto
         /// </summary>
-        public void EliminarConfigActual()
+        private void EliminarConfigActual()
         {
             try
             {
@@ -122,7 +128,16 @@ namespace TCU_WFA
                 //No fue posible eliminar el archivo con la configuracion por defecto
             }
             configActual.RemoveAll();
-            CrearConfigPorDefecto();
+        }
+
+        private bool ValidarConfigActual()
+        {
+            string unidadDeTiempo = ObtenerConfig(LLAVE_UNIDAD_DE_TIEMPO);
+            if (unidadDeTiempo != "Días" && unidadDeTiempo != "Meses" && unidadDeTiempo != "Semanas") return false;
+            if (!int.TryParse(ObtenerConfig(LLAVE_ALERTA_IEP), out int x)) return false;
+            if (!int.TryParse(ObtenerConfig(LLAVE_ALERTA_PALPACION), out int y)) return false;
+            if (!int.TryParse(ObtenerConfig(LLAVE_ALERTA_PARTO), out int z)) return false;
+            return true;
         }
     }
 }

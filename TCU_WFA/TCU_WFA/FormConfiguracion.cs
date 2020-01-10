@@ -27,16 +27,7 @@ namespace TCU_WFA
         private void FormConfiguracion_Load(object sender, EventArgs e)
         {
             LlenarComboBoxUnidadDeTiempo();
-            try
-            {
-                CargarConfiguracionActual();
-            }
-            catch (Exception ex)
-            {
-                Utilities.MostrarMessageBox(ERROR_ARCHIVO_CONFIG, Utilities.TITULO_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                config.EliminarConfigActual();
-                CargarConfiguracionActual();
-            }
+            CargarConfiguracionActual();
         }
 
         private void LlenarComboBoxUnidadDeTiempo()
@@ -68,7 +59,7 @@ namespace TCU_WFA
                 config.CambiarConfig(ProgramConfiguration.LLAVE_ALERTA_PARTO, numericUpDownParto.Value.ToString());
                 Utilities.MostrarMessageBox(Utilities.MENSAJE_EXITO, Utilities.TITULO_EXITO, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (Exception ex)
+            catch
             {
                 Utilities.MostrarMessageBox(Utilities.MENSAJE_ERROR, Utilities.TITULO_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
