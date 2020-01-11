@@ -104,9 +104,9 @@
             this.labelPeso.AutoSize = true;
             this.labelPeso.Location = new System.Drawing.Point(6, 156);
             this.labelPeso.Name = "labelPeso";
-            this.labelPeso.Size = new System.Drawing.Size(31, 13);
+            this.labelPeso.Size = new System.Drawing.Size(53, 13);
             this.labelPeso.TabIndex = 19;
-            this.labelPeso.Text = "Peso";
+            this.labelPeso.Text = "Peso (Kg)";
             // 
             // comboBoxDesarrollo
             // 

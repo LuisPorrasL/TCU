@@ -140,7 +140,7 @@ namespace TCU_WFA
             resultado.pkNumeroTrazable = Int32.Parse(textBoxNumeroTrazableVaca.Text);
             resultado.nombre = textBoxNombre.Text;
             resultado.caracteriscas = textBoxCaracteristicas.Text;
-            if (textBoxPeso.Text != "") resultado.peso = double.Parse(textBoxPeso.Text.Replace('.', ','));
+            if (textBoxPeso.Text != "") resultado.peso = double.Parse(textBoxPeso.Text);
             else resultado.peso = null;
             if (comboBoxIdMadre.Text != "") resultado.fkNumeroTrazableMadre = Int32.Parse(comboBoxIdMadre.Text);
             else resultado.fkNumeroTrazableMadre = null;
@@ -164,7 +164,7 @@ namespace TCU_WFA
                 if (textBoxNumeroTrazableVaca.Text == "" || Int32.Parse(textBoxNumeroTrazableVaca.Text) <= 0) return false;
                 if (textBoxPeso.Text != "")
                 {
-                    double peso = double.Parse(textBoxPeso.Text.Replace('.', ','));
+                    double peso = double.Parse(textBoxPeso.Text);
                     if (peso < 0 || peso > 999.99) return false;
                 }
                 if (textBoxCaracteristicas.Text == "") return false;

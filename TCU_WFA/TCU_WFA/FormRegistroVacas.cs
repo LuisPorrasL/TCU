@@ -224,7 +224,7 @@ namespace TCU_WFA
 
             try
             {
-                informacionVacaSeleccionada.peso = double.Parse(filaSelecionada.Cells[PESO].Value.ToString().Replace('.', ','));
+                informacionVacaSeleccionada.peso = double.Parse(filaSelecionada.Cells[PESO].Value.ToString());
             }
             catch
             {
