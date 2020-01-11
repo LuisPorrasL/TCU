@@ -96,6 +96,8 @@
     <Build Include="PROC_OBTENER_PROMEDIO_PARTOS_HATO.sql" />
     <Build Include="PROC_OBTENER_DATOS_GRAFICOS_VACAS.sql" />
     <Build Include="TIPO_DATOS_GRAFICOS_VACAS.sql" />
+    <Build Include="FUNC_OBTENER_ULTIMO_IEP.sql" />
+    <Build Include="FUNC_OBTENER_IEP.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.PostDeploymentTesting.sql" />

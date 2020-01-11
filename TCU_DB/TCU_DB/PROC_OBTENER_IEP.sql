@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[PROC_OBTENER_IEP]
 	@idVaca INT,
-	@IEP DECIMAL(8,2) = 0.0 OUTPUT -- Dias
+	@IEP DECIMAL(8,2) OUTPUT -- Dias
 AS
 	BEGIN
 		DECLARE @cantidadPartos INT;
