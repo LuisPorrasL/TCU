@@ -41,11 +41,11 @@
             this.botonExamenAndrologico = new System.Windows.Forms.Button();
             this.botonSincronizacion = new System.Windows.Forms.Button();
             this.botonResumen = new System.Windows.Forms.Button();
+            this.botonAlerta = new System.Windows.Forms.Button();
             this.botonConfiguracion = new System.Windows.Forms.Button();
             this.groupBoxNavegacionVentanaPrincipal = new System.Windows.Forms.GroupBox();
             this.pictureBoxVentanaPrincipal = new System.Windows.Forms.PictureBox();
             this.pictureBoxVentanaPrincipalUCR = new System.Windows.Forms.PictureBox();
-            this.botonAlerta = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.groupBoxNavegacionVentanaPrincipal.SuspendLayout();
@@ -188,6 +188,17 @@
             this.botonResumen.UseVisualStyleBackColor = true;
             this.botonResumen.Click += new System.EventHandler(this.botonResumen_Click);
             // 
+            // botonAlerta
+            // 
+            this.botonAlerta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonAlerta.Location = new System.Drawing.Point(390, 3);
+            this.botonAlerta.Name = "botonAlerta";
+            this.botonAlerta.Size = new System.Drawing.Size(121, 70);
+            this.botonAlerta.TabIndex = 6;
+            this.botonAlerta.Text = "Alertas";
+            this.botonAlerta.UseVisualStyleBackColor = true;
+            this.botonAlerta.Click += new System.EventHandler(this.botonAlerta_Click);
+            // 
             // botonConfiguracion
             // 
             this.botonConfiguracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -229,17 +240,6 @@
             this.pictureBoxVentanaPrincipalUCR.TabIndex = 4;
             this.pictureBoxVentanaPrincipalUCR.TabStop = false;
             // 
-            // botonAlerta
-            // 
-            this.botonAlerta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonAlerta.Location = new System.Drawing.Point(390, 3);
-            this.botonAlerta.Name = "botonAlerta";
-            this.botonAlerta.Size = new System.Drawing.Size(121, 70);
-            this.botonAlerta.TabIndex = 6;
-            this.botonAlerta.Text = "Alertas";
-            this.botonAlerta.UseVisualStyleBackColor = true;
-            this.botonAlerta.Click += new System.EventHandler(this.botonAlerta_Click);
-            // 
             // VentanaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -253,6 +253,7 @@
             this.Name = "VentanaPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "C.G.I.Z.S";
+            this.Shown += new System.EventHandler(this.VentanaPrincipal_Shown);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.groupBoxNavegacionVentanaPrincipal.ResumeLayout(false);
