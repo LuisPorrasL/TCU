@@ -47,6 +47,10 @@ namespace TCU_WFA
         //Lista de vacas
         List<VacaModel> listaVacas;
 
+        //Lista de datos para gráficos
+        //Lista de datos de las vacas
+        List<DatosVacaGraficos> listaDatosVacas;
+
         //Fechas a utilizar por defecto
         //Primer día del año y el día actual
         private DateTime fechaPrimerDiaInicio = new DateTime(DateTime.Now.Year, 1, 1);
@@ -308,15 +312,14 @@ namespace TCU_WFA
         //Cantidad de vacas
         private int cantidadVacas = 0;
 
-        //Lista de datos de las vacas
-        List<DatosVacaGraficos> listaDatosVacas = new List<DatosVacaGraficos>();
-
-
         /// <summary>
         /// Método para obtener los datos a utilizar en el worksheet gráfico
         /// </summary>
         private void CargarDatosVacasGrafico()
         {
+            //Lista de datos de las vacas
+            listaDatosVacas = new List<DatosVacaGraficos>();
+
             //Se obtiene la cantidad de vacas
             try
             {

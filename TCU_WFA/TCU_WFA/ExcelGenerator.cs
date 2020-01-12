@@ -16,6 +16,8 @@ namespace TCU_WFA
     {
         //Constantes Resumen
         private const string TITULO_RESUMEN = "Resumen";
+        private const int LLAVE_TIPO_RESUMEN_GENERAL = 0;
+        private const int LLAVE_TIPO_RESUMEN_POR_FECHAS = 1;
 
         //Mensajes de creación del documento
         private const string TITULO_MENSAJE = "Documento generado";
@@ -61,8 +63,18 @@ namespace TCU_WFA
                     break;
             }
 
-            celdasInformacionGeneral[1, 1].Value = "Fecha referencia";
-            celdasInformacionGeneral[1, 4].Value = datosResumen.fechaActual;
+            switch (datosResumen.tipoResumen)
+            {
+                case LLAVE_TIPO_RESUMEN_POR_FECHAS:
+                    celdasInformacionGeneral[1, 1].Value = "Periodo";
+                    celdasInformacionGeneral[1, 2].Style.Font.Color.SetColor(Color.Red);
+                    celdasInformacionGeneral[1, 2].Value = "Desde " + datosResumen.fechaInicioResumen.ToShortDateString() + " hasta " + datosResumen.fechaFinalResumen.ToShortDateString();
+                    break;
+                default:
+                    celdasInformacionGeneral[1, 1].Value = "Fecha referencia";
+                    celdasInformacionGeneral[1, 4].Value = datosResumen.fechaActual;
+                    break;
+            }
             celdasInformacionGeneral[2, 1].Value = "Número hembras consideradas";
             celdasInformacionGeneral[2, 4].Value = datosResumen.hembrasConsideradas;
             celdasInformacionGeneral[3, 1].Value = "Hembras que han parido";
