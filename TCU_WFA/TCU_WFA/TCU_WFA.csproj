@@ -58,6 +58,12 @@
     <Compile Include="DefaultForm.Designer.cs">
       <DependentUpon>DefaultForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAlertas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAlertas.Designer.cs">
+      <DependentUpon>FormAlertas.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormValoresReferenciaExamen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,11 +95,11 @@
     <Compile Include="FormDestete.Designer.cs">
       <DependentUpon>FormDestete.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormDetallesExamenAntropologico.cs">
+    <Compile Include="FormDetallesExamenAndrologico.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDetallesExamenAntropologico.Designer.cs">
-      <DependentUpon>FormDetallesExamenAntropologico.cs</DependentUpon>
+    <Compile Include="FormDetallesExamenAndrologico.Designer.cs">
+      <DependentUpon>FormDetallesExamenAndrologico.cs</DependentUpon>
     </Compile>
     <Compile Include="FormDetallesToro.cs">
       <SubType>Form</SubType>
@@ -136,12 +142,6 @@
     </Compile>
     <Compile Include="FormExamenAndrologico.Designer.cs">
       <DependentUpon>FormExamenAndrologico.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormGraficos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormGraficos.Designer.cs">
-      <DependentUpon>FormGraficos.cs</DependentUpon>
     </Compile>
     <Compile Include="FormPalpacion.cs">
       <SubType>Form</SubType>
@@ -190,6 +190,7 @@
     <Compile Include="Models\ToroModel.cs" />
     <Compile Include="Models\DatosGeneralesResumen.cs" />
     <Compile Include="Models\VacaModel.cs" />
+    <Compile Include="ProgramConfiguration.cs" />
     <Compile Include="Repository\ProcedimientosAlmacenados.cs" />
     <Compile Include="TCU_DBDataSet.cs">
       <DependentUpon>TCU_DBDataSet.xsd</DependentUpon>
@@ -217,14 +218,17 @@
     <EmbeddedResource Include="FormAgregarVaca.resx">
       <DependentUpon>FormAgregarVaca.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormAlertas.resx">
+      <DependentUpon>FormAlertas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormConfiguracion.resx">
       <DependentUpon>FormConfiguracion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDestete.resx">
       <DependentUpon>FormDestete.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDetallesExamenAntropologico.resx">
-      <DependentUpon>FormDetallesExamenAntropologico.cs</DependentUpon>
+    <EmbeddedResource Include="FormDetallesExamenAndrologico.resx">
+      <DependentUpon>FormDetallesExamenAndrologico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDetallesToro.resx">
       <DependentUpon>FormDetallesToro.cs</DependentUpon>
@@ -246,9 +250,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormExamenAndrologico.resx">
       <DependentUpon>FormExamenAndrologico.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormGraficos.resx">
-      <DependentUpon>FormGraficos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPalpacion.resx">
       <DependentUpon>FormPalpacion.cs</DependentUpon>

@@ -64,6 +64,7 @@
             this.botonVolver.TabIndex = 0;
             this.botonVolver.Text = "Volver";
             this.botonVolver.UseVisualStyleBackColor = true;
+            this.botonVolver.Click += new System.EventHandler(this.botonVolver_Click);
             // 
             // botonGenerarInformeExcel
             // 
@@ -101,9 +102,9 @@
             this.labelUltimoIEPVacaMeses.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUltimoIEPVacaMeses.Location = new System.Drawing.Point(116, 266);
             this.labelUltimoIEPVacaMeses.Name = "labelUltimoIEPVacaMeses";
-            this.labelUltimoIEPVacaMeses.Size = new System.Drawing.Size(146, 13);
+            this.labelUltimoIEPVacaMeses.Size = new System.Drawing.Size(110, 13);
             this.labelUltimoIEPVacaMeses.TabIndex = 22;
-            this.labelUltimoIEPVacaMeses.Text = "Último IEP cada vaca, meses";
+            this.labelUltimoIEPVacaMeses.Text = "Último IEP cada vaca";
             // 
             // labelProcentajeParicionHistorico
             // 
@@ -121,9 +122,9 @@
             this.labelIEPPromHistoricoMeses.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelIEPPromHistoricoMeses.Location = new System.Drawing.Point(116, 186);
             this.labelIEPPromHistoricoMeses.Name = "labelIEPPromHistoricoMeses";
-            this.labelIEPPromHistoricoMeses.Size = new System.Drawing.Size(134, 13);
+            this.labelIEPPromHistoricoMeses.Size = new System.Drawing.Size(98, 13);
             this.labelIEPPromHistoricoMeses.TabIndex = 20;
-            this.labelIEPPromHistoricoMeses.Text = "IEP Prom. Histórico, meses";
+            this.labelIEPPromHistoricoMeses.Text = "IEP Prom. Histórico";
             // 
             // labelHembrasHanParido
             // 

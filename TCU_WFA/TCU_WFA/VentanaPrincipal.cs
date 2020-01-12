@@ -6,6 +6,9 @@ namespace TCU_WFA
 {
     public partial class VentanaPrincipal : Form
     {
+        //Constantes
+        private const string MENSAJE_ALERTAS = "Usted podría tener nuevas alertas. Por favor revisar la pestaña de Alertas";
+        private const string TITULO_ALERTAS = "Alerta";
         public VentanaPrincipal()
         {
             InitializeComponent();
@@ -83,20 +86,25 @@ namespace TCU_WFA
             Hide();
         }
 
-        private void botonGraficos_Click(object sender, EventArgs e)
-        {
-            FormGraficos form = new FormGraficos();
-            form.Tag = this;
-            form.Show(this);
-            Hide();
-        }
-
         private void botonConfiguracion_Click(object sender, EventArgs e)
         {
             FormConfiguracion form = new FormConfiguracion();
             form.Tag = this;
             form.Show(this);
             Hide();
+        }
+
+        private void botonAlerta_Click(object sender, EventArgs e)
+        {
+            FormAlertas form = new FormAlertas();
+            form.Tag = this;
+            form.Show(this);
+            Hide();
+        }
+
+        private void VentanaPrincipal_Shown(object sender, EventArgs e)
+        {
+            Utilities.MostrarMessageBox(MENSAJE_ALERTAS, TITULO_ALERTAS, MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }

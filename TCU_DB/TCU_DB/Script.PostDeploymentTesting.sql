@@ -10,7 +10,6 @@ Post-Deployment Script Template
 --------------------------------------------------------------------------------------
 */
 
-DELETE FROM [dbo].[USUARIO]
 DELETE FROM [dbo].[VACA]
 DELETE FROM [dbo].[TORO]
 DELETE FROM [dbo].[MODO_PRENNES]
@@ -69,11 +68,11 @@ SET IDENTITY_INSERT dbo.[DESARROLLO] OFF
 
 --Datos de prueba
 INSERT INTO [dbo].[VACA]([PK_NUMERO_TRAZABLE], [NOMBRE], [CARACTERISTICAS], [FK_ID_RAZA], [FECHA_NACIMIENTO], [FK_ID_MODO_PRENNES], [FK_NUMERO_TRAZABLE_VACA], [FK_NUMERO_TRAZABLE_TORO], [PESO], [FK_ID_DESARROLLO], [ACTIVA], [CAUSA_DE_BAJA])
-VALUES	(447, 'Mojarra', 'Real', 2, '2007-01-20', 2, NULL, NULL, 300, 3, 1, NULL),
-		(451, 'Volillera', 'Real', 2, '2007-03-07', 2, NULL, NULL, 300, 3, 1, NULL),
-		(457, 'Baya', 'Real', 2, '2007-10-06', 2, NULL, NULL, 300, 3, 1, NULL),
-		(500, 'Reciente', 'Fake', 1, '2019-10-07 18:13:53', 2, 447, NULL, 300, 3, 1, NULL),
-		(509, 'Vieja', 'Fake', 1, '2019-03-19 18:14:40', 2, 457, NULL, 300, 3, 1, NULL);
+VALUES	(447, 'Mojarra', 'Real', 2, '2007-01-20', 1, NULL, NULL, 300, 3, 1, NULL),
+		(451, 'Volillera', 'Real', 2, '2007-03-07', 1, NULL, NULL, 300, 3, 1, NULL),
+		(457, 'Baya', 'Real', 2, '2007-10-06', 1, NULL, NULL, 300, 3, 1, NULL),
+		(500, 'Reciente', 'Fake', 1, '2019-10-07 18:13:53', 1, 447, NULL, 300, 3, 1, NULL),
+		(509, 'Vieja', 'Fake', 1, '2019-03-19 18:14:40', 1, 457, NULL, 300, 3, 1, NULL);
 
 INSERT INTO [dbo].[PARTO]([PK_FK_NUMERO_TRAZABLE_VACA], [PK_FECHA], [FK_NUMERO_TRAZABLE_TORO], [SEXO], [MUERTE_PREMATURA], [CAUSA_ABORTO])
 VALUES	(447, '2009-08-09', NULL, 'H', 0, NULL),

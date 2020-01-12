@@ -14,6 +14,8 @@ namespace TCU_WFA
         //Constantes
         public const int RESULTADO_ERROR = -18;
         public const int TIEMPO_GESTACION_VACA_MESES = 9;
+        public const int DIAS_SEMANA = 7;
+        public const int DIAS_MES = 30;
         //Connection string 
         public const string CONNECTION_STRING = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog = TCU_DB; Integrated Security = True; Connect Timeout = 60; Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         //Mensajes

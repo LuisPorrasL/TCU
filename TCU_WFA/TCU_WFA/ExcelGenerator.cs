@@ -21,7 +21,6 @@ namespace TCU_WFA
         private const string TITULO_MENSAJE = "Documento generado";
         private const string MENSAJE_CORRECTO = "El documento se guardó en: ";
         private const string MENSAJE_INCORRECTO = "Ocurrió un error al guardar el documento";
-        //private static ExcelPackage documentoExcel = new ExcelPackage();
         /// <summary>
         /// Método para generar el documento excel del resumen
         /// </summary>
@@ -41,17 +40,36 @@ namespace TCU_WFA
             celdasInformacionGeneral[1, 4, 8, 4].Style.Font.Color.SetColor(Color.Red);
 
             //Se completan las celdas con sus valores respectivos
+
+            //Se obtiene la configuración actual de la aplicación
+            ProgramConfiguration config = new ProgramConfiguration();
+            string unidadDeTiempo = config.ObtenerConfig(ProgramConfiguration.LLAVE_UNIDAD_DE_TIEMPO);
+
+            switch (unidadDeTiempo)
+            {
+                case "Meses":
+                    celdasInformacionGeneral[6, 1].Value = "Último IEP cada vaca (meses)";
+                    celdasInformacionGeneral[4, 1].Value = "IEP Prom. Histórico (meses)";
+                    break;
+                case "Semanas":
+                    celdasInformacionGeneral[6, 1].Value = "Último IEP cada vaca (semanas)";
+                    celdasInformacionGeneral[4, 1].Value = "IEP Prom. Histórico (semanas)";
+                    break;
+                default:
+                    celdasInformacionGeneral[6, 1].Value = "Último IEP cada vaca (días)";
+                    celdasInformacionGeneral[4, 1].Value = "IEP Prom. Histórico (días)";
+                    break;
+            }
+
             celdasInformacionGeneral[1, 1].Value = "Fecha referencia";
             celdasInformacionGeneral[1, 4].Value = datosResumen.fechaActual;
             celdasInformacionGeneral[2, 1].Value = "Número hembras consideradas";
             celdasInformacionGeneral[2, 4].Value = datosResumen.hembrasConsideradas;
             celdasInformacionGeneral[3, 1].Value = "Hembras que han parido";
             celdasInformacionGeneral[3, 4].Value = datosResumen.hembrasParido;
-            celdasInformacionGeneral[4, 1].Value = "IEP Prom. Histórico, meses";
             celdasInformacionGeneral[4, 4].Value = datosResumen.iepPromHistoricoMeses;
             celdasInformacionGeneral[5, 1].Value = "% parición histórico";
             celdasInformacionGeneral[5, 4].Value = datosResumen.porcParicionHistorico;
-            celdasInformacionGeneral[6, 1].Value = "Último IEP cada vaca, meses";
             celdasInformacionGeneral[6, 4].Value = datosResumen.ultimoIEPVacaMeses;
             celdasInformacionGeneral[7, 1].Value = "Último % parición ";
             celdasInformacionGeneral[7, 4].Value = datosResumen.ultimoPorcParicion;
@@ -113,43 +131,43 @@ namespace TCU_WFA
 
             //Aqui se crea el worksheet
             ExcelWorksheet grafico = documentoExcel.Workbook.Worksheets.Add("Gráficos");
-            ExcelRange celdasListaVacasGraficos = grafico.Cells[1, 1, 1 + listaDatosVacas.Count, 6];
-
-            //Se definen estilos
-            celdasListaVacasGraficos.Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
-            celdasListaVacasGraficos.Style.Fill.BackgroundColor.SetColor(Color.FromArgb(255, 255, 255));
-            celdasListaVacasGraficos[1, 1, 1, 6].Style.Fill.BackgroundColor.SetColor(Color.FromArgb(211, 211, 211));
-            celdasListaVacasGraficos[1, 1, 1, 6].Style.Font.Bold = true;
-            celdasListaVacasGraficos[1, 1, 1, 6].Style.Border.Left.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
-            celdasListaVacasGraficos[1, 1, 1, 6].Style.Border.Right.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
-            celdasListaVacasGraficos[1, 1, 1, 6].Style.Border.Top.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
-            celdasListaVacasGraficos[1, 1, 1, 6].Style.Border.Bottom.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
-
-
-            //Se le da un valor a los encabezados
-            celdasListaVacasGraficos[1, 1].Value = "Orden";
-            celdasListaVacasGraficos[1, 2].Value = "Núm vaca";
-            celdasListaVacasGraficos[1, 3].Value = "Prom hato";
-            celdasListaVacasGraficos[1, 4].Value = "Partos/vaca";
-            celdasListaVacasGraficos[1, 5].Value = "Prom/vaca";
-            celdasListaVacasGraficos[1, 6].Value = "Últ/vaca";
-
-            //Mas estilos
-            celdasListaVacasGraficos.Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
-            celdasListaVacasGraficos[2, 1, 1 + listaDatosVacas.Count, 1].Style.WrapText = true;
-            celdasListaVacasGraficos.Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center;
-            celdasListaVacasGraficos.Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
-            celdasListaVacasGraficos[2, 1, 1 + listaDatosVacas.Count, 1].Style.Fill.BackgroundColor.SetColor(Color.FromArgb(182, 221, 232));
-            celdasListaVacasGraficos[2, 1, 1 + listaDatosVacas.Count, 1].Style.Font.Bold = true;
-            celdasListaVacasGraficos[2, 1, 1 + listaDatosVacas.Count, 1].Style.Border.Left.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
-            celdasListaVacasGraficos[2, 1, 1 + listaDatosVacas.Count, 1].Style.Border.Right.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
-            celdasListaVacasGraficos[2, 1, 1 + listaDatosVacas.Count, 1].Style.Border.Top.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
-            celdasListaVacasGraficos[2, 1, 1 + listaDatosVacas.Count, 1].Style.Border.Bottom.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
-
-
-            //Se recorre la lista de vacas y se carga el worksheet
+            
             if (listaDatosVacas.Count > 0)
             {
+                ExcelRange celdasListaVacasGraficos = grafico.Cells[1, 1, 1 + listaDatosVacas.Count, 6];
+
+                //Se definen estilos
+                celdasListaVacasGraficos.Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
+                celdasListaVacasGraficos.Style.Fill.BackgroundColor.SetColor(Color.FromArgb(255, 255, 255));
+                celdasListaVacasGraficos[1, 1, 1, 6].Style.Fill.BackgroundColor.SetColor(Color.FromArgb(211, 211, 211));
+                celdasListaVacasGraficos[1, 1, 1, 6].Style.Font.Bold = true;
+                celdasListaVacasGraficos[1, 1, 1, 6].Style.Border.Left.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
+                celdasListaVacasGraficos[1, 1, 1, 6].Style.Border.Right.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
+                celdasListaVacasGraficos[1, 1, 1, 6].Style.Border.Top.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
+                celdasListaVacasGraficos[1, 1, 1, 6].Style.Border.Bottom.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
+
+
+                //Se le da un valor a los encabezados
+                celdasListaVacasGraficos[1, 1].Value = "Orden";
+                celdasListaVacasGraficos[1, 2].Value = "Núm vaca";
+                celdasListaVacasGraficos[1, 3].Value = "Prom hato";
+                celdasListaVacasGraficos[1, 4].Value = "Partos/vaca";
+                celdasListaVacasGraficos[1, 5].Value = "Prom/vaca";
+                celdasListaVacasGraficos[1, 6].Value = "Últ/vaca";
+
+                //Mas estilos
+                celdasListaVacasGraficos.Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
+                celdasListaVacasGraficos[2, 1, 1 + listaDatosVacas.Count, 1].Style.WrapText = true;
+                celdasListaVacasGraficos.Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center;
+                celdasListaVacasGraficos.Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
+                celdasListaVacasGraficos[2, 1, 1 + listaDatosVacas.Count, 1].Style.Fill.BackgroundColor.SetColor(Color.FromArgb(182, 221, 232));
+                celdasListaVacasGraficos[2, 1, 1 + listaDatosVacas.Count, 1].Style.Font.Bold = true;
+                celdasListaVacasGraficos[2, 1, 1 + listaDatosVacas.Count, 1].Style.Border.Left.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
+                celdasListaVacasGraficos[2, 1, 1 + listaDatosVacas.Count, 1].Style.Border.Right.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
+                celdasListaVacasGraficos[2, 1, 1 + listaDatosVacas.Count, 1].Style.Border.Top.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
+                celdasListaVacasGraficos[2, 1, 1 + listaDatosVacas.Count, 1].Style.Border.Bottom.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
+
+                //Se recorre la lista de vacas y se carga el worksheet
                 for (int iterador = 0; iterador < listaDatosVacas.Count; iterador++)
                 {
                     celdasListaVacasGraficos[2 + iterador, 1].Value = iterador + 1;

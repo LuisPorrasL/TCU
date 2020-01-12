@@ -79,6 +79,10 @@ namespace TCU_WFA
         /// </summary>
         private void CargarDatosResumen()
         {
+            //Se obtiene la configuración actual de la aplicación
+            ProgramConfiguration config = new ProgramConfiguration();
+            string unidadDeTiempo = config.ObtenerConfig(ProgramConfiguration.LLAVE_UNIDAD_DE_TIEMPO);
+
             //Se obtienen los datos a cargar
             datosResumen.fechaActual = DateTime.Now.ToShortDateString();
 
@@ -107,7 +111,22 @@ namespace TCU_WFA
             }
             try
             {
-                datosResumen.iepPromHistoricoMeses = ProcedimientosAlmacenados.ProcObtenerIEPHistorico();                
+                double  IEPHistorico = ProcedimientosAlmacenados.ProcObtenerIEPHistorico();
+                switch (unidadDeTiempo)
+                {
+                    case "Meses":
+                        labelIEPPromHistoricoMeses.Text = "IEP Prom.Histórico (meses)";
+                        datosResumen.iepPromHistoricoMeses = IEPHistorico / Utilities.DIAS_MES;
+                        break;
+                    case "Semanas":
+                        labelIEPPromHistoricoMeses.Text = "IEP Prom.Histórico (semanas)";
+                        datosResumen.iepPromHistoricoMeses = IEPHistorico / Utilities.DIAS_SEMANA;
+                        break;
+                    default:
+                        labelIEPPromHistoricoMeses.Text = "IEP Prom.Histórico (días)";
+                        datosResumen.iepPromHistoricoMeses = IEPHistorico;
+                        break;
+                }
             }
             catch
             {
@@ -130,8 +149,23 @@ namespace TCU_WFA
                 datosResumen.promPartosHato = Utilities.RESULTADO_ERROR;
             }
             try
-            {
-                datosResumen.ultimoIEPVacaMeses = ProcedimientosAlmacenados.ProcObtenerUltimoIEPHistorico();
+            { 
+                double ultimoIEPHistorico = ProcedimientosAlmacenados.ProcObtenerUltimoIEPHistorico();
+                switch (unidadDeTiempo)
+                {
+                    case "Meses":
+                        labelUltimoIEPVacaMeses.Text = "Último IEP cada vaca (meses)";
+                        datosResumen.ultimoIEPVacaMeses = ultimoIEPHistorico / Utilities.DIAS_MES;
+                        break;
+                    case "Semanas":
+                        labelUltimoIEPVacaMeses.Text = "Último IEP cada vaca (semanas)";
+                        datosResumen.ultimoIEPVacaMeses = ultimoIEPHistorico / Utilities.DIAS_SEMANA;
+                        break;
+                    default:
+                        labelUltimoIEPVacaMeses.Text = "Último IEP cada vaca (días)";
+                        datosResumen.ultimoIEPVacaMeses = ultimoIEPHistorico;
+                        break;
+                }
             }
             catch
             {
@@ -152,9 +186,9 @@ namespace TCU_WFA
             //Se actualizan los datos del form
             textBoxHembrasConsideradasValue.Text = datosResumen.hembrasConsideradas != Utilities.RESULTADO_ERROR ? datosResumen.hembrasConsideradas.ToString() : MENSAJE_ERROR;
             textBoxHembrasParidoValue.Text = datosResumen.hembrasParido != Utilities.RESULTADO_ERROR ? datosResumen.hembrasParido.ToString() : MENSAJE_ERROR;
-            textBoxPromHistoricoMesesValue.Text = datosResumen.iepPromHistoricoMeses != (double)Utilities.RESULTADO_ERROR ? datosResumen.iepPromHistoricoMeses.ToString() : MENSAJE_ERROR;
+            textBoxPromHistoricoMesesValue.Text = datosResumen.iepPromHistoricoMeses != (double)Utilities.RESULTADO_ERROR ? datosResumen.iepPromHistoricoMeses.ToString("0.##") : MENSAJE_ERROR;
             textBoxPorcParicionHistoricoValue.Text = datosResumen.porcParicionHistorico != (double)Utilities.RESULTADO_ERROR ? datosResumen.porcParicionHistorico.ToString() : MENSAJE_ERROR;
-            textBoxUltimoIEPVacaMesesValue.Text = datosResumen.ultimoIEPVacaMeses != (double)Utilities.RESULTADO_ERROR ? datosResumen.ultimoIEPVacaMeses.ToString() : MENSAJE_ERROR;
+            textBoxUltimoIEPVacaMesesValue.Text = datosResumen.ultimoIEPVacaMeses != (double)Utilities.RESULTADO_ERROR ? datosResumen.ultimoIEPVacaMeses.ToString("0.##") : MENSAJE_ERROR;
             textBoxUltimoPorcParicionValue.Text = datosResumen.ultimoPorcParicion != (double)Utilities.RESULTADO_ERROR ? datosResumen.ultimoPorcParicion.ToString() : MENSAJE_ERROR;
             textBoxPromPartosHatoValue.Text = datosResumen.promPartosHato != (double)Utilities.RESULTADO_ERROR ? datosResumen.promPartosHato.ToString() : MENSAJE_ERROR;
         }
@@ -256,7 +290,9 @@ namespace TCU_WFA
         List<DatosVacaGraficos> listaDatosVacas = new List<DatosVacaGraficos>();
 
 
-
+        /// <summary>
+        /// Método para obtener los datos a utilizar en el worksheet gráfico
+        /// </summary>
         private void CargarDatosVacasGrafico()
         {
             //Se obtiene la cantidad de vacas

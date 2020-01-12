@@ -43,8 +43,6 @@
             this.labelNumeroTrazable = new System.Windows.Forms.Label();
             this.botonsRegistrar = new System.Windows.Forms.Button();
             this.labelActualizarInformacionVaca = new System.Windows.Forms.Label();
-            this.radioButtonNo = new System.Windows.Forms.RadioButton();
-            this.radioButtonSi = new System.Windows.Forms.RadioButton();
             this.groupBoxNuevoModoPrennes = new System.Windows.Forms.GroupBox();
             this.comboBoxNuevoModoPrennes = new System.Windows.Forms.ComboBox();
             this.labelNuevoModoPrennes = new System.Windows.Forms.Label();
@@ -199,33 +197,9 @@
             this.labelActualizarInformacionVaca.AutoSize = true;
             this.labelActualizarInformacionVaca.Location = new System.Drawing.Point(230, 291);
             this.labelActualizarInformacionVaca.Name = "labelActualizarInformacionVaca";
-            this.labelActualizarInformacionVaca.Size = new System.Drawing.Size(182, 13);
+            this.labelActualizarInformacionVaca.Size = new System.Drawing.Size(170, 13);
             this.labelActualizarInformacionVaca.TabIndex = 15;
-            this.labelActualizarInformacionVaca.Text = "¿Actualizar modo preñes de la vaca?";
-            // 
-            // radioButtonNo
-            // 
-            this.radioButtonNo.AutoSize = true;
-            this.radioButtonNo.Location = new System.Drawing.Point(470, 289);
-            this.radioButtonNo.Name = "radioButtonNo";
-            this.radioButtonNo.Size = new System.Drawing.Size(39, 17);
-            this.radioButtonNo.TabIndex = 20;
-            this.radioButtonNo.TabStop = true;
-            this.radioButtonNo.Text = "No";
-            this.radioButtonNo.UseVisualStyleBackColor = true;
-            this.radioButtonNo.CheckedChanged += new System.EventHandler(this.radioButtonNo_CheckedChanged);
-            // 
-            // radioButtonSi
-            // 
-            this.radioButtonSi.AutoSize = true;
-            this.radioButtonSi.Location = new System.Drawing.Point(428, 289);
-            this.radioButtonSi.Name = "radioButtonSi";
-            this.radioButtonSi.Size = new System.Drawing.Size(36, 17);
-            this.radioButtonSi.TabIndex = 19;
-            this.radioButtonSi.TabStop = true;
-            this.radioButtonSi.Text = "Sí";
-            this.radioButtonSi.UseVisualStyleBackColor = true;
-            this.radioButtonSi.CheckedChanged += new System.EventHandler(this.radioButtonSi_CheckedChanged);
+            this.labelActualizarInformacionVaca.Text = "Actualizar modo preñes de la vaca";
             // 
             // groupBoxNuevoModoPrennes
             // 
@@ -262,8 +236,6 @@
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBoxNuevoModoPrennes);
-            this.Controls.Add(this.radioButtonNo);
-            this.Controls.Add(this.radioButtonSi);
             this.Controls.Add(this.labelActualizarInformacionVaca);
             this.Controls.Add(this.botonsRegistrar);
             this.Controls.Add(this.groupBoxAgregarVaca);
@@ -299,8 +271,6 @@
         private System.Windows.Forms.Label labelNumeroTrazable;
         private System.Windows.Forms.Button botonsRegistrar;
         private System.Windows.Forms.Label labelActualizarInformacionVaca;
-        private System.Windows.Forms.RadioButton radioButtonNo;
-        private System.Windows.Forms.RadioButton radioButtonSi;
         private System.Windows.Forms.GroupBox groupBoxNuevoModoPrennes;
         protected internal System.Windows.Forms.ComboBox comboBoxNuevoModoPrennes;
         private System.Windows.Forms.Label labelNuevoModoPrennes;

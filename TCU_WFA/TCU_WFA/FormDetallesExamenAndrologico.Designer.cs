@@ -1,6 +1,6 @@
 ﻿namespace TCU_WFA
 {
-    partial class FormDetallesExamenAntropologico
+    partial class FormDetallesExamenAndrologico
     {
         /// <summary>
         /// Required designer variable.
@@ -39,9 +39,8 @@
             this.botonVolver.TabIndex = 4;
             this.botonVolver.Text = "Volver";
             this.botonVolver.UseVisualStyleBackColor = true;
-            this.botonVolver.Click += new System.EventHandler(this.botonVolver_Click);
             // 
-            // FormDetallesExamenAntropologico
+            // FormDetallesExamenAndrologico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -49,9 +48,9 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.botonVolver);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "FormDetallesExamenAntropologico";
+            this.Name = "FormDetallesExamenAndrologico";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormDetallesExamenAntropologico";
+            this.Text = "FormDetallesExamenAndrológico";
             this.Load += new System.EventHandler(this.FormDetallesExamenAntropologico_Load);
             this.ResumeLayout(false);
 

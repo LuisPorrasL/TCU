@@ -491,7 +491,7 @@ namespace TCU_WFA.Repository
 
                 cmd.Parameters.Add(inIdVacaParam);
 
-                SqlParameter outputUltimoIEPParam = new SqlParameter("@ultimoIEP", SqlDbType.Decimal)
+                SqlParameter outputUltimoIEPParam = new SqlParameter("@ultimoIEP", SqlDbType.Int)
                 {
                     Direction = ParameterDirection.Output
                 };
@@ -575,7 +575,6 @@ namespace TCU_WFA.Repository
                 {
                     conn.Open();
                     cmd.ExecuteNonQuery();
-
                     resultado = double.Parse(cmd.Parameters["@ultimoIEPHistorico"].Value.ToString());
                 }
                 catch (Exception ex)

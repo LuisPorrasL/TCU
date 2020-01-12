@@ -185,7 +185,7 @@
             // 
             // textBoxFechaTentativaParto
             // 
-            this.textBoxFechaTentativaParto.Location = new System.Drawing.Point(139, 121);
+            this.textBoxFechaTentativaParto.Location = new System.Drawing.Point(139, 198);
             this.textBoxFechaTentativaParto.Name = "textBoxFechaTentativaParto";
             this.textBoxFechaTentativaParto.ReadOnly = true;
             this.textBoxFechaTentativaParto.Size = new System.Drawing.Size(200, 20);
@@ -194,7 +194,7 @@
             // labelFechaTentativaParto
             // 
             this.labelFechaTentativaParto.AutoSize = true;
-            this.labelFechaTentativaParto.Location = new System.Drawing.Point(5, 124);
+            this.labelFechaTentativaParto.Location = new System.Drawing.Point(5, 201);
             this.labelFechaTentativaParto.Name = "labelFechaTentativaParto";
             this.labelFechaTentativaParto.Size = new System.Drawing.Size(123, 13);
             this.labelFechaTentativaParto.TabIndex = 21;
@@ -219,7 +219,7 @@
             // 
             // textBoxCaracteristicas
             // 
-            this.textBoxCaracteristicas.Location = new System.Drawing.Point(103, 153);
+            this.textBoxCaracteristicas.Location = new System.Drawing.Point(103, 113);
             this.textBoxCaracteristicas.MinimumSize = new System.Drawing.Size(236, 50);
             this.textBoxCaracteristicas.Multiline = true;
             this.textBoxCaracteristicas.Name = "textBoxCaracteristicas";
@@ -230,7 +230,7 @@
             // labelCaracteristicas
             // 
             this.labelCaracteristicas.AutoSize = true;
-            this.labelCaracteristicas.Location = new System.Drawing.Point(5, 160);
+            this.labelCaracteristicas.Location = new System.Drawing.Point(5, 120);
             this.labelCaracteristicas.Name = "labelCaracteristicas";
             this.labelCaracteristicas.Size = new System.Drawing.Size(78, 13);
             this.labelCaracteristicas.TabIndex = 16;

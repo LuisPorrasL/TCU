@@ -17,6 +17,7 @@ namespace TCU_WFA
 
         //Campos
         private VacaModel informacionVacaSeleccionada;
+        ProgramConfiguration config;
 
         /// <summary>
         /// Constructor.
@@ -26,6 +27,7 @@ namespace TCU_WFA
         {
             InitializeComponent();
             this.informacionVacaSeleccionada = informacionVacaSeleccionada;
+            config = new ProgramConfiguration();
         }
 
         /// <summary>
@@ -93,11 +95,30 @@ namespace TCU_WFA
                 textBoxCausaDeBaja.Text = this.informacionVacaSeleccionada.causaDeBaja;
             }
             // Se calculan los parametros reproductivos de la vaca.
+            ProgramConfiguration config = new ProgramConfiguration();
+            string unidadDeTiempo = config.ObtenerConfig(ProgramConfiguration.LLAVE_UNIDAD_DE_TIEMPO);
             try
             {
                 double resultado = ProcedimientosAlmacenados.ProcObtenerUltimoIEP(this.informacionVacaSeleccionada.pkNumeroTrazable);
                 if ((int)resultado == Utilities.RESULTADO_ERROR) textBoxUltimoIEP.Text = "Error";
-                else textBoxUltimoIEP.Text = resultado.ToString();
+                else
+                {
+                    switch (unidadDeTiempo)
+                    {
+                        case "Meses":
+                            labelIEPUltimo.Text = "Ultimo IEP (meses)";
+                            textBoxUltimoIEP.Text = (resultado / Utilities.DIAS_MES).ToString("0.##");
+                            break;
+                        case "Semanas":
+                            labelIEPUltimo.Text = "Ultimo IEP (semanas)";
+                            textBoxUltimoIEP.Text = (resultado / Utilities.DIAS_SEMANA).ToString("0.##");
+                            break;
+                        default:
+                            labelIEPUltimo.Text = "Ultimo IEP (días)";
+                            textBoxUltimoIEP.Text = resultado.ToString("0.##");
+                            break;
+                    }
+                }
             }
             catch
             {
@@ -107,7 +128,24 @@ namespace TCU_WFA
             {
                 double resultado = ProcedimientosAlmacenados.ProcObtenerIEP(this.informacionVacaSeleccionada.pkNumeroTrazable);
                 if ((int)resultado == Utilities.RESULTADO_ERROR) textBoxIEPPromedio.Text = "Error";
-                else textBoxIEPPromedio.Text = resultado.ToString();
+                else
+                {
+                    switch (unidadDeTiempo)
+                    {
+                        case "Meses":
+                            labelIEPPromedio.Text = "IEP promedio (meses)";
+                            textBoxIEPPromedio.Text = (resultado / Utilities.DIAS_MES).ToString("0.##");
+                            break;
+                        case "Semanas":
+                            labelIEPPromedio.Text = "Ultimo promedio (semanas)";
+                            textBoxIEPPromedio.Text = (resultado / Utilities.DIAS_SEMANA).ToString("0.##");
+                            break;
+                        default:
+                            labelIEPPromedio.Text = "Ultimo promedio (días)";
+                            textBoxIEPPromedio.Text = resultado.ToString();
+                            break;
+                    }
+                }
             }
             catch
             {
@@ -115,30 +153,58 @@ namespace TCU_WFA
             }
             // Se calcula una fecha de parto tentativa.
             Object resultadoQuery = Utilities.ObtenerAtributoTabla(QUERY_SELECT_FECHA_ULTIMO_CELO_VACA, VACA_PARAM, this.informacionVacaSeleccionada.pkNumeroTrazable);
-            if (resultadoQuery != null)
+            if (this.informacionVacaSeleccionada.modoPrennes != "No preñada")
             {
-                if (resultadoQuery.GetType().ToString() == "System.Int32") textBoxFechaTentativaParto.Text = "Error";
-                else
+                if (resultadoQuery.GetType().ToString() != "System.DBNull")
                 {
-                    try
+                    labelFechaTentativaParto.Visible = textBoxFechaTentativaParto.Visible = true;
+                    labelFechaTentativaParto.Text = "Fecha tentativa de parto";
+                    if (resultadoQuery.GetType().ToString() != "System.DateTime") textBoxFechaTentativaParto.Text = "Error";
+                    else
                     {
-                        DateTime fechaUltimoCeloVaca = (DateTime)resultadoQuery;
-                        DateTime fechaActual = DateTime.Now;
-                        int diferenciaMesesFechas = (fechaActual.Year - fechaUltimoCeloVaca.Year) * 12 + fechaActual.Month - fechaUltimoCeloVaca.Month;
-                        if (diferenciaMesesFechas < Utilities.TIEMPO_GESTACION_VACA_MESES)
+                        try
                         {
+                            DateTime fechaUltimoCeloVaca = (DateTime)resultadoQuery;
                             DateTime fechaTentativaParto = fechaUltimoCeloVaca.AddMonths(Utilities.TIEMPO_GESTACION_VACA_MESES);
                             textBoxFechaTentativaParto.Text = fechaTentativaParto.ToShortDateString();
                         }
-                        else textBoxFechaTentativaParto.Text = "";
-                    }
-                    catch
-                    {
-                        textBoxFechaTentativaParto.Text = "";
+                        catch
+                        {
+                            textBoxFechaTentativaParto.Text = "Error";
+                        }
                     }
                 }
+                else
+                {
+                    labelFechaTentativaParto.Visible = textBoxFechaTentativaParto.Visible = false;
+                }
             }
-            else textBoxFechaTentativaParto.Text = "";
+            else
+            {
+                if (resultadoQuery.GetType().ToString() != "System.DBNull")
+                {
+                    labelFechaTentativaParto.Visible = textBoxFechaTentativaParto.Visible = true;
+                    labelFechaTentativaParto.Text = "Fecha de palpación";
+                    if (resultadoQuery.GetType().ToString() != "System.DateTime") textBoxFechaTentativaParto.Text = "Error";
+                    else
+                    {
+                        try
+                        {
+                            DateTime fechaUltimoCeloVaca = (DateTime)resultadoQuery;
+                            DateTime fechaTentativaParto = fechaUltimoCeloVaca.AddDays(Int32.Parse(config.ObtenerConfig(ProgramConfiguration.LLAVE_ALERTA_PALPACION)));
+                            textBoxFechaTentativaParto.Text = fechaTentativaParto.ToShortDateString();
+                        }
+                        catch
+                        {
+                            textBoxFechaTentativaParto.Text = "Error";
+                        }
+                    }
+                }
+                else
+                {
+                    labelFechaTentativaParto.Visible = textBoxFechaTentativaParto.Visible = false;
+                }
+            }
         }
     }
 }
