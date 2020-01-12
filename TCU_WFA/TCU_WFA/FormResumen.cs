@@ -336,20 +336,13 @@ namespace TCU_WFA
             if(((KeyValuePair<int, string>)comboBoxTipoResumen.SelectedItem).Key == LLAVE_TIPO_RESUMEN_POR_FECHAS)
             {
                 datosResumen.tipoResumen = LLAVE_TIPO_RESUMEN_POR_FECHAS;
-                labelFechaInicio.Visible = true;
-                dateTimePickerInicio.Visible = true;
-                labelFechaFinal.Visible = true;
-                dateTimePickerFinal.Visible = true;
+                groupBoxSeleccionarFechas.Visible = true;
             }
             else
             {
                 datosResumen.tipoResumen = LLAVE_TIPO_RESUMEN_GENERAL;
-                labelFechaInicio.Visible = false;
-                dateTimePickerInicio.Visible = false;
-                labelFechaFinal.Visible = false;
-                dateTimePickerFinal.Visible = false;
+                groupBoxSeleccionarFechas.Visible = false;
             }
-
             CargarDatosResumen();
             ActualizarDatosForm();
         }

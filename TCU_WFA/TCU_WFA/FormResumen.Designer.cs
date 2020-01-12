@@ -45,13 +45,15 @@
             this.textBoxUltimoPorcParicionValue = new System.Windows.Forms.TextBox();
             this.textBoxUltimoIEPVacaMesesValue = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.labelTipoResumen = new System.Windows.Forms.Label();
-            this.comboBoxTipoResumen = new System.Windows.Forms.ComboBox();
+            this.groupBoxSeleccionarFechas = new System.Windows.Forms.GroupBox();
             this.dateTimePickerFinal = new System.Windows.Forms.DateTimePicker();
             this.labelFechaFinal = new System.Windows.Forms.Label();
             this.dateTimePickerInicio = new System.Windows.Forms.DateTimePicker();
             this.labelFechaInicio = new System.Windows.Forms.Label();
+            this.labelTipoResumen = new System.Windows.Forms.Label();
+            this.comboBoxTipoResumen = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
+            this.groupBoxSeleccionarFechas.SuspendLayout();
             this.SuspendLayout();
             // 
             // botonVolver
@@ -201,12 +203,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.groupBoxSeleccionarFechas);
             this.groupBox1.Controls.Add(this.labelTipoResumen);
             this.groupBox1.Controls.Add(this.comboBoxTipoResumen);
-            this.groupBox1.Controls.Add(this.dateTimePickerFinal);
-            this.groupBox1.Controls.Add(this.labelFechaFinal);
-            this.groupBox1.Controls.Add(this.dateTimePickerInicio);
-            this.groupBox1.Controls.Add(this.labelFechaInicio);
             this.groupBox1.Controls.Add(this.textBoxPromPartosHatoValue);
             this.groupBox1.Controls.Add(this.textBoxUltimoPorcParicionValue);
             this.groupBox1.Controls.Add(this.textBoxUltimoIEPVacaMesesValue);
@@ -227,6 +226,53 @@
             this.groupBox1.TabIndex = 39;
             this.groupBox1.TabStop = false;
             // 
+            // groupBoxSeleccionarFechas
+            // 
+            this.groupBoxSeleccionarFechas.Controls.Add(this.dateTimePickerFinal);
+            this.groupBoxSeleccionarFechas.Controls.Add(this.labelFechaFinal);
+            this.groupBoxSeleccionarFechas.Controls.Add(this.dateTimePickerInicio);
+            this.groupBoxSeleccionarFechas.Controls.Add(this.labelFechaInicio);
+            this.groupBoxSeleccionarFechas.Location = new System.Drawing.Point(24, 38);
+            this.groupBoxSeleccionarFechas.Name = "groupBoxSeleccionarFechas";
+            this.groupBoxSeleccionarFechas.Size = new System.Drawing.Size(532, 56);
+            this.groupBoxSeleccionarFechas.TabIndex = 45;
+            this.groupBoxSeleccionarFechas.TabStop = false;
+            this.groupBoxSeleccionarFechas.Visible = false;
+            // 
+            // dateTimePickerFinal
+            // 
+            this.dateTimePickerFinal.Location = new System.Drawing.Point(320, 21);
+            this.dateTimePickerFinal.Name = "dateTimePickerFinal";
+            this.dateTimePickerFinal.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerFinal.TabIndex = 42;
+            this.dateTimePickerFinal.ValueChanged += new System.EventHandler(this.dateTimePickerFinal_ValueChanged);
+            // 
+            // labelFechaFinal
+            // 
+            this.labelFechaFinal.AutoSize = true;
+            this.labelFechaFinal.Location = new System.Drawing.Point(279, 25);
+            this.labelFechaFinal.Name = "labelFechaFinal";
+            this.labelFechaFinal.Size = new System.Drawing.Size(35, 13);
+            this.labelFechaFinal.TabIndex = 41;
+            this.labelFechaFinal.Text = "Hasta";
+            // 
+            // dateTimePickerInicio
+            // 
+            this.dateTimePickerInicio.Location = new System.Drawing.Point(59, 21);
+            this.dateTimePickerInicio.Name = "dateTimePickerInicio";
+            this.dateTimePickerInicio.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerInicio.TabIndex = 40;
+            this.dateTimePickerInicio.ValueChanged += new System.EventHandler(this.dateTimePickerInicio_ValueChanged);
+            // 
+            // labelFechaInicio
+            // 
+            this.labelFechaInicio.AutoSize = true;
+            this.labelFechaInicio.Location = new System.Drawing.Point(14, 25);
+            this.labelFechaInicio.Name = "labelFechaInicio";
+            this.labelFechaInicio.Size = new System.Drawing.Size(38, 13);
+            this.labelFechaInicio.TabIndex = 39;
+            this.labelFechaInicio.Text = "Desde";
+            // 
             // labelTipoResumen
             // 
             this.labelTipoResumen.AutoSize = true;
@@ -246,44 +292,6 @@
             this.comboBoxTipoResumen.TabIndex = 43;
             this.comboBoxTipoResumen.SelectedIndexChanged += new System.EventHandler(this.comboBoxTipoResumen_SelectedIndexChanged);
             // 
-            // dateTimePickerFinal
-            // 
-            this.dateTimePickerFinal.Location = new System.Drawing.Point(341, 52);
-            this.dateTimePickerFinal.Name = "dateTimePickerFinal";
-            this.dateTimePickerFinal.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePickerFinal.TabIndex = 42;
-            this.dateTimePickerFinal.Visible = false;
-            this.dateTimePickerFinal.ValueChanged += new System.EventHandler(this.dateTimePickerFinal_ValueChanged);
-            // 
-            // labelFechaFinal
-            // 
-            this.labelFechaFinal.AutoSize = true;
-            this.labelFechaFinal.Location = new System.Drawing.Point(300, 56);
-            this.labelFechaFinal.Name = "labelFechaFinal";
-            this.labelFechaFinal.Size = new System.Drawing.Size(35, 13);
-            this.labelFechaFinal.TabIndex = 41;
-            this.labelFechaFinal.Text = "Hasta";
-            this.labelFechaFinal.Visible = false;
-            // 
-            // dateTimePickerInicio
-            // 
-            this.dateTimePickerInicio.Location = new System.Drawing.Point(66, 52);
-            this.dateTimePickerInicio.Name = "dateTimePickerInicio";
-            this.dateTimePickerInicio.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePickerInicio.TabIndex = 40;
-            this.dateTimePickerInicio.Visible = false;
-            this.dateTimePickerInicio.ValueChanged += new System.EventHandler(this.dateTimePickerInicio_ValueChanged);
-            // 
-            // labelFechaInicio
-            // 
-            this.labelFechaInicio.AutoSize = true;
-            this.labelFechaInicio.Location = new System.Drawing.Point(21, 56);
-            this.labelFechaInicio.Name = "labelFechaInicio";
-            this.labelFechaInicio.Size = new System.Drawing.Size(38, 13);
-            this.labelFechaInicio.TabIndex = 39;
-            this.labelFechaInicio.Text = "Desde";
-            this.labelFechaInicio.Visible = false;
-            // 
             // FormResumen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -300,6 +308,8 @@
             this.Load += new System.EventHandler(this.FormResumen_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBoxSeleccionarFechas.ResumeLayout(false);
+            this.groupBoxSeleccionarFechas.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -329,5 +339,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerFinal;
         private System.Windows.Forms.ComboBox comboBoxTipoResumen;
         private System.Windows.Forms.Label labelTipoResumen;
+        private System.Windows.Forms.GroupBox groupBoxSeleccionarFechas;
     }
 }
