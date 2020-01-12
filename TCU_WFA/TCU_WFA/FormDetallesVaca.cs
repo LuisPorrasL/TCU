@@ -107,11 +107,11 @@ namespace TCU_WFA
                     {
                         case "Meses":
                             labelIEPUltimo.Text = "Ultimo IEP (meses)";
-                            textBoxUltimoIEP.Text = (resultado/30).ToString("0.##");
+                            textBoxUltimoIEP.Text = (resultado / Utilities.DIAS_MES).ToString("0.##");
                             break;
                         case "Semanas":
                             labelIEPUltimo.Text = "Ultimo IEP (semanas)";
-                            textBoxUltimoIEP.Text = (resultado / 7).ToString("0.##");
+                            textBoxUltimoIEP.Text = (resultado / Utilities.DIAS_SEMANA).ToString("0.##");
                             break;
                         default:
                             labelIEPUltimo.Text = "Ultimo IEP (días)";
@@ -134,11 +134,11 @@ namespace TCU_WFA
                     {
                         case "Meses":
                             labelIEPPromedio.Text = "IEP promedio (meses)";
-                            textBoxIEPPromedio.Text = (resultado / 30).ToString("0.##");
+                            textBoxIEPPromedio.Text = (resultado / Utilities.DIAS_MES).ToString("0.##");
                             break;
                         case "Semanas":
                             labelIEPPromedio.Text = "Ultimo promedio (semanas)";
-                            textBoxIEPPromedio.Text = (resultado / 7).ToString("0.##");
+                            textBoxIEPPromedio.Text = (resultado / Utilities.DIAS_SEMANA).ToString("0.##");
                             break;
                         default:
                             labelIEPPromedio.Text = "Ultimo promedio (días)";

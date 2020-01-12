@@ -23,21 +23,45 @@ namespace TCU_WFA
         private const string DIAS_ANTICIPACION_PARAM = "@diasAnticipacion";
         private const string TIEMPO_GESTACION_PARAM = "@tiempoGestacion";
         private const string DIAS_PARA_PALPACION_PARAM = "@diasParaPalpacion";
+        private const string LABEL_ALERTAS_IEP_BASE = "Alerta, las siguientes vacas tienen un IEP mayor a ...";
+        private const string LABEL_ALERTAS_PARTO_BASE = "Alerta, las siguientes vacas podían parir en los proximos ... días";
+        private const string LABEL_ALERTAS_PARAM = "...";
 
         //Campos
         private ProgramConfiguration config;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public FormAlertas()
         {
             InitializeComponent();
             config = new ProgramConfiguration();
         }
 
+        /// <summary>
+        /// Método que se llama cada vez que se carga el form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormAlertas_Load(object sender, EventArgs e)
         {
+            ActualizarLabels();
             LlenarDataGridViews();
         }
 
+        /// <summary>
+        /// Actualiza los labels del form según la configuración actual
+        /// </summary>
+        private void ActualizarLabels()
+        {
+            labelAlertasIEP.Text = LABEL_ALERTAS_IEP_BASE.Replace(LABEL_ALERTAS_PARAM, config.ObtenerConfig(ProgramConfiguration.LLAVE_ALERTA_IEP));
+            labelAlertasPartos.Text = LABEL_ALERTAS_PARTO_BASE.Replace(LABEL_ALERTAS_PARAM, config.ObtenerConfig(ProgramConfiguration.LLAVE_ALERTA_PARTO));
+        }
+
+        /// <summary>
+        /// Llena los data grid views del form con las vacas afectadas por cada alerta
+        /// </summary>
         private void LlenarDataGridViews()
         {
             Utilities.LlenarDataGridView(QUERY_SELECT_VACAS_ALERTAS_IEP.Replace(MAXIMO_IEP_PARAM, config.ObtenerConfig(ProgramConfiguration.LLAVE_ALERTA_IEP)), dataGridViewAlertasIEP);

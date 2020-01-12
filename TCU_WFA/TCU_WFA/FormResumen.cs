@@ -81,11 +81,11 @@ namespace TCU_WFA
                 {
                     case "Meses":
                         labelIEPPromHistoricoMeses.Text = "IEP Prom.Histórico (meses)";
-                        datosResumen.iepPromHistoricoMeses = IEPHistorico / 30;
+                        datosResumen.iepPromHistoricoMeses = IEPHistorico / Utilities.DIAS_MES;
                         break;
                     case "Semanas":
                         labelIEPPromHistoricoMeses.Text = "IEP Prom.Histórico (semanas)";
-                        datosResumen.iepPromHistoricoMeses = IEPHistorico / 7;
+                        datosResumen.iepPromHistoricoMeses = IEPHistorico / Utilities.DIAS_SEMANA;
                         break;
                     default:
                         labelIEPPromHistoricoMeses.Text = "IEP Prom.Histórico (días)";
@@ -120,11 +120,11 @@ namespace TCU_WFA
                 {
                     case "Meses":
                         labelUltimoIEPVacaMeses.Text = "Último IEP cada vaca (meses)";
-                        datosResumen.ultimoIEPVacaMeses = ultimoIEPHistorico / 30;
+                        datosResumen.ultimoIEPVacaMeses = ultimoIEPHistorico / Utilities.DIAS_MES;
                         break;
                     case "Semanas":
                         labelUltimoIEPVacaMeses.Text = "Último IEP cada vaca (semanas)";
-                        datosResumen.ultimoIEPVacaMeses = ultimoIEPHistorico / 7;
+                        datosResumen.ultimoIEPVacaMeses = ultimoIEPHistorico / Utilities.DIAS_SEMANA;
                         break;
                     default:
                         labelUltimoIEPVacaMeses.Text = "Último IEP cada vaca (días)";

@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿//Hecho por Luis Porras.
+
+using System;
 using System.Windows.Forms;
 
 namespace TCU_WFA
@@ -18,18 +13,29 @@ namespace TCU_WFA
         //Campos
         ProgramConfiguration config;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public FormConfiguracion()
         {
             InitializeComponent();
             config = new ProgramConfiguration();
         }
 
+        /// <summary>
+        /// Método llamado cada vez que se carga el form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormConfiguracion_Load(object sender, EventArgs e)
         {
             LlenarComboBoxUnidadDeTiempo();
             CargarConfiguracionActual();
         }
 
+        /// <summary>
+        /// Llena el combo box con los diferentes valores para la unidad de tiempo.
+        /// </summary>
         private void LlenarComboBoxUnidadDeTiempo()
         {
             comboBoxUnidadDeTiempo.DisplayMember = "unidadDeTiempo";
@@ -40,6 +46,9 @@ namespace TCU_WFA
             comboBoxUnidadDeTiempo.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Llena los componentes del form con la configuración actual cargada.
+        /// </summary>
         private void CargarConfiguracionActual()
         {
             int indiceUnidadDeTiempo = comboBoxUnidadDeTiempo.FindString(config.ObtenerConfig(ProgramConfiguration.LLAVE_UNIDAD_DE_TIEMPO));
@@ -49,6 +58,11 @@ namespace TCU_WFA
             numericUpDownParto.Value = Int32.Parse(config.ObtenerConfig(ProgramConfiguration.LLAVE_ALERTA_PARTO));
         }
 
+        /// <summary>
+        /// Guarga la nueva configuración seleccionada por el usuario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void botonGuardar_Click(object sender, EventArgs e)
         {
             try
