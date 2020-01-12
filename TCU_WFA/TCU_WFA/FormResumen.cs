@@ -31,7 +31,15 @@ namespace TCU_WFA
         private const string CONSULTA_HEMBRAS_CONSIDERADAS = "SELECT COUNT(*) FROM [dbo].[VACA]";       
         private const string CONSULTA_HEMBRAS_PARIDO = "SELECT COUNT (DISTINCT V.PK_NUMERO_TRAZABLE) FROM [dbo].[VACA] V INNER JOIN [dbo].[PARTO] P ON V.PK_NUMERO_TRAZABLE = P.PK_FK_NUMERO_TRAZABLE_VACA";
         private const string CONSULTA_PARTOS = "SELECT COUNT (*) FROM [dbo].[PARTO]";
+
+        //Consulta por fechas
+        private const string CONSULTA_HEMBRAS_CONSIDERADAS_FECHAS = "SELECT COUNT(*) FROM [dbo].[VACA] V WHERE V.FECHA_NACIMIENTO >= '@fechaInicio'";
+        private const string CONSULTA_HEMBRAS_PARIDO_FECHAS = "SELECT COUNT (DISTINCT V.PK_NUMERO_TRAZABLE) FROM [dbo].[VACA] V INNER JOIN [dbo].[PARTO] P ON V.PK_NUMERO_TRAZABLE = P.PK_FK_NUMERO_TRAZABLE_VACA WHERE P.PK_FECHA >= '@fechaInicio' AND P.PK_FECHA <= '@fechaFin'";
+        private const string CONSULTA_PARTOS_FECHAS = "SELECT COUNT (*) FROM [dbo].[PARTO] P WHERE P.PK_FECHA >= '@fechaInicio' AND P.PK_FECHA <= '@fechaFin'";
+        private const string PARAM_FECHA_INICIO = "@fechaInicio";
+        private const string PARAM_FECHA_FIN = "@fechaFin";
         
+
 
         //Valores del resumen
         DatosGeneralesResumen datosResumen = new DatosGeneralesResumen();
@@ -92,9 +100,9 @@ namespace TCU_WFA
                 datosResumen.fechaInicioResumen = dateTimePickerInicio.Value;
                 datosResumen.fechaFinalResumen = dateTimePickerFinal.Value;
             }
-
             try
             {
+                //datosResumen.hembrasConsideradas = Utilities.EjecutarConsultaCount((datosResumen.tipoResumen == LLAVE_TIPO_RESUMEN_GENERAL) ? CONSULTA_HEMBRAS_CONSIDERADAS : CONSULTA_HEMBRAS_CONSIDERADAS_FECHAS.Replace(PARAM_FECHA_INICIO, datosResumen.fechaInicioResumen.ToString()));
                 datosResumen.hembrasConsideradas = Utilities.EjecutarConsultaCount(CONSULTA_HEMBRAS_CONSIDERADAS);
             }
             catch
@@ -103,7 +111,7 @@ namespace TCU_WFA
             }
             try
             {
-                datosResumen.hembrasParido = Utilities.EjecutarConsultaCount(CONSULTA_HEMBRAS_PARIDO);                
+                datosResumen.hembrasParido = Utilities.EjecutarConsultaCount((datosResumen.tipoResumen == LLAVE_TIPO_RESUMEN_GENERAL) ? CONSULTA_HEMBRAS_PARIDO : CONSULTA_HEMBRAS_PARIDO_FECHAS.Replace(PARAM_FECHA_INICIO, datosResumen.fechaInicioResumen.ToString()).Replace(PARAM_FECHA_FIN, datosResumen.fechaFinalResumen.ToString()));                
             }
             catch
             {
@@ -111,21 +119,28 @@ namespace TCU_WFA
             }
             try
             {
-                double  IEPHistorico = ProcedimientosAlmacenados.ProcObtenerIEPHistorico();
-                switch (unidadDeTiempo)
+                double  IEPHistorico = (datosResumen.tipoResumen == LLAVE_TIPO_RESUMEN_GENERAL) ? ProcedimientosAlmacenados.ProcObtenerIEPHistorico() : ProcedimientosAlmacenados.ProcObtenerIEPHistoricoPeriodo(datosResumen.fechaInicioResumen, datosResumen.fechaFinalResumen);
+                if (IEPHistorico != Utilities.RESULTADO_ERROR)
                 {
-                    case "Meses":
-                        labelIEPPromHistoricoMeses.Text = "IEP Prom.Histórico (meses)";
-                        datosResumen.iepPromHistoricoMeses = IEPHistorico / Utilities.DIAS_MES;
-                        break;
-                    case "Semanas":
-                        labelIEPPromHistoricoMeses.Text = "IEP Prom.Histórico (semanas)";
-                        datosResumen.iepPromHistoricoMeses = IEPHistorico / Utilities.DIAS_SEMANA;
-                        break;
-                    default:
-                        labelIEPPromHistoricoMeses.Text = "IEP Prom.Histórico (días)";
-                        datosResumen.iepPromHistoricoMeses = IEPHistorico;
-                        break;
+                    switch (unidadDeTiempo)
+                    {
+                        case "Meses":
+                            labelIEPPromHistoricoMeses.Text = "IEP Prom.Histórico (meses)";
+                            datosResumen.iepPromHistoricoMeses = IEPHistorico / Utilities.DIAS_MES;
+                            break;
+                        case "Semanas":
+                            labelIEPPromHistoricoMeses.Text = "IEP Prom.Histórico (semanas)";
+                            datosResumen.iepPromHistoricoMeses = IEPHistorico / Utilities.DIAS_SEMANA;
+                            break;
+                        default:
+                            labelIEPPromHistoricoMeses.Text = "IEP Prom.Histórico (días)";
+                            datosResumen.iepPromHistoricoMeses = IEPHistorico;
+                            break;
+                    }
+                }
+                else
+                {
+                    datosResumen.iepPromHistoricoMeses = Utilities.RESULTADO_ERROR;
                 }
             }
             catch
@@ -134,7 +149,7 @@ namespace TCU_WFA
             }
             try
             {
-                int resultadoPartos = Utilities.EjecutarConsultaCount(CONSULTA_PARTOS);
+                int resultadoPartos = Utilities.EjecutarConsultaCount((datosResumen.tipoResumen == LLAVE_TIPO_RESUMEN_GENERAL) ? CONSULTA_PARTOS : CONSULTA_PARTOS_FECHAS.Replace(PARAM_FECHA_INICIO, datosResumen.fechaInicioResumen.ToString()).Replace(PARAM_FECHA_FIN, datosResumen.fechaFinalResumen.ToString()));
                 if (resultadoPartos != Utilities.RESULTADO_ERROR && datosResumen.hembrasConsideradas != Utilities.RESULTADO_ERROR && datosResumen.hembrasConsideradas != 0)
                 {
                     datosResumen.promPartosHato = (double)resultadoPartos / (double)datosResumen.hembrasConsideradas;
@@ -150,21 +165,28 @@ namespace TCU_WFA
             }
             try
             { 
-                double ultimoIEPHistorico = ProcedimientosAlmacenados.ProcObtenerUltimoIEPHistorico();
-                switch (unidadDeTiempo)
+                double ultimoIEPHistorico = (datosResumen.tipoResumen == LLAVE_TIPO_RESUMEN_GENERAL) ? ProcedimientosAlmacenados.ProcObtenerUltimoIEPHistorico() : ProcedimientosAlmacenados.ProcObtenerUltimoIEPHistoricoPeriodo(datosResumen.fechaInicioResumen, datosResumen.fechaFinalResumen);
+                if (ultimoIEPHistorico != Utilities.RESULTADO_ERROR)
                 {
-                    case "Meses":
-                        labelUltimoIEPVacaMeses.Text = "Último IEP cada vaca (meses)";
-                        datosResumen.ultimoIEPVacaMeses = ultimoIEPHistorico / Utilities.DIAS_MES;
-                        break;
-                    case "Semanas":
-                        labelUltimoIEPVacaMeses.Text = "Último IEP cada vaca (semanas)";
-                        datosResumen.ultimoIEPVacaMeses = ultimoIEPHistorico / Utilities.DIAS_SEMANA;
-                        break;
-                    default:
-                        labelUltimoIEPVacaMeses.Text = "Último IEP cada vaca (días)";
-                        datosResumen.ultimoIEPVacaMeses = ultimoIEPHistorico;
-                        break;
+                    switch (unidadDeTiempo)
+                    {
+                        case "Meses":
+                            labelUltimoIEPVacaMeses.Text = "Último IEP cada vaca (meses)";
+                            datosResumen.ultimoIEPVacaMeses = ultimoIEPHistorico / Utilities.DIAS_MES;
+                            break;
+                        case "Semanas":
+                            labelUltimoIEPVacaMeses.Text = "Último IEP cada vaca (semanas)";
+                            datosResumen.ultimoIEPVacaMeses = ultimoIEPHistorico / Utilities.DIAS_SEMANA;
+                            break;
+                        default:
+                            labelUltimoIEPVacaMeses.Text = "Último IEP cada vaca (días)";
+                            datosResumen.ultimoIEPVacaMeses = ultimoIEPHistorico;
+                            break;
+                    }
+                }
+                else
+                {
+                    datosResumen.ultimoIEPVacaMeses = Utilities.RESULTADO_ERROR;
                 }
             }
             catch
@@ -246,11 +268,11 @@ namespace TCU_WFA
                         }
                         if (dt.Rows[iteradorVacas][INDICE_DTR_IEP_PROMEDIO] != DBNull.Value)
                         {
-                            listaVacas[iteradorVacas].iepPromedioMeses = Convert.ToDouble(dt.Rows[iteradorVacas][INDICE_DTR_IEP_PROMEDIO]);
+                            listaVacas[iteradorVacas].iepPromedioDias = Convert.ToDouble(dt.Rows[iteradorVacas][INDICE_DTR_IEP_PROMEDIO]);
                         }
                         if (dt.Rows[iteradorVacas][INDICE_DTR_ULTIMO_IEP] != DBNull.Value)
                         {
-                            listaVacas[iteradorVacas].ultimoIEPMeses = Convert.ToDouble(dt.Rows[iteradorVacas][INDICE_DTR_ULTIMO_IEP]);
+                            listaVacas[iteradorVacas].ultimoIEPDias = Convert.ToDouble(dt.Rows[iteradorVacas][INDICE_DTR_ULTIMO_IEP]);
                         }
                         if (dt.Rows[iteradorVacas][INDICE_DTR_FECHA_ULTIMA_MONTA] != DBNull.Value)
                         {
@@ -328,12 +350,12 @@ namespace TCU_WFA
 
                         if (dt.Rows[iteradorVacas][INDICE_DTR_IEP_VACA] != DBNull.Value)
                         {
-                            listaDatosVacas[iteradorVacas].iepPromedioVacaMeses = Convert.ToDouble(dt.Rows[iteradorVacas][INDICE_DTR_IEP_VACA]);
+                            listaDatosVacas[iteradorVacas].iepPromedioVacaDias = Convert.ToDouble(dt.Rows[iteradorVacas][INDICE_DTR_IEP_VACA]);
                         }
 
                         if (dt.Rows[iteradorVacas][INDICE_DTR_ULTIMO_IEP_VACA] != DBNull.Value)
                         {
-                            listaDatosVacas[iteradorVacas].ultimoIEPVacaMeses = Convert.ToDouble(dt.Rows[iteradorVacas][INDICE_DTR_ULTIMO_IEP_VACA]);
+                            listaDatosVacas[iteradorVacas].ultimoIEPVacaDias = Convert.ToDouble(dt.Rows[iteradorVacas][INDICE_DTR_ULTIMO_IEP_VACA]);
                         }
                     }
                 }

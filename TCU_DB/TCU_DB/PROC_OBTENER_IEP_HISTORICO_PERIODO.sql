@@ -1,5 +1,7 @@
-﻿CREATE PROCEDURE [dbo].[PROC_OBTENER_IEP_HISTORICO]
-	@IEPHistorico DECIMAL(8,2) OUTPUT -- Días
+﻿CREATE PROCEDURE [dbo].[PROC_OBTENER_IEP_HISTORICO_PERIODO]
+	@fechaInicio DATETIME,
+	@fechaFin DATETIME,
+	@IEPHistoricoPeriodo DECIMAL(8,2) OUTPUT -- Días
 AS
 	BEGIN
 		DECLARE @cantidadVacas INT;
@@ -13,15 +15,15 @@ AS
 			WHILE @indiceVacas < @cantidadVacas
 			BEGIN
 				SELECT TOP(1) @idVacaParam = v.PK_NUMERO_TRAZABLE FROM [dbo].[VACA] v WHERE v.PK_NUMERO_TRAZABLE > @idVacaParam ORDER BY v.PK_NUMERO_TRAZABLE ASC;
-				EXEC [dbo].[PROC_OBTENER_IEP] @idVaca = @idVacaParam, @IEP = @tmp OUTPUT;
+				EXEC [dbo].[PROC_OBTENER_IEP_PERIODO] @idVaca = @idVacaParam, @fechaInicioPeriodo = @fechaInicio, @fechaFinPeriodo = @fechaFin,  @IEP = @tmp OUTPUT;
 
 				SET @sumatoria = @sumatoria + @tmp;
 				SET @indiceVacas = @indiceVacas + 1;
 			END
-			SET @IEPHistorico = @sumatoria / CAST(@cantidadVacas AS DECIMAL(8,2));
+			SET @IEPHistoricoPeriodo = @sumatoria / CAST(@cantidadVacas AS DECIMAL(8,2));
 		END
 		ELSE
 		BEGIN
-			SET @IEPHistorico = CAST (0.0 AS DECIMAL(8,2));
+			SET @IEPHistoricoPeriodo = CAST (0.0 AS DECIMAL(8,2));
 		END
 	END

@@ -1,4 +1,4 @@
-﻿// Hecho por Luis Porras.
+﻿// Hecho por Luis Porras, Ariel Arias y Alberto Soto.
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -732,6 +732,100 @@ namespace TCU_WFA.Repository
                 }
             }
             return datos_resultado;
+        }
+
+        public static double ProcObtenerIEPHistoricoPeriodo(DateTime fechaInicioPeriodo, DateTime fechaFinPeriodo)
+        {
+            double resultado = 0;
+            string sql = "PROC_OBTENER_IEP_HISTORICO_PERIODO";
+            using (SqlConnection conn = new SqlConnection(Utilities.CONNECTION_STRING))
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter fechaInicioParam = new SqlParameter("@fechaInicio", SqlDbType.DateTime)
+                {
+                    Direction = ParameterDirection.Input
+                };
+                SqlParameter fechaFinParam = new SqlParameter("@fechaFin", SqlDbType.DateTime)
+                {
+                    Direction = ParameterDirection.Input
+                };
+
+                fechaInicioParam.Value = fechaInicioPeriodo;
+                fechaFinParam.Value = fechaFinPeriodo;
+
+                cmd.Parameters.Add(fechaInicioParam);
+                cmd.Parameters.Add(fechaFinParam);
+
+                SqlParameter outputUltimoIEPParam = new SqlParameter("@IEPHistoricoPeriodo", SqlDbType.Decimal)
+                {
+                    Direction = ParameterDirection.Output
+                };
+
+                cmd.Parameters.Add(outputUltimoIEPParam);
+
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+
+                    resultado = double.Parse(cmd.Parameters["@IEPHistoricoPeriodo"].Value.ToString());
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    resultado = Utilities.RESULTADO_ERROR;
+                }
+            }
+            return resultado;
+        }
+
+        public static double ProcObtenerUltimoIEPHistoricoPeriodo(DateTime fechaInicioPeriodo, DateTime fechaFinPeriodo)
+        {
+            double resultado = 0;
+            string sql = "PROC_OBTENER_ULTIMO_IEP_HISTORICO_PERIODO";
+            using (SqlConnection conn = new SqlConnection(Utilities.CONNECTION_STRING))
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter fechaInicioParam = new SqlParameter("@fechaInicio", SqlDbType.DateTime)
+                {
+                    Direction = ParameterDirection.Input
+                };
+                SqlParameter fechaFinParam = new SqlParameter("@fechaFin", SqlDbType.DateTime)
+                {
+                    Direction = ParameterDirection.Input
+                };
+
+                fechaInicioParam.Value = fechaInicioPeriodo;
+                fechaFinParam.Value = fechaFinPeriodo;
+
+                cmd.Parameters.Add(fechaInicioParam);
+                cmd.Parameters.Add(fechaFinParam);
+
+                SqlParameter outputUltimoIEPParam = new SqlParameter("@ultimoIEPHistoricoPeriodo", SqlDbType.Decimal)
+                {
+                    Direction = ParameterDirection.Output
+                };
+
+                cmd.Parameters.Add(outputUltimoIEPParam);
+
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+
+                    resultado = double.Parse(cmd.Parameters["@ultimoIEPHistoricoPeriodo"].Value.ToString());
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    resultado = Utilities.RESULTADO_ERROR;
+                }
+            }
+            return resultado;
         }
 
     }
