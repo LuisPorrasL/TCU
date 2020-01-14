@@ -397,15 +397,17 @@ namespace TCU_WFA.Repository
             return resultado;
         }
 
-        public static int ProcEliminarVaca(int vacaId, string causaDeBaja)
+        public static int ProcEliminarVaca(int vacaId, DateTime fechaDeBaja, string causaDeBaja)
         {
             int resultado = 0;
-            string sql = "EXECUTE PROC_ELIMINAR_VACA @numeroTrazable, @causaDeBaja";
+            string sql = "EXECUTE PROC_ELIMINAR_VACA @numeroTrazable, @fechaDeBaja, @causaDeBaja";
             using (SqlConnection conn = new SqlConnection(Utilities.CONNECTION_STRING))
             {
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.Add("@numeroTrazable", SqlDbType.Int);
                 cmd.Parameters["@numeroTrazable"].Value = vacaId;
+                cmd.Parameters.Add("@fechaDeBaja", SqlDbType.DateTime);
+                cmd.Parameters["@fechaDeBaja"].Value = fechaDeBaja;
                 cmd.Parameters.Add("@causaDeBaja", SqlDbType.NVarChar);
                 cmd.Parameters["@causaDeBaja"].Value = causaDeBaja;
                 try
