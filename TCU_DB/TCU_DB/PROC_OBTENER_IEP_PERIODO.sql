@@ -6,7 +6,7 @@
 AS
 	BEGIN
 		DECLARE @cantidadPartos INT;
-		SELECT @cantidadPartos = COUNT(*) FROM [dbo].[PARTO] p WHERE p.PK_FK_NUMERO_TRAZABLE_VACA = @idVaca AND p.PK_FECHA >= @fechaInicioPeriodo AND p.PK_FECHA <= @fechaFinPeriodo;
+		SELECT @cantidadPartos = COUNT(*) FROM [dbo].[PARTO] p INNER JOIN [dbo].[VACA] v ON p.PK_FK_NUMERO_TRAZABLE_VACA = v.PK_NUMERO_TRAZABLE WHERE p.PK_FK_NUMERO_TRAZABLE_VACA = @idVaca AND p.PK_FECHA >= @fechaInicioPeriodo AND p.PK_FECHA <= @fechaFinPeriodo AND (v.FECHA_NACIMIENTO <= @fechaFinPeriodo AND (v.FECHA_DE_BAJA >= @fechaInicioPeriodo OR v.FECHA_DE_BAJA IS NULL));
 		IF (@cantidadPartos) > 1
 		BEGIN
 			DECLARE @indiceFechas INT = 0;
@@ -16,8 +16,8 @@ AS
 			DECLARE @sumatoria INT = 0;
 			WHILE @indiceFechas <= (@cantidadPartos - 2)
 			BEGIN
-				SELECT TOP(1) @fechaMenor = p.PK_FECHA FROM [dbo].[PARTO] p WHERE p.PK_FK_NUMERO_TRAZABLE_VACA = @idVaca AND p.PK_FECHA >= @fechaInicioPeriodo AND p.PK_FECHA <= @fechaFinPeriodo AND p.PK_FECHA > @fechaMenor ORDER BY p.PK_FECHA ASC;
-				SELECT TOP(1) @fechaMayor = p.PK_FECHA FROM [dbo].[PARTO] p WHERE p.PK_FK_NUMERO_TRAZABLE_VACA = @idVaca AND p.PK_FECHA >= @fechaInicioPeriodo AND p.PK_FECHA <= @fechaFinPeriodo AND p.PK_FECHA > @fechaMenor ORDER BY p.PK_FECHA ASC;
+				SELECT TOP(1) @fechaMenor = p.PK_FECHA FROM [dbo].[PARTO] p INNER JOIN [dbo].[VACA] v ON p.PK_FK_NUMERO_TRAZABLE_VACA = v.PK_NUMERO_TRAZABLE WHERE p.PK_FK_NUMERO_TRAZABLE_VACA = @idVaca AND p.PK_FECHA >= @fechaInicioPeriodo AND p.PK_FECHA <= @fechaFinPeriodo AND p.PK_FECHA > @fechaMenor AND (v.FECHA_NACIMIENTO <= @fechaFinPeriodo AND (v.FECHA_DE_BAJA >= @fechaInicioPeriodo OR v.FECHA_DE_BAJA IS NULL)) ORDER BY p.PK_FECHA ASC;
+				SELECT TOP(1) @fechaMayor = p.PK_FECHA FROM [dbo].[PARTO] p INNER JOIN [dbo].[VACA] v ON p.PK_FK_NUMERO_TRAZABLE_VACA = v.PK_NUMERO_TRAZABLE WHERE p.PK_FK_NUMERO_TRAZABLE_VACA = @idVaca AND p.PK_FECHA >= @fechaInicioPeriodo AND p.PK_FECHA <= @fechaFinPeriodo AND p.PK_FECHA > @fechaMenor AND (v.FECHA_NACIMIENTO <= @fechaFinPeriodo AND (v.FECHA_DE_BAJA >= @fechaInicioPeriodo OR v.FECHA_DE_BAJA IS NULL)) ORDER BY p.PK_FECHA ASC;
 
 				SELECT @tmp = DATEDIFF(DAY, @fechaMenor, @fechaMayor);
 

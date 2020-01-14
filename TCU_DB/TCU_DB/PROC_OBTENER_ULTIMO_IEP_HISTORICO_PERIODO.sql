@@ -5,7 +5,7 @@
 AS
 	BEGIN
 		DECLARE @cantidadVacas INT;
-		SELECT @cantidadVacas = COUNT(v.PK_NUMERO_TRAZABLE) FROM [dbo].[VACA] v;
+		SELECT @cantidadVacas = COUNT(v.PK_NUMERO_TRAZABLE) FROM [dbo].[VACA] v WHERE v.FECHA_NACIMIENTO <= @fechaFin AND (v.FECHA_DE_BAJA >= @fechaInicio OR v.FECHA_DE_BAJA IS NULL);
 		IF @cantidadVacas > 0
 		BEGIN
 			DECLARE @indiceVacas INT = 0;
@@ -14,7 +14,7 @@ AS
 			DECLARE @sumatoria INT = 0;
 			WHILE @indiceVacas < @cantidadVacas
 			BEGIN
-				SELECT TOP(1) @idVacaParam = v.PK_NUMERO_TRAZABLE FROM [dbo].[VACA] v WHERE v.PK_NUMERO_TRAZABLE > @idVacaParam ORDER BY v.PK_NUMERO_TRAZABLE ASC;
+				SELECT TOP(1) @idVacaParam = v.PK_NUMERO_TRAZABLE FROM [dbo].[VACA] v WHERE v.PK_NUMERO_TRAZABLE > @idVacaParam AND (v.FECHA_NACIMIENTO <= @fechaFin AND (v.FECHA_DE_BAJA >= @fechaInicio OR v.FECHA_DE_BAJA IS NULL)) ORDER BY v.PK_NUMERO_TRAZABLE ASC;
 				EXEC [dbo].[PROC_OBTENER_ULTIMO_IEP_PERIODO] @idVaca = @idVacaParam, @fechaInicioPeriodo = @fechaInicio, @fechaFinPeriodo = @fechaFin, @ultimoIEP = @tmp OUTPUT;
 
 				SET @sumatoria = @sumatoria + @tmp;

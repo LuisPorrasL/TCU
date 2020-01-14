@@ -28,14 +28,14 @@ namespace TCU_WFA
         private const int LLAVE_TIPO_RESUMEN_POR_FECHAS = 1;
 
         //Consultas generales
-        private const string CONSULTA_HEMBRAS_CONSIDERADAS = "SELECT COUNT(*) FROM [dbo].[VACA]";       
-        private const string CONSULTA_HEMBRAS_PARIDO = "SELECT COUNT (DISTINCT V.PK_NUMERO_TRAZABLE) FROM [dbo].[VACA] V INNER JOIN [dbo].[PARTO] P ON V.PK_NUMERO_TRAZABLE = P.PK_FK_NUMERO_TRAZABLE_VACA";
-        private const string CONSULTA_PARTOS = "SELECT COUNT (*) FROM [dbo].[PARTO]";
+        private const string CONSULTA_HEMBRAS_CONSIDERADAS = "SELECT COUNT(*) FROM [dbo].[VACA] V WHERE V.ACTIVA = 1";       
+        private const string CONSULTA_HEMBRAS_PARIDO = "SELECT COUNT (DISTINCT V.PK_NUMERO_TRAZABLE) FROM [dbo].[VACA] V INNER JOIN [dbo].[PARTO] P ON V.PK_NUMERO_TRAZABLE = P.PK_FK_NUMERO_TRAZABLE_VACA WHERE V.ACTIVA = 1";
+        private const string CONSULTA_PARTOS = "SELECT COUNT(*) FROM [dbo].[PARTO] P INNER JOIN [dbo].[VACA] V ON P.PK_FK_NUMERO_TRAZABLE_VACA = V.PK_NUMERO_TRAZABLE WHERE V.ACTIVA = 1";
 
         //Consulta por fechas
-        private const string CONSULTA_HEMBRAS_CONSIDERADAS_FECHAS = "SELECT COUNT(*) FROM [dbo].[VACA] V WHERE V.FECHA_NACIMIENTO >= '@fechaInicio'";
-        private const string CONSULTA_HEMBRAS_PARIDO_FECHAS = "SELECT COUNT (DISTINCT V.PK_NUMERO_TRAZABLE) FROM [dbo].[VACA] V INNER JOIN [dbo].[PARTO] P ON V.PK_NUMERO_TRAZABLE = P.PK_FK_NUMERO_TRAZABLE_VACA WHERE P.PK_FECHA >= '@fechaInicio' AND P.PK_FECHA <= '@fechaFin'";
-        private const string CONSULTA_PARTOS_FECHAS = "SELECT COUNT (*) FROM [dbo].[PARTO] P WHERE P.PK_FECHA >= '@fechaInicio' AND P.PK_FECHA <= '@fechaFin'";
+        private const string CONSULTA_HEMBRAS_CONSIDERADAS_FECHAS = "SELECT COUNT(*) FROM [dbo].[VACA] V WHERE V.FECHA_NACIMIENTO <= '@fechaFin' AND (V.FECHA_DE_BAJA >= '@fechaInicio' OR V.FECHA_DE_BAJA IS NULL)";
+        private const string CONSULTA_HEMBRAS_PARIDO_FECHAS = "SELECT COUNT (DISTINCT V.PK_NUMERO_TRAZABLE) FROM [dbo].[VACA] V INNER JOIN [dbo].[PARTO] P ON V.PK_NUMERO_TRAZABLE = P.PK_FK_NUMERO_TRAZABLE_VACA WHERE P.PK_FECHA >= '@fechaInicio' AND P.PK_FECHA <= '@fechaFin' AND (V.FECHA_NACIMIENTO <= '@fechaFin' AND (V.FECHA_DE_BAJA >= '@fechaInicio' OR V.FECHA_DE_BAJA IS NULL))";
+        private const string CONSULTA_PARTOS_FECHAS = "SELECT COUNT (*) FROM [dbo].[PARTO] P INNER JOIN [dbo].[VACA] V ON P.PK_FK_NUMERO_TRAZABLE_VACA = V.PK_NUMERO_TRAZABLE WHERE P.PK_FECHA >= '@fechaInicio' AND P.PK_FECHA <= '@fechaFin'  AND (V.FECHA_NACIMIENTO <= '@fechaFin' AND (V.FECHA_DE_BAJA >= '@fechaInicio' OR V.FECHA_DE_BAJA IS NULL))";
         private const string PARAM_FECHA_INICIO = "@fechaInicio";
         private const string PARAM_FECHA_FIN = "@fechaFin";
         
@@ -65,6 +65,8 @@ namespace TCU_WFA
         private void FormResumen_Load(object sender, EventArgs e)
         {
             LlenarOpcionesComboBoxTipoResumen();
+            datosResumen.fechaInicioResumen = fechaPrimerDiaInicio;
+            datosResumen.fechaFinalResumen = fechaDiaActual;
             dateTimePickerInicio.Value = fechaPrimerDiaInicio;
             dateTimePickerFinal.Value = fechaDiaActual;
             CargarDatosResumen();
@@ -106,8 +108,7 @@ namespace TCU_WFA
             }
             try
             {
-                //datosResumen.hembrasConsideradas = Utilities.EjecutarConsultaCount((datosResumen.tipoResumen == LLAVE_TIPO_RESUMEN_GENERAL) ? CONSULTA_HEMBRAS_CONSIDERADAS : CONSULTA_HEMBRAS_CONSIDERADAS_FECHAS.Replace(PARAM_FECHA_INICIO, datosResumen.fechaInicioResumen.ToString()));
-                datosResumen.hembrasConsideradas = Utilities.EjecutarConsultaCount(CONSULTA_HEMBRAS_CONSIDERADAS);
+                datosResumen.hembrasConsideradas = Utilities.EjecutarConsultaCount((datosResumen.tipoResumen == LLAVE_TIPO_RESUMEN_GENERAL) ? CONSULTA_HEMBRAS_CONSIDERADAS : CONSULTA_HEMBRAS_CONSIDERADAS_FECHAS.Replace(PARAM_FECHA_INICIO, datosResumen.fechaInicioResumen.ToString()).Replace(PARAM_FECHA_FIN, datosResumen.fechaFinalResumen.ToString()));                
             }
             catch
             {
@@ -372,8 +373,16 @@ namespace TCU_WFA
         /// <param name="e"></param>
         private void dateTimePickerInicio_ValueChanged(object sender, EventArgs e)
         {
-            CargarDatosResumen();
-            ActualizarDatosForm();
+            if (RevisarFechasValidas())
+            {
+                CargarDatosResumen();
+                ActualizarDatosForm();
+            }
+            else
+            {
+                dateTimePickerInicio.Value = datosResumen.fechaInicioResumen;
+                Utilities.MostrarMessageBox(Utilities.MENSAJE_ERROR_ENTRADA_USUARIO, Utilities.TITULO_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>
@@ -383,8 +392,26 @@ namespace TCU_WFA
         /// <param name="e"></param>
         private void dateTimePickerFinal_ValueChanged(object sender, EventArgs e)
         {
-            CargarDatosResumen();
-            ActualizarDatosForm();
+            if (RevisarFechasValidas())
+            {
+                CargarDatosResumen();
+                ActualizarDatosForm();
+            }
+            else
+            {
+                dateTimePickerFinal.Value = datosResumen.fechaFinalResumen;
+                Utilities.MostrarMessageBox(Utilities.MENSAJE_ERROR_ENTRADA_USUARIO, Utilities.TITULO_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Método para revisar que las fechas seleccionadas sean correctas
+        /// </summary>
+        /// <returns></returns>
+        private bool RevisarFechasValidas()
+        {
+            if (dateTimePickerInicio.Value > DateTime.Now || dateTimePickerFinal.Value > DateTime.Now || dateTimePickerInicio.Value > dateTimePickerFinal.Value) return false;
+            return true;
         }
 
         /// <summary>
