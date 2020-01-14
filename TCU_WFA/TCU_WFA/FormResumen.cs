@@ -31,11 +31,12 @@ namespace TCU_WFA
         private const string CONSULTA_HEMBRAS_CONSIDERADAS = "SELECT COUNT(*) FROM [dbo].[VACA] V WHERE V.ACTIVA = 1";       
         private const string CONSULTA_HEMBRAS_PARIDO = "SELECT COUNT (DISTINCT V.PK_NUMERO_TRAZABLE) FROM [dbo].[VACA] V INNER JOIN [dbo].[PARTO] P ON V.PK_NUMERO_TRAZABLE = P.PK_FK_NUMERO_TRAZABLE_VACA WHERE V.ACTIVA = 1";
         private const string CONSULTA_PARTOS = "SELECT COUNT(*) FROM [dbo].[PARTO] P INNER JOIN [dbo].[VACA] V ON P.PK_FK_NUMERO_TRAZABLE_VACA = V.PK_NUMERO_TRAZABLE WHERE V.ACTIVA = 1";
-
         //Consulta por fechas
         private const string CONSULTA_HEMBRAS_CONSIDERADAS_FECHAS = "SELECT COUNT(*) FROM [dbo].[VACA] V WHERE V.FECHA_NACIMIENTO <= '@fechaFin' AND (V.FECHA_DE_BAJA >= '@fechaInicio' OR V.FECHA_DE_BAJA IS NULL)";
         private const string CONSULTA_HEMBRAS_PARIDO_FECHAS = "SELECT COUNT (DISTINCT V.PK_NUMERO_TRAZABLE) FROM [dbo].[VACA] V INNER JOIN [dbo].[PARTO] P ON V.PK_NUMERO_TRAZABLE = P.PK_FK_NUMERO_TRAZABLE_VACA WHERE P.PK_FECHA >= '@fechaInicio' AND P.PK_FECHA <= '@fechaFin' AND (V.FECHA_NACIMIENTO <= '@fechaFin' AND (V.FECHA_DE_BAJA >= '@fechaInicio' OR V.FECHA_DE_BAJA IS NULL))";
         private const string CONSULTA_PARTOS_FECHAS = "SELECT COUNT (*) FROM [dbo].[PARTO] P INNER JOIN [dbo].[VACA] V ON P.PK_FK_NUMERO_TRAZABLE_VACA = V.PK_NUMERO_TRAZABLE WHERE P.PK_FECHA >= '@fechaInicio' AND P.PK_FECHA <= '@fechaFin'  AND (V.FECHA_NACIMIENTO <= '@fechaFin' AND (V.FECHA_DE_BAJA >= '@fechaInicio' OR V.FECHA_DE_BAJA IS NULL))";
+        private const string CONSULTA_HEMBRAS_SERVIDAS = "SELECT COUNT(DISTINCT P.PK_FK_NUMERO_TRAZABLE_VACA) FROM [dbo].[PALPACION] P WHERE P.CONFIRMACION = 1 AND P.PK_FECHA >= '@fechaInicio' AND P.PK_FECHA <= '@fechaFin'";
+        private const string CONSULTA_HEMBRAS_PARIDO_FECHAS_CON_PALPACION = "SELECT COUNT (DISTINCT V.PK_NUMERO_TRAZABLE) FROM [dbo].[VACA] V INNER JOIN [dbo].[PARTO] P ON V.PK_NUMERO_TRAZABLE = P.PK_FK_NUMERO_TRAZABLE_VACA WHERE P.PK_FECHA >= '@fechaInicio' AND P.PK_FECHA <= '@fechaFin' AND (V.FECHA_NACIMIENTO <= '@fechaFin' AND (V.FECHA_DE_BAJA >= '@fechaInicio' OR V.FECHA_DE_BAJA IS NULL)) AND EXISTS (SELECT E.PK_FK_NUMERO_TRAZABLE_VACA FROM [dbo].[PALPACION] E WHERE E.PK_FK_NUMERO_TRAZABLE_VACA = V.PK_NUMERO_TRAZABLE AND E.CONFIRMACION = 1)";
         private const string PARAM_FECHA_INICIO = "@fechaInicio";
         private const string PARAM_FECHA_FIN = "@fechaFin";
         
@@ -56,12 +57,19 @@ namespace TCU_WFA
         private DateTime fechaPrimerDiaInicio = new DateTime(DateTime.Now.Year, 1, 1);
         private DateTime fechaDiaActual = DateTime.Now;
 
-
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public FormResumen()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Método que se llama al cargar el form, inicializa el combobox, los datetime pickers y carga los datos a mostrar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormResumen_Load(object sender, EventArgs e)
         {
             LlenarOpcionesComboBoxTipoResumen();
@@ -108,7 +116,7 @@ namespace TCU_WFA
             }
             try
             {
-                datosResumen.hembrasConsideradas = Utilities.EjecutarConsultaCount((datosResumen.tipoResumen == LLAVE_TIPO_RESUMEN_GENERAL) ? CONSULTA_HEMBRAS_CONSIDERADAS : CONSULTA_HEMBRAS_CONSIDERADAS_FECHAS.Replace(PARAM_FECHA_INICIO, datosResumen.fechaInicioResumen.ToString()).Replace(PARAM_FECHA_FIN, datosResumen.fechaFinalResumen.ToString()));                
+                datosResumen.hembrasConsideradas = Utilities.EjecutarConsultaCount((datosResumen.tipoResumen == LLAVE_TIPO_RESUMEN_GENERAL) ? CONSULTA_HEMBRAS_CONSIDERADAS : CONSULTA_HEMBRAS_CONSIDERADAS_FECHAS.Replace(PARAM_FECHA_INICIO, datosResumen.fechaInicioResumen.ToString()).Replace(PARAM_FECHA_FIN, datosResumen.fechaFinalResumen.ToString()));
             }
             catch
             {
@@ -157,7 +165,7 @@ namespace TCU_WFA
                 int resultadoPartos = Utilities.EjecutarConsultaCount((datosResumen.tipoResumen == LLAVE_TIPO_RESUMEN_GENERAL) ? CONSULTA_PARTOS : CONSULTA_PARTOS_FECHAS.Replace(PARAM_FECHA_INICIO, datosResumen.fechaInicioResumen.ToString()).Replace(PARAM_FECHA_FIN, datosResumen.fechaFinalResumen.ToString()));
                 if (resultadoPartos != Utilities.RESULTADO_ERROR && datosResumen.hembrasConsideradas != Utilities.RESULTADO_ERROR && datosResumen.hembrasConsideradas != 0)
                 {
-                    datosResumen.promPartosHato = (double)resultadoPartos / (double)datosResumen.hembrasConsideradas;
+                    datosResumen.promPartosHato = Math.Round((double)resultadoPartos / (double)datosResumen.hembrasConsideradas, 2);
                 }
                 else
                 {
@@ -200,9 +208,37 @@ namespace TCU_WFA
             }
             if(datosResumen.hembrasParido != Utilities.RESULTADO_ERROR && datosResumen.hembrasConsideradas != Utilities.RESULTADO_ERROR && datosResumen.hembrasConsideradas != 0)
             {
-                datosResumen.porcParicionHistorico = ((double)datosResumen.hembrasParido / (double)datosResumen.hembrasConsideradas) * 100;
+                datosResumen.porcParicionHistorico = Math.Round(((double)datosResumen.hembrasParido / (double)datosResumen.hembrasConsideradas) * 100, 2);
             }
-            //ToDo obtener el último % de parición
+            //Último % de parición
+            if (datosResumen.tipoResumen == LLAVE_TIPO_RESUMEN_POR_FECHAS)
+            {
+                try
+                {
+                    //Se obtiene la cantidad de hembras servidas
+                    int resultadoHembrasServidas = Utilities.EjecutarConsultaCount(CONSULTA_HEMBRAS_SERVIDAS.Replace(PARAM_FECHA_INICIO, datosResumen.fechaInicioResumen.ToString()).Replace(PARAM_FECHA_FIN, datosResumen.fechaFinalResumen.ToString()));
+                    int resultadoHembrasParidoConPalpacion = Utilities.EjecutarConsultaCount(CONSULTA_HEMBRAS_PARIDO_FECHAS_CON_PALPACION.Replace(PARAM_FECHA_INICIO, datosResumen.fechaInicioResumen.ToString()).Replace(PARAM_FECHA_FIN, datosResumen.fechaFinalResumen.ToString()));
+                    if (resultadoHembrasParidoConPalpacion != Utilities.RESULTADO_ERROR && resultadoHembrasServidas != Utilities.RESULTADO_ERROR)
+                    {
+                        if (resultadoHembrasServidas != 0)
+                        {
+                            datosResumen.ultimoPorcParicion = Math.Round(((double)resultadoHembrasParidoConPalpacion / (double)resultadoHembrasServidas) * 100, 2);
+                        }
+                        else
+                        {
+                            datosResumen.ultimoPorcParicion = 0;
+                        }
+                    }
+                    else
+                    {
+                        datosResumen.ultimoPorcParicion = Utilities.RESULTADO_ERROR;
+                    }
+                }
+                catch
+                {
+                    datosResumen.ultimoPorcParicion = Utilities.RESULTADO_ERROR;
+                }
+            }
         }
 
         /// <summary>
@@ -425,11 +461,15 @@ namespace TCU_WFA
             {
                 datosResumen.tipoResumen = LLAVE_TIPO_RESUMEN_POR_FECHAS;
                 groupBoxSeleccionarFechas.Visible = true;
+                labelUltimoPorcentajeParicion.Visible = true;
+                textBoxUltimoPorcParicionValue.Visible = true;
             }
             else
             {
                 datosResumen.tipoResumen = LLAVE_TIPO_RESUMEN_GENERAL;
                 groupBoxSeleccionarFechas.Visible = false;
+                labelUltimoPorcentajeParicion.Visible = false;
+                textBoxUltimoPorcParicionValue.Visible = false;
             }
             CargarDatosResumen();
             ActualizarDatosForm();

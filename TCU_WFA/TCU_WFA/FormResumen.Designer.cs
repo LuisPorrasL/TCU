@@ -80,7 +80,7 @@
             // 
             this.labelPromedioPartosHato.AutoSize = true;
             this.labelPromedioPartosHato.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPromedioPartosHato.Location = new System.Drawing.Point(116, 346);
+            this.labelPromedioPartosHato.Location = new System.Drawing.Point(116, 306);
             this.labelPromedioPartosHato.Name = "labelPromedioPartosHato";
             this.labelPromedioPartosHato.Size = new System.Drawing.Size(107, 13);
             this.labelPromedioPartosHato.TabIndex = 24;
@@ -90,11 +90,12 @@
             // 
             this.labelUltimoPorcentajeParicion.AutoSize = true;
             this.labelUltimoPorcentajeParicion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUltimoPorcentajeParicion.Location = new System.Drawing.Point(116, 306);
+            this.labelUltimoPorcentajeParicion.Location = new System.Drawing.Point(116, 346);
             this.labelUltimoPorcentajeParicion.Name = "labelUltimoPorcentajeParicion";
             this.labelUltimoPorcentajeParicion.Size = new System.Drawing.Size(87, 13);
             this.labelUltimoPorcentajeParicion.TabIndex = 23;
             this.labelUltimoPorcentajeParicion.Text = "Último % parición";
+            this.labelUltimoPorcentajeParicion.Visible = false;
             // 
             // labelUltimoIEPVacaMeses
             // 
@@ -180,7 +181,7 @@
             // 
             // textBoxPromPartosHatoValue
             // 
-            this.textBoxPromPartosHatoValue.Location = new System.Drawing.Point(292, 343);
+            this.textBoxPromPartosHatoValue.Location = new System.Drawing.Point(292, 303);
             this.textBoxPromPartosHatoValue.Name = "textBoxPromPartosHatoValue";
             this.textBoxPromPartosHatoValue.ReadOnly = true;
             this.textBoxPromPartosHatoValue.Size = new System.Drawing.Size(165, 20);
@@ -188,11 +189,12 @@
             // 
             // textBoxUltimoPorcParicionValue
             // 
-            this.textBoxUltimoPorcParicionValue.Location = new System.Drawing.Point(292, 303);
+            this.textBoxUltimoPorcParicionValue.Location = new System.Drawing.Point(292, 343);
             this.textBoxUltimoPorcParicionValue.Name = "textBoxUltimoPorcParicionValue";
             this.textBoxUltimoPorcParicionValue.ReadOnly = true;
             this.textBoxUltimoPorcParicionValue.Size = new System.Drawing.Size(165, 20);
             this.textBoxUltimoPorcParicionValue.TabIndex = 37;
+            this.textBoxUltimoPorcParicionValue.Visible = false;
             // 
             // textBoxUltimoIEPVacaMesesValue
             // 

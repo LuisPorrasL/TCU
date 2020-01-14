@@ -83,10 +83,14 @@ namespace TCU_WFA
             celdasInformacionGeneral[5, 1].Value = "% parición histórico";
             celdasInformacionGeneral[5, 4].Value = datosResumen.porcParicionHistorico;
             celdasInformacionGeneral[6, 4].Value = datosResumen.ultimoIEPVacaMeses;
-            celdasInformacionGeneral[7, 1].Value = "Último % parición ";
-            celdasInformacionGeneral[7, 4].Value = datosResumen.ultimoPorcParicion;
-            celdasInformacionGeneral[8, 1].Value = "Promedio partos hato";
-            celdasInformacionGeneral[8, 4].Value = datosResumen.promPartosHato;
+            celdasInformacionGeneral[7, 1].Value = "Promedio partos hato";
+            celdasInformacionGeneral[7, 4].Value = datosResumen.promPartosHato;
+            if(datosResumen.tipoResumen == LLAVE_TIPO_RESUMEN_POR_FECHAS)
+            {
+                celdasInformacionGeneral[8, 1].Value = "Último % parición ";
+                celdasInformacionGeneral[8, 4].Value = datosResumen.ultimoPorcParicion;
+            }
+            
 
             //Generación de la lista de las vacas con su respectiva información
 
