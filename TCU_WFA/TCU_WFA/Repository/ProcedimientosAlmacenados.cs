@@ -124,7 +124,6 @@ namespace TCU_WFA.Repository
                 cmd.Parameters.Add("@protusion", SqlDbType.Bit);//35
                 cmd.Parameters["@protusion"].Value = examen.protusion;
 
-
                 try
                 {
                     conn.Open();
@@ -140,7 +139,30 @@ namespace TCU_WFA.Repository
             return resultado;
         }
 
-
+        public static int ProcEliminarExamen(DateTime fecha, int idToro)
+        {
+            int resultado = 0;
+            string sql = "EXECUTE PROC_ELIMINAR_EXAMEN @numeroTrazable, @fecha";
+            using (SqlConnection conn = new SqlConnection(Utilities.CONNECTION_STRING))
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.Add("@numeroTrazable", SqlDbType.Int);
+                cmd.Parameters["@numeroTrazable"].Value = idToro;
+                cmd.Parameters.Add("@fecha", SqlDbType.DateTime);
+                cmd.Parameters["@fecha"].Value = fecha;
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteScalar();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    resultado = Utilities.RESULTADO_ERROR;
+                }
+            }
+            return resultado;
+        }
 
 
         public static int ProcInsertarVaca(VacaModel vaca)

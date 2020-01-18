@@ -9,6 +9,7 @@ namespace TCU_WFA
     {
         //Constantes
         private const string QUERY_SELECT_DATA_GRID_VIEW_EXAMENES = "SELECT e.PK_FECHA AS 'Fecha examen antropologico' FROM [dbo].[EXAMEN_ANTROPOLOGICO] e WHERE e.PK_FK_NUMERO_TRAZABLE_TORO = ";
+        
         private const int FECHA = 0;
 
         //Mensajes
@@ -44,7 +45,7 @@ namespace TCU_WFA
         /// <summary>
         /// Llena todos los DataGridViews del form.
         /// </summary>
-        private void LlenarDataGridViews()
+        public void LlenarDataGridViews()
         {
             Utilities.LlenarDataGridView(QUERY_SELECT_DATA_GRID_VIEW_EXAMENES + informacionToroSeleccionado.pkNumeroTrazable + ";", dataGridViewExamenesToro);
         }
@@ -72,7 +73,7 @@ namespace TCU_WFA
                 DataGridViewRow filaSelecionada = dataGridViewExamenesToro.SelectedRows[0];
                 if (filaSelecionada.Cells[0].Value != null)
                 {
-                    FormDetallesExamenAndrologico form = new FormDetallesExamenAndrologico((DateTime)filaSelecionada.Cells[FECHA].Value, this.informacionToroSeleccionado.pkNumeroTrazable);
+                    FormDetallesExamenAndrologico form = new FormDetallesExamenAndrologico((DateTime)filaSelecionada.Cells[FECHA].Value, this.informacionToroSeleccionado.pkNumeroTrazable, this);
                     form.Tag = this;
                     form.Show(this);
                     Hide();
@@ -86,6 +87,11 @@ namespace TCU_WFA
             {
                 Utilities.MostrarMessageBox(MENSAJE_ERROR_SELECCION_EXAMEN_TORO, TITULO_AVISO_EXAMEN_TORO, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void tabPageInformacionGeneral_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

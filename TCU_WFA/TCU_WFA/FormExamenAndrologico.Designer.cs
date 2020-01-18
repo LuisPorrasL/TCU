@@ -67,7 +67,6 @@
             this.textBoxAnormalidadesS = new System.Windows.Forms.TextBox();
             this.textBoxAnormalidadesP = new System.Windows.Forms.TextBox();
             this.textBoxDannos = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
             this.labelConcentracion = new System.Windows.Forms.Label();
             this.labelMotilidadMasal = new System.Windows.Forms.Label();
             this.labelMotilidadProgresiva = new System.Windows.Forms.Label();
@@ -109,9 +108,10 @@
             // 
             // botonVolver
             // 
-            this.botonVolver.Location = new System.Drawing.Point(575, 420);
+            this.botonVolver.Location = new System.Drawing.Point(767, 517);
+            this.botonVolver.Margin = new System.Windows.Forms.Padding(4);
             this.botonVolver.Name = "botonVolver";
-            this.botonVolver.Size = new System.Drawing.Size(75, 23);
+            this.botonVolver.Size = new System.Drawing.Size(100, 28);
             this.botonVolver.TabIndex = 0;
             this.botonVolver.Text = "Volver";
             this.botonVolver.UseVisualStyleBackColor = true;
@@ -120,39 +120,37 @@
             // labelNumeroTrazableToro
             // 
             this.labelNumeroTrazableToro.AutoSize = true;
-            this.labelNumeroTrazableToro.Location = new System.Drawing.Point(9, 14);
-            this.labelNumeroTrazableToro.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelNumeroTrazableToro.Location = new System.Drawing.Point(12, 17);
             this.labelNumeroTrazableToro.Name = "labelNumeroTrazableToro";
-            this.labelNumeroTrazableToro.Size = new System.Drawing.Size(105, 13);
+            this.labelNumeroTrazableToro.Size = new System.Drawing.Size(142, 17);
             this.labelNumeroTrazableToro.TabIndex = 2;
             this.labelNumeroTrazableToro.Text = "Número trazable toro";
             // 
             // labelCondicionCorporal
             // 
             this.labelCondicionCorporal.AutoSize = true;
-            this.labelCondicionCorporal.Location = new System.Drawing.Point(390, 14);
-            this.labelCondicionCorporal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelCondicionCorporal.Location = new System.Drawing.Point(520, 17);
             this.labelCondicionCorporal.Name = "labelCondicionCorporal";
-            this.labelCondicionCorporal.Size = new System.Drawing.Size(73, 13);
+            this.labelCondicionCorporal.Size = new System.Drawing.Size(97, 17);
             this.labelCondicionCorporal.TabIndex = 6;
             this.labelCondicionCorporal.Text = "Cond corporal";
             // 
             // textBoxCondC
             // 
             this.textBoxCondC.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxCondC.Location = new System.Drawing.Point(467, 11);
-            this.textBoxCondC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxCondC.Location = new System.Drawing.Point(623, 19);
+            this.textBoxCondC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxCondC.Name = "textBoxCondC";
-            this.textBoxCondC.Size = new System.Drawing.Size(176, 13);
+            this.textBoxCondC.Size = new System.Drawing.Size(235, 15);
             this.textBoxCondC.TabIndex = 5;
             // 
             // checkBoxLibido
             // 
             this.checkBoxLibido.AutoSize = true;
-            this.checkBoxLibido.Location = new System.Drawing.Point(7, 28);
-            this.checkBoxLibido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxLibido.Location = new System.Drawing.Point(9, 34);
+            this.checkBoxLibido.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxLibido.Name = "checkBoxLibido";
-            this.checkBoxLibido.Size = new System.Drawing.Size(54, 17);
+            this.checkBoxLibido.Size = new System.Drawing.Size(68, 21);
             this.checkBoxLibido.TabIndex = 7;
             this.checkBoxLibido.Text = "Libido";
             this.checkBoxLibido.UseVisualStyleBackColor = true;
@@ -160,10 +158,10 @@
             // checkBoxTesticulos
             // 
             this.checkBoxTesticulos.AutoSize = true;
-            this.checkBoxTesticulos.Location = new System.Drawing.Point(7, 151);
-            this.checkBoxTesticulos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxTesticulos.Location = new System.Drawing.Point(9, 186);
+            this.checkBoxTesticulos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxTesticulos.Name = "checkBoxTesticulos";
-            this.checkBoxTesticulos.Size = new System.Drawing.Size(76, 17);
+            this.checkBoxTesticulos.Size = new System.Drawing.Size(94, 21);
             this.checkBoxTesticulos.TabIndex = 8;
             this.checkBoxTesticulos.Text = "Testículos";
             this.checkBoxTesticulos.UseVisualStyleBackColor = true;
@@ -171,10 +169,10 @@
             // checkBoxPene
             // 
             this.checkBoxPene.AutoSize = true;
-            this.checkBoxPene.Location = new System.Drawing.Point(7, 122);
-            this.checkBoxPene.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxPene.Location = new System.Drawing.Point(9, 150);
+            this.checkBoxPene.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxPene.Name = "checkBoxPene";
-            this.checkBoxPene.Size = new System.Drawing.Size(51, 17);
+            this.checkBoxPene.Size = new System.Drawing.Size(63, 21);
             this.checkBoxPene.TabIndex = 9;
             this.checkBoxPene.Text = "Pene";
             this.checkBoxPene.UseVisualStyleBackColor = true;
@@ -182,10 +180,10 @@
             // checkBoxPrepucio
             // 
             this.checkBoxPrepucio.AutoSize = true;
-            this.checkBoxPrepucio.Location = new System.Drawing.Point(7, 89);
-            this.checkBoxPrepucio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxPrepucio.Location = new System.Drawing.Point(9, 110);
+            this.checkBoxPrepucio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxPrepucio.Name = "checkBoxPrepucio";
-            this.checkBoxPrepucio.Size = new System.Drawing.Size(68, 17);
+            this.checkBoxPrepucio.Size = new System.Drawing.Size(86, 21);
             this.checkBoxPrepucio.TabIndex = 10;
             this.checkBoxPrepucio.Text = "Prepucio";
             this.checkBoxPrepucio.UseVisualStyleBackColor = true;
@@ -193,10 +191,10 @@
             // checkBoxCM
             // 
             this.checkBoxCM.AutoSize = true;
-            this.checkBoxCM.Location = new System.Drawing.Point(7, 58);
-            this.checkBoxCM.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxCM.Location = new System.Drawing.Point(9, 71);
+            this.checkBoxCM.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxCM.Name = "checkBoxCM";
-            this.checkBoxCM.Size = new System.Drawing.Size(124, 17);
+            this.checkBoxCM.Size = new System.Drawing.Size(160, 21);
             this.checkBoxCM.TabIndex = 12;
             this.checkBoxCM.Text = "Capacidad de monta";
             this.checkBoxCM.UseVisualStyleBackColor = true;
@@ -204,10 +202,10 @@
             // checkBoxEpi
             // 
             this.checkBoxEpi.AutoSize = true;
-            this.checkBoxEpi.Location = new System.Drawing.Point(7, 184);
-            this.checkBoxEpi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxEpi.Location = new System.Drawing.Point(9, 226);
+            this.checkBoxEpi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxEpi.Name = "checkBoxEpi";
-            this.checkBoxEpi.Size = new System.Drawing.Size(78, 17);
+            this.checkBoxEpi.Size = new System.Drawing.Size(98, 21);
             this.checkBoxEpi.TabIndex = 13;
             this.checkBoxEpi.Text = "Epidídimos";
             this.checkBoxEpi.UseVisualStyleBackColor = true;
@@ -215,26 +213,24 @@
             // label4
             // 
             this.label4.Location = new System.Drawing.Point(0, 0);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 19);
+            this.label4.Size = new System.Drawing.Size(100, 23);
             this.label4.TabIndex = 35;
             // 
             // label5
             // 
             this.label5.Location = new System.Drawing.Point(0, 0);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(75, 19);
+            this.label5.Size = new System.Drawing.Size(100, 23);
             this.label5.TabIndex = 34;
             // 
             // checkBoxPalpacion
             // 
             this.checkBoxPalpacion.AutoSize = true;
-            this.checkBoxPalpacion.Location = new System.Drawing.Point(13, 28);
-            this.checkBoxPalpacion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxPalpacion.Location = new System.Drawing.Point(17, 34);
+            this.checkBoxPalpacion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxPalpacion.Name = "checkBoxPalpacion";
-            this.checkBoxPalpacion.Size = new System.Drawing.Size(73, 17);
+            this.checkBoxPalpacion.Size = new System.Drawing.Size(92, 21);
             this.checkBoxPalpacion.TabIndex = 16;
             this.checkBoxPalpacion.Text = "Palpación";
             this.checkBoxPalpacion.UseVisualStyleBackColor = true;
@@ -242,10 +238,10 @@
             // checkBoxEcogrfia
             // 
             this.checkBoxEcogrfia.AutoSize = true;
-            this.checkBoxEcogrfia.Location = new System.Drawing.Point(13, 62);
-            this.checkBoxEcogrfia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxEcogrfia.Location = new System.Drawing.Point(17, 76);
+            this.checkBoxEcogrfia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxEcogrfia.Name = "checkBoxEcogrfia";
-            this.checkBoxEcogrfia.Size = new System.Drawing.Size(73, 17);
+            this.checkBoxEcogrfia.Size = new System.Drawing.Size(90, 21);
             this.checkBoxEcogrfia.TabIndex = 17;
             this.checkBoxEcogrfia.Text = "Ecografía";
             this.checkBoxEcogrfia.UseVisualStyleBackColor = true;
@@ -253,10 +249,10 @@
             // checkBoxVaginaArt
             // 
             this.checkBoxVaginaArt.AutoSize = true;
-            this.checkBoxVaginaArt.Location = new System.Drawing.Point(13, 93);
-            this.checkBoxVaginaArt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxVaginaArt.Location = new System.Drawing.Point(17, 114);
+            this.checkBoxVaginaArt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxVaginaArt.Name = "checkBoxVaginaArt";
-            this.checkBoxVaginaArt.Size = new System.Drawing.Size(97, 17);
+            this.checkBoxVaginaArt.Size = new System.Drawing.Size(126, 21);
             this.checkBoxVaginaArt.TabIndex = 18;
             this.checkBoxVaginaArt.Text = "Vagina artificial";
             this.checkBoxVaginaArt.UseVisualStyleBackColor = true;
@@ -264,10 +260,10 @@
             // checkBoxElectroEya
             // 
             this.checkBoxElectroEya.AutoSize = true;
-            this.checkBoxElectroEya.Location = new System.Drawing.Point(13, 129);
-            this.checkBoxElectroEya.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxElectroEya.Location = new System.Drawing.Point(17, 159);
+            this.checkBoxElectroEya.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxElectroEya.Name = "checkBoxElectroEya";
-            this.checkBoxElectroEya.Size = new System.Drawing.Size(111, 17);
+            this.checkBoxElectroEya.Size = new System.Drawing.Size(144, 21);
             this.checkBoxElectroEya.TabIndex = 19;
             this.checkBoxElectroEya.Text = "Electroeyaculador";
             this.checkBoxElectroEya.UseVisualStyleBackColor = true;
@@ -275,10 +271,10 @@
             // checkBoxProtusion
             // 
             this.checkBoxProtusion.AutoSize = true;
-            this.checkBoxProtusion.Location = new System.Drawing.Point(13, 164);
-            this.checkBoxProtusion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxProtusion.Location = new System.Drawing.Point(17, 202);
+            this.checkBoxProtusion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxProtusion.Name = "checkBoxProtusion";
-            this.checkBoxProtusion.Size = new System.Drawing.Size(70, 17);
+            this.checkBoxProtusion.Size = new System.Drawing.Size(90, 21);
             this.checkBoxProtusion.TabIndex = 20;
             this.checkBoxProtusion.Text = "Protusión";
             this.checkBoxProtusion.UseVisualStyleBackColor = true;
@@ -299,68 +295,66 @@
             this.groupBoxFisicos.Controls.Add(this.checkBoxPene);
             this.groupBoxFisicos.Controls.Add(this.checkBoxPrepucio);
             this.groupBoxFisicos.Controls.Add(this.checkBoxEpi);
-            this.groupBoxFisicos.Location = new System.Drawing.Point(11, 40);
-            this.groupBoxFisicos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxFisicos.Location = new System.Drawing.Point(15, 49);
+            this.groupBoxFisicos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBoxFisicos.Name = "groupBoxFisicos";
-            this.groupBoxFisicos.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBoxFisicos.Size = new System.Drawing.Size(172, 401);
+            this.groupBoxFisicos.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxFisicos.Size = new System.Drawing.Size(229, 494);
             this.groupBoxFisicos.TabIndex = 22;
             this.groupBoxFisicos.TabStop = false;
             this.groupBoxFisicos.Text = "Físicos";
             // 
             // numericUpDownCircEscrotal
             // 
-            this.numericUpDownCircEscrotal.Location = new System.Drawing.Point(124, 367);
-            this.numericUpDownCircEscrotal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownCircEscrotal.Location = new System.Drawing.Point(165, 452);
+            this.numericUpDownCircEscrotal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numericUpDownCircEscrotal.Maximum = new decimal(new int[] {
             999,
             0,
             0,
             0});
             this.numericUpDownCircEscrotal.Name = "numericUpDownCircEscrotal";
-            this.numericUpDownCircEscrotal.Size = new System.Drawing.Size(43, 20);
+            this.numericUpDownCircEscrotal.Size = new System.Drawing.Size(57, 22);
             this.numericUpDownCircEscrotal.TabIndex = 28;
             // 
             // numericUpDownDS
             // 
-            this.numericUpDownDS.Location = new System.Drawing.Point(124, 340);
-            this.numericUpDownDS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownDS.Location = new System.Drawing.Point(165, 418);
+            this.numericUpDownDS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numericUpDownDS.Maximum = new decimal(new int[] {
             999,
             0,
             0,
             0});
             this.numericUpDownDS.Name = "numericUpDownDS";
-            this.numericUpDownDS.Size = new System.Drawing.Size(43, 20);
+            this.numericUpDownDS.Size = new System.Drawing.Size(57, 22);
             this.numericUpDownDS.TabIndex = 27;
             // 
             // labelDescansoSexual
             // 
             this.labelDescansoSexual.AutoSize = true;
-            this.labelDescansoSexual.Location = new System.Drawing.Point(4, 344);
-            this.labelDescansoSexual.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelDescansoSexual.Location = new System.Drawing.Point(5, 423);
             this.labelDescansoSexual.Name = "labelDescansoSexual";
-            this.labelDescansoSexual.Size = new System.Drawing.Size(118, 13);
+            this.labelDescansoSexual.Size = new System.Drawing.Size(155, 17);
             this.labelDescansoSexual.TabIndex = 25;
             this.labelDescansoSexual.Text = "Descanso sexual (días)";
             // 
             // labelCircunferenciaEscrotal
             // 
             this.labelCircunferenciaEscrotal.AutoSize = true;
-            this.labelCircunferenciaEscrotal.Location = new System.Drawing.Point(4, 371);
-            this.labelCircunferenciaEscrotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelCircunferenciaEscrotal.Location = new System.Drawing.Point(5, 457);
             this.labelCircunferenciaEscrotal.Name = "labelCircunferenciaEscrotal";
-            this.labelCircunferenciaEscrotal.Size = new System.Drawing.Size(103, 13);
+            this.labelCircunferenciaEscrotal.Size = new System.Drawing.Size(138, 17);
             this.labelCircunferenciaEscrotal.TabIndex = 18;
             this.labelCircunferenciaEscrotal.Text = "Circunf escrotal (cm)";
             // 
             // checkBoxAmpulas
             // 
             this.checkBoxAmpulas.AutoSize = true;
-            this.checkBoxAmpulas.Location = new System.Drawing.Point(7, 313);
-            this.checkBoxAmpulas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxAmpulas.Location = new System.Drawing.Point(9, 385);
+            this.checkBoxAmpulas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxAmpulas.Name = "checkBoxAmpulas";
-            this.checkBoxAmpulas.Size = new System.Drawing.Size(66, 17);
+            this.checkBoxAmpulas.Size = new System.Drawing.Size(84, 21);
             this.checkBoxAmpulas.TabIndex = 17;
             this.checkBoxAmpulas.Text = "Ámpulas";
             this.checkBoxAmpulas.UseVisualStyleBackColor = true;
@@ -368,10 +362,10 @@
             // checkBoxVesiculasS
             // 
             this.checkBoxVesiculasS.AutoSize = true;
-            this.checkBoxVesiculasS.Location = new System.Drawing.Point(7, 281);
-            this.checkBoxVesiculasS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxVesiculasS.Location = new System.Drawing.Point(9, 346);
+            this.checkBoxVesiculasS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxVesiculasS.Name = "checkBoxVesiculasS";
-            this.checkBoxVesiculasS.Size = new System.Drawing.Size(122, 17);
+            this.checkBoxVesiculasS.Size = new System.Drawing.Size(157, 21);
             this.checkBoxVesiculasS.TabIndex = 16;
             this.checkBoxVesiculasS.Text = "Vesículas seminales";
             this.checkBoxVesiculasS.UseVisualStyleBackColor = true;
@@ -379,10 +373,10 @@
             // checkBoxProstata
             // 
             this.checkBoxProstata.AutoSize = true;
-            this.checkBoxProstata.Location = new System.Drawing.Point(7, 249);
-            this.checkBoxProstata.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxProstata.Location = new System.Drawing.Point(9, 306);
+            this.checkBoxProstata.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxProstata.Name = "checkBoxProstata";
-            this.checkBoxProstata.Size = new System.Drawing.Size(65, 17);
+            this.checkBoxProstata.Size = new System.Drawing.Size(83, 21);
             this.checkBoxProstata.TabIndex = 15;
             this.checkBoxProstata.Text = "Próstata";
             this.checkBoxProstata.UseVisualStyleBackColor = true;
@@ -390,10 +384,10 @@
             // checkBoxGlandulasB
             // 
             this.checkBoxGlandulasB.AutoSize = true;
-            this.checkBoxGlandulasB.Location = new System.Drawing.Point(7, 216);
-            this.checkBoxGlandulasB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxGlandulasB.Location = new System.Drawing.Point(9, 266);
+            this.checkBoxGlandulasB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxGlandulasB.Name = "checkBoxGlandulasB";
-            this.checkBoxGlandulasB.Size = new System.Drawing.Size(142, 17);
+            this.checkBoxGlandulasB.Size = new System.Drawing.Size(189, 21);
             this.checkBoxGlandulasB.TabIndex = 14;
             this.checkBoxGlandulasB.Text = "Glandulas bulbouretrales";
             this.checkBoxGlandulasB.UseVisualStyleBackColor = true;
@@ -412,7 +406,6 @@
             this.groupBoxSemen.Controls.Add(this.textBoxAnormalidadesS);
             this.groupBoxSemen.Controls.Add(this.textBoxAnormalidadesP);
             this.groupBoxSemen.Controls.Add(this.textBoxDannos);
-            this.groupBoxSemen.Controls.Add(this.label20);
             this.groupBoxSemen.Controls.Add(this.labelConcentracion);
             this.groupBoxSemen.Controls.Add(this.labelMotilidadMasal);
             this.groupBoxSemen.Controls.Add(this.labelMotilidadProgresiva);
@@ -425,256 +418,236 @@
             this.groupBoxSemen.Controls.Add(this.labeLeucocitos);
             this.groupBoxSemen.Controls.Add(this.labelCelulasEpiteliales);
             this.groupBoxSemen.Controls.Add(this.labelVolumenEyaculado);
-            this.groupBoxSemen.Location = new System.Drawing.Point(195, 40);
-            this.groupBoxSemen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxSemen.Location = new System.Drawing.Point(260, 49);
+            this.groupBoxSemen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBoxSemen.Name = "groupBoxSemen";
-            this.groupBoxSemen.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBoxSemen.Size = new System.Drawing.Size(204, 401);
+            this.groupBoxSemen.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxSemen.Size = new System.Drawing.Size(272, 494);
             this.groupBoxSemen.TabIndex = 23;
             this.groupBoxSemen.TabStop = false;
             this.groupBoxSemen.Text = "Semen";
             // 
             // numericUpDownCelulasE
             // 
-            this.numericUpDownCelulasE.Location = new System.Drawing.Point(154, 370);
-            this.numericUpDownCelulasE.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownCelulasE.Location = new System.Drawing.Point(205, 455);
+            this.numericUpDownCelulasE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numericUpDownCelulasE.Maximum = new decimal(new int[] {
             999,
             0,
             0,
             0});
             this.numericUpDownCelulasE.Name = "numericUpDownCelulasE";
-            this.numericUpDownCelulasE.Size = new System.Drawing.Size(43, 20);
+            this.numericUpDownCelulasE.Size = new System.Drawing.Size(57, 22);
             this.numericUpDownCelulasE.TabIndex = 43;
             // 
             // numericUpDownLeucocitos
             // 
-            this.numericUpDownLeucocitos.Location = new System.Drawing.Point(154, 340);
-            this.numericUpDownLeucocitos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownLeucocitos.Location = new System.Drawing.Point(205, 418);
+            this.numericUpDownLeucocitos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numericUpDownLeucocitos.Maximum = new decimal(new int[] {
             999,
             0,
             0,
             0});
             this.numericUpDownLeucocitos.Name = "numericUpDownLeucocitos";
-            this.numericUpDownLeucocitos.Size = new System.Drawing.Size(43, 20);
+            this.numericUpDownLeucocitos.Size = new System.Drawing.Size(57, 22);
             this.numericUpDownLeucocitos.TabIndex = 42;
             // 
             // numericUpDownTotalAnormalidades
             // 
-            this.numericUpDownTotalAnormalidades.Location = new System.Drawing.Point(154, 284);
-            this.numericUpDownTotalAnormalidades.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownTotalAnormalidades.Location = new System.Drawing.Point(205, 350);
+            this.numericUpDownTotalAnormalidades.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numericUpDownTotalAnormalidades.Name = "numericUpDownTotalAnormalidades";
-            this.numericUpDownTotalAnormalidades.Size = new System.Drawing.Size(43, 20);
+            this.numericUpDownTotalAnormalidades.Size = new System.Drawing.Size(57, 22);
             this.numericUpDownTotalAnormalidades.TabIndex = 41;
             // 
             // numericUpDownMorfologiaN
             // 
-            this.numericUpDownMorfologiaN.Location = new System.Drawing.Point(154, 158);
-            this.numericUpDownMorfologiaN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownMorfologiaN.Location = new System.Drawing.Point(205, 194);
+            this.numericUpDownMorfologiaN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numericUpDownMorfologiaN.Name = "numericUpDownMorfologiaN";
-            this.numericUpDownMorfologiaN.Size = new System.Drawing.Size(43, 20);
+            this.numericUpDownMorfologiaN.Size = new System.Drawing.Size(57, 22);
             this.numericUpDownMorfologiaN.TabIndex = 40;
             // 
             // numericUpDownMotilidadP
             // 
-            this.numericUpDownMotilidadP.Location = new System.Drawing.Point(164, 123);
-            this.numericUpDownMotilidadP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownMotilidadP.Location = new System.Drawing.Point(219, 151);
+            this.numericUpDownMotilidadP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numericUpDownMotilidadP.Name = "numericUpDownMotilidadP";
-            this.numericUpDownMotilidadP.Size = new System.Drawing.Size(33, 20);
+            this.numericUpDownMotilidadP.Size = new System.Drawing.Size(44, 22);
             this.numericUpDownMotilidadP.TabIndex = 39;
             // 
             // numericUpDownMotilidadM
             // 
-            this.numericUpDownMotilidadM.Location = new System.Drawing.Point(154, 93);
-            this.numericUpDownMotilidadM.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownMotilidadM.Location = new System.Drawing.Point(205, 114);
+            this.numericUpDownMotilidadM.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numericUpDownMotilidadM.Name = "numericUpDownMotilidadM";
-            this.numericUpDownMotilidadM.Size = new System.Drawing.Size(43, 20);
+            this.numericUpDownMotilidadM.Size = new System.Drawing.Size(57, 22);
             this.numericUpDownMotilidadM.TabIndex = 38;
             // 
             // numericUpDownConcentracion
             // 
-            this.numericUpDownConcentracion.Location = new System.Drawing.Point(154, 62);
-            this.numericUpDownConcentracion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownConcentracion.Location = new System.Drawing.Point(205, 76);
+            this.numericUpDownConcentracion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numericUpDownConcentracion.Maximum = new decimal(new int[] {
             999,
             0,
             0,
             0});
             this.numericUpDownConcentracion.Name = "numericUpDownConcentracion";
-            this.numericUpDownConcentracion.Size = new System.Drawing.Size(43, 20);
+            this.numericUpDownConcentracion.Size = new System.Drawing.Size(57, 22);
             this.numericUpDownConcentracion.TabIndex = 37;
             // 
             // numericUpDownVolumenEya
             // 
-            this.numericUpDownVolumenEya.Location = new System.Drawing.Point(154, 30);
-            this.numericUpDownVolumenEya.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownVolumenEya.Location = new System.Drawing.Point(205, 37);
+            this.numericUpDownVolumenEya.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numericUpDownVolumenEya.Maximum = new decimal(new int[] {
             999,
             0,
             0,
             0});
             this.numericUpDownVolumenEya.Name = "numericUpDownVolumenEya";
-            this.numericUpDownVolumenEya.Size = new System.Drawing.Size(43, 20);
+            this.numericUpDownVolumenEya.Size = new System.Drawing.Size(57, 22);
             this.numericUpDownVolumenEya.TabIndex = 29;
             // 
             // textBoxAnomaliaMasF
             // 
-            this.textBoxAnomaliaMasF.Location = new System.Drawing.Point(154, 314);
-            this.textBoxAnomaliaMasF.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxAnomaliaMasF.Location = new System.Drawing.Point(205, 386);
+            this.textBoxAnomaliaMasF.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxAnomaliaMasF.Name = "textBoxAnomaliaMasF";
-            this.textBoxAnomaliaMasF.Size = new System.Drawing.Size(46, 20);
+            this.textBoxAnomaliaMasF.Size = new System.Drawing.Size(60, 22);
             this.textBoxAnomaliaMasF.TabIndex = 36;
             // 
             // textBoxAnormalidadesS
             // 
-            this.textBoxAnormalidadesS.Location = new System.Drawing.Point(154, 255);
-            this.textBoxAnormalidadesS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxAnormalidadesS.Location = new System.Drawing.Point(205, 314);
+            this.textBoxAnormalidadesS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxAnormalidadesS.Name = "textBoxAnormalidadesS";
-            this.textBoxAnormalidadesS.Size = new System.Drawing.Size(46, 20);
+            this.textBoxAnormalidadesS.Size = new System.Drawing.Size(60, 22);
             this.textBoxAnormalidadesS.TabIndex = 34;
             // 
             // textBoxAnormalidadesP
             // 
-            this.textBoxAnormalidadesP.Location = new System.Drawing.Point(154, 225);
-            this.textBoxAnormalidadesP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxAnormalidadesP.Location = new System.Drawing.Point(205, 277);
+            this.textBoxAnormalidadesP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxAnormalidadesP.Name = "textBoxAnormalidadesP";
-            this.textBoxAnormalidadesP.Size = new System.Drawing.Size(46, 20);
+            this.textBoxAnormalidadesP.Size = new System.Drawing.Size(60, 22);
             this.textBoxAnormalidadesP.TabIndex = 33;
             // 
             // textBoxDannos
             // 
-            this.textBoxDannos.Location = new System.Drawing.Point(154, 194);
-            this.textBoxDannos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxDannos.Location = new System.Drawing.Point(205, 239);
+            this.textBoxDannos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxDannos.Name = "textBoxDannos";
-            this.textBoxDannos.Size = new System.Drawing.Size(46, 20);
+            this.textBoxDannos.Size = new System.Drawing.Size(60, 22);
             this.textBoxDannos.TabIndex = 32;
-            // 
-            // label20
-            // 
-            this.label20.Location = new System.Drawing.Point(0, 0);
-            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(75, 19);
-            this.label20.TabIndex = 44;
             // 
             // labelConcentracion
             // 
             this.labelConcentracion.AutoSize = true;
-            this.labelConcentracion.Location = new System.Drawing.Point(14, 62);
-            this.labelConcentracion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelConcentracion.Location = new System.Drawing.Point(19, 76);
             this.labelConcentracion.Name = "labelConcentracion";
-            this.labelConcentracion.Size = new System.Drawing.Size(76, 13);
+            this.labelConcentracion.Size = new System.Drawing.Size(99, 17);
             this.labelConcentracion.TabIndex = 11;
             this.labelConcentracion.Text = "Concentración";
             // 
             // labelMotilidadMasal
             // 
             this.labelMotilidadMasal.AutoSize = true;
-            this.labelMotilidadMasal.Location = new System.Drawing.Point(14, 95);
-            this.labelMotilidadMasal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelMotilidadMasal.Location = new System.Drawing.Point(19, 117);
             this.labelMotilidadMasal.Name = "labelMotilidadMasal";
-            this.labelMotilidadMasal.Size = new System.Drawing.Size(93, 13);
+            this.labelMotilidadMasal.Size = new System.Drawing.Size(125, 17);
             this.labelMotilidadMasal.TabIndex = 10;
             this.labelMotilidadMasal.Text = "Motilidad masal % ";
             // 
             // labelMotilidadProgresiva
             // 
             this.labelMotilidadProgresiva.AutoSize = true;
-            this.labelMotilidadProgresiva.Location = new System.Drawing.Point(14, 127);
-            this.labelMotilidadProgresiva.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelMotilidadProgresiva.Location = new System.Drawing.Point(19, 156);
             this.labelMotilidadProgresiva.Name = "labelMotilidadProgresiva";
-            this.labelMotilidadProgresiva.Size = new System.Drawing.Size(144, 13);
+            this.labelMotilidadProgresiva.Size = new System.Drawing.Size(195, 17);
             this.labelMotilidadProgresiva.TabIndex = 9;
             this.labelMotilidadProgresiva.Text = "Motilidad progresiva rápida %";
             // 
             // labelMotrfologiaNormal
             // 
             this.labelMotrfologiaNormal.AutoSize = true;
-            this.labelMotrfologiaNormal.Location = new System.Drawing.Point(14, 160);
-            this.labelMotrfologiaNormal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelMotrfologiaNormal.Location = new System.Drawing.Point(19, 197);
             this.labelMotrfologiaNormal.Name = "labelMotrfologiaNormal";
-            this.labelMotrfologiaNormal.Size = new System.Drawing.Size(103, 13);
+            this.labelMotrfologiaNormal.Size = new System.Drawing.Size(137, 17);
             this.labelMotrfologiaNormal.TabIndex = 8;
             this.labelMotrfologiaNormal.Text = "Morfología normal %";
             // 
             // labelAnormalidadesPrimarias
             // 
             this.labelAnormalidadesPrimarias.AutoSize = true;
-            this.labelAnormalidadesPrimarias.Location = new System.Drawing.Point(14, 225);
-            this.labelAnormalidadesPrimarias.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelAnormalidadesPrimarias.Location = new System.Drawing.Point(19, 277);
             this.labelAnormalidadesPrimarias.Name = "labelAnormalidadesPrimarias";
-            this.labelAnormalidadesPrimarias.Size = new System.Drawing.Size(120, 13);
+            this.labelAnormalidadesPrimarias.Size = new System.Drawing.Size(164, 17);
             this.labelAnormalidadesPrimarias.TabIndex = 7;
             this.labelAnormalidadesPrimarias.Text = "Anormalidades primarias";
             // 
             // labelAnormalidadesSecundarias
             // 
             this.labelAnormalidadesSecundarias.AutoSize = true;
-            this.labelAnormalidadesSecundarias.Location = new System.Drawing.Point(14, 258);
-            this.labelAnormalidadesSecundarias.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelAnormalidadesSecundarias.Location = new System.Drawing.Point(19, 318);
             this.labelAnormalidadesSecundarias.Name = "labelAnormalidadesSecundarias";
-            this.labelAnormalidadesSecundarias.Size = new System.Drawing.Size(136, 13);
+            this.labelAnormalidadesSecundarias.Size = new System.Drawing.Size(183, 17);
             this.labelAnormalidadesSecundarias.TabIndex = 6;
             this.labelAnormalidadesSecundarias.Text = "Anormalidades secundarias";
             // 
             // labelDannosAcrosomales
             // 
             this.labelDannosAcrosomales.AutoSize = true;
-            this.labelDannosAcrosomales.Location = new System.Drawing.Point(14, 194);
-            this.labelDannosAcrosomales.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelDannosAcrosomales.Location = new System.Drawing.Point(19, 239);
             this.labelDannosAcrosomales.Name = "labelDannosAcrosomales";
-            this.labelDannosAcrosomales.Size = new System.Drawing.Size(100, 13);
+            this.labelDannosAcrosomales.Size = new System.Drawing.Size(133, 17);
             this.labelDannosAcrosomales.TabIndex = 5;
             this.labelDannosAcrosomales.Text = "Daños acrosomales";
             // 
             // labelTotalAnormalidades
             // 
             this.labelTotalAnormalidades.AutoSize = true;
-            this.labelTotalAnormalidades.Location = new System.Drawing.Point(14, 288);
-            this.labelTotalAnormalidades.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelTotalAnormalidades.Location = new System.Drawing.Point(19, 354);
             this.labelTotalAnormalidades.Name = "labelTotalAnormalidades";
-            this.labelTotalAnormalidades.Size = new System.Drawing.Size(113, 13);
+            this.labelTotalAnormalidades.Size = new System.Drawing.Size(153, 17);
             this.labelTotalAnormalidades.TabIndex = 4;
             this.labelTotalAnormalidades.Text = "Total anormalidades %";
             // 
             // labelAnormalidadMasFrecuente
             // 
             this.labelAnormalidadMasFrecuente.AutoSize = true;
-            this.labelAnormalidadMasFrecuente.Location = new System.Drawing.Point(14, 317);
-            this.labelAnormalidadMasFrecuente.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelAnormalidadMasFrecuente.Location = new System.Drawing.Point(19, 390);
             this.labelAnormalidadMasFrecuente.Name = "labelAnormalidadMasFrecuente";
-            this.labelAnormalidadMasFrecuente.Size = new System.Drawing.Size(135, 13);
+            this.labelAnormalidadMasFrecuente.Size = new System.Drawing.Size(181, 17);
             this.labelAnormalidadMasFrecuente.TabIndex = 3;
             this.labelAnormalidadMasFrecuente.Text = "Anormalidad más frecuente";
             // 
             // labeLeucocitos
             // 
             this.labeLeucocitos.AutoSize = true;
-            this.labeLeucocitos.Location = new System.Drawing.Point(14, 345);
-            this.labeLeucocitos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labeLeucocitos.Location = new System.Drawing.Point(19, 425);
             this.labeLeucocitos.Name = "labeLeucocitos";
-            this.labeLeucocitos.Size = new System.Drawing.Size(59, 13);
+            this.labeLeucocitos.Size = new System.Drawing.Size(76, 17);
             this.labeLeucocitos.TabIndex = 2;
             this.labeLeucocitos.Text = "Leucocitos";
             // 
             // labelCelulasEpiteliales
             // 
             this.labelCelulasEpiteliales.AutoSize = true;
-            this.labelCelulasEpiteliales.Location = new System.Drawing.Point(14, 371);
-            this.labelCelulasEpiteliales.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelCelulasEpiteliales.Location = new System.Drawing.Point(19, 457);
             this.labelCelulasEpiteliales.Name = "labelCelulasEpiteliales";
-            this.labelCelulasEpiteliales.Size = new System.Drawing.Size(90, 13);
+            this.labelCelulasEpiteliales.Size = new System.Drawing.Size(121, 17);
             this.labelCelulasEpiteliales.TabIndex = 1;
             this.labelCelulasEpiteliales.Text = "Celulas epiteliales";
             // 
             // labelVolumenEyaculado
             // 
             this.labelVolumenEyaculado.AutoSize = true;
-            this.labelVolumenEyaculado.Location = new System.Drawing.Point(14, 32);
-            this.labelVolumenEyaculado.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelVolumenEyaculado.Location = new System.Drawing.Point(19, 39);
             this.labelVolumenEyaculado.Name = "labelVolumenEyaculado";
-            this.labelVolumenEyaculado.Size = new System.Drawing.Size(119, 13);
+            this.labelVolumenEyaculado.Size = new System.Drawing.Size(160, 17);
             this.labelVolumenEyaculado.TabIndex = 0;
             this.labelVolumenEyaculado.Text = "Volumen eyaculado (ml)";
             // 
@@ -684,10 +657,10 @@
             // 
             // buttonValoresReferencia
             // 
-            this.buttonValoresReferencia.Location = new System.Drawing.Point(418, 236);
-            this.buttonValoresReferencia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonValoresReferencia.Location = new System.Drawing.Point(557, 290);
+            this.buttonValoresReferencia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonValoresReferencia.Name = "buttonValoresReferencia";
-            this.buttonValoresReferencia.Size = new System.Drawing.Size(124, 19);
+            this.buttonValoresReferencia.Size = new System.Drawing.Size(165, 23);
             this.buttonValoresReferencia.TabIndex = 24;
             this.buttonValoresReferencia.Text = "Valores de referencia";
             this.buttonValoresReferencia.UseVisualStyleBackColor = true;
@@ -695,10 +668,10 @@
             // 
             // botonAgregar
             // 
-            this.botonAgregar.Location = new System.Drawing.Point(474, 420);
-            this.botonAgregar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.botonAgregar.Location = new System.Drawing.Point(632, 517);
+            this.botonAgregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.botonAgregar.Name = "botonAgregar";
-            this.botonAgregar.Size = new System.Drawing.Size(96, 23);
+            this.botonAgregar.Size = new System.Drawing.Size(128, 28);
             this.botonAgregar.TabIndex = 25;
             this.botonAgregar.Text = "Agregar examen";
             this.botonAgregar.UseVisualStyleBackColor = true;
@@ -707,41 +680,42 @@
             // checkBoxSatisfactorio
             // 
             this.checkBoxSatisfactorio.AutoSize = true;
-            this.checkBoxSatisfactorio.Location = new System.Drawing.Point(418, 266);
-            this.checkBoxSatisfactorio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxSatisfactorio.Location = new System.Drawing.Point(557, 327);
+            this.checkBoxSatisfactorio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxSatisfactorio.Name = "checkBoxSatisfactorio";
-            this.checkBoxSatisfactorio.Size = new System.Drawing.Size(84, 17);
+            this.checkBoxSatisfactorio.Size = new System.Drawing.Size(108, 21);
             this.checkBoxSatisfactorio.TabIndex = 26;
             this.checkBoxSatisfactorio.Text = "Satisfactorio";
             this.checkBoxSatisfactorio.UseVisualStyleBackColor = true;
+            this.checkBoxSatisfactorio.CheckedChanged += new System.EventHandler(this.checkBoxSatisfactorio_CheckedChanged);
             // 
             // checkBoxNoSatisfactorio
             // 
             this.checkBoxNoSatisfactorio.AutoSize = true;
-            this.checkBoxNoSatisfactorio.Location = new System.Drawing.Point(532, 266);
-            this.checkBoxNoSatisfactorio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxNoSatisfactorio.Location = new System.Drawing.Point(709, 327);
+            this.checkBoxNoSatisfactorio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxNoSatisfactorio.Name = "checkBoxNoSatisfactorio";
-            this.checkBoxNoSatisfactorio.Size = new System.Drawing.Size(99, 17);
+            this.checkBoxNoSatisfactorio.Size = new System.Drawing.Size(128, 21);
             this.checkBoxNoSatisfactorio.TabIndex = 27;
             this.checkBoxNoSatisfactorio.Text = "No satisfactorio";
             this.checkBoxNoSatisfactorio.UseVisualStyleBackColor = true;
+            this.checkBoxNoSatisfactorio.CheckedChanged += new System.EventHandler(this.checkBoxNoSatisfactorio_CheckedChanged);
             // 
             // labelObservaciones
             // 
             this.labelObservaciones.AutoSize = true;
-            this.labelObservaciones.Location = new System.Drawing.Point(416, 321);
-            this.labelObservaciones.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelObservaciones.Location = new System.Drawing.Point(555, 395);
             this.labelObservaciones.Name = "labelObservaciones";
-            this.labelObservaciones.Size = new System.Drawing.Size(78, 13);
+            this.labelObservaciones.Size = new System.Drawing.Size(103, 17);
             this.labelObservaciones.TabIndex = 28;
             this.labelObservaciones.Text = "Observaciones";
             // 
             // textBoxObservaciones
             // 
-            this.textBoxObservaciones.Location = new System.Drawing.Point(418, 343);
-            this.textBoxObservaciones.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxObservaciones.Location = new System.Drawing.Point(557, 422);
+            this.textBoxObservaciones.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxObservaciones.Name = "textBoxObservaciones";
-            this.textBoxObservaciones.Size = new System.Drawing.Size(76, 20);
+            this.textBoxObservaciones.Size = new System.Drawing.Size(100, 22);
             this.textBoxObservaciones.TabIndex = 29;
             // 
             // groupBoxMetodoUtilizados
@@ -751,56 +725,55 @@
             this.groupBoxMetodoUtilizados.Controls.Add(this.checkBoxVaginaArt);
             this.groupBoxMetodoUtilizados.Controls.Add(this.checkBoxElectroEya);
             this.groupBoxMetodoUtilizados.Controls.Add(this.checkBoxProtusion);
-            this.groupBoxMetodoUtilizados.Location = new System.Drawing.Point(420, 40);
-            this.groupBoxMetodoUtilizados.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxMetodoUtilizados.Location = new System.Drawing.Point(560, 49);
+            this.groupBoxMetodoUtilizados.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBoxMetodoUtilizados.Name = "groupBoxMetodoUtilizados";
-            this.groupBoxMetodoUtilizados.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBoxMetodoUtilizados.Size = new System.Drawing.Size(150, 192);
+            this.groupBoxMetodoUtilizados.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxMetodoUtilizados.Size = new System.Drawing.Size(200, 236);
             this.groupBoxMetodoUtilizados.TabIndex = 30;
             this.groupBoxMetodoUtilizados.TabStop = false;
             this.groupBoxMetodoUtilizados.Text = "Métodos utilizados";
             // 
             // textBoxVeterinario
             // 
-            this.textBoxVeterinario.Location = new System.Drawing.Point(478, 295);
-            this.textBoxVeterinario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxVeterinario.Location = new System.Drawing.Point(637, 363);
+            this.textBoxVeterinario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxVeterinario.Name = "textBoxVeterinario";
-            this.textBoxVeterinario.Size = new System.Drawing.Size(146, 20);
+            this.textBoxVeterinario.Size = new System.Drawing.Size(200, 22);
             this.textBoxVeterinario.TabIndex = 29;
             // 
             // labelVeterinario
             // 
             this.labelVeterinario.AutoSize = true;
-            this.labelVeterinario.Location = new System.Drawing.Point(416, 297);
-            this.labelVeterinario.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelVeterinario.Location = new System.Drawing.Point(555, 366);
             this.labelVeterinario.Name = "labelVeterinario";
-            this.labelVeterinario.Size = new System.Drawing.Size(57, 13);
+            this.labelVeterinario.Size = new System.Drawing.Size(77, 17);
             this.labelVeterinario.TabIndex = 28;
             this.labelVeterinario.Text = "Veterinario";
             // 
             // dateTimePickerExamen
             // 
-            this.dateTimePickerExamen.Location = new System.Drawing.Point(195, 11);
-            this.dateTimePickerExamen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePickerExamen.Location = new System.Drawing.Point(260, 14);
+            this.dateTimePickerExamen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePickerExamen.Name = "dateTimePickerExamen";
-            this.dateTimePickerExamen.Size = new System.Drawing.Size(192, 20);
+            this.dateTimePickerExamen.Size = new System.Drawing.Size(255, 22);
             this.dateTimePickerExamen.TabIndex = 32;
             // 
             // comboBoxNumToro
             // 
             this.comboBoxNumToro.FormattingEnabled = true;
-            this.comboBoxNumToro.Location = new System.Drawing.Point(117, 11);
-            this.comboBoxNumToro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxNumToro.Location = new System.Drawing.Point(156, 14);
+            this.comboBoxNumToro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxNumToro.Name = "comboBoxNumToro";
-            this.comboBoxNumToro.Size = new System.Drawing.Size(67, 21);
+            this.comboBoxNumToro.Size = new System.Drawing.Size(88, 24);
             this.comboBoxNumToro.TabIndex = 33;
             // 
             // FormExamenAndrologico
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(662, 450);
+            this.ClientSize = new System.Drawing.Size(877, 554);
             this.Controls.Add(this.comboBoxNumToro);
             this.Controls.Add(this.dateTimePickerExamen);
             this.Controls.Add(this.textBoxVeterinario);
@@ -821,7 +794,7 @@
             this.Controls.Add(this.labelNumeroTrazableToro);
             this.Controls.Add(this.botonVolver);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "FormExamenAndrologico";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Examen andrológico";
@@ -885,7 +858,6 @@
         private System.Windows.Forms.Label labeLeucocitos;
         private System.Windows.Forms.Label labelCelulasEpiteliales;
         private System.Windows.Forms.Label labelDescansoSexual;
-        private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox textBoxAnomaliaMasF;
         private TCU_DBDataSetTableAdapters.USUARIOTableAdapter usuarioTableAdapter1;
         private System.Windows.Forms.Button buttonValoresReferencia;

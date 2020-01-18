@@ -98,6 +98,7 @@
     <Build Include="TIPO_DATOS_GRAFICOS_VACAS.sql" />
     <Build Include="FUNC_OBTENER_ULTIMO_IEP.sql" />
     <Build Include="FUNC_OBTENER_IEP.sql" />
+    <Build Include="PROC_ELIMINAR_EXAMEN.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.PostDeploymentTesting.sql" />

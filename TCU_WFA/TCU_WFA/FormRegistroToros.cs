@@ -166,6 +166,7 @@ namespace TCU_WFA
                 {
                     ToroModel informacionToroSeleccionado = obtenerInformacionToroSelecionado(filaSelecionada);
                     FormDetallesToro form = new FormDetallesToro(informacionToroSeleccionado);
+                
                     form.Tag = this;
                     form.Show(this);
                     Hide();

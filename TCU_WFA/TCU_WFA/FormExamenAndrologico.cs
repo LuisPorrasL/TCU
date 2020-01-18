@@ -10,12 +10,13 @@ namespace TCU_WFA
     public partial class FormExamenAndrologico : DefaultForm
     {
         private const string QUERY_LLENAR_COMBO_BOX_TORO = "SELECT t.PK_NUMERO_TRAZABLE, t.PK_NUMERO_TRAZABLE FROM [dbo].[TORO] t WHERE t.ACTIVA = 1;";
-        
+        private VentanaPrincipal formAnterior;
         ///<summary>
         ///Constructor del form.
         ///</summary>
-        public FormExamenAndrologico()
+        public FormExamenAndrologico(VentanaPrincipal form)
         {
+            formAnterior = form;
             InitializeComponent();
             textBoxObservaciones.AutoSize = false;
             textBoxObservaciones.Size = new System.Drawing.Size(230, 50);
@@ -42,7 +43,11 @@ namespace TCU_WFA
                     LimpiarEntradaUsuario();     
                 }
                 else Utilities.MostrarMessageBox(Utilities.MENSAJE_ERROR, Utilities.TITULO_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
-          
+
+            this.Hide();
+            formAnterior.Show();
+
+
         }
 
         ///<summary>
@@ -271,5 +276,46 @@ namespace TCU_WFA
             form.Tag = this;
             form.Show(this);
         }
+
+        ///<summary>
+        ///Seleccion unica de satisfaccion 
+        ///</summary>
+        ///<param name="e"></param>
+        ///<param name="sender"></param>
+        ///<returns> void </returns>
+        private void checkBoxNoSatisfactorio_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkBoxNoSatisfactorio.Checked == true)
+            {          
+                checkBoxSatisfactorio.Checked = false;
+            }
+
+            if (checkBoxNoSatisfactorio.Checked == false)
+            {              
+                checkBoxSatisfactorio.Checked = true;
+            }
+
+        }
+
+        ///<summary>
+        ///Seleccion unica de satisfaccion 
+        ///</summary>
+        ///<param name="e"></param>
+        ///<param name="sender"></param>
+        ///<returns> void </returns>
+        private void checkBoxSatisfactorio_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxSatisfactorio.Checked == true)
+            {
+                checkBoxNoSatisfactorio.Checked = false;
+            }
+
+            if (checkBoxSatisfactorio.Checked == false)
+            {
+                checkBoxNoSatisfactorio.Checked = true;
+            }
+        }
+
+       
     }
 }
