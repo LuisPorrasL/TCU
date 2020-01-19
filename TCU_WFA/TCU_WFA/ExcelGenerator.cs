@@ -16,6 +16,8 @@ namespace TCU_WFA
     {
         //Constantes Resumen
         private const string TITULO_RESUMEN = "Resumen";
+        private const int LLAVE_TIPO_RESUMEN_GENERAL = 0;
+        private const int LLAVE_TIPO_RESUMEN_POR_FECHAS = 1;
 
         //Mensajes de creación del documento
         private const string TITULO_MENSAJE = "Documento generado";
@@ -61,8 +63,18 @@ namespace TCU_WFA
                     break;
             }
 
-            celdasInformacionGeneral[1, 1].Value = "Fecha referencia";
-            celdasInformacionGeneral[1, 4].Value = datosResumen.fechaActual;
+            switch (datosResumen.tipoResumen)
+            {
+                case LLAVE_TIPO_RESUMEN_POR_FECHAS:
+                    celdasInformacionGeneral[1, 1].Value = "Periodo";
+                    celdasInformacionGeneral[1, 2].Style.Font.Color.SetColor(Color.Red);
+                    celdasInformacionGeneral[1, 2].Value = "Desde " + datosResumen.fechaInicioResumen.ToShortDateString() + " hasta " + datosResumen.fechaFinalResumen.ToShortDateString();
+                    break;
+                default:
+                    celdasInformacionGeneral[1, 1].Value = "Fecha referencia";
+                    celdasInformacionGeneral[1, 4].Value = datosResumen.fechaActual;
+                    break;
+            }
             celdasInformacionGeneral[2, 1].Value = "Número hembras consideradas";
             celdasInformacionGeneral[2, 4].Value = datosResumen.hembrasConsideradas;
             celdasInformacionGeneral[3, 1].Value = "Hembras que han parido";
@@ -71,13 +83,20 @@ namespace TCU_WFA
             celdasInformacionGeneral[5, 1].Value = "% parición histórico";
             celdasInformacionGeneral[5, 4].Value = datosResumen.porcParicionHistorico;
             celdasInformacionGeneral[6, 4].Value = datosResumen.ultimoIEPVacaMeses;
-            celdasInformacionGeneral[7, 1].Value = "Último % parición ";
-            celdasInformacionGeneral[7, 4].Value = datosResumen.ultimoPorcParicion;
-            celdasInformacionGeneral[8, 1].Value = "Promedio partos hato";
-            celdasInformacionGeneral[8, 4].Value = datosResumen.promPartosHato;
+            celdasInformacionGeneral[7, 1].Value = "Promedio partos hato";
+            celdasInformacionGeneral[7, 4].Value = datosResumen.promPartosHato;
+            if(datosResumen.tipoResumen == LLAVE_TIPO_RESUMEN_POR_FECHAS)
+            {
+                celdasInformacionGeneral[8, 1].Value = "Último % parición ";
+                celdasInformacionGeneral[8, 4].Value = datosResumen.ultimoPorcParicion;
+            }
+            
 
             //Generación de la lista de las vacas con su respectiva información
+
+            //Se establece el segundo rango de celdas a utilizar para la lista de vacas
             ExcelRange celdasListaVacas = hojaResumen.Cells[9, 1, 9 + listaVacas.Count, 12];
+
             //Estilos
             celdasListaVacas.Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
             celdasListaVacas[9, 1, 9, 12].Style.WrapText = true;
@@ -91,6 +110,22 @@ namespace TCU_WFA
             celdasListaVacas[9, 1, 9, 12].Style.Border.Bottom.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
 
             //Titulos
+            switch (unidadDeTiempo)
+            {
+                case "Meses":
+                    celdasListaVacas[9, 8].Value = "IEP promedio /cada/vaca (meses)";
+                    celdasListaVacas[9, 9].Value = "Último IEP cada vaca (meses)";
+                    break;
+                case "Semanas":
+                    celdasListaVacas[9, 8].Value = "IEP promedio /cada/vaca (semanas)";
+                    celdasListaVacas[9, 9].Value = "Último IEP cada vaca (semanas)";
+                    break;
+                default:
+                    celdasListaVacas[9, 8].Value = "IEP promedio /cada/vaca (días)";
+                    celdasListaVacas[9, 9].Value = "Último IEP cada vaca (días)";
+                    break;
+            }
+
             celdasListaVacas[9, 1].Value = "Número de orden";
             celdasListaVacas[9, 2].Value = "Número de la vaca";
             celdasListaVacas[9, 3].Value = "Número trazable de la vaca";
@@ -98,8 +133,6 @@ namespace TCU_WFA
             celdasListaVacas[9, 5].Value = "Nº partos";
             celdasListaVacas[9, 6].Value = "Edad de la última cría, meses";
             celdasListaVacas[9, 7].Value = "Fecha destete a 7 meses, última cría";
-            celdasListaVacas[9, 8].Value = "IEP promedio /cada/vaca, meses";
-            celdasListaVacas[9, 9].Value = "Último IEP cada vaca, meses";
             celdasListaVacas[9, 10].Value = "Fecha de última monta o IA";
             celdasListaVacas[9, 11].Value = "Gestación días";
             celdasListaVacas[9, 12].Value = "Fecha parto";
@@ -119,8 +152,21 @@ namespace TCU_WFA
                     celdasListaVacas[10 + iterador, 5].Value = listaVacas[iterador].numeroDePartos;
                     celdasListaVacas[10 + iterador, 6].Value = listaVacas[iterador].edadUltimaCria;
                     celdasListaVacas[10 + iterador, 7].Value = listaVacas[iterador].fechaDesteteUltimaCria;
-                    celdasListaVacas[10 + iterador, 8].Value = listaVacas[iterador].iepPromedioMeses;
-                    celdasListaVacas[10 + iterador, 9].Value = listaVacas[iterador].ultimoIEPMeses;
+                    switch (unidadDeTiempo)
+                    {
+                        case "Meses":
+                            celdasListaVacas[10 + iterador, 8].Value = Math.Round(listaVacas[iterador].iepPromedioDias / Utilities.DIAS_MES, 2);
+                            celdasListaVacas[10 + iterador, 9].Value = Math.Round(listaVacas[iterador].ultimoIEPDias / Utilities.DIAS_MES, 2);
+                            break;
+                        case "Semanas":
+                            celdasListaVacas[10 + iterador, 8].Value = Math.Round(listaVacas[iterador].iepPromedioDias / Utilities.DIAS_SEMANA, 2);
+                            celdasListaVacas[10 + iterador, 9].Value = Math.Round(listaVacas[iterador].ultimoIEPDias / Utilities.DIAS_SEMANA, 2);
+                            break;
+                        default:
+                            celdasListaVacas[10 + iterador, 8].Value = Math.Round(listaVacas[iterador].iepPromedioDias, 2);
+                            celdasListaVacas[10 + iterador, 9].Value = Math.Round(listaVacas[iterador].ultimoIEPDias, 2);
+                            break;
+                    }
                     celdasListaVacas[10 + iterador, 10].Value = listaVacas[iterador].fechaUltimaMonta;
                     celdasListaVacas[10 + iterador, 11].Value = listaVacas[iterador].gestacionDias;
                     celdasListaVacas[10 + iterador, 12].Value = listaVacas[iterador].fechaParto;
@@ -140,6 +186,7 @@ namespace TCU_WFA
                 celdasListaVacasGraficos.Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
                 celdasListaVacasGraficos.Style.Fill.BackgroundColor.SetColor(Color.FromArgb(255, 255, 255));
                 celdasListaVacasGraficos[1, 1, 1, 6].Style.Fill.BackgroundColor.SetColor(Color.FromArgb(211, 211, 211));
+                celdasListaVacasGraficos[1, 1, 1, 6].Style.WrapText = true;
                 celdasListaVacasGraficos[1, 1, 1, 6].Style.Font.Bold = true;
                 celdasListaVacasGraficos[1, 1, 1, 6].Style.Border.Left.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
                 celdasListaVacasGraficos[1, 1, 1, 6].Style.Border.Right.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
@@ -150,10 +197,26 @@ namespace TCU_WFA
                 //Se le da un valor a los encabezados
                 celdasListaVacasGraficos[1, 1].Value = "Orden";
                 celdasListaVacasGraficos[1, 2].Value = "Núm vaca";
-                celdasListaVacasGraficos[1, 3].Value = "Prom hato";
                 celdasListaVacasGraficos[1, 4].Value = "Partos/vaca";
-                celdasListaVacasGraficos[1, 5].Value = "Prom/vaca";
-                celdasListaVacasGraficos[1, 6].Value = "Últ/vaca";
+                
+                switch (unidadDeTiempo)
+                {
+                    case "Meses":
+                        celdasListaVacasGraficos[1, 3].Value = "Prom hato (meses)";
+                        celdasListaVacasGraficos[1, 5].Value = "Prom/vaca (meses)";
+                        celdasListaVacasGraficos[1, 6].Value = "Últ/vaca (meses)";
+                        break;
+                    case "Semanas":
+                        celdasListaVacasGraficos[1, 3].Value = "Prom hato (semanas)";
+                        celdasListaVacasGraficos[1, 5].Value = "Prom/vaca (semanas)";
+                        celdasListaVacasGraficos[1, 6].Value = "Últ/vaca (semanas)";
+                        break;
+                    default:
+                        celdasListaVacasGraficos[1, 3].Value = "Prom hato (días)";
+                        celdasListaVacasGraficos[1, 5].Value = "Prom/vaca (días)";
+                        celdasListaVacasGraficos[1, 6].Value = "Últ/vaca (días)";
+                        break;
+                }
 
                 //Mas estilos
                 celdasListaVacasGraficos.Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
@@ -172,10 +235,26 @@ namespace TCU_WFA
                 {
                     celdasListaVacasGraficos[2 + iterador, 1].Value = iterador + 1;
                     celdasListaVacasGraficos[2 + iterador, 2].Value = listaDatosVacas[iterador].pkNumeroTrazableVaca.ToString();
-                    celdasListaVacasGraficos[2 + iterador, 3].Value = promedioIEPHato;
                     celdasListaVacasGraficos[2 + iterador, 4].Value = listaDatosVacas[iterador].partosVaca;
-                    celdasListaVacasGraficos[2 + iterador, 5].Value = listaDatosVacas[iterador].iepPromedioVacaMeses;
-                    celdasListaVacasGraficos[2 + iterador, 6].Value = listaDatosVacas[iterador].ultimoIEPVacaMeses;
+                    celdasListaVacasGraficos[2 + iterador, 5].Value = listaDatosVacas[iterador].iepPromedioVacaDias;
+                    switch (unidadDeTiempo)
+                    {
+                        case "Meses":
+                            celdasListaVacasGraficos[2 + iterador, 3].Value = Math.Round(promedioIEPHato / Utilities.DIAS_MES, 2);
+                            celdasListaVacasGraficos[2 + iterador, 5].Value = Math.Round(listaDatosVacas[iterador].iepPromedioVacaDias / Utilities.DIAS_MES, 2);
+                            celdasListaVacasGraficos[2 + iterador, 6].Value = Math.Round(listaDatosVacas[iterador].ultimoIEPVacaDias / Utilities.DIAS_MES, 2);
+                            break;
+                        case "Semanas":
+                            celdasListaVacasGraficos[2 + iterador, 3].Value = Math.Round(promedioIEPHato / Utilities.DIAS_SEMANA, 2);
+                            celdasListaVacasGraficos[2 + iterador, 5].Value = Math.Round(listaDatosVacas[iterador].iepPromedioVacaDias / Utilities.DIAS_SEMANA, 2);
+                            celdasListaVacasGraficos[2 + iterador, 6].Value = Math.Round(listaDatosVacas[iterador].ultimoIEPVacaDias / Utilities.DIAS_SEMANA, 2);
+                            break;
+                        default:
+                            celdasListaVacasGraficos[2 + iterador, 3].Value = Math.Round(promedioIEPHato, 2);
+                            celdasListaVacasGraficos[2 + iterador, 5].Value = Math.Round(listaDatosVacas[iterador].iepPromedioVacaDias, 2);
+                            celdasListaVacasGraficos[2 + iterador, 6].Value = Math.Round(listaDatosVacas[iterador].ultimoIEPVacaDias, 2);
+                            break;
+                    }
                 }
             }
 

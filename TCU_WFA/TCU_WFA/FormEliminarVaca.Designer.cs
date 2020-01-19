@@ -30,6 +30,8 @@
         {
             this.botonVolver = new System.Windows.Forms.Button();
             this.groupBoxDestete = new System.Windows.Forms.GroupBox();
+            this.dateTimePickerFechaDeBaja = new System.Windows.Forms.DateTimePicker();
+            this.labelFechaBaja = new System.Windows.Forms.Label();
             this.textBoxCausaDeBaja = new System.Windows.Forms.TextBox();
             this.comboBoxNumeroTrazableVaca = new System.Windows.Forms.ComboBox();
             this.labelCausaDeBaja = new System.Windows.Forms.Label();
@@ -50,19 +52,37 @@
             // 
             // groupBoxDestete
             // 
+            this.groupBoxDestete.Controls.Add(this.dateTimePickerFechaDeBaja);
+            this.groupBoxDestete.Controls.Add(this.labelFechaBaja);
             this.groupBoxDestete.Controls.Add(this.textBoxCausaDeBaja);
             this.groupBoxDestete.Controls.Add(this.comboBoxNumeroTrazableVaca);
             this.groupBoxDestete.Controls.Add(this.labelCausaDeBaja);
             this.groupBoxDestete.Controls.Add(this.labelNumeroTrazableVaca);
             this.groupBoxDestete.Location = new System.Drawing.Point(228, 12);
             this.groupBoxDestete.Name = "groupBoxDestete";
-            this.groupBoxDestete.Size = new System.Drawing.Size(345, 143);
+            this.groupBoxDestete.Size = new System.Drawing.Size(345, 203);
             this.groupBoxDestete.TabIndex = 3;
             this.groupBoxDestete.TabStop = false;
             // 
+            // dateTimePickerFechaDeBaja
+            // 
+            this.dateTimePickerFechaDeBaja.Location = new System.Drawing.Point(136, 55);
+            this.dateTimePickerFechaDeBaja.Name = "dateTimePickerFechaDeBaja";
+            this.dateTimePickerFechaDeBaja.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerFechaDeBaja.TabIndex = 18;
+            // 
+            // labelFechaBaja
+            // 
+            this.labelFechaBaja.AutoSize = true;
+            this.labelFechaBaja.Location = new System.Drawing.Point(9, 57);
+            this.labelFechaBaja.Name = "labelFechaBaja";
+            this.labelFechaBaja.Size = new System.Drawing.Size(79, 13);
+            this.labelFechaBaja.TabIndex = 17;
+            this.labelFechaBaja.Text = "Fecha de baja*";
+            // 
             // textBoxCausaDeBaja
             // 
-            this.textBoxCausaDeBaja.Location = new System.Drawing.Point(100, 53);
+            this.textBoxCausaDeBaja.Location = new System.Drawing.Point(100, 101);
             this.textBoxCausaDeBaja.MinimumSize = new System.Drawing.Size(236, 50);
             this.textBoxCausaDeBaja.Multiline = true;
             this.textBoxCausaDeBaja.Name = "textBoxCausaDeBaja";
@@ -81,7 +101,7 @@
             // labelCausaDeBaja
             // 
             this.labelCausaDeBaja.AutoSize = true;
-            this.labelCausaDeBaja.Location = new System.Drawing.Point(6, 56);
+            this.labelCausaDeBaja.Location = new System.Drawing.Point(6, 104);
             this.labelCausaDeBaja.Name = "labelCausaDeBaja";
             this.labelCausaDeBaja.Size = new System.Drawing.Size(79, 13);
             this.labelCausaDeBaja.TabIndex = 8;
@@ -135,5 +155,7 @@
         private System.Windows.Forms.ComboBox comboBoxNumeroTrazableVaca;
         private System.Windows.Forms.TextBox textBoxCausaDeBaja;
         private System.Windows.Forms.Button botonDarDeBaja;
+        private System.Windows.Forms.Label labelFechaBaja;
+        private System.Windows.Forms.DateTimePicker dateTimePickerFechaDeBaja;
     }
 }
