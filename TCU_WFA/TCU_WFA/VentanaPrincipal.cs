@@ -64,7 +64,7 @@ namespace TCU_WFA
 
         private void botonExamenAndrologico_Click(object sender, EventArgs e)
         {
-            FormExamenAndrologico form = new FormExamenAndrologico();
+            FormExamenAndrologico form = new FormExamenAndrologico(this);
             form.Tag = this;
             form.Show(this);
             Hide();
@@ -105,6 +105,11 @@ namespace TCU_WFA
         private void VentanaPrincipal_Shown(object sender, EventArgs e)
         {
             Utilities.MostrarMessageBox(MENSAJE_ALERTAS, TITULO_ALERTAS, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void VentanaPrincipal_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
