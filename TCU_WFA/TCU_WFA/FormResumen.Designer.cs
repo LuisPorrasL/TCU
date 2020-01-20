@@ -45,7 +45,15 @@
             this.textBoxUltimoPorcParicionValue = new System.Windows.Forms.TextBox();
             this.textBoxUltimoIEPVacaMesesValue = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxSeleccionarFechas = new System.Windows.Forms.GroupBox();
+            this.dateTimePickerFinal = new System.Windows.Forms.DateTimePicker();
+            this.labelFechaFinal = new System.Windows.Forms.Label();
+            this.dateTimePickerInicio = new System.Windows.Forms.DateTimePicker();
+            this.labelFechaInicio = new System.Windows.Forms.Label();
+            this.labelTipoResumen = new System.Windows.Forms.Label();
+            this.comboBoxTipoResumen = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
+            this.groupBoxSeleccionarFechas.SuspendLayout();
             this.SuspendLayout();
             // 
             // botonVolver
@@ -72,7 +80,7 @@
             // 
             this.labelPromedioPartosHato.AutoSize = true;
             this.labelPromedioPartosHato.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPromedioPartosHato.Location = new System.Drawing.Point(30, 294);
+            this.labelPromedioPartosHato.Location = new System.Drawing.Point(116, 306);
             this.labelPromedioPartosHato.Name = "labelPromedioPartosHato";
             this.labelPromedioPartosHato.Size = new System.Drawing.Size(107, 13);
             this.labelPromedioPartosHato.TabIndex = 24;
@@ -82,17 +90,18 @@
             // 
             this.labelUltimoPorcentajeParicion.AutoSize = true;
             this.labelUltimoPorcentajeParicion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUltimoPorcentajeParicion.Location = new System.Drawing.Point(30, 249);
+            this.labelUltimoPorcentajeParicion.Location = new System.Drawing.Point(116, 346);
             this.labelUltimoPorcentajeParicion.Name = "labelUltimoPorcentajeParicion";
             this.labelUltimoPorcentajeParicion.Size = new System.Drawing.Size(87, 13);
             this.labelUltimoPorcentajeParicion.TabIndex = 23;
             this.labelUltimoPorcentajeParicion.Text = "Último % parición";
+            this.labelUltimoPorcentajeParicion.Visible = false;
             // 
             // labelUltimoIEPVacaMeses
             // 
             this.labelUltimoIEPVacaMeses.AutoSize = true;
             this.labelUltimoIEPVacaMeses.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUltimoIEPVacaMeses.Location = new System.Drawing.Point(30, 204);
+            this.labelUltimoIEPVacaMeses.Location = new System.Drawing.Point(116, 266);
             this.labelUltimoIEPVacaMeses.Name = "labelUltimoIEPVacaMeses";
             this.labelUltimoIEPVacaMeses.Size = new System.Drawing.Size(110, 13);
             this.labelUltimoIEPVacaMeses.TabIndex = 22;
@@ -102,7 +111,7 @@
             // 
             this.labelProcentajeParicionHistorico.AutoSize = true;
             this.labelProcentajeParicionHistorico.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProcentajeParicionHistorico.Location = new System.Drawing.Point(30, 159);
+            this.labelProcentajeParicionHistorico.Location = new System.Drawing.Point(116, 226);
             this.labelProcentajeParicionHistorico.Name = "labelProcentajeParicionHistorico";
             this.labelProcentajeParicionHistorico.Size = new System.Drawing.Size(98, 13);
             this.labelProcentajeParicionHistorico.TabIndex = 21;
@@ -112,7 +121,7 @@
             // 
             this.labelIEPPromHistoricoMeses.AutoSize = true;
             this.labelIEPPromHistoricoMeses.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelIEPPromHistoricoMeses.Location = new System.Drawing.Point(30, 114);
+            this.labelIEPPromHistoricoMeses.Location = new System.Drawing.Point(116, 186);
             this.labelIEPPromHistoricoMeses.Name = "labelIEPPromHistoricoMeses";
             this.labelIEPPromHistoricoMeses.Size = new System.Drawing.Size(98, 13);
             this.labelIEPPromHistoricoMeses.TabIndex = 20;
@@ -122,7 +131,7 @@
             // 
             this.labelHembrasHanParido.AutoSize = true;
             this.labelHembrasHanParido.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHembrasHanParido.Location = new System.Drawing.Point(30, 69);
+            this.labelHembrasHanParido.Location = new System.Drawing.Point(116, 146);
             this.labelHembrasHanParido.Name = "labelHembrasHanParido";
             this.labelHembrasHanParido.Size = new System.Drawing.Size(123, 13);
             this.labelHembrasHanParido.TabIndex = 19;
@@ -132,7 +141,7 @@
             // 
             this.labelNumeroHembrasConsideradas.AutoSize = true;
             this.labelNumeroHembrasConsideradas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.labelNumeroHembrasConsideradas.Location = new System.Drawing.Point(30, 24);
+            this.labelNumeroHembrasConsideradas.Location = new System.Drawing.Point(116, 106);
             this.labelNumeroHembrasConsideradas.Name = "labelNumeroHembrasConsideradas";
             this.labelNumeroHembrasConsideradas.Size = new System.Drawing.Size(153, 13);
             this.labelNumeroHembrasConsideradas.TabIndex = 18;
@@ -140,7 +149,7 @@
             // 
             // textBoxHembrasConsideradasValue
             // 
-            this.textBoxHembrasConsideradasValue.Location = new System.Drawing.Point(206, 23);
+            this.textBoxHembrasConsideradasValue.Location = new System.Drawing.Point(292, 105);
             this.textBoxHembrasConsideradasValue.Name = "textBoxHembrasConsideradasValue";
             this.textBoxHembrasConsideradasValue.ReadOnly = true;
             this.textBoxHembrasConsideradasValue.Size = new System.Drawing.Size(165, 20);
@@ -148,7 +157,7 @@
             // 
             // textBoxHembrasParidoValue
             // 
-            this.textBoxHembrasParidoValue.Location = new System.Drawing.Point(206, 68);
+            this.textBoxHembrasParidoValue.Location = new System.Drawing.Point(292, 145);
             this.textBoxHembrasParidoValue.Name = "textBoxHembrasParidoValue";
             this.textBoxHembrasParidoValue.ReadOnly = true;
             this.textBoxHembrasParidoValue.Size = new System.Drawing.Size(165, 20);
@@ -156,7 +165,7 @@
             // 
             // textBoxPorcParicionHistoricoValue
             // 
-            this.textBoxPorcParicionHistoricoValue.Location = new System.Drawing.Point(206, 157);
+            this.textBoxPorcParicionHistoricoValue.Location = new System.Drawing.Point(292, 224);
             this.textBoxPorcParicionHistoricoValue.Name = "textBoxPorcParicionHistoricoValue";
             this.textBoxPorcParicionHistoricoValue.ReadOnly = true;
             this.textBoxPorcParicionHistoricoValue.Size = new System.Drawing.Size(165, 20);
@@ -164,7 +173,7 @@
             // 
             // textBoxPromHistoricoMesesValue
             // 
-            this.textBoxPromHistoricoMesesValue.Location = new System.Drawing.Point(206, 112);
+            this.textBoxPromHistoricoMesesValue.Location = new System.Drawing.Point(292, 184);
             this.textBoxPromHistoricoMesesValue.Name = "textBoxPromHistoricoMesesValue";
             this.textBoxPromHistoricoMesesValue.ReadOnly = true;
             this.textBoxPromHistoricoMesesValue.Size = new System.Drawing.Size(165, 20);
@@ -172,7 +181,7 @@
             // 
             // textBoxPromPartosHatoValue
             // 
-            this.textBoxPromPartosHatoValue.Location = new System.Drawing.Point(206, 291);
+            this.textBoxPromPartosHatoValue.Location = new System.Drawing.Point(292, 303);
             this.textBoxPromPartosHatoValue.Name = "textBoxPromPartosHatoValue";
             this.textBoxPromPartosHatoValue.ReadOnly = true;
             this.textBoxPromPartosHatoValue.Size = new System.Drawing.Size(165, 20);
@@ -180,15 +189,16 @@
             // 
             // textBoxUltimoPorcParicionValue
             // 
-            this.textBoxUltimoPorcParicionValue.Location = new System.Drawing.Point(206, 246);
+            this.textBoxUltimoPorcParicionValue.Location = new System.Drawing.Point(292, 343);
             this.textBoxUltimoPorcParicionValue.Name = "textBoxUltimoPorcParicionValue";
             this.textBoxUltimoPorcParicionValue.ReadOnly = true;
             this.textBoxUltimoPorcParicionValue.Size = new System.Drawing.Size(165, 20);
             this.textBoxUltimoPorcParicionValue.TabIndex = 37;
+            this.textBoxUltimoPorcParicionValue.Visible = false;
             // 
             // textBoxUltimoIEPVacaMesesValue
             // 
-            this.textBoxUltimoIEPVacaMesesValue.Location = new System.Drawing.Point(206, 202);
+            this.textBoxUltimoIEPVacaMesesValue.Location = new System.Drawing.Point(292, 264);
             this.textBoxUltimoIEPVacaMesesValue.Name = "textBoxUltimoIEPVacaMesesValue";
             this.textBoxUltimoIEPVacaMesesValue.ReadOnly = true;
             this.textBoxUltimoIEPVacaMesesValue.Size = new System.Drawing.Size(165, 20);
@@ -196,6 +206,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.groupBoxSeleccionarFechas);
+            this.groupBox1.Controls.Add(this.labelTipoResumen);
+            this.groupBox1.Controls.Add(this.comboBoxTipoResumen);
             this.groupBox1.Controls.Add(this.textBoxPromPartosHatoValue);
             this.groupBox1.Controls.Add(this.textBoxUltimoPorcParicionValue);
             this.groupBox1.Controls.Add(this.textBoxUltimoIEPVacaMesesValue);
@@ -210,11 +223,77 @@
             this.groupBox1.Controls.Add(this.labelIEPPromHistoricoMeses);
             this.groupBox1.Controls.Add(this.labelHembrasHanParido);
             this.groupBox1.Controls.Add(this.labelNumeroHembrasConsideradas);
-            this.groupBox1.Location = new System.Drawing.Point(187, 12);
+            this.groupBox1.Location = new System.Drawing.Point(93, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(414, 335);
+            this.groupBox1.Size = new System.Drawing.Size(584, 397);
             this.groupBox1.TabIndex = 39;
             this.groupBox1.TabStop = false;
+            // 
+            // groupBoxSeleccionarFechas
+            // 
+            this.groupBoxSeleccionarFechas.Controls.Add(this.dateTimePickerFinal);
+            this.groupBoxSeleccionarFechas.Controls.Add(this.labelFechaFinal);
+            this.groupBoxSeleccionarFechas.Controls.Add(this.dateTimePickerInicio);
+            this.groupBoxSeleccionarFechas.Controls.Add(this.labelFechaInicio);
+            this.groupBoxSeleccionarFechas.Location = new System.Drawing.Point(24, 38);
+            this.groupBoxSeleccionarFechas.Name = "groupBoxSeleccionarFechas";
+            this.groupBoxSeleccionarFechas.Size = new System.Drawing.Size(532, 56);
+            this.groupBoxSeleccionarFechas.TabIndex = 45;
+            this.groupBoxSeleccionarFechas.TabStop = false;
+            this.groupBoxSeleccionarFechas.Visible = false;
+            // 
+            // dateTimePickerFinal
+            // 
+            this.dateTimePickerFinal.Location = new System.Drawing.Point(320, 21);
+            this.dateTimePickerFinal.Name = "dateTimePickerFinal";
+            this.dateTimePickerFinal.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerFinal.TabIndex = 42;
+            this.dateTimePickerFinal.ValueChanged += new System.EventHandler(this.dateTimePickerFinal_ValueChanged);
+            // 
+            // labelFechaFinal
+            // 
+            this.labelFechaFinal.AutoSize = true;
+            this.labelFechaFinal.Location = new System.Drawing.Point(279, 25);
+            this.labelFechaFinal.Name = "labelFechaFinal";
+            this.labelFechaFinal.Size = new System.Drawing.Size(35, 13);
+            this.labelFechaFinal.TabIndex = 41;
+            this.labelFechaFinal.Text = "Hasta";
+            // 
+            // dateTimePickerInicio
+            // 
+            this.dateTimePickerInicio.Location = new System.Drawing.Point(59, 21);
+            this.dateTimePickerInicio.Name = "dateTimePickerInicio";
+            this.dateTimePickerInicio.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerInicio.TabIndex = 40;
+            this.dateTimePickerInicio.ValueChanged += new System.EventHandler(this.dateTimePickerInicio_ValueChanged);
+            // 
+            // labelFechaInicio
+            // 
+            this.labelFechaInicio.AutoSize = true;
+            this.labelFechaInicio.Location = new System.Drawing.Point(14, 25);
+            this.labelFechaInicio.Name = "labelFechaInicio";
+            this.labelFechaInicio.Size = new System.Drawing.Size(38, 13);
+            this.labelFechaInicio.TabIndex = 39;
+            this.labelFechaInicio.Text = "Desde";
+            // 
+            // labelTipoResumen
+            // 
+            this.labelTipoResumen.AutoSize = true;
+            this.labelTipoResumen.Location = new System.Drawing.Point(21, 22);
+            this.labelTipoResumen.Name = "labelTipoResumen";
+            this.labelTipoResumen.Size = new System.Drawing.Size(66, 13);
+            this.labelTipoResumen.TabIndex = 44;
+            this.labelTipoResumen.Text = "Ver resumen";
+            // 
+            // comboBoxTipoResumen
+            // 
+            this.comboBoxTipoResumen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTipoResumen.FormattingEnabled = true;
+            this.comboBoxTipoResumen.Location = new System.Drawing.Point(93, 19);
+            this.comboBoxTipoResumen.Name = "comboBoxTipoResumen";
+            this.comboBoxTipoResumen.Size = new System.Drawing.Size(137, 21);
+            this.comboBoxTipoResumen.TabIndex = 43;
+            this.comboBoxTipoResumen.SelectedIndexChanged += new System.EventHandler(this.comboBoxTipoResumen_SelectedIndexChanged);
             // 
             // FormResumen
             // 
@@ -232,6 +311,8 @@
             this.Load += new System.EventHandler(this.FormResumen_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBoxSeleccionarFechas.ResumeLayout(false);
+            this.groupBoxSeleccionarFechas.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -255,5 +336,12 @@
         private System.Windows.Forms.TextBox textBoxUltimoPorcParicionValue;
         private System.Windows.Forms.TextBox textBoxUltimoIEPVacaMesesValue;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label labelFechaFinal;
+        private System.Windows.Forms.DateTimePicker dateTimePickerInicio;
+        private System.Windows.Forms.Label labelFechaInicio;
+        private System.Windows.Forms.DateTimePicker dateTimePickerFinal;
+        private System.Windows.Forms.ComboBox comboBoxTipoResumen;
+        private System.Windows.Forms.Label labelTipoResumen;
+        private System.Windows.Forms.GroupBox groupBoxSeleccionarFechas;
     }
 }
