@@ -1,9 +1,9 @@
 ﻿CREATE PROCEDURE [dbo].[PROC_OBTENER_IEP_HISTORICO]
-	@IEPHistorico DECIMAL(8,2) OUTPUT -- Meses
+	@IEPHistorico DECIMAL(8,2) OUTPUT -- Días
 AS
 	BEGIN
 		DECLARE @cantidadVacas INT;
-		SELECT @cantidadVacas = COUNT(v.PK_NUMERO_TRAZABLE) FROM [dbo].[VACA] v;
+		SELECT @cantidadVacas = COUNT(v.PK_NUMERO_TRAZABLE) FROM [dbo].[VACA] v WHERE v.ACTIVA = 1;
 		IF @cantidadVacas > 0
 		BEGIN
 			DECLARE @indiceVacas INT = 0;
@@ -12,7 +12,7 @@ AS
 			DECLARE @sumatoria DECIMAL(8,2) = CAST (0.0 AS DECIMAL(8,2));
 			WHILE @indiceVacas < @cantidadVacas
 			BEGIN
-				SELECT TOP(1) @idVacaParam = v.PK_NUMERO_TRAZABLE FROM [dbo].[VACA] v WHERE v.PK_NUMERO_TRAZABLE > @idVacaParam ORDER BY v.PK_NUMERO_TRAZABLE ASC;
+				SELECT TOP(1) @idVacaParam = v.PK_NUMERO_TRAZABLE FROM [dbo].[VACA] v WHERE v.PK_NUMERO_TRAZABLE > @idVacaParam AND v.ACTIVA = 1 ORDER BY v.PK_NUMERO_TRAZABLE ASC;
 				EXEC [dbo].[PROC_OBTENER_IEP] @idVaca = @idVacaParam, @IEP = @tmp OUTPUT;
 
 				SET @sumatoria = @sumatoria + @tmp;

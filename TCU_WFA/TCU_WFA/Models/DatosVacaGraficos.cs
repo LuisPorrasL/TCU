@@ -16,8 +16,8 @@ namespace TCU_WFA.Models
 
         public int pkNumeroTrazableVaca { get; set; }
 
-        public double? iepPromedioVacaMeses { get; set; }
+        public double iepPromedioVacaDias { get; set; }
 
-        public double ultimoIEPVacaMeses { get; set; }
+        public double ultimoIEPVacaDias { get; set; }
     }
 }

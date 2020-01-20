@@ -99,6 +99,10 @@
     <Build Include="FUNC_OBTENER_ULTIMO_IEP.sql" />
     <Build Include="FUNC_OBTENER_IEP.sql" />
     <Build Include="PROC_ELIMINAR_EXAMEN.sql" />
+    <Build Include="PROC_OBTENER_IEP_HISTORICO_PERIODO.sql" />
+    <Build Include="PROC_OBTENER_IEP_PERIODO.sql" />
+    <Build Include="PROC_OBTENER_ULTIMO_IEP_HISTORICO_PERIODO.sql" />
+    <Build Include="PROC_OBTENER_ULTIMO_IEP_PERIODO.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.PostDeploymentTesting.sql" />

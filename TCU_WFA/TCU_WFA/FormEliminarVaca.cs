@@ -12,6 +12,7 @@ namespace TCU_WFA
 
         //Campos
         private int numeroTrazableVaca;
+        private DateTime fechaDeBaja;
         private string causaDeBaja;
 
         //Titulos
@@ -88,6 +89,7 @@ namespace TCU_WFA
         private void LimpiarEntradaUsuario()
         {
             this.numeroTrazableVaca = -1;
+            dateTimePickerFechaDeBaja.Value = DateTime.Now;
             textBoxCausaDeBaja.Text = "";
             LlenarComboBoxList();
         }
@@ -103,7 +105,7 @@ namespace TCU_WFA
             {
                 try
                 {
-                    int resultado = ProcedimientosAlmacenados.ProcEliminarVaca(this.numeroTrazableVaca, this.causaDeBaja);
+                    int resultado = ProcedimientosAlmacenados.ProcEliminarVaca(this.numeroTrazableVaca, this.fechaDeBaja, this.causaDeBaja);
                     if (resultado == Utilities.RESULTADO_ERROR) return false;
                     return true;
                 }
@@ -121,6 +123,7 @@ namespace TCU_WFA
         private void ObtenerDatosEntradaUsuario()
         {
             this.numeroTrazableVaca = Int32.Parse(comboBoxNumeroTrazableVaca.Text);
+            this.fechaDeBaja = dateTimePickerFechaDeBaja.Value;
             this.causaDeBaja = textBoxCausaDeBaja.Text;
         }
 
@@ -133,6 +136,7 @@ namespace TCU_WFA
             try
             {
                 if (comboBoxNumeroTrazableVaca.Text == "" || Int32.Parse(comboBoxNumeroTrazableVaca.Text) <= 0) return false;
+                if (dateTimePickerFechaDeBaja.Value == null || dateTimePickerFechaDeBaja.Value > DateTime.Now) return false;
                 if (textBoxCausaDeBaja.Text == "") return false;
                 return true;
             }

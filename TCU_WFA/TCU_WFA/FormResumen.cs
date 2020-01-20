@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 using TCU_WFA.Models;
 using TCU_WFA.Repository;
 
@@ -23,28 +24,76 @@ namespace TCU_WFA
         private const int INDICE_DTR_FECHA_ULTIMA_MONTA = 8;
         private const int INDICE_DTR_GESTACION_DIAS = 9;
         private const int INDICE_DTR_FECHA_PARTO = 10;
+        private const int LLAVE_TIPO_RESUMEN_GENERAL = 0;
+        private const int LLAVE_TIPO_RESUMEN_POR_FECHAS = 1;
 
-        //Consultas
-        private const string CONSULTA_HEMBRAS_CONSIDERADAS = "SELECT COUNT(*) FROM [dbo].[VACA]";       
-        private const string CONSULTA_HEMBRAS_PARIDO = "SELECT COUNT (DISTINCT V.PK_NUMERO_TRAZABLE) FROM [dbo].[VACA] V INNER JOIN [dbo].[PARTO] P ON V.PK_NUMERO_TRAZABLE = P.PK_FK_NUMERO_TRAZABLE_VACA";
-        private const string CONSULTA_PARTOS = "SELECT COUNT (*) FROM [dbo].[PARTO]";
+        //Consultas generales
+        private const string CONSULTA_HEMBRAS_CONSIDERADAS = "SELECT COUNT(*) FROM [dbo].[VACA] V WHERE V.ACTIVA = 1";       
+        private const string CONSULTA_HEMBRAS_PARIDO = "SELECT COUNT (DISTINCT V.PK_NUMERO_TRAZABLE) FROM [dbo].[VACA] V INNER JOIN [dbo].[PARTO] P ON V.PK_NUMERO_TRAZABLE = P.PK_FK_NUMERO_TRAZABLE_VACA WHERE V.ACTIVA = 1";
+        private const string CONSULTA_PARTOS = "SELECT COUNT(*) FROM [dbo].[PARTO] P INNER JOIN [dbo].[VACA] V ON P.PK_FK_NUMERO_TRAZABLE_VACA = V.PK_NUMERO_TRAZABLE WHERE V.ACTIVA = 1";
+        //Consulta por fechas
+        private const string CONSULTA_HEMBRAS_CONSIDERADAS_FECHAS = "SELECT COUNT(*) FROM [dbo].[VACA] V WHERE V.FECHA_NACIMIENTO <= '@fechaFin' AND (V.FECHA_DE_BAJA >= '@fechaInicio' OR V.FECHA_DE_BAJA IS NULL)";
+        private const string CONSULTA_HEMBRAS_PARIDO_FECHAS = "SELECT COUNT (DISTINCT V.PK_NUMERO_TRAZABLE) FROM [dbo].[VACA] V INNER JOIN [dbo].[PARTO] P ON V.PK_NUMERO_TRAZABLE = P.PK_FK_NUMERO_TRAZABLE_VACA WHERE P.PK_FECHA >= '@fechaInicio' AND P.PK_FECHA <= '@fechaFin' AND (V.FECHA_NACIMIENTO <= '@fechaFin' AND (V.FECHA_DE_BAJA >= '@fechaInicio' OR V.FECHA_DE_BAJA IS NULL))";
+        private const string CONSULTA_PARTOS_FECHAS = "SELECT COUNT (*) FROM [dbo].[PARTO] P INNER JOIN [dbo].[VACA] V ON P.PK_FK_NUMERO_TRAZABLE_VACA = V.PK_NUMERO_TRAZABLE WHERE P.PK_FECHA >= '@fechaInicio' AND P.PK_FECHA <= '@fechaFin'  AND (V.FECHA_NACIMIENTO <= '@fechaFin' AND (V.FECHA_DE_BAJA >= '@fechaInicio' OR V.FECHA_DE_BAJA IS NULL))";
+        private const string CONSULTA_HEMBRAS_SERVIDAS = "SELECT COUNT(DISTINCT P.PK_FK_NUMERO_TRAZABLE_VACA) FROM [dbo].[PALPACION] P WHERE P.CONFIRMACION = 1 AND P.PK_FECHA >= '@fechaInicio' AND P.PK_FECHA <= '@fechaFin'";
+        private const string CONSULTA_HEMBRAS_PARIDO_FECHAS_CON_PALPACION = "SELECT COUNT (DISTINCT V.PK_NUMERO_TRAZABLE) FROM [dbo].[VACA] V INNER JOIN [dbo].[PARTO] P ON V.PK_NUMERO_TRAZABLE = P.PK_FK_NUMERO_TRAZABLE_VACA WHERE P.PK_FECHA >= '@fechaInicio' AND P.PK_FECHA <= '@fechaFin' AND (V.FECHA_NACIMIENTO <= '@fechaFin' AND (V.FECHA_DE_BAJA >= '@fechaInicio' OR V.FECHA_DE_BAJA IS NULL)) AND EXISTS (SELECT E.PK_FK_NUMERO_TRAZABLE_VACA FROM [dbo].[PALPACION] E WHERE E.PK_FK_NUMERO_TRAZABLE_VACA = V.PK_NUMERO_TRAZABLE AND E.CONFIRMACION = 1)";
+        private const string PARAM_FECHA_INICIO = "@fechaInicio";
+        private const string PARAM_FECHA_FIN = "@fechaFin";
+        
+
 
         //Valores del resumen
         DatosGeneralesResumen datosResumen = new DatosGeneralesResumen();
 
         //Lista de vacas
         List<VacaModel> listaVacas;
-        
 
+        //Lista de datos para gráficos
+        //Lista de datos de las vacas
+        List<DatosVacaGraficos> listaDatosVacas;
+
+        //Fechas a utilizar por defecto
+        //Primer día del año y el día actual
+        private DateTime fechaPrimerDiaInicio = new DateTime(DateTime.Now.Year, 1, 1);
+        private DateTime fechaDiaActual = DateTime.Now;
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public FormResumen()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Método que se llama al cargar el form, inicializa el combobox, los datetime pickers y carga los datos a mostrar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormResumen_Load(object sender, EventArgs e)
         {
+            LlenarOpcionesComboBoxTipoResumen();
+            datosResumen.fechaInicioResumen = fechaPrimerDiaInicio;
+            datosResumen.fechaFinalResumen = fechaDiaActual;
+            dateTimePickerInicio.Value = fechaPrimerDiaInicio;
+            dateTimePickerFinal.Value = fechaDiaActual;
             CargarDatosResumen();
             ActualizarDatosForm();
+        }
+
+        /// <summary>
+        /// Método para llenar las opciones del comboBox para seleccionar el tipo de resumen
+        /// </summary>
+        private void LlenarOpcionesComboBoxTipoResumen()
+        {
+            Dictionary<int, string> opcionesComboBox = new Dictionary<int, string>();
+            opcionesComboBox.Add(LLAVE_TIPO_RESUMEN_GENERAL, "General");
+            opcionesComboBox.Add(LLAVE_TIPO_RESUMEN_POR_FECHAS, "Por fechas");
+            comboBoxTipoResumen.DataSource = new BindingSource(opcionesComboBox, null);
+            comboBoxTipoResumen.DisplayMember = "Value";
+            comboBoxTipoResumen.ValueMember = "Key";
+            comboBoxTipoResumen.SelectedIndex = LLAVE_TIPO_RESUMEN_GENERAL;
+            datosResumen.tipoResumen = LLAVE_TIPO_RESUMEN_GENERAL;
         }
 
         /// <summary>
@@ -58,9 +107,16 @@ namespace TCU_WFA
 
             //Se obtienen los datos a cargar
             datosResumen.fechaActual = DateTime.Now.ToShortDateString();
+
+            //Si el resumen es por fechas se obtienen las fechas seleccionadas
+            if (datosResumen.tipoResumen == LLAVE_TIPO_RESUMEN_POR_FECHAS)
+            {
+                datosResumen.fechaInicioResumen = dateTimePickerInicio.Value;
+                datosResumen.fechaFinalResumen = dateTimePickerFinal.Value;
+            }
             try
             {
-                datosResumen.hembrasConsideradas = Utilities.EjecutarConsultaCount(CONSULTA_HEMBRAS_CONSIDERADAS);
+                datosResumen.hembrasConsideradas = Utilities.EjecutarConsultaCount((datosResumen.tipoResumen == LLAVE_TIPO_RESUMEN_GENERAL) ? CONSULTA_HEMBRAS_CONSIDERADAS : CONSULTA_HEMBRAS_CONSIDERADAS_FECHAS.Replace(PARAM_FECHA_INICIO, datosResumen.fechaInicioResumen.ToString()).Replace(PARAM_FECHA_FIN, datosResumen.fechaFinalResumen.ToString()));
             }
             catch
             {
@@ -68,7 +124,7 @@ namespace TCU_WFA
             }
             try
             {
-                datosResumen.hembrasParido = Utilities.EjecutarConsultaCount(CONSULTA_HEMBRAS_PARIDO);                
+                datosResumen.hembrasParido = Utilities.EjecutarConsultaCount((datosResumen.tipoResumen == LLAVE_TIPO_RESUMEN_GENERAL) ? CONSULTA_HEMBRAS_PARIDO : CONSULTA_HEMBRAS_PARIDO_FECHAS.Replace(PARAM_FECHA_INICIO, datosResumen.fechaInicioResumen.ToString()).Replace(PARAM_FECHA_FIN, datosResumen.fechaFinalResumen.ToString()));                
             }
             catch
             {
@@ -76,21 +132,28 @@ namespace TCU_WFA
             }
             try
             {
-                double  IEPHistorico = ProcedimientosAlmacenados.ProcObtenerIEPHistorico();
-                switch (unidadDeTiempo)
+                double  IEPHistorico = (datosResumen.tipoResumen == LLAVE_TIPO_RESUMEN_GENERAL) ? ProcedimientosAlmacenados.ProcObtenerIEPHistorico() : ProcedimientosAlmacenados.ProcObtenerIEPHistoricoPeriodo(datosResumen.fechaInicioResumen, datosResumen.fechaFinalResumen);
+                if (IEPHistorico != Utilities.RESULTADO_ERROR)
                 {
-                    case "Meses":
-                        labelIEPPromHistoricoMeses.Text = "IEP Prom.Histórico (meses)";
-                        datosResumen.iepPromHistoricoMeses = IEPHistorico / Utilities.DIAS_MES;
-                        break;
-                    case "Semanas":
-                        labelIEPPromHistoricoMeses.Text = "IEP Prom.Histórico (semanas)";
-                        datosResumen.iepPromHistoricoMeses = IEPHistorico / Utilities.DIAS_SEMANA;
-                        break;
-                    default:
-                        labelIEPPromHistoricoMeses.Text = "IEP Prom.Histórico (días)";
-                        datosResumen.iepPromHistoricoMeses = IEPHistorico;
-                        break;
+                    switch (unidadDeTiempo)
+                    {
+                        case "Meses":
+                            labelIEPPromHistoricoMeses.Text = "IEP Prom.Histórico (meses)";
+                            datosResumen.iepPromHistoricoMeses = IEPHistorico / Utilities.DIAS_MES;
+                            break;
+                        case "Semanas":
+                            labelIEPPromHistoricoMeses.Text = "IEP Prom.Histórico (semanas)";
+                            datosResumen.iepPromHistoricoMeses = IEPHistorico / Utilities.DIAS_SEMANA;
+                            break;
+                        default:
+                            labelIEPPromHistoricoMeses.Text = "IEP Prom.Histórico (días)";
+                            datosResumen.iepPromHistoricoMeses = IEPHistorico;
+                            break;
+                    }
+                }
+                else
+                {
+                    datosResumen.iepPromHistoricoMeses = Utilities.RESULTADO_ERROR;
                 }
             }
             catch
@@ -99,10 +162,10 @@ namespace TCU_WFA
             }
             try
             {
-                int resultadoPartos = Utilities.EjecutarConsultaCount(CONSULTA_PARTOS);
+                int resultadoPartos = Utilities.EjecutarConsultaCount((datosResumen.tipoResumen == LLAVE_TIPO_RESUMEN_GENERAL) ? CONSULTA_PARTOS : CONSULTA_PARTOS_FECHAS.Replace(PARAM_FECHA_INICIO, datosResumen.fechaInicioResumen.ToString()).Replace(PARAM_FECHA_FIN, datosResumen.fechaFinalResumen.ToString()));
                 if (resultadoPartos != Utilities.RESULTADO_ERROR && datosResumen.hembrasConsideradas != Utilities.RESULTADO_ERROR && datosResumen.hembrasConsideradas != 0)
                 {
-                    datosResumen.promPartosHato = (double)resultadoPartos / (double)datosResumen.hembrasConsideradas;
+                    datosResumen.promPartosHato = Math.Round((double)resultadoPartos / (double)datosResumen.hembrasConsideradas, 2);
                 }
                 else
                 {
@@ -115,21 +178,28 @@ namespace TCU_WFA
             }
             try
             { 
-                double ultimoIEPHistorico = ProcedimientosAlmacenados.ProcObtenerUltimoIEPHistorico();
-                switch (unidadDeTiempo)
+                double ultimoIEPHistorico = (datosResumen.tipoResumen == LLAVE_TIPO_RESUMEN_GENERAL) ? ProcedimientosAlmacenados.ProcObtenerUltimoIEPHistorico() : ProcedimientosAlmacenados.ProcObtenerUltimoIEPHistoricoPeriodo(datosResumen.fechaInicioResumen, datosResumen.fechaFinalResumen);
+                if (ultimoIEPHistorico != Utilities.RESULTADO_ERROR)
                 {
-                    case "Meses":
-                        labelUltimoIEPVacaMeses.Text = "Último IEP cada vaca (meses)";
-                        datosResumen.ultimoIEPVacaMeses = ultimoIEPHistorico / Utilities.DIAS_MES;
-                        break;
-                    case "Semanas":
-                        labelUltimoIEPVacaMeses.Text = "Último IEP cada vaca (semanas)";
-                        datosResumen.ultimoIEPVacaMeses = ultimoIEPHistorico / Utilities.DIAS_SEMANA;
-                        break;
-                    default:
-                        labelUltimoIEPVacaMeses.Text = "Último IEP cada vaca (días)";
-                        datosResumen.ultimoIEPVacaMeses = ultimoIEPHistorico;
-                        break;
+                    switch (unidadDeTiempo)
+                    {
+                        case "Meses":
+                            labelUltimoIEPVacaMeses.Text = "Último IEP cada vaca (meses)";
+                            datosResumen.ultimoIEPVacaMeses = ultimoIEPHistorico / Utilities.DIAS_MES;
+                            break;
+                        case "Semanas":
+                            labelUltimoIEPVacaMeses.Text = "Último IEP cada vaca (semanas)";
+                            datosResumen.ultimoIEPVacaMeses = ultimoIEPHistorico / Utilities.DIAS_SEMANA;
+                            break;
+                        default:
+                            labelUltimoIEPVacaMeses.Text = "Último IEP cada vaca (días)";
+                            datosResumen.ultimoIEPVacaMeses = ultimoIEPHistorico;
+                            break;
+                    }
+                }
+                else
+                {
+                    datosResumen.ultimoIEPVacaMeses = Utilities.RESULTADO_ERROR;
                 }
             }
             catch
@@ -138,9 +208,37 @@ namespace TCU_WFA
             }
             if(datosResumen.hembrasParido != Utilities.RESULTADO_ERROR && datosResumen.hembrasConsideradas != Utilities.RESULTADO_ERROR && datosResumen.hembrasConsideradas != 0)
             {
-                datosResumen.porcParicionHistorico = ((double)datosResumen.hembrasParido / (double)datosResumen.hembrasConsideradas) * 100;
+                datosResumen.porcParicionHistorico = Math.Round(((double)datosResumen.hembrasParido / (double)datosResumen.hembrasConsideradas) * 100, 2);
             }
-            //ToDo obtener el último % de parición
+            //Último % de parición
+            if (datosResumen.tipoResumen == LLAVE_TIPO_RESUMEN_POR_FECHAS)
+            {
+                try
+                {
+                    //Se obtiene la cantidad de hembras servidas
+                    int resultadoHembrasServidas = Utilities.EjecutarConsultaCount(CONSULTA_HEMBRAS_SERVIDAS.Replace(PARAM_FECHA_INICIO, datosResumen.fechaInicioResumen.ToString()).Replace(PARAM_FECHA_FIN, datosResumen.fechaFinalResumen.ToString()));
+                    int resultadoHembrasParidoConPalpacion = Utilities.EjecutarConsultaCount(CONSULTA_HEMBRAS_PARIDO_FECHAS_CON_PALPACION.Replace(PARAM_FECHA_INICIO, datosResumen.fechaInicioResumen.ToString()).Replace(PARAM_FECHA_FIN, datosResumen.fechaFinalResumen.ToString()));
+                    if (resultadoHembrasParidoConPalpacion != Utilities.RESULTADO_ERROR && resultadoHembrasServidas != Utilities.RESULTADO_ERROR)
+                    {
+                        if (resultadoHembrasServidas != 0)
+                        {
+                            datosResumen.ultimoPorcParicion = Math.Round(((double)resultadoHembrasParidoConPalpacion / (double)resultadoHembrasServidas) * 100, 2);
+                        }
+                        else
+                        {
+                            datosResumen.ultimoPorcParicion = 0;
+                        }
+                    }
+                    else
+                    {
+                        datosResumen.ultimoPorcParicion = Utilities.RESULTADO_ERROR;
+                    }
+                }
+                catch
+                {
+                    datosResumen.ultimoPorcParicion = Utilities.RESULTADO_ERROR;
+                }
+            }
         }
 
         /// <summary>
@@ -211,11 +309,11 @@ namespace TCU_WFA
                         }
                         if (dt.Rows[iteradorVacas][INDICE_DTR_IEP_PROMEDIO] != DBNull.Value)
                         {
-                            listaVacas[iteradorVacas].iepPromedioMeses = Convert.ToDouble(dt.Rows[iteradorVacas][INDICE_DTR_IEP_PROMEDIO]);
+                            listaVacas[iteradorVacas].iepPromedioDias = Convert.ToDouble(dt.Rows[iteradorVacas][INDICE_DTR_IEP_PROMEDIO]);
                         }
                         if (dt.Rows[iteradorVacas][INDICE_DTR_ULTIMO_IEP] != DBNull.Value)
                         {
-                            listaVacas[iteradorVacas].ultimoIEPMeses = Convert.ToDouble(dt.Rows[iteradorVacas][INDICE_DTR_ULTIMO_IEP]);
+                            listaVacas[iteradorVacas].ultimoIEPDias = Convert.ToDouble(dt.Rows[iteradorVacas][INDICE_DTR_ULTIMO_IEP]);
                         }
                         if (dt.Rows[iteradorVacas][INDICE_DTR_FECHA_ULTIMA_MONTA] != DBNull.Value)
                         {
@@ -251,15 +349,14 @@ namespace TCU_WFA
         //Cantidad de vacas
         private int cantidadVacas = 0;
 
-        //Lista de datos de las vacas
-        List<DatosVacaGraficos> listaDatosVacas = new List<DatosVacaGraficos>();
-
-
         /// <summary>
         /// Método para obtener los datos a utilizar en el worksheet gráfico
         /// </summary>
         private void CargarDatosVacasGrafico()
         {
+            //Lista de datos de las vacas
+            listaDatosVacas = new List<DatosVacaGraficos>();
+
             //Se obtiene la cantidad de vacas
             try
             {
@@ -293,16 +390,89 @@ namespace TCU_WFA
 
                         if (dt.Rows[iteradorVacas][INDICE_DTR_IEP_VACA] != DBNull.Value)
                         {
-                            listaDatosVacas[iteradorVacas].iepPromedioVacaMeses = Convert.ToDouble(dt.Rows[iteradorVacas][INDICE_DTR_IEP_VACA]);
+                            listaDatosVacas[iteradorVacas].iepPromedioVacaDias = Convert.ToDouble(dt.Rows[iteradorVacas][INDICE_DTR_IEP_VACA]);
                         }
 
                         if (dt.Rows[iteradorVacas][INDICE_DTR_ULTIMO_IEP_VACA] != DBNull.Value)
                         {
-                            listaDatosVacas[iteradorVacas].ultimoIEPVacaMeses = Convert.ToDouble(dt.Rows[iteradorVacas][INDICE_DTR_ULTIMO_IEP_VACA]);
+                            listaDatosVacas[iteradorVacas].ultimoIEPVacaDias = Convert.ToDouble(dt.Rows[iteradorVacas][INDICE_DTR_ULTIMO_IEP_VACA]);
                         }
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// Método que actualiza los datos a mostrar cuando se actualiza la fecha inicial
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dateTimePickerInicio_ValueChanged(object sender, EventArgs e)
+        {
+            if (RevisarFechasValidas())
+            {
+                CargarDatosResumen();
+                ActualizarDatosForm();
+            }
+            else
+            {
+                dateTimePickerInicio.Value = datosResumen.fechaInicioResumen;
+                Utilities.MostrarMessageBox(Utilities.MENSAJE_ERROR_ENTRADA_USUARIO, Utilities.TITULO_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Método que actualiza los datos a mostrar cuando se actualiza la fecha final
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dateTimePickerFinal_ValueChanged(object sender, EventArgs e)
+        {
+            if (RevisarFechasValidas())
+            {
+                CargarDatosResumen();
+                ActualizarDatosForm();
+            }
+            else
+            {
+                dateTimePickerFinal.Value = datosResumen.fechaFinalResumen;
+                Utilities.MostrarMessageBox(Utilities.MENSAJE_ERROR_ENTRADA_USUARIO, Utilities.TITULO_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Método para revisar que las fechas seleccionadas sean correctas
+        /// </summary>
+        /// <returns></returns>
+        private bool RevisarFechasValidas()
+        {
+            if (dateTimePickerInicio.Value > DateTime.Now || dateTimePickerFinal.Value > DateTime.Now || dateTimePickerInicio.Value > dateTimePickerFinal.Value) return false;
+            return true;
+        }
+
+        /// <summary>
+        /// Método que actualiza los datos del resumen al cambiar el tipo seleccionado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void comboBoxTipoResumen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(((KeyValuePair<int, string>)comboBoxTipoResumen.SelectedItem).Key == LLAVE_TIPO_RESUMEN_POR_FECHAS)
+            {
+                datosResumen.tipoResumen = LLAVE_TIPO_RESUMEN_POR_FECHAS;
+                groupBoxSeleccionarFechas.Visible = true;
+                labelUltimoPorcentajeParicion.Visible = true;
+                textBoxUltimoPorcParicionValue.Visible = true;
+            }
+            else
+            {
+                datosResumen.tipoResumen = LLAVE_TIPO_RESUMEN_GENERAL;
+                groupBoxSeleccionarFechas.Visible = false;
+                labelUltimoPorcentajeParicion.Visible = false;
+                textBoxUltimoPorcParicionValue.Visible = false;
+            }
+            CargarDatosResumen();
+            ActualizarDatosForm();
         }
     }
 }
