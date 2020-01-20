@@ -125,60 +125,92 @@ namespace TCU_WFA
             if (examenSeleccionado.libido == true)
             {
                 checkBoxLibidoDetalles.Checked = true;
+            } else
+            {
+                checkBoxLibidoDetalles.Checked = false;
             }
 
             checkBoxCMDetalles.Enabled = false;//2
             if (examenSeleccionado.capacidadMonta == true)
             {
                 checkBoxCMDetalles.Checked = true;
+            } else
+            {
+                checkBoxCMDetalles.Checked = false;
+
             }
 
             checkBoxPrepucioDetalles.Enabled = false;//3
             if (examenSeleccionado.prepucio == true)
             {
                 checkBoxPrepucioDetalles.Checked = true;
+            } else
+            {
+                checkBoxPrepucioDetalles.Checked = false;
             }
 
             checkBoxPeneDetalles.Enabled = false;//4
             if (examenSeleccionado.pene == true)
             {
                 checkBoxPeneDetalles.Checked = true;
+            } else
+            {
+                checkBoxPeneDetalles.Checked = false;
             }
 
             checkBoxTesticulosDetalles.Enabled = false;//5
             if (examenSeleccionado.testiculos == true)
             {
                 checkBoxTesticulosDetalles.Checked = true;
+            } else
+            {
+                checkBoxTesticulosDetalles.Checked = false;
             }
 
             checkBoxEpiDetalles.Enabled = false;//6
             if (examenSeleccionado.epididimos == true)
             {
                 checkBoxEpiDetalles.Checked = true;
+            } else
+            {
+                checkBoxEpiDetalles.Checked = false;
             }
 
             checkBoxGlandulasBDetalles.Enabled = false;//7
             if (examenSeleccionado.glandulasB == true)
             {
                 checkBoxGlandulasBDetalles.Checked = true;
+            } else
+            {
+                checkBoxGlandulasBDetalles.Checked = false;
             }
 
             checkBoxProstataDetalles.Enabled = false;//8
             if (examenSeleccionado.prostata == true)
             {
                 checkBoxProstataDetalles.Checked = true;
+            } else
+            {
+                checkBoxProstataDetalles.Checked = false;
             }
 
             checkBoxVesiculasSDetalles.Enabled = false;//9
             if (examenSeleccionado.vesiculasSeminales == true)
             {
                 checkBoxVesiculasSDetalles.Checked = true;
+            } else
+            {
+                checkBoxVesiculasSDetalles.Checked = false;
             }
 
             checkBoxAmpulasDetalles.Enabled = false;//10
             if (examenSeleccionado.ampulas == true)
             {
                 checkBoxAmpulasDetalles.Checked = true;
+            } else
+            {
+                checkBoxAmpulasDetalles.Checked = false;
+
             }
 
             numericUpDownDSDetalles.Value = examenSeleccionado.descansoSexual;
@@ -227,6 +259,9 @@ namespace TCU_WFA
             if (examenSeleccionado.palpacion == true)
             {
                 checkBoxPalpacionDetalles.Checked = true;
+            } else
+            {
+                checkBoxPalpacionDetalles.Checked = false;
             }
 
             checkBoxEcogrfiaDetalles.Enabled = false;//10
@@ -234,23 +269,36 @@ namespace TCU_WFA
             {
                 checkBoxEcogrfiaDetalles.Checked = true;
             }
+            else
+            {
+                checkBoxEcogrfiaDetalles.Checked = false;
+            }
 
             checkBoxVaginaArtDetalles.Enabled = false;//10
             if (examenSeleccionado.vaginaArt == true)
             {
                 checkBoxVaginaArtDetalles.Checked = true;
+            } else
+            {
+                checkBoxVaginaArtDetalles.Checked = false;
             }
 
             checkBoxElectroEyaDetalles.Enabled = false;//10
             if (examenSeleccionado.electroEya == true)
             {
                 checkBoxElectroEyaDetalles.Checked = true;
+            } else
+            {
+                checkBoxElectroEyaDetalles.Checked = false;
             }
 
             checkBoxProtusionDetalles.Enabled = false;//10
             if (examenSeleccionado.protusion == true)
             {
                 checkBoxProtusionDetalles.Checked = true;
+            } else
+            {
+                checkBoxProtusionDetalles.Checked = false;
             }
 
             checkBoxSatisfactorioDetalles.Enabled = false;
@@ -288,13 +336,13 @@ namespace TCU_WFA
             if (resultado)
             {
                 Utilities.MostrarMessageBox(Utilities.MENSAJE_EXITO, Utilities.TITULO_EXITO, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //LimpiarEntradaUsuario();
+                this.Hide();
+                formAnterior.LlenarDataGridViews();
+                formAnterior.Show();
             }
             else Utilities.MostrarMessageBox(Utilities.MENSAJE_ERROR, Utilities.TITULO_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            this.Hide();
-            formAnterior.LlenarDataGridViews();
-            formAnterior.Show();
+        
         }
 
         ///<summary>
@@ -327,6 +375,7 @@ namespace TCU_WFA
         {
             if (editando == false)
             {
+                buttonEditar.Text = "Cancelar"; 
                 editando = true;
                 buttonGuardarCambiosDetalles.Enabled = true;
                 dateTimePickerExamenDetalles.Enabled = true;
@@ -366,7 +415,9 @@ namespace TCU_WFA
                 textBoxObservacionesDetalles.Enabled = true;
 
             } else {
+                buttonEditar.Text = "Editar";
                 editando = false;
+                LlenarInformcionExamen();
                 buttonGuardarCambiosDetalles.Enabled = false;
                 dateTimePickerExamenDetalles.Enabled = false;
                 textBoxCondCDetalles.Enabled = false;
@@ -414,21 +465,29 @@ namespace TCU_WFA
         ///<returns> void </returns>
         private void buttonGuardarCambiosDetalles_Click(object sender, EventArgs e)
         {
-            bool resultadoElim = eliminarExamen(fechaExamenAndrologico, numeroTrazableToro);  
-
-            ExamenModel nuevoExamen = ObtenerDatosEntradaUsuario();
-
-            bool resultado = AgregarNuevoExamen(nuevoExamen);
-            if (resultado)
+            bool resultadoElim = eliminarExamen(fechaExamenAndrologico, numeroTrazableToro);
+            if (resultadoElim)
             {
-                Utilities.MostrarMessageBox(Utilities.MENSAJE_EXITO, Utilities.TITULO_EXITO, MessageBoxButtons.OK, MessageBoxIcon.Information);
-             
+                ExamenModel nuevoExamen = ObtenerDatosEntradaUsuario();
+
+                bool resultado = AgregarNuevoExamen(nuevoExamen);
+                if (resultado)
+                {
+                    Utilities.MostrarMessageBox(Utilities.MENSAJE_EXITO, Utilities.TITULO_EXITO, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Hide();
+                    formAnterior.LlenarDataGridViews();
+                    formAnterior.Show();
+
+                }
+                else Utilities.MostrarMessageBox(Utilities.MENSAJE_ERROR, Utilities.TITULO_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+
             }
             else Utilities.MostrarMessageBox(Utilities.MENSAJE_ERROR, Utilities.TITULO_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            this.Hide();
-            formAnterior.LlenarDataGridViews();
-            formAnterior.Show();
+
+
+
         }
 
         ///<summary>
