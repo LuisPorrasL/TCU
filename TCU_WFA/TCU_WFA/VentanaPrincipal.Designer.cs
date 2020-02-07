@@ -42,10 +42,10 @@
             this.botonResumen = new System.Windows.Forms.Button();
             this.botonAlerta = new System.Windows.Forms.Button();
             this.botonConfiguracion = new System.Windows.Forms.Button();
+            this.botonInformacion = new System.Windows.Forms.Button();
             this.groupBoxNavegacionVentanaPrincipal = new System.Windows.Forms.GroupBox();
             this.pictureBoxVentanaPrincipal = new System.Windows.Forms.PictureBox();
             this.pictureBoxVentanaPrincipalUCR = new System.Windows.Forms.PictureBox();
-            this.botonInformacion = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.groupBoxNavegacionVentanaPrincipal.SuspendLayout();
@@ -61,19 +61,17 @@
             this.flowLayoutPanel1.Controls.Add(this.botonSalto);
             this.flowLayoutPanel1.Controls.Add(this.botonDestete);
             this.flowLayoutPanel1.Controls.Add(this.botonRegistroToros);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 23);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(2, 19);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1027, 94);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(770, 76);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // botonRegistroVacas
             // 
             this.botonRegistroVacas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonRegistroVacas.Location = new System.Drawing.Point(4, 4);
-            this.botonRegistroVacas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonRegistroVacas.Location = new System.Drawing.Point(3, 3);
             this.botonRegistroVacas.Name = "botonRegistroVacas";
-            this.botonRegistroVacas.Size = new System.Drawing.Size(172, 86);
+            this.botonRegistroVacas.Size = new System.Drawing.Size(129, 70);
             this.botonRegistroVacas.TabIndex = 0;
             this.botonRegistroVacas.Text = "Registro vacas";
             this.botonRegistroVacas.UseVisualStyleBackColor = true;
@@ -82,10 +80,9 @@
             // botonParto
             // 
             this.botonParto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonParto.Location = new System.Drawing.Point(184, 4);
-            this.botonParto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonParto.Location = new System.Drawing.Point(138, 3);
             this.botonParto.Name = "botonParto";
-            this.botonParto.Size = new System.Drawing.Size(161, 86);
+            this.botonParto.Size = new System.Drawing.Size(121, 70);
             this.botonParto.TabIndex = 1;
             this.botonParto.Text = "Parto";
             this.botonParto.UseVisualStyleBackColor = true;
@@ -94,10 +91,9 @@
             // botonPalpacion
             // 
             this.botonPalpacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonPalpacion.Location = new System.Drawing.Point(353, 4);
-            this.botonPalpacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonPalpacion.Location = new System.Drawing.Point(265, 3);
             this.botonPalpacion.Name = "botonPalpacion";
-            this.botonPalpacion.Size = new System.Drawing.Size(161, 86);
+            this.botonPalpacion.Size = new System.Drawing.Size(121, 70);
             this.botonPalpacion.TabIndex = 2;
             this.botonPalpacion.Text = "Palpación";
             this.botonPalpacion.UseVisualStyleBackColor = true;
@@ -106,10 +102,9 @@
             // botonSalto
             // 
             this.botonSalto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonSalto.Location = new System.Drawing.Point(522, 4);
-            this.botonSalto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonSalto.Location = new System.Drawing.Point(392, 3);
             this.botonSalto.Name = "botonSalto";
-            this.botonSalto.Size = new System.Drawing.Size(161, 86);
+            this.botonSalto.Size = new System.Drawing.Size(121, 70);
             this.botonSalto.TabIndex = 3;
             this.botonSalto.Text = "Celo";
             this.botonSalto.UseVisualStyleBackColor = true;
@@ -118,10 +113,9 @@
             // botonDestete
             // 
             this.botonDestete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonDestete.Location = new System.Drawing.Point(691, 4);
-            this.botonDestete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonDestete.Location = new System.Drawing.Point(519, 3);
             this.botonDestete.Name = "botonDestete";
-            this.botonDestete.Size = new System.Drawing.Size(161, 86);
+            this.botonDestete.Size = new System.Drawing.Size(121, 70);
             this.botonDestete.TabIndex = 4;
             this.botonDestete.Text = "Destete";
             this.botonDestete.UseVisualStyleBackColor = true;
@@ -130,10 +124,9 @@
             // botonRegistroToros
             // 
             this.botonRegistroToros.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonRegistroToros.Location = new System.Drawing.Point(860, 4);
-            this.botonRegistroToros.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonRegistroToros.Location = new System.Drawing.Point(646, 3);
             this.botonRegistroToros.Name = "botonRegistroToros";
-            this.botonRegistroToros.Size = new System.Drawing.Size(161, 86);
+            this.botonRegistroToros.Size = new System.Drawing.Size(121, 70);
             this.botonRegistroToros.TabIndex = 5;
             this.botonRegistroToros.Text = "Registro toros";
             this.botonRegistroToros.UseVisualStyleBackColor = true;
@@ -146,16 +139,17 @@
             this.flowLayoutPanel2.Controls.Add(this.botonResumen);
             this.flowLayoutPanel2.Controls.Add(this.botonAlerta);
             this.flowLayoutPanel2.Controls.Add(this.botonConfiguracion);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(66, 101);
+            this.flowLayoutPanel2.Controls.Add(this.botonInformacion);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(75, 100);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(859, 94);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(635, 76);
             this.flowLayoutPanel2.TabIndex = 1;
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(4, 4);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Location = new System.Drawing.Point(3, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(0, 0);
             this.button1.TabIndex = 0;
@@ -165,32 +159,21 @@
             // botonExamenAndrologico
             // 
             this.botonExamenAndrologico.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonExamenAndrologico.Location = new System.Drawing.Point(12, 4);
-            this.botonExamenAndrologico.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonExamenAndrologico.Location = new System.Drawing.Point(9, 3);
             this.botonExamenAndrologico.Name = "botonExamenAndrologico";
-            this.botonExamenAndrologico.Size = new System.Drawing.Size(161, 86);
+            this.botonExamenAndrologico.Size = new System.Drawing.Size(121, 70);
             this.botonExamenAndrologico.TabIndex = 1;
             this.botonExamenAndrologico.Text = "Examen andrológico";
             this.botonExamenAndrologico.UseVisualStyleBackColor = true;
             this.botonExamenAndrologico.Click += new System.EventHandler(this.botonExamenAndrologico_Click);
             // 
-            // botonSincronizacion
-            // 
-            this.botonSincronizacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonSincronizacion.Location = new System.Drawing.Point(136, 3);
-            this.botonSincronizacion.Name = "botonSincronizacion";
-            this.botonSincronizacion.Size = new System.Drawing.Size(121, 70);
-            this.botonSincronizacion.TabIndex = 2;
-            this.botonSincronizacion.Text = "Sincronización";
-            this.botonSincronizacion.UseVisualStyleBackColor = true;
-            this.botonSincronizacion.Click += new System.EventHandler(this.botonSincronizacion_Click);
-            // 
             // botonResumen
             // 
             this.botonResumen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonResumen.Location = new System.Drawing.Point(263, 3);
+            this.botonResumen.Location = new System.Drawing.Point(135, 2);
+            this.botonResumen.Margin = new System.Windows.Forms.Padding(2);
             this.botonResumen.Name = "botonResumen";
-            this.botonResumen.Size = new System.Drawing.Size(161, 86);
+            this.botonResumen.Size = new System.Drawing.Size(121, 70);
             this.botonResumen.TabIndex = 3;
             this.botonResumen.Text = "Resumen";
             this.botonResumen.UseVisualStyleBackColor = true;
@@ -199,9 +182,10 @@
             // botonAlerta
             // 
             this.botonAlerta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonAlerta.Location = new System.Drawing.Point(390, 3);
+            this.botonAlerta.Location = new System.Drawing.Point(260, 2);
+            this.botonAlerta.Margin = new System.Windows.Forms.Padding(2);
             this.botonAlerta.Name = "botonAlerta";
-            this.botonAlerta.Size = new System.Drawing.Size(161, 86);
+            this.botonAlerta.Size = new System.Drawing.Size(121, 70);
             this.botonAlerta.TabIndex = 6;
             this.botonAlerta.Text = "Alertas";
             this.botonAlerta.UseVisualStyleBackColor = true;
@@ -210,52 +194,20 @@
             // botonConfiguracion
             // 
             this.botonConfiguracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonConfiguracion.Location = new System.Drawing.Point(517, 3);
+            this.botonConfiguracion.Location = new System.Drawing.Point(385, 2);
+            this.botonConfiguracion.Margin = new System.Windows.Forms.Padding(2);
             this.botonConfiguracion.Name = "botonConfiguracion";
-            this.botonConfiguracion.Size = new System.Drawing.Size(161, 86);
+            this.botonConfiguracion.Size = new System.Drawing.Size(121, 70);
             this.botonConfiguracion.TabIndex = 5;
             this.botonConfiguracion.Text = "Configuración";
             this.botonConfiguracion.UseVisualStyleBackColor = true;
             this.botonConfiguracion.Click += new System.EventHandler(this.botonConfiguracion_Click);
             // 
-            // groupBoxNavegacionVentanaPrincipal
-            // 
-            this.groupBoxNavegacionVentanaPrincipal.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.groupBoxNavegacionVentanaPrincipal.Controls.Add(this.flowLayoutPanel1);
-            this.groupBoxNavegacionVentanaPrincipal.Controls.Add(this.flowLayoutPanel2);
-            this.groupBoxNavegacionVentanaPrincipal.Location = new System.Drawing.Point(16, 297);
-            this.groupBoxNavegacionVentanaPrincipal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBoxNavegacionVentanaPrincipal.Name = "groupBoxNavegacionVentanaPrincipal";
-            this.groupBoxNavegacionVentanaPrincipal.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBoxNavegacionVentanaPrincipal.Size = new System.Drawing.Size(1033, 242);
-            this.groupBoxNavegacionVentanaPrincipal.TabIndex = 2;
-            this.groupBoxNavegacionVentanaPrincipal.TabStop = false;
-            // 
-            // pictureBoxVentanaPrincipal
-            // 
-            this.pictureBoxVentanaPrincipal.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxVentanaPrincipal.Image")));
-            this.pictureBoxVentanaPrincipal.Location = new System.Drawing.Point(116, 15);
-            this.pictureBoxVentanaPrincipal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pictureBoxVentanaPrincipal.Name = "pictureBoxVentanaPrincipal";
-            this.pictureBoxVentanaPrincipal.Size = new System.Drawing.Size(373, 283);
-            this.pictureBoxVentanaPrincipal.TabIndex = 3;
-            this.pictureBoxVentanaPrincipal.TabStop = false;
-            // 
-            // pictureBoxVentanaPrincipalUCR
-            // 
-            this.pictureBoxVentanaPrincipalUCR.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxVentanaPrincipalUCR.Image")));
-            this.pictureBoxVentanaPrincipalUCR.InitialImage = null;
-            this.pictureBoxVentanaPrincipalUCR.Location = new System.Drawing.Point(589, 15);
-            this.pictureBoxVentanaPrincipalUCR.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pictureBoxVentanaPrincipalUCR.Name = "pictureBoxVentanaPrincipalUCR";
-            this.pictureBoxVentanaPrincipalUCR.Size = new System.Drawing.Size(373, 283);
-            this.pictureBoxVentanaPrincipalUCR.TabIndex = 4;
-            this.pictureBoxVentanaPrincipalUCR.TabStop = false;
-            // 
             // botonInformacion
             // 
             this.botonInformacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonInformacion.Location = new System.Drawing.Point(517, 3);
+            this.botonInformacion.Location = new System.Drawing.Point(510, 2);
+            this.botonInformacion.Margin = new System.Windows.Forms.Padding(2);
             this.botonInformacion.Name = "botonInformacion";
             this.botonInformacion.Size = new System.Drawing.Size(121, 70);
             this.botonInformacion.TabIndex = 7;
@@ -263,21 +215,49 @@
             this.botonInformacion.UseVisualStyleBackColor = true;
             this.botonInformacion.Click += new System.EventHandler(this.botonInformacion_Click);
             // 
+            // groupBoxNavegacionVentanaPrincipal
+            // 
+            this.groupBoxNavegacionVentanaPrincipal.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.groupBoxNavegacionVentanaPrincipal.Controls.Add(this.flowLayoutPanel1);
+            this.groupBoxNavegacionVentanaPrincipal.Controls.Add(this.flowLayoutPanel2);
+            this.groupBoxNavegacionVentanaPrincipal.Location = new System.Drawing.Point(12, 241);
+            this.groupBoxNavegacionVentanaPrincipal.Name = "groupBoxNavegacionVentanaPrincipal";
+            this.groupBoxNavegacionVentanaPrincipal.Size = new System.Drawing.Size(775, 197);
+            this.groupBoxNavegacionVentanaPrincipal.TabIndex = 2;
+            this.groupBoxNavegacionVentanaPrincipal.TabStop = false;
+            // 
+            // pictureBoxVentanaPrincipal
+            // 
+            this.pictureBoxVentanaPrincipal.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxVentanaPrincipal.Image")));
+            this.pictureBoxVentanaPrincipal.Location = new System.Drawing.Point(87, 12);
+            this.pictureBoxVentanaPrincipal.Name = "pictureBoxVentanaPrincipal";
+            this.pictureBoxVentanaPrincipal.Size = new System.Drawing.Size(280, 230);
+            this.pictureBoxVentanaPrincipal.TabIndex = 3;
+            this.pictureBoxVentanaPrincipal.TabStop = false;
+            // 
+            // pictureBoxVentanaPrincipalUCR
+            // 
+            this.pictureBoxVentanaPrincipalUCR.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxVentanaPrincipalUCR.Image")));
+            this.pictureBoxVentanaPrincipalUCR.InitialImage = null;
+            this.pictureBoxVentanaPrincipalUCR.Location = new System.Drawing.Point(442, 12);
+            this.pictureBoxVentanaPrincipalUCR.Name = "pictureBoxVentanaPrincipalUCR";
+            this.pictureBoxVentanaPrincipalUCR.Size = new System.Drawing.Size(280, 230);
+            this.pictureBoxVentanaPrincipalUCR.TabIndex = 4;
+            this.pictureBoxVentanaPrincipalUCR.TabStop = false;
+            // 
             // VentanaPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pictureBoxVentanaPrincipalUCR);
             this.Controls.Add(this.pictureBoxVentanaPrincipal);
             this.Controls.Add(this.groupBoxNavegacionVentanaPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "VentanaPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "C.G.I.Z.S";
-            this.Load += new System.EventHandler(this.VentanaPrincipal_Load);
             this.Shown += new System.EventHandler(this.VentanaPrincipal_Shown);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
