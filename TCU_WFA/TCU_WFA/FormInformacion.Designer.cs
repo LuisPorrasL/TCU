@@ -1,6 +1,6 @@
 ﻿namespace TCU_WFA
 {
-    partial class FormSincronizacion
+    partial class FormInformacion : DefaultForm
     {
         /// <summary>
         /// Required designer variable.
@@ -36,12 +36,12 @@
             this.botonVolver.Location = new System.Drawing.Point(713, 415);
             this.botonVolver.Name = "botonVolver";
             this.botonVolver.Size = new System.Drawing.Size(75, 23);
-            this.botonVolver.TabIndex = 0;
+            this.botonVolver.TabIndex = 3;
             this.botonVolver.Text = "Volver";
             this.botonVolver.UseVisualStyleBackColor = true;
             this.botonVolver.Click += new System.EventHandler(this.botonVolver_Click);
             // 
-            // FormSincronizacion
+            // FormInformacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -49,10 +49,10 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.botonVolver);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "FormSincronizacion";
+            this.Name = "FormInformacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Sincronizacion";
-            this.Load += new System.EventHandler(this.FormSincronizacion_Load);
+            this.Text = "FormInformacion";
+            this.Load += new System.EventHandler(this.FormInformacion_Load);
             this.ResumeLayout(false);
 
         }

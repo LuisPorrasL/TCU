@@ -70,14 +70,6 @@ namespace TCU_WFA
             Hide();
         }
 
-        private void botonSincronizacion_Click(object sender, EventArgs e)
-        {
-            FormSincronizacion form = new FormSincronizacion();
-            form.Tag = this;
-            form.Show(this);
-            Hide();
-        }
-
         private void botonResumen_Click(object sender, EventArgs e)
         {
             FormResumen form = new FormResumen();
@@ -105,6 +97,14 @@ namespace TCU_WFA
         private void VentanaPrincipal_Shown(object sender, EventArgs e)
         {
             Utilities.MostrarMessageBox(MENSAJE_ALERTAS, TITULO_ALERTAS, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void botonInformacion_Click(object sender, EventArgs e)
+        {
+            FormInformacion form = new FormInformacion();
+            form.Tag = this;
+            form.Show(this);
+            Hide();
         }
     }
 }

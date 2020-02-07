@@ -10,15 +10,14 @@ using System.Windows.Forms;
 
 namespace TCU_WFA
 {
-    public partial class FormSincronizacion : DefaultForm
+    public partial class FormInformacion : DefaultForm
     {
-
-        public FormSincronizacion()
+        public FormInformacion()
         {
             InitializeComponent();
         }
 
-        private void FormSincronizacion_Load(object sender, EventArgs e)
+        private void FormInformacion_Load(object sender, EventArgs e)
         {
 
         }

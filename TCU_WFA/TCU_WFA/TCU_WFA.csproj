@@ -64,6 +64,12 @@
     <Compile Include="FormAlertas.Designer.cs">
       <DependentUpon>FormAlertas.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormInformacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInformacion.Designer.cs">
+      <DependentUpon>FormInformacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormValoresReferenciaExamen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,12 +185,6 @@
     <Compile Include="FormResumen.Designer.cs">
       <DependentUpon>FormResumen.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSincronizacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSincronizacion.Designer.cs">
-      <DependentUpon>FormSincronizacion.cs</DependentUpon>
-    </Compile>
     <Compile Include="Models\DatosVacaGraficos.cs" />
     <Compile Include="Models\ExamenModel.cs" />
     <Compile Include="Models\ToroModel.cs" />
@@ -251,6 +251,9 @@
     <EmbeddedResource Include="FormExamenAndrologico.resx">
       <DependentUpon>FormExamenAndrologico.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormInformacion.resx">
+      <DependentUpon>FormInformacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPalpacion.resx">
       <DependentUpon>FormPalpacion.cs</DependentUpon>
     </EmbeddedResource>
@@ -268,9 +271,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormResumen.resx">
       <DependentUpon>FormResumen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSincronizacion.resx">
-      <DependentUpon>FormSincronizacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormValoresReferenciaExamen.resx">
       <DependentUpon>FormValoresReferenciaExamen.cs</DependentUpon>

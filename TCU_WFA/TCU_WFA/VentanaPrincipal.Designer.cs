@@ -39,13 +39,13 @@
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             this.botonExamenAndrologico = new System.Windows.Forms.Button();
-            this.botonSincronizacion = new System.Windows.Forms.Button();
             this.botonResumen = new System.Windows.Forms.Button();
             this.botonAlerta = new System.Windows.Forms.Button();
             this.botonConfiguracion = new System.Windows.Forms.Button();
             this.groupBoxNavegacionVentanaPrincipal = new System.Windows.Forms.GroupBox();
             this.pictureBoxVentanaPrincipal = new System.Windows.Forms.PictureBox();
             this.pictureBoxVentanaPrincipalUCR = new System.Windows.Forms.PictureBox();
+            this.botonInformacion = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.groupBoxNavegacionVentanaPrincipal.SuspendLayout();
@@ -136,10 +136,10 @@
             // 
             this.flowLayoutPanel2.Controls.Add(this.button1);
             this.flowLayoutPanel2.Controls.Add(this.botonExamenAndrologico);
-            this.flowLayoutPanel2.Controls.Add(this.botonSincronizacion);
             this.flowLayoutPanel2.Controls.Add(this.botonResumen);
             this.flowLayoutPanel2.Controls.Add(this.botonAlerta);
             this.flowLayoutPanel2.Controls.Add(this.botonConfiguracion);
+            this.flowLayoutPanel2.Controls.Add(this.botonInformacion);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(66, 101);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(644, 76);
@@ -166,21 +166,10 @@
             this.botonExamenAndrologico.UseVisualStyleBackColor = true;
             this.botonExamenAndrologico.Click += new System.EventHandler(this.botonExamenAndrologico_Click);
             // 
-            // botonSincronizacion
-            // 
-            this.botonSincronizacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonSincronizacion.Location = new System.Drawing.Point(136, 3);
-            this.botonSincronizacion.Name = "botonSincronizacion";
-            this.botonSincronizacion.Size = new System.Drawing.Size(121, 70);
-            this.botonSincronizacion.TabIndex = 2;
-            this.botonSincronizacion.Text = "Sincronización";
-            this.botonSincronizacion.UseVisualStyleBackColor = true;
-            this.botonSincronizacion.Click += new System.EventHandler(this.botonSincronizacion_Click);
-            // 
             // botonResumen
             // 
             this.botonResumen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonResumen.Location = new System.Drawing.Point(263, 3);
+            this.botonResumen.Location = new System.Drawing.Point(136, 3);
             this.botonResumen.Name = "botonResumen";
             this.botonResumen.Size = new System.Drawing.Size(121, 70);
             this.botonResumen.TabIndex = 3;
@@ -191,7 +180,7 @@
             // botonAlerta
             // 
             this.botonAlerta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonAlerta.Location = new System.Drawing.Point(390, 3);
+            this.botonAlerta.Location = new System.Drawing.Point(263, 3);
             this.botonAlerta.Name = "botonAlerta";
             this.botonAlerta.Size = new System.Drawing.Size(121, 70);
             this.botonAlerta.TabIndex = 6;
@@ -202,7 +191,7 @@
             // botonConfiguracion
             // 
             this.botonConfiguracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonConfiguracion.Location = new System.Drawing.Point(517, 3);
+            this.botonConfiguracion.Location = new System.Drawing.Point(390, 3);
             this.botonConfiguracion.Name = "botonConfiguracion";
             this.botonConfiguracion.Size = new System.Drawing.Size(121, 70);
             this.botonConfiguracion.TabIndex = 5;
@@ -240,6 +229,17 @@
             this.pictureBoxVentanaPrincipalUCR.TabIndex = 4;
             this.pictureBoxVentanaPrincipalUCR.TabStop = false;
             // 
+            // botonInformacion
+            // 
+            this.botonInformacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonInformacion.Location = new System.Drawing.Point(517, 3);
+            this.botonInformacion.Name = "botonInformacion";
+            this.botonInformacion.Size = new System.Drawing.Size(121, 70);
+            this.botonInformacion.TabIndex = 7;
+            this.botonInformacion.Text = "Información";
+            this.botonInformacion.UseVisualStyleBackColor = true;
+            this.botonInformacion.Click += new System.EventHandler(this.botonInformacion_Click);
+            // 
             // VentanaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -275,13 +275,13 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button botonExamenAndrologico;
-        private System.Windows.Forms.Button botonSincronizacion;
         private System.Windows.Forms.Button botonResumen;
         private System.Windows.Forms.Button botonConfiguracion;
         private System.Windows.Forms.GroupBox groupBoxNavegacionVentanaPrincipal;
         private System.Windows.Forms.PictureBox pictureBoxVentanaPrincipal;
         private System.Windows.Forms.PictureBox pictureBoxVentanaPrincipalUCR;
         private System.Windows.Forms.Button botonAlerta;
+        private System.Windows.Forms.Button botonInformacion;
     }
 }
 
