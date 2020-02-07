@@ -164,6 +164,51 @@ namespace TCU_WFA.Repository
             return resultado;
         }
 
+        public static int ProcEliminarRaza(string raza)
+        {
+            int resultado = 0;
+            string sql = "EXECUTE PROC_ELIMINAR_RAZA @raza";
+            using (SqlConnection conn = new SqlConnection(Utilities.CONNECTION_STRING))
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.Add("@raza", SqlDbType.NVarChar);
+                cmd.Parameters["@raza"].Value = raza;
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteScalar();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    resultado = Utilities.RESULTADO_ERROR;
+                }
+            }
+            return resultado;
+        }
+
+        public static int ProcEliminarModoPrennes(string modoPrennes)
+        {
+            int resultado = 0;
+            string sql = "EXECUTE PROC_ELIMINAR_MODO_PRENNES @modoPrennes";
+            using (SqlConnection conn = new SqlConnection(Utilities.CONNECTION_STRING))
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.Add("@modoPrennes", SqlDbType.NVarChar);
+                cmd.Parameters["@modoPrennes"].Value = modoPrennes;
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteScalar();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    resultado = Utilities.RESULTADO_ERROR;
+                }
+            }
+            return resultado;
+        }
 
         public static int ProcInsertarVaca(VacaModel vaca)
         {
@@ -192,6 +237,52 @@ namespace TCU_WFA.Repository
                 cmd.Parameters["@peso"].Value = (object)vaca.peso ?? DBNull.Value;
                 cmd.Parameters.Add("@fkDesarrollo", SqlDbType.Int);
                 cmd.Parameters["@fkDesarrollo"].Value = vaca.fkDesarrollo;
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteScalar();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    resultado = Utilities.RESULTADO_ERROR;
+                }
+            }
+            return resultado;
+        }
+
+        public static int ProcInsertarRaza(string raza)
+        {
+            int resultado = 0;
+            string sql = "EXECUTE PROC_INSERTAR_RAZA @raza";
+            using (SqlConnection conn = new SqlConnection(Utilities.CONNECTION_STRING))
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.Add("@raza", SqlDbType.NVarChar);
+                cmd.Parameters["@raza"].Value = raza;
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteScalar();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    resultado = Utilities.RESULTADO_ERROR;
+                }
+            }
+            return resultado;
+        }
+
+        public static int ProcInsertarModoPrennes(string modoPrennes)
+        {
+            int resultado = 0;
+            string sql = "EXECUTE PROC_INSERTAR_MODO_PRENNES @modoPrennes";
+            using (SqlConnection conn = new SqlConnection(Utilities.CONNECTION_STRING))
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.Add("@modoPrennes", SqlDbType.NVarChar);
+                cmd.Parameters["@modoPrennes"].Value = modoPrennes;
                 try
                 {
                     conn.Open();

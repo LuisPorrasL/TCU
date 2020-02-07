@@ -199,7 +199,7 @@
             this.labelActualizarInformacionVaca.Name = "labelActualizarInformacionVaca";
             this.labelActualizarInformacionVaca.Size = new System.Drawing.Size(170, 13);
             this.labelActualizarInformacionVaca.TabIndex = 15;
-            this.labelActualizarInformacionVaca.Text = "Actualizar modo preñes de la vaca";
+            this.labelActualizarInformacionVaca.Text = "Actualizar modo preñez de la vaca";
             // 
             // groupBoxNuevoModoPrennes
             // 
@@ -227,7 +227,7 @@
             this.labelNuevoModoPrennes.Name = "labelNuevoModoPrennes";
             this.labelNuevoModoPrennes.Size = new System.Drawing.Size(107, 13);
             this.labelNuevoModoPrennes.TabIndex = 4;
-            this.labelNuevoModoPrennes.Text = "Nuevo modo preñes*";
+            this.labelNuevoModoPrennes.Text = "Nuevo modo preñez*";
             // 
             // FormPalpacion
             // 

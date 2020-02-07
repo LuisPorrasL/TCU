@@ -397,7 +397,7 @@
             this.labelModoPrennes.Name = "labelModoPrennes";
             this.labelModoPrennes.Size = new System.Drawing.Size(69, 13);
             this.labelModoPrennes.TabIndex = 12;
-            this.labelModoPrennes.Text = "Modo preñes";
+            this.labelModoPrennes.Text = "Modo preñez";
             // 
             // labelFechaNacimiento
             // 
