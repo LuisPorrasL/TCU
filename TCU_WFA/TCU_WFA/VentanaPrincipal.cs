@@ -64,7 +64,7 @@ namespace TCU_WFA
 
         private void botonExamenAndrologico_Click(object sender, EventArgs e)
         {
-            FormExamenAndrologico form = new FormExamenAndrologico();
+            FormExamenAndrologico form = new FormExamenAndrologico(this);
             form.Tag = this;
             form.Show(this);
             Hide();

@@ -217,9 +217,9 @@
             this.labelFechaNacimiento.AutoSize = true;
             this.labelFechaNacimiento.Location = new System.Drawing.Point(6, 85);
             this.labelFechaNacimiento.Name = "labelFechaNacimiento";
-            this.labelFechaNacimiento.Size = new System.Drawing.Size(106, 13);
+            this.labelFechaNacimiento.Size = new System.Drawing.Size(110, 13);
             this.labelFechaNacimiento.TabIndex = 6;
-            this.labelFechaNacimiento.Text = "Fecha de nacimiento";
+            this.labelFechaNacimiento.Text = "Fecha de nacimiento*";
             // 
             // labelRaza
             // 
