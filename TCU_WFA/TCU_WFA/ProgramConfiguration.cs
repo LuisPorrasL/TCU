@@ -1,4 +1,5 @@
 ﻿// Hecho por Luis Porras L.
+using System;
 using System.IO;
 using System.Xml;
 
@@ -7,7 +8,7 @@ namespace TCU_WFA
     class ProgramConfiguration
     {
         //Constantes
-        private const string XML_RUTA_ARCHIVO_CONFIG = @"C:\Program Files (x86)\TCU\config.xml";
+        private string XML_RUTA_ARCHIVO_CONFIG = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\CGIZS\Configuracion\config.xml";
         public const string LLAVE_UNIDAD_DE_TIEMPO = "unidadDeTiempo";
         public const string LLAVE_ALERTA_IEP = "alertaIEP";
         public const string LLAVE_ALERTA_PALPACION = "alertaPalpacion";

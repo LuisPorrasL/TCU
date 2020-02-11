@@ -17,7 +17,7 @@ namespace TCU_WFA
         public const int DIAS_SEMANA = 7;
         public const int DIAS_MES = 30;
         //Connection string 
-        public const string CONNECTION_STRING = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog = TCU_DB; Integrated Security = True; Connect Timeout = 60; Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public const string CONNECTION_STRING = @"Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\CGIZS\DB_TCU\TCU_DB.mdf;Integrated Security=True;User Instance=True";
         //Mensajes
         public const string MENSAJE_ERROR_ENTRADA_USUARIO = "Error: Datos de entrada inválidos.";
         public const string MENSAJE_ERROR = "Error: Ocurrió un problema. La operación no fue realizada correctamente.";

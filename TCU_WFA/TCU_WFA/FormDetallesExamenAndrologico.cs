@@ -22,7 +22,7 @@ namespace TCU_WFA
         private ExamenModel examenSeleccionado;
         private bool editando;
         private FormDetallesToro formAnterior;
-        public const string CONNECTION_STRING = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog = TCU_DB; Integrated Security = True; Connect Timeout = 60; Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        //public const string CONNECTION_STRING = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog = TCU_DB; Integrated Security = True; Connect Timeout = 60; Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
      
 
         /// <summary>
@@ -62,7 +62,7 @@ namespace TCU_WFA
            
              string query = "SELECT e.CONDICION_CORPORAL, e.LIBIDO, e.CAPACIDAD_DE_MONTA, e.DESCANSO_SEXUAL, e.PREPUCIO, e.PENE, e.TESTICULOS, e.EPIDIDIMOS, e.GLANDULAS_BULBOURETRALES, e.PROSTATA, e.VESICULAS_SEMINALES, e.AMPULAS, e.CIRCUNFERENCIA_ESCROTAL, e.VOLUMEN_EYACULADO, e.CONCENTRACION, e.MOTILIDAD_MASAL, e.MOTILIDAD_PROGRESIVA_RAPIDA, e.MORFOLOGIA_NORMAL, e.ANORMALIDADES_PRIMARIAS, e.DANNOS_ACROSOMALES, e.ANORMALIDADES_SECUNDARIAS, e.TOTAL_ANORMALIDADES, e.ANOMALIA_MAS_FRECUENTE, e.LEUCOCITOS, e.CEDULAS_EPITELEALES, e.OBSERVACIONES, e.SATISFACTORIO, e.VETERINARIO, e.Palpacion, e.Ecografia, e.VaginaArt, e.ElectroEya, e.Protusion FROM dbo.[EXAMEN_ANTROPOLOGICO] e WHERE e.PK_FK_NUMERO_TRAZABLE_TORO = " + numeroTrazableToro + "AND e.PK_FECHA = '" + fechaExamenAndrologico.ToString("yyyy-MM-dd HH:mm:ss.fff") + "';";
          
-            var conn = new SqlConnection(CONNECTION_STRING);
+            var conn = new SqlConnection(Utilities.CONNECTION_STRING);
             var dataAdapter = new SqlDataAdapter(query, conn);
             var commandBuilder = new SqlCommandBuilder(dataAdapter);
             var ds = new DataSet();
