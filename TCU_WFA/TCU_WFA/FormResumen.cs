@@ -163,9 +163,16 @@ namespace TCU_WFA
             try
             {
                 int resultadoPartos = Utilities.EjecutarConsultaCount((datosResumen.tipoResumen == LLAVE_TIPO_RESUMEN_GENERAL) ? CONSULTA_PARTOS : CONSULTA_PARTOS_FECHAS.Replace(PARAM_FECHA_INICIO, datosResumen.fechaInicioResumen.ToString()).Replace(PARAM_FECHA_FIN, datosResumen.fechaFinalResumen.ToString()));
-                if (resultadoPartos != Utilities.RESULTADO_ERROR && datosResumen.hembrasConsideradas != Utilities.RESULTADO_ERROR && datosResumen.hembrasConsideradas != 0)
+                if (resultadoPartos != Utilities.RESULTADO_ERROR && datosResumen.hembrasConsideradas != Utilities.RESULTADO_ERROR)
                 {
-                    datosResumen.promPartosHato = Math.Round((double)resultadoPartos / (double)datosResumen.hembrasConsideradas, 2);
+                    if (datosResumen.hembrasConsideradas != 0)
+                    {
+                        datosResumen.promPartosHato = Math.Round((double)resultadoPartos / (double)datosResumen.hembrasConsideradas, 2);
+                    }
+                    else
+                    {
+                        datosResumen.promPartosHato = 0;
+                    }
                 }
                 else
                 {
@@ -278,10 +285,10 @@ namespace TCU_WFA
         /// </summary>
         private void CargarDatosVacas()
         {
+            listaVacas = new List<VacaModel>();
             if (datosResumen.hembrasConsideradas > 0)
             {
-                //Se obtienen los datos de las vacas y se guardan en la lista 
-                listaVacas = new List<VacaModel>();
+                //Se obtienen los datos de las vacas y se guardan en la lista
                 DataTable dt = new DataTable();
                 dt = ProcedimientosAlmacenados.ProcObtenerResumenVacas();
                 if (dt != null && dt.Rows.Count > 0)
