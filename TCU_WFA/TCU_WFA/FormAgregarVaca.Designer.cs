@@ -169,7 +169,7 @@
             this.labelModoPrennes.Name = "labelModoPrennes";
             this.labelModoPrennes.Size = new System.Drawing.Size(73, 13);
             this.labelModoPrennes.TabIndex = 12;
-            this.labelModoPrennes.Text = "Modo preñes*";
+            this.labelModoPrennes.Text = "Modo preñez*";
             // 
             // comboBoxIdPadre
             // 

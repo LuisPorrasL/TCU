@@ -39,14 +39,30 @@
             this.labelAlertaPalpacion = new System.Windows.Forms.Label();
             this.labelAlertaIEP = new System.Windows.Forms.Label();
             this.labelUnidadDeTiempo = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabControl = new System.Windows.Forms.TabControl();
+            this.tabPageCRUD = new System.Windows.Forms.TabPage();
+            this.groupBoxModoPrennes = new System.Windows.Forms.GroupBox();
+            this.botonEliminarModoPrennes = new System.Windows.Forms.Button();
+            this.dataGridViewModoPrennes = new System.Windows.Forms.DataGridView();
+            this.textBoxModoPrennes = new System.Windows.Forms.TextBox();
+            this.botonAgregarModoPrennes = new System.Windows.Forms.Button();
+            this.groupBoxRazas = new System.Windows.Forms.GroupBox();
+            this.botonEliminarRaza = new System.Windows.Forms.Button();
+            this.dataGridViewRazas = new System.Windows.Forms.DataGridView();
+            this.textBoxRaza = new System.Windows.Forms.TextBox();
+            this.botonAgregarRaza = new System.Windows.Forms.Button();
             this.botonGuardar = new System.Windows.Forms.Button();
             this.tabPageGeneral.SuspendLayout();
             this.groupBoxGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownParto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAlertaPalpacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAlertaIEP)).BeginInit();
-            this.tabControl1.SuspendLayout();
+            this.tabControl.SuspendLayout();
+            this.tabPageCRUD.SuspendLayout();
+            this.groupBoxModoPrennes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewModoPrennes)).BeginInit();
+            this.groupBoxRazas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRazas)).BeginInit();
             this.SuspendLayout();
             // 
             // botonVolver
@@ -69,6 +85,7 @@
             this.tabPageGeneral.TabIndex = 0;
             this.tabPageGeneral.Text = "General";
             this.tabPageGeneral.UseVisualStyleBackColor = true;
+            this.tabPageGeneral.Enter += new System.EventHandler(this.tabPageGeneral_Enter);
             // 
             // groupBoxGeneral
             // 
@@ -156,14 +173,124 @@
             this.labelUnidadDeTiempo.TabIndex = 0;
             this.labelUnidadDeTiempo.Text = "Unidad de tiempo para los parámetros reproductivos:";
             // 
-            // tabControl1
+            // tabControl
             // 
-            this.tabControl1.Controls.Add(this.tabPageGeneral);
-            this.tabControl1.Location = new System.Drawing.Point(-1, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(800, 409);
-            this.tabControl1.TabIndex = 1;
+            this.tabControl.Controls.Add(this.tabPageGeneral);
+            this.tabControl.Controls.Add(this.tabPageCRUD);
+            this.tabControl.Location = new System.Drawing.Point(-1, 0);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(800, 409);
+            this.tabControl.TabIndex = 1;
+            // 
+            // tabPageCRUD
+            // 
+            this.tabPageCRUD.Controls.Add(this.groupBoxModoPrennes);
+            this.tabPageCRUD.Controls.Add(this.groupBoxRazas);
+            this.tabPageCRUD.Location = new System.Drawing.Point(4, 22);
+            this.tabPageCRUD.Name = "tabPageCRUD";
+            this.tabPageCRUD.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageCRUD.Size = new System.Drawing.Size(792, 383);
+            this.tabPageCRUD.TabIndex = 1;
+            this.tabPageCRUD.Text = "Administración";
+            this.tabPageCRUD.UseVisualStyleBackColor = true;
+            this.tabPageCRUD.Enter += new System.EventHandler(this.tabPageCRUD_Enter);
+            // 
+            // groupBoxModoPrennes
+            // 
+            this.groupBoxModoPrennes.Controls.Add(this.botonEliminarModoPrennes);
+            this.groupBoxModoPrennes.Controls.Add(this.dataGridViewModoPrennes);
+            this.groupBoxModoPrennes.Controls.Add(this.textBoxModoPrennes);
+            this.groupBoxModoPrennes.Controls.Add(this.botonAgregarModoPrennes);
+            this.groupBoxModoPrennes.Location = new System.Drawing.Point(410, 6);
+            this.groupBoxModoPrennes.Name = "groupBoxModoPrennes";
+            this.groupBoxModoPrennes.Size = new System.Drawing.Size(386, 371);
+            this.groupBoxModoPrennes.TabIndex = 16;
+            this.groupBoxModoPrennes.TabStop = false;
+            this.groupBoxModoPrennes.Text = "Modos preñez";
+            // 
+            // botonEliminarModoPrennes
+            // 
+            this.botonEliminarModoPrennes.Location = new System.Drawing.Point(301, 17);
+            this.botonEliminarModoPrennes.Name = "botonEliminarModoPrennes";
+            this.botonEliminarModoPrennes.Size = new System.Drawing.Size(75, 23);
+            this.botonEliminarModoPrennes.TabIndex = 4;
+            this.botonEliminarModoPrennes.Text = "Eliminar";
+            this.botonEliminarModoPrennes.UseVisualStyleBackColor = true;
+            this.botonEliminarModoPrennes.Click += new System.EventHandler(this.botonEliminarModoPrennes_Click);
+            // 
+            // dataGridViewModoPrennes
+            // 
+            this.dataGridViewModoPrennes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewModoPrennes.Location = new System.Drawing.Point(6, 46);
+            this.dataGridViewModoPrennes.Name = "dataGridViewModoPrennes";
+            this.dataGridViewModoPrennes.Size = new System.Drawing.Size(369, 293);
+            this.dataGridViewModoPrennes.TabIndex = 1;
+            // 
+            // textBoxModoPrennes
+            // 
+            this.textBoxModoPrennes.Location = new System.Drawing.Point(6, 345);
+            this.textBoxModoPrennes.Name = "textBoxModoPrennes";
+            this.textBoxModoPrennes.Size = new System.Drawing.Size(288, 20);
+            this.textBoxModoPrennes.TabIndex = 2;
+            // 
+            // botonAgregarModoPrennes
+            // 
+            this.botonAgregarModoPrennes.Location = new System.Drawing.Point(301, 343);
+            this.botonAgregarModoPrennes.Name = "botonAgregarModoPrennes";
+            this.botonAgregarModoPrennes.Size = new System.Drawing.Size(75, 23);
+            this.botonAgregarModoPrennes.TabIndex = 3;
+            this.botonAgregarModoPrennes.Text = "Agregar";
+            this.botonAgregarModoPrennes.UseVisualStyleBackColor = true;
+            this.botonAgregarModoPrennes.Click += new System.EventHandler(this.botonAgregarModoPrennes_Click);
+            // 
+            // groupBoxRazas
+            // 
+            this.groupBoxRazas.Controls.Add(this.botonEliminarRaza);
+            this.groupBoxRazas.Controls.Add(this.dataGridViewRazas);
+            this.groupBoxRazas.Controls.Add(this.textBoxRaza);
+            this.groupBoxRazas.Controls.Add(this.botonAgregarRaza);
+            this.groupBoxRazas.Location = new System.Drawing.Point(9, 3);
+            this.groupBoxRazas.Name = "groupBoxRazas";
+            this.groupBoxRazas.Size = new System.Drawing.Size(386, 371);
+            this.groupBoxRazas.TabIndex = 15;
+            this.groupBoxRazas.TabStop = false;
+            this.groupBoxRazas.Text = "Razas";
+            // 
+            // botonEliminarRaza
+            // 
+            this.botonEliminarRaza.Location = new System.Drawing.Point(305, 17);
+            this.botonEliminarRaza.Name = "botonEliminarRaza";
+            this.botonEliminarRaza.Size = new System.Drawing.Size(75, 23);
+            this.botonEliminarRaza.TabIndex = 4;
+            this.botonEliminarRaza.Text = "Eliminar";
+            this.botonEliminarRaza.UseVisualStyleBackColor = true;
+            this.botonEliminarRaza.Click += new System.EventHandler(this.botonEliminarRaza_Click);
+            // 
+            // dataGridViewRazas
+            // 
+            this.dataGridViewRazas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewRazas.Location = new System.Drawing.Point(6, 46);
+            this.dataGridViewRazas.Name = "dataGridViewRazas";
+            this.dataGridViewRazas.Size = new System.Drawing.Size(374, 293);
+            this.dataGridViewRazas.TabIndex = 1;
+            // 
+            // textBoxRaza
+            // 
+            this.textBoxRaza.Location = new System.Drawing.Point(6, 345);
+            this.textBoxRaza.Name = "textBoxRaza";
+            this.textBoxRaza.Size = new System.Drawing.Size(293, 20);
+            this.textBoxRaza.TabIndex = 2;
+            // 
+            // botonAgregarRaza
+            // 
+            this.botonAgregarRaza.Location = new System.Drawing.Point(305, 343);
+            this.botonAgregarRaza.Name = "botonAgregarRaza";
+            this.botonAgregarRaza.Size = new System.Drawing.Size(75, 23);
+            this.botonAgregarRaza.TabIndex = 3;
+            this.botonAgregarRaza.Text = "Agregar";
+            this.botonAgregarRaza.UseVisualStyleBackColor = true;
+            this.botonAgregarRaza.Click += new System.EventHandler(this.botonAgregarRaza_Click);
             // 
             // botonGuardar
             // 
@@ -182,7 +309,7 @@
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.botonGuardar);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabControl);
             this.Controls.Add(this.botonVolver);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormConfiguracion";
@@ -195,7 +322,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownParto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAlertaPalpacion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAlertaIEP)).EndInit();
-            this.tabControl1.ResumeLayout(false);
+            this.tabControl.ResumeLayout(false);
+            this.tabPageCRUD.ResumeLayout(false);
+            this.groupBoxModoPrennes.ResumeLayout(false);
+            this.groupBoxModoPrennes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewModoPrennes)).EndInit();
+            this.groupBoxRazas.ResumeLayout(false);
+            this.groupBoxRazas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRazas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -204,7 +338,7 @@
 
         private System.Windows.Forms.Button botonVolver;
         private System.Windows.Forms.TabPage tabPageGeneral;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.GroupBox groupBoxGeneral;
         private System.Windows.Forms.Button botonGuardar;
         private System.Windows.Forms.Label labelUnidadDeTiempo;
@@ -215,5 +349,16 @@
         private System.Windows.Forms.NumericUpDown numericUpDownAlertaPalpacion;
         private System.Windows.Forms.NumericUpDown numericUpDownAlertaIEP;
         private System.Windows.Forms.ComboBox comboBoxUnidadDeTiempo;
+        private System.Windows.Forms.TabPage tabPageCRUD;
+        private System.Windows.Forms.Button botonEliminarRaza;
+        private System.Windows.Forms.Button botonAgregarRaza;
+        private System.Windows.Forms.TextBox textBoxRaza;
+        private System.Windows.Forms.DataGridView dataGridViewRazas;
+        private System.Windows.Forms.GroupBox groupBoxModoPrennes;
+        private System.Windows.Forms.Button botonEliminarModoPrennes;
+        private System.Windows.Forms.DataGridView dataGridViewModoPrennes;
+        private System.Windows.Forms.TextBox textBoxModoPrennes;
+        private System.Windows.Forms.Button botonAgregarModoPrennes;
+        private System.Windows.Forms.GroupBox groupBoxRazas;
     }
 }

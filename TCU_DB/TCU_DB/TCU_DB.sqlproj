@@ -103,6 +103,10 @@
     <Build Include="PROC_OBTENER_IEP_PERIODO.sql" />
     <Build Include="PROC_OBTENER_ULTIMO_IEP_HISTORICO_PERIODO.sql" />
     <Build Include="PROC_OBTENER_ULTIMO_IEP_PERIODO.sql" />
+    <Build Include="PROC_ELIMINAR_RAZA.sql" />
+    <Build Include="PROC_INSERTAR_RAZA.sql" />
+    <Build Include="PROC_ELIMINAR_MODO_PRENNES.sql" />
+    <Build Include="PROC_INSERTAR_MODO_PRENNES.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.PostDeploymentTesting.sql" />
