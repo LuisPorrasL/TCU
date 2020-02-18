@@ -10,7 +10,7 @@ namespace TCU_WFA
     {
 
         //Constantes
-        private const string QUERY_LLENAR_COMBO_BOX_ID_MADRE = "SELECT v.PK_NUMERO_TRAZABLE, v.PK_NUMERO_TRAZABLE FROM [dbo].[VACA] v WHERE v.ACTIVA = 1;";
+        private const string QUERY_LLENAR_COMBO_BOX_ID_MADRE = "SELECT v.PK_NUMERO_TRAZABLE, v.PK_NUMERO_TRAZABLE FROM [dbo].[VACA] v, [dbo].[MODO_PRENNES] mP WHERE v.FK_ID_MODO_PRENNES = mP.PK_ID_MODO_PRENNES AND v.ACTIVA = 1 AND mP.MODO_PRENNES = 'No preñada';";
         private const string QUERY_LLENAR_COMBO_BOX_MODO_PRENNES = "SELECT * FROM [dbo].[MODO_PRENNES] mP WHERE mP.MODO_PRENNES != 'No Preñada';";
         private const string QUERY_OBTENER_ID_MODO_PRENNES = "SELECT mp.PK_ID_MODO_PRENNES FROM [dbo].[MODO_PRENNES] mP WHERE mP.MODO_PRENNES = @ModoPrennes";
         private const string MODO_PRENNES_PARAM = "@ModoPrennes";
