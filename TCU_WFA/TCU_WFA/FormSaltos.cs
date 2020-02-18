@@ -8,7 +8,7 @@ namespace TCU_WFA
     public partial class FormSaltos : DefaultForm
     {
         // Constantes
-        private const string QUERY_LLENAR_COMBO_BOX_NUMERO_TRAZABLE_VACA = "SELECT v.PK_NUMERO_TRAZABLE, v.PK_NUMERO_TRAZABLE FROM [dbo].[VACA] v WHERE v.ACTIVA = 1;";
+        private const string QUERY_LLENAR_COMBO_BOX_NUMERO_TRAZABLE_VACA = "SELECT v.PK_NUMERO_TRAZABLE, v.PK_NUMERO_TRAZABLE FROM [dbo].[VACA] v, [dbo].MODO_PRENNES mP WHERE v.FK_ID_MODO_PRENNES = mP.PK_ID_MODO_PRENNES AND v.ACTIVA = 1 AND mp.MODO_PRENNES = 'No preñada';";
 
         //Campos
         private int vacaId;
