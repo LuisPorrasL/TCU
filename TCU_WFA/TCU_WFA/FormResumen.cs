@@ -116,7 +116,7 @@ namespace TCU_WFA
             }
             try
             {
-                datosResumen.hembrasConsideradas = Utilities.EjecutarConsultaCount((datosResumen.tipoResumen == LLAVE_TIPO_RESUMEN_GENERAL) ? CONSULTA_HEMBRAS_CONSIDERADAS : CONSULTA_HEMBRAS_CONSIDERADAS_FECHAS.Replace(PARAM_FECHA_INICIO, datosResumen.fechaInicioResumen.ToString()).Replace(PARAM_FECHA_FIN, datosResumen.fechaFinalResumen.ToString()));
+                datosResumen.hembrasConsideradas = Utilities.EjecutarConsultaCount((datosResumen.tipoResumen == LLAVE_TIPO_RESUMEN_GENERAL) ? CONSULTA_HEMBRAS_CONSIDERADAS : CONSULTA_HEMBRAS_CONSIDERADAS_FECHAS.Replace(PARAM_FECHA_INICIO, datosResumen.fechaInicioResumen.ToString("yyyy-MM-dd")).Replace(PARAM_FECHA_FIN, datosResumen.fechaFinalResumen.ToString("yyyy-MM-dd")));
             }
             catch
             {
@@ -124,7 +124,7 @@ namespace TCU_WFA
             }
             try
             {
-                datosResumen.hembrasParido = Utilities.EjecutarConsultaCount((datosResumen.tipoResumen == LLAVE_TIPO_RESUMEN_GENERAL) ? CONSULTA_HEMBRAS_PARIDO : CONSULTA_HEMBRAS_PARIDO_FECHAS.Replace(PARAM_FECHA_INICIO, datosResumen.fechaInicioResumen.ToString()).Replace(PARAM_FECHA_FIN, datosResumen.fechaFinalResumen.ToString()));                
+                datosResumen.hembrasParido = Utilities.EjecutarConsultaCount((datosResumen.tipoResumen == LLAVE_TIPO_RESUMEN_GENERAL) ? CONSULTA_HEMBRAS_PARIDO : CONSULTA_HEMBRAS_PARIDO_FECHAS.Replace(PARAM_FECHA_INICIO, datosResumen.fechaInicioResumen.ToString("yyyy-MM-dd")).Replace(PARAM_FECHA_FIN, datosResumen.fechaFinalResumen.ToString("yyyy-MM-dd")));                
             }
             catch
             {
@@ -162,7 +162,7 @@ namespace TCU_WFA
             }
             try
             {
-                int resultadoPartos = Utilities.EjecutarConsultaCount((datosResumen.tipoResumen == LLAVE_TIPO_RESUMEN_GENERAL) ? CONSULTA_PARTOS : CONSULTA_PARTOS_FECHAS.Replace(PARAM_FECHA_INICIO, datosResumen.fechaInicioResumen.ToString()).Replace(PARAM_FECHA_FIN, datosResumen.fechaFinalResumen.ToString()));
+                int resultadoPartos = Utilities.EjecutarConsultaCount((datosResumen.tipoResumen == LLAVE_TIPO_RESUMEN_GENERAL) ? CONSULTA_PARTOS : CONSULTA_PARTOS_FECHAS.Replace(PARAM_FECHA_INICIO, datosResumen.fechaInicioResumen.ToString("yyyy-MM-dd")).Replace(PARAM_FECHA_FIN, datosResumen.fechaFinalResumen.ToString("yyyy-MM-dd")));
                 if (resultadoPartos != Utilities.RESULTADO_ERROR && datosResumen.hembrasConsideradas != Utilities.RESULTADO_ERROR)
                 {
                     if (datosResumen.hembrasConsideradas != 0)
@@ -223,8 +223,8 @@ namespace TCU_WFA
                 try
                 {
                     //Se obtiene la cantidad de hembras servidas
-                    int resultadoHembrasServidas = Utilities.EjecutarConsultaCount(CONSULTA_HEMBRAS_SERVIDAS.Replace(PARAM_FECHA_INICIO, datosResumen.fechaInicioResumen.ToString()).Replace(PARAM_FECHA_FIN, datosResumen.fechaFinalResumen.ToString()));
-                    int resultadoHembrasParidoConPalpacion = Utilities.EjecutarConsultaCount(CONSULTA_HEMBRAS_PARIDO_FECHAS_CON_PALPACION.Replace(PARAM_FECHA_INICIO, datosResumen.fechaInicioResumen.ToString()).Replace(PARAM_FECHA_FIN, datosResumen.fechaFinalResumen.ToString()));
+                    int resultadoHembrasServidas = Utilities.EjecutarConsultaCount(CONSULTA_HEMBRAS_SERVIDAS.Replace(PARAM_FECHA_INICIO, datosResumen.fechaInicioResumen.ToString("yyyy-MM-dd")).Replace(PARAM_FECHA_FIN, datosResumen.fechaFinalResumen.ToString("yyyy-MM-dd")));
+                    int resultadoHembrasParidoConPalpacion = Utilities.EjecutarConsultaCount(CONSULTA_HEMBRAS_PARIDO_FECHAS_CON_PALPACION.Replace(PARAM_FECHA_INICIO, datosResumen.fechaInicioResumen.ToString("yyyy-MM-dd")).Replace(PARAM_FECHA_FIN, datosResumen.fechaFinalResumen.ToString("yyyy-MM-dd")));
                     if (resultadoHembrasParidoConPalpacion != Utilities.RESULTADO_ERROR && resultadoHembrasServidas != Utilities.RESULTADO_ERROR)
                     {
                         if (resultadoHembrasServidas != 0)
