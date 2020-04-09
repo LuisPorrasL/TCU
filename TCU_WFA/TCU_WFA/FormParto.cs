@@ -89,6 +89,7 @@ namespace TCU_WFA
         /// </summary>
         private void llenarComboBoxListSexo()
         {
+            comboBoxSexo.Items.Clear();
             comboBoxSexo.DisplayMember = "sexo";
             comboBoxSexo.ValueMember = "id";
             comboBoxSexo.Items.Add(new { sexo = 'H', id = 0 });
