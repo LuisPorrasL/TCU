@@ -31,21 +31,26 @@
             this.botonVolver = new System.Windows.Forms.Button();
             this.tabControlAlertas = new System.Windows.Forms.TabControl();
             this.tabPageAlertasIEP = new System.Windows.Forms.TabPage();
-            this.tabPageAlertasPartos = new System.Windows.Forms.TabPage();
-            this.AlertasPalpaciones = new System.Windows.Forms.TabPage();
-            this.labelAlertasIEP = new System.Windows.Forms.Label();
-            this.labelAlertasPartos = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dataGridViewAlertasPalpaciones = new System.Windows.Forms.DataGridView();
-            this.dataGridViewAlertasPartos = new System.Windows.Forms.DataGridView();
             this.dataGridViewAlertasIEP = new System.Windows.Forms.DataGridView();
+            this.labelAlertasIEP = new System.Windows.Forms.Label();
+            this.tabPageAlertasPartos = new System.Windows.Forms.TabPage();
+            this.dataGridViewAlertasPartos = new System.Windows.Forms.DataGridView();
+            this.labelAlertasPartos = new System.Windows.Forms.Label();
+            this.AlertasPalpaciones = new System.Windows.Forms.TabPage();
+            this.dataGridViewAlertasPalpaciones = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tabPageAlertasDestetes = new System.Windows.Forms.TabPage();
+            this.labelAlertaDestetes = new System.Windows.Forms.Label();
+            this.dataGridViewAlertasDestetes = new System.Windows.Forms.DataGridView();
             this.tabControlAlertas.SuspendLayout();
             this.tabPageAlertasIEP.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAlertasIEP)).BeginInit();
             this.tabPageAlertasPartos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAlertasPartos)).BeginInit();
             this.AlertasPalpaciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAlertasPalpaciones)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAlertasPartos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAlertasIEP)).BeginInit();
+            this.tabPageAlertasDestetes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAlertasDestetes)).BeginInit();
             this.SuspendLayout();
             // 
             // botonVolver
@@ -63,6 +68,7 @@
             this.tabControlAlertas.Controls.Add(this.tabPageAlertasIEP);
             this.tabControlAlertas.Controls.Add(this.tabPageAlertasPartos);
             this.tabControlAlertas.Controls.Add(this.AlertasPalpaciones);
+            this.tabControlAlertas.Controls.Add(this.tabPageAlertasDestetes);
             this.tabControlAlertas.Location = new System.Drawing.Point(1, 1);
             this.tabControlAlertas.Name = "tabControlAlertas";
             this.tabControlAlertas.SelectedIndex = 0;
@@ -81,6 +87,23 @@
             this.tabPageAlertasIEP.Text = "Alertas IEP";
             this.tabPageAlertasIEP.UseVisualStyleBackColor = true;
             // 
+            // dataGridViewAlertasIEP
+            // 
+            this.dataGridViewAlertasIEP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewAlertasIEP.Location = new System.Drawing.Point(0, 20);
+            this.dataGridViewAlertasIEP.Name = "dataGridViewAlertasIEP";
+            this.dataGridViewAlertasIEP.Size = new System.Drawing.Size(791, 362);
+            this.dataGridViewAlertasIEP.TabIndex = 2;
+            // 
+            // labelAlertasIEP
+            // 
+            this.labelAlertasIEP.AutoSize = true;
+            this.labelAlertasIEP.Location = new System.Drawing.Point(3, 4);
+            this.labelAlertasIEP.Name = "labelAlertasIEP";
+            this.labelAlertasIEP.Size = new System.Drawing.Size(257, 13);
+            this.labelAlertasIEP.TabIndex = 0;
+            this.labelAlertasIEP.Text = "Alerta, las siguientes vacas tienen un IEP mayor a  ...";
+            // 
             // tabPageAlertasPartos
             // 
             this.tabPageAlertasPartos.Controls.Add(this.dataGridViewAlertasPartos);
@@ -92,6 +115,23 @@
             this.tabPageAlertasPartos.TabIndex = 2;
             this.tabPageAlertasPartos.Text = "Alertas Partos";
             this.tabPageAlertasPartos.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewAlertasPartos
+            // 
+            this.dataGridViewAlertasPartos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewAlertasPartos.Location = new System.Drawing.Point(0, 20);
+            this.dataGridViewAlertasPartos.Name = "dataGridViewAlertasPartos";
+            this.dataGridViewAlertasPartos.Size = new System.Drawing.Size(791, 362);
+            this.dataGridViewAlertasPartos.TabIndex = 2;
+            // 
+            // labelAlertasPartos
+            // 
+            this.labelAlertasPartos.AutoSize = true;
+            this.labelAlertasPartos.Location = new System.Drawing.Point(3, 4);
+            this.labelAlertasPartos.Name = "labelAlertasPartos";
+            this.labelAlertasPartos.Size = new System.Drawing.Size(306, 13);
+            this.labelAlertasPartos.TabIndex = 0;
+            this.labelAlertasPartos.Text = "Alerta, las siguientes vacas podían parir en los proximos ... días";
             // 
             // AlertasPalpaciones
             // 
@@ -105,23 +145,13 @@
             this.AlertasPalpaciones.Text = "Alertas Palpaciones";
             this.AlertasPalpaciones.UseVisualStyleBackColor = true;
             // 
-            // labelAlertasIEP
+            // dataGridViewAlertasPalpaciones
             // 
-            this.labelAlertasIEP.AutoSize = true;
-            this.labelAlertasIEP.Location = new System.Drawing.Point(3, 4);
-            this.labelAlertasIEP.Name = "labelAlertasIEP";
-            this.labelAlertasIEP.Size = new System.Drawing.Size(257, 13);
-            this.labelAlertasIEP.TabIndex = 0;
-            this.labelAlertasIEP.Text = "Alerta, las siguientes vacas tienen un IEP mayor a  ...";
-            // 
-            // labelAlertasPartos
-            // 
-            this.labelAlertasPartos.AutoSize = true;
-            this.labelAlertasPartos.Location = new System.Drawing.Point(3, 4);
-            this.labelAlertasPartos.Name = "labelAlertasPartos";
-            this.labelAlertasPartos.Size = new System.Drawing.Size(306, 13);
-            this.labelAlertasPartos.TabIndex = 0;
-            this.labelAlertasPartos.Text = "Alerta, las siguientes vacas podían parir en los proximos ... días";
+            this.dataGridViewAlertasPalpaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewAlertasPalpaciones.Location = new System.Drawing.Point(0, 20);
+            this.dataGridViewAlertasPalpaciones.Name = "dataGridViewAlertasPalpaciones";
+            this.dataGridViewAlertasPalpaciones.Size = new System.Drawing.Size(791, 362);
+            this.dataGridViewAlertasPalpaciones.TabIndex = 1;
             // 
             // label1
             // 
@@ -132,29 +162,34 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Alerta, las siguentes vacas deberían ser palpadas hoy";
             // 
-            // dataGridViewAlertasPalpaciones
+            // tabPageAlertasDestetes
             // 
-            this.dataGridViewAlertasPalpaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewAlertasPalpaciones.Location = new System.Drawing.Point(0, 20);
-            this.dataGridViewAlertasPalpaciones.Name = "dataGridViewAlertasPalpaciones";
-            this.dataGridViewAlertasPalpaciones.Size = new System.Drawing.Size(791, 362);
-            this.dataGridViewAlertasPalpaciones.TabIndex = 1;
+            this.tabPageAlertasDestetes.Controls.Add(this.labelAlertaDestetes);
+            this.tabPageAlertasDestetes.Controls.Add(this.dataGridViewAlertasDestetes);
+            this.tabPageAlertasDestetes.Location = new System.Drawing.Point(4, 22);
+            this.tabPageAlertasDestetes.Name = "tabPageAlertasDestetes";
+            this.tabPageAlertasDestetes.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageAlertasDestetes.Size = new System.Drawing.Size(791, 382);
+            this.tabPageAlertasDestetes.TabIndex = 3;
+            this.tabPageAlertasDestetes.Text = "Alertas Destetes";
+            this.tabPageAlertasDestetes.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewAlertasPartos
+            // labelAlertaDestetes
             // 
-            this.dataGridViewAlertasPartos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewAlertasPartos.Location = new System.Drawing.Point(0, 20);
-            this.dataGridViewAlertasPartos.Name = "dataGridViewAlertasPartos";
-            this.dataGridViewAlertasPartos.Size = new System.Drawing.Size(791, 362);
-            this.dataGridViewAlertasPartos.TabIndex = 2;
+            this.labelAlertaDestetes.AutoSize = true;
+            this.labelAlertaDestetes.Location = new System.Drawing.Point(3, 4);
+            this.labelAlertaDestetes.Name = "labelAlertaDestetes";
+            this.labelAlertaDestetes.Size = new System.Drawing.Size(371, 13);
+            this.labelAlertaDestetes.TabIndex = 1;
+            this.labelAlertaDestetes.Text = "Alerta, las siguientes vacas ya alcanzaron los ... días luego de su último parto";
             // 
-            // dataGridViewAlertasIEP
+            // dataGridViewAlertasDestetes
             // 
-            this.dataGridViewAlertasIEP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewAlertasIEP.Location = new System.Drawing.Point(0, 20);
-            this.dataGridViewAlertasIEP.Name = "dataGridViewAlertasIEP";
-            this.dataGridViewAlertasIEP.Size = new System.Drawing.Size(791, 362);
-            this.dataGridViewAlertasIEP.TabIndex = 2;
+            this.dataGridViewAlertasDestetes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewAlertasDestetes.Location = new System.Drawing.Point(0, 20);
+            this.dataGridViewAlertasDestetes.Name = "dataGridViewAlertasDestetes";
+            this.dataGridViewAlertasDestetes.Size = new System.Drawing.Size(791, 362);
+            this.dataGridViewAlertasDestetes.TabIndex = 0;
             // 
             // FormAlertas
             // 
@@ -172,13 +207,16 @@
             this.tabControlAlertas.ResumeLayout(false);
             this.tabPageAlertasIEP.ResumeLayout(false);
             this.tabPageAlertasIEP.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAlertasIEP)).EndInit();
             this.tabPageAlertasPartos.ResumeLayout(false);
             this.tabPageAlertasPartos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAlertasPartos)).EndInit();
             this.AlertasPalpaciones.ResumeLayout(false);
             this.AlertasPalpaciones.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAlertasPalpaciones)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAlertasPartos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAlertasIEP)).EndInit();
+            this.tabPageAlertasDestetes.ResumeLayout(false);
+            this.tabPageAlertasDestetes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAlertasDestetes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -196,5 +234,8 @@
         private System.Windows.Forms.DataGridView dataGridViewAlertasPalpaciones;
         private System.Windows.Forms.DataGridView dataGridViewAlertasPartos;
         private System.Windows.Forms.DataGridView dataGridViewAlertasIEP;
+        private System.Windows.Forms.TabPage tabPageAlertasDestetes;
+        private System.Windows.Forms.Label labelAlertaDestetes;
+        private System.Windows.Forms.DataGridView dataGridViewAlertasDestetes;
     }
 }

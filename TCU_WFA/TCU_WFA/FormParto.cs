@@ -173,6 +173,7 @@ namespace TCU_WFA
             else this.idPadre = null;
             if (radioButtonSi.Checked)
             {
+                this.muertePrematura = true;
                 this.causaAborto = textBoxCausaAborto.Text;
             }
             else

@@ -12,6 +12,7 @@ namespace TCU_WFA
         public const string LLAVE_ALERTA_IEP = "alertaIEP";
         public const string LLAVE_ALERTA_PALPACION = "alertaPalpacion";
         public const string LLAVE_ALERTA_PARTO = "alertaParto";
+        public const string LLAVE_ALERTA_DESTETE = "alertaDestete";
 
         //Campos
         private XmlDocument configActual;
@@ -59,6 +60,7 @@ namespace TCU_WFA
             AgregarElementoXML(LLAVE_ALERTA_IEP, "365", configuracion);
             AgregarElementoXML(LLAVE_ALERTA_PALPACION, "15", configuracion);
             AgregarElementoXML(LLAVE_ALERTA_PARTO, "15", configuracion);
+            AgregarElementoXML(LLAVE_ALERTA_DESTETE, "200", configuracion);
 
             //Se guarda el archivo XML
             try
@@ -132,6 +134,7 @@ namespace TCU_WFA
             if (!int.TryParse(ObtenerConfig(LLAVE_ALERTA_IEP), out int x)) return false;
             if (!int.TryParse(ObtenerConfig(LLAVE_ALERTA_PALPACION), out int y)) return false;
             if (!int.TryParse(ObtenerConfig(LLAVE_ALERTA_PARTO), out int z)) return false;
+            if (!int.TryParse(ObtenerConfig(LLAVE_ALERTA_DESTETE), out int w)) return false;
             return true;
         }
     }

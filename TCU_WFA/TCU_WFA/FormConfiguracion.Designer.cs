@@ -31,6 +31,8 @@
             this.botonVolver = new System.Windows.Forms.Button();
             this.tabPageGeneral = new System.Windows.Forms.TabPage();
             this.groupBoxGeneral = new System.Windows.Forms.GroupBox();
+            this.numericUpDownDestete = new System.Windows.Forms.NumericUpDown();
+            this.labelEdadDestete = new System.Windows.Forms.Label();
             this.numericUpDownParto = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownAlertaPalpacion = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownAlertaIEP = new System.Windows.Forms.NumericUpDown();
@@ -54,6 +56,7 @@
             this.botonGuardar = new System.Windows.Forms.Button();
             this.tabPageGeneral.SuspendLayout();
             this.groupBoxGeneral.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDestete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownParto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAlertaPalpacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAlertaIEP)).BeginInit();
@@ -89,6 +92,8 @@
             // 
             // groupBoxGeneral
             // 
+            this.groupBoxGeneral.Controls.Add(this.numericUpDownDestete);
+            this.groupBoxGeneral.Controls.Add(this.labelEdadDestete);
             this.groupBoxGeneral.Controls.Add(this.numericUpDownParto);
             this.groupBoxGeneral.Controls.Add(this.numericUpDownAlertaPalpacion);
             this.groupBoxGeneral.Controls.Add(this.numericUpDownAlertaIEP);
@@ -103,23 +108,44 @@
             this.groupBoxGeneral.TabIndex = 0;
             this.groupBoxGeneral.TabStop = false;
             // 
+            // numericUpDownDestete
+            // 
+            this.numericUpDownDestete.Location = new System.Drawing.Point(340, 157);
+            this.numericUpDownDestete.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericUpDownDestete.Name = "numericUpDownDestete";
+            this.numericUpDownDestete.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDownDestete.TabIndex = 11;
+            // 
+            // labelEdadDestete
+            // 
+            this.labelEdadDestete.AutoSize = true;
+            this.labelEdadDestete.Location = new System.Drawing.Point(6, 160);
+            this.labelEdadDestete.Name = "labelEdadDestete";
+            this.labelEdadDestete.Size = new System.Drawing.Size(305, 13);
+            this.labelEdadDestete.TabIndex = 10;
+            this.labelEdadDestete.Text = "Cantidad de días luego de parto para mostrar alerta de destete:";
+            // 
             // numericUpDownParto
             // 
-            this.numericUpDownParto.Location = new System.Drawing.Point(341, 130);
+            this.numericUpDownParto.Location = new System.Drawing.Point(340, 121);
             this.numericUpDownParto.Name = "numericUpDownParto";
             this.numericUpDownParto.Size = new System.Drawing.Size(120, 20);
             this.numericUpDownParto.TabIndex = 9;
             // 
             // numericUpDownAlertaPalpacion
             // 
-            this.numericUpDownAlertaPalpacion.Location = new System.Drawing.Point(341, 93);
+            this.numericUpDownAlertaPalpacion.Location = new System.Drawing.Point(340, 85);
             this.numericUpDownAlertaPalpacion.Name = "numericUpDownAlertaPalpacion";
             this.numericUpDownAlertaPalpacion.Size = new System.Drawing.Size(120, 20);
             this.numericUpDownAlertaPalpacion.TabIndex = 8;
             // 
             // numericUpDownAlertaIEP
             // 
-            this.numericUpDownAlertaIEP.Location = new System.Drawing.Point(340, 50);
+            this.numericUpDownAlertaIEP.Location = new System.Drawing.Point(340, 49);
             this.numericUpDownAlertaIEP.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -140,7 +166,7 @@
             // labelAlertaParto
             // 
             this.labelAlertaParto.AutoSize = true;
-            this.labelAlertaParto.Location = new System.Drawing.Point(7, 132);
+            this.labelAlertaParto.Location = new System.Drawing.Point(6, 124);
             this.labelAlertaParto.Name = "labelAlertaParto";
             this.labelAlertaParto.Size = new System.Drawing.Size(267, 13);
             this.labelAlertaParto.TabIndex = 4;
@@ -149,7 +175,7 @@
             // labelAlertaPalpacion
             // 
             this.labelAlertaPalpacion.AutoSize = true;
-            this.labelAlertaPalpacion.Location = new System.Drawing.Point(7, 95);
+            this.labelAlertaPalpacion.Location = new System.Drawing.Point(6, 88);
             this.labelAlertaPalpacion.Name = "labelAlertaPalpacion";
             this.labelAlertaPalpacion.Size = new System.Drawing.Size(316, 13);
             this.labelAlertaPalpacion.TabIndex = 3;
@@ -319,6 +345,7 @@
             this.tabPageGeneral.ResumeLayout(false);
             this.groupBoxGeneral.ResumeLayout(false);
             this.groupBoxGeneral.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDestete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownParto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAlertaPalpacion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAlertaIEP)).EndInit();
@@ -360,5 +387,7 @@
         private System.Windows.Forms.TextBox textBoxModoPrennes;
         private System.Windows.Forms.Button botonAgregarModoPrennes;
         private System.Windows.Forms.GroupBox groupBoxRazas;
+        private System.Windows.Forms.NumericUpDown numericUpDownDestete;
+        private System.Windows.Forms.Label labelEdadDestete;
     }
 }

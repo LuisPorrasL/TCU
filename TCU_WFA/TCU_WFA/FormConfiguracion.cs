@@ -77,6 +77,7 @@ namespace TCU_WFA
             numericUpDownAlertaIEP.Value = Int32.Parse(config.ObtenerConfig(ProgramConfiguration.LLAVE_ALERTA_IEP));
             numericUpDownAlertaPalpacion.Value = Int32.Parse(config.ObtenerConfig(ProgramConfiguration.LLAVE_ALERTA_PALPACION));
             numericUpDownParto.Value = Int32.Parse(config.ObtenerConfig(ProgramConfiguration.LLAVE_ALERTA_PARTO));
+            numericUpDownDestete.Value = Int32.Parse(config.ObtenerConfig(ProgramConfiguration.LLAVE_ALERTA_DESTETE));
         }
 
         /// <summary>
@@ -92,6 +93,7 @@ namespace TCU_WFA
                 config.CambiarConfig(ProgramConfiguration.LLAVE_ALERTA_IEP, numericUpDownAlertaIEP.Value.ToString());
                 config.CambiarConfig(ProgramConfiguration.LLAVE_ALERTA_PALPACION, numericUpDownAlertaPalpacion.Value.ToString());
                 config.CambiarConfig(ProgramConfiguration.LLAVE_ALERTA_PARTO, numericUpDownParto.Value.ToString());
+                config.CambiarConfig(ProgramConfiguration.LLAVE_ALERTA_DESTETE, numericUpDownDestete.Value.ToString());
                 Utilities.MostrarMessageBox(Utilities.MENSAJE_EXITO, Utilities.TITULO_EXITO, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch
